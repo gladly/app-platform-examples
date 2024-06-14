@@ -1,0 +1,5 @@
+https://gladly-sample-oms.vercel.app/api/products/38eb4d2a-f5c2-4048-a45a-a654ea42ec32
+https://gladly-sample-oms.vercel.app/api/products/04bc3623-1212-4c3e-af1a-20f79c53a88a
+https://gladly-sample-oms.vercel.app/api/products/e7583d9b-30ef-4f5a-a131-a1b3a102d8be
+https://gladly-sample-oms.vercel.app/api/products/fb1e57e1-3816-4fb1-acfb-763edd83ab44
+https://gladly-sample-oms.vercel.app/api/products/2c8f223c-8bd7-448f-b4c8-b475c3ae87da

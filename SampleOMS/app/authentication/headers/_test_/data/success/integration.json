@@ -1,0 +1,6 @@
+{
+  "configuration": {},
+  "secrets": {
+    "apiToken": "secret_token"
+  }
+}

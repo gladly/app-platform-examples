@@ -1,0 +1,1 @@
+https://gladly-sample-oms.vercel.app/api/orders?customerId={{urlquery (index .externalData.sample_oms_customer 0).id}}

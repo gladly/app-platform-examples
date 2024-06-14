@@ -1,0 +1,10 @@
+type Result {
+    status: String!
+    message: String
+}
+
+type Mutation {
+    cancelOrder(orderId: String!, reason: String!): Result @action(name: "cancel_order")
+    refundOrder(orderId: String!, reason: String!): Result @action(name: "refund_order")
+    returnLineItems(orderId: String!, lineItemIds: [String!]!): Result @action(name: "return_line_items")
+}

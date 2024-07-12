@@ -1,0 +1,34 @@
+{
+  "gladly_customer": [
+    {
+        "id": "12345",
+        "name": "First Last",
+        "emailAddresses": [
+            "another.name@test.com",
+            "primary@email.com"
+        ],
+        "phoneNumbers": [
+            {
+                "number": "+15551234567",
+                "type": "MOBILE"
+            }
+        ],
+        "customAttributes": [
+            {
+                "name": "LoyaltyNumber",
+                "value": "54321"
+            }
+            ,
+            {
+                "name": "vipStatus",
+                "value": "GOLD"
+            }
+            ,
+            {
+                "name": "zipCode",
+                "value": "01234"
+            }           
+        ]
+    }
+  ]
+}

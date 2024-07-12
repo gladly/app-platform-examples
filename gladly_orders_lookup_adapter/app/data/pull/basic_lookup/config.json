@@ -1,0 +1,8 @@
+{
+    "httpMethod": "POST",
+    "contentType": "application/json",
+    "dataType": {
+        "name": "gladly_customer",
+        "version": "1.0"
+    }
+}

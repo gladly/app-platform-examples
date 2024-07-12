@@ -1,0 +1,63 @@
+[
+  {
+    "externalCustomerId": "12345",
+    "id": "1832",
+    "createdAt": "2020-08-01T12:00:00.000Z",
+    "status": "Completed",
+    "adminOrderUrl": "https://retail.com/admin/orders/1832",
+    "totalAmount": 50,
+    "currencyCode": "USD",
+    "itemCount": 5,
+    "customerOrderUrl": "https://retail.com/edit/order/1832",
+    "note": "This order is a gift purchase with an extended returns window.",
+    "products": [
+      {
+        "id": "12345",
+        "name": "Socks",
+        "status": "fulfilled",
+        "sku": "alphanumeric values",
+        "imageUrl": "https://www.image.com/1",
+        "quantity": 2
+      },
+      {
+        "id": "54321",
+        "name": "Scarf",
+        "status": "fulfilled",
+        "sku": "alphanumeric values",
+        "imageUrl": "https://www.image.com/2",
+        "quantity": null
+      }
+    ],
+    "fulfillments": [
+      {
+        "estimatedDeliveryDate": "2020-08-10T12:00:00.000Z",
+        "trackingUrl": "http://track.dhl-usa.com/TrackByNbr.asp?ShipmentNumber=00064735172",
+        "trackingNumber": "00064735172",
+        "productIds": ["12345", "54321"],
+        "status": "delivered",
+        "carrier": "fedex",
+        "shippingSpeed": "standard",
+        "shippingAddress": {
+          "name": "customer name",
+          "phone": "+15551234567",
+          "street1": "street1",
+          "street2": "street2",
+          "city": "city",
+          "state": "state",
+          "country": "country",
+          "zip": "12345"
+        }
+      }
+    ],
+    "billingAddress": {
+      "name": "customer name",
+      "phone": "+15551234567",
+      "street1": "street1",
+      "street2": "street2",
+      "city": "city",
+      "state": "state",
+      "country": "country",
+      "zip": "12345"
+    }
+  }
+]

@@ -1,0 +1,21 @@
+{
+    "results": [
+        {
+            "externalCustomerId": "12345",
+            "name": "First Last",
+            "emails": [{"original": "another.name@test.com"}, {"original": "primary@email.com"}],
+            "phones": [{"original": "+15551234567", "type": "MOBILE"}],
+            "customAttributes": {
+                "LoyaltyNumber": "54321",
+                "zipCode": "01234",
+                "vipStatus": "GOLD"
+            }
+        },
+        {
+            "externalCustomerId": "54321",
+            "name": "First Middle Last",
+            "emails": [{"original": "secondary@email.com"}],
+            "customAttributes": {}
+        }
+    ]
+}

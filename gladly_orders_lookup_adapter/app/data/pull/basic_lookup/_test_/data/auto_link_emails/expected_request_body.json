@@ -1,0 +1,13 @@
+{
+  "lookupLevel": "BASIC",
+  "query": {
+    "id": "customer1",
+    "name": "First Last",
+    "emails": [
+      "primary@email.com",
+      "secondary@email.com"
+    ],
+    "phones": ["+15551234567"]
+  },
+  "uniqueMatchRequired": false
+}

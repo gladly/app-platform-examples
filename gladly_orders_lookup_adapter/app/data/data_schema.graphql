@@ -1,0 +1,70 @@
+type Address {
+	name: String
+	phone: String
+	street1: String
+	street2: String
+	city: String
+	state: String
+	country: String
+	zip: String
+}
+
+type Product {
+	id: String
+	name: String
+	status: String
+	sku: String
+	imageUrl: String
+	quantity: Int
+}
+
+type Fulfillment {
+	estimatedDeliveryDate: DateTime
+	trackingUrl: String
+	trackingNumber: String
+	productIds: [String]
+	status: String
+	carrier: String
+	shippingSpeed: String
+	shippingAddress: Address
+}
+
+type GladlyOrder @dataType(name: "gladly_order", version: "1.1"){
+	id: ID!
+	externalCustomerId: String!
+	createdAt: DateTime
+	status: String
+	adminOrderUrl: String
+	totalAmount: Float
+	currencyCode: String!
+	itemCount: Int
+	customerOrderUrl: String
+	note: String
+	products: [Product]
+	fulfillments: [Fulfillment]
+	billingAddress: Address
+}
+
+type CustomAttribute {
+	name: String!
+	value: String
+}
+
+type PhoneNumber {
+	number: String
+	type: String
+}
+
+type GladlyCustomer @dataType(name: "gladly_customer", version: "1.0") {
+	id: ID!
+	name: String
+	phoneNumbers: [PhoneNumber]
+	emailAddresses: [String]
+	customAttributes: [CustomAttribute]
+	orders: [GladlyOrder] @parentId(template: "{{.id}}")
+}
+
+type Query {
+	customers: [GladlyCustomer]
+	orders: [GladlyOrder]
+}

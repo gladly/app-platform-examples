@@ -1,0 +1,2 @@
+https://api.bigcommerce.com/stores/store_hash/v3/customers?email:in=test%40gmail.com
+

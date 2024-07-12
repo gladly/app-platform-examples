@@ -1,0 +1,3 @@
+https://api.bigcommerce.com/stores/store_hash/v2/orders/106/shipments
+https://api.bigcommerce.com/stores/store_hash/v2/orders/107/shipments
+https://api.bigcommerce.com/stores/store_hash/v2/orders/109/shipments

@@ -1,0 +1,12 @@
+[
+    {
+        "amount": 273.9,
+        "currency": "USD",
+        "date_created": "2024-03-29T18:42:57Z",
+        "event": "purchase",
+        "gateway": "custom",
+        "id": 805352674,
+        "order_id": "106",
+        "status": "ok"
+    }
+]

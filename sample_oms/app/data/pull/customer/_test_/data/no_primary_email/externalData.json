@@ -1,0 +1,17 @@
+{
+    "sample_oms_customer": [
+        {
+            "emails": [
+              "alias@email.com",
+              "JoshuaPine@hotmail.com",
+              "JTree@gmail.com"
+            ],
+            "fullName": "Joshua Mojave Pine",
+            "id": "RzKlGuNWKz7czfcxIfFUug==",
+            "ltv": "$99.12",
+            "phones": [
+              "+87761538421"
+            ]
+        }      
+    ]
+}

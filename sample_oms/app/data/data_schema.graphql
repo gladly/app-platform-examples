@@ -1,0 +1,43 @@
+type Product @dataType(name: "sample_oms_product", version: "1.0") {
+  id: ID
+  name: String
+  productType: String
+  sku: String
+}
+
+type LineItem {
+  id: String
+  quantity: Int
+  product: Product @childIds(template: "{{.productId}}")
+  status: String
+}
+
+type Order @dataType(name: "sample_oms_order", version: "1.0") {
+  id: ID
+  orderNumber: String
+  status: String
+  shippingAddress: String
+  billingAddress: String
+  orderDate: DateTime
+  customerId: String
+  shippingSpeed: String
+  totalPrice: Currency
+  shippingAndHandling: Currency
+  lineItems: [LineItem]
+}
+
+type Customer @dataType(name: "sample_oms_customer", version: "1.0") {
+    id: ID
+    emails: [String]
+    fullName: String
+    ltv: Currency
+    numberOfOrders: Int
+    phones: [String]
+    state: String
+    orders: [Order] @parentId(template: "{{.id}}")
+}
+
+type Query {
+    customer: Customer
+    orders: [Order]
+}

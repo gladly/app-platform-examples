@@ -1,0 +1,3 @@
+{
+  "cancellationReason": "{{.inputs.reason}}"
+}

@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "lineItem": "8b2df01f-4fe3-4aa5-8607-337cd3597651",
+      "message": "can not return an item with status shipping"
+    },
+    {
+      "lineItem": "4d77c36a-bb03-4f32-be7f-3635c41b3877",
+      "message": "can not return an item with status return_initiated"
+    },
+    {
+      "lineItem":"fake-id",
+      "message":"line item does not exist"
+    }
+  ],
+  "status": "error"
+}

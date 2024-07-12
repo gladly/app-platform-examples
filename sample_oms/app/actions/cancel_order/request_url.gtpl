@@ -1,0 +1,1 @@
+https://gladly-sample-oms.vercel.app/api/orders/{{urlquery .inputs.orderId}}/cancel

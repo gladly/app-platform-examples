@@ -1,0 +1,7 @@
+{
+  "dataType": {
+    "name": "sample_oms_customer",
+    "version": "1.0"
+  },
+  "httpMethod": "GET"
+}

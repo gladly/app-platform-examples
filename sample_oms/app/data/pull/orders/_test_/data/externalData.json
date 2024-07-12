@@ -1,0 +1,67 @@
+{
+  "sample_oms_customer": [
+    {
+      "id": "oms-customer-1"
+    }
+  ],
+  "sample_oms_order": [
+    {
+      "billingAddress": "13986 Elm Street Apt. 174",
+      "customerId": "cHJpbWFyeUBlbWFpbC5jb20=",
+      "id": "1aaa9504-e616-418f-b018-c72054574a60",
+      "lineItems": [
+        {
+          "id": "ce6fd4f0-6ffa-4da7-aadb-520601e41098",
+          "productId": "38eb4d2a-f5c2-4048-a45a-a654ea42ec32",
+          "quantity": 2,
+          "status": "canceled"
+        },
+        {
+          "id": "b08186b9-40b3-4754-92d4-d78121122fe8",
+          "productId": "04bc3623-1212-4c3e-af1a-20f79c53a88a",
+          "quantity": 3,
+          "status": "delivered"
+        }
+      ],
+      "orderDate": "2024-01-16T15:32:39.826Z",
+      "orderNumber": "kqZzUCha",
+      "shippingAddress": "181 Torp Square Apt. 861",
+      "shippingAndHandling": "397.00",
+      "shippingSpeed": "expedited",
+      "status": "canceled",
+      "totalPrice": "320.00"
+    },
+    {
+      "billingAddress": "",
+      "customerId": "cHJpbWFyeUBlbWFpbC5jb20=",
+      "id": "bf676a4a-8d6c-4cb7-a994-3e516c691fd3",
+      "lineItems": [
+        {
+          "id": "c4ae0937-bb9a-48bb-ac85-d1a58a5ca82b",
+          "productId": "e7583d9b-30ef-4f5a-a131-a1b3a102d8be",
+          "quantity": 4,
+          "status": "delivered"
+        },
+        {
+          "id": "d63b1a24-c7c1-427c-bce9-f780a0c6e543",
+          "productId": "fb1e57e1-3816-4fb1-acfb-763edd83ab44",
+          "quantity": 2,
+          "status": "canceled"
+        },
+        {
+          "id": "e0a13a9f-fbce-4345-acd8-d1ada69825dc",
+          "productId": "2c8f223c-8bd7-448f-b4c8-b475c3ae87da",
+          "quantity": 4,
+          "status": "pending"
+        }
+      ],
+      "orderDate": "2020-04-13T01:55:17.525Z",
+      "orderNumber": "FsVOhVCg",
+      "shippingAddress": "3897 Medhurst Parkways Suite 440",
+      "shippingAndHandling": "158.00",
+      "shippingSpeed": "regular",
+      "status": "pending",
+      "totalPrice": "249.00"
+    }     
+  ]
+}

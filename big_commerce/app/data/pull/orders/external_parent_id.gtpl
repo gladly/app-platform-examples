@@ -1,0 +1,1 @@
+{{int .customer_id -}}

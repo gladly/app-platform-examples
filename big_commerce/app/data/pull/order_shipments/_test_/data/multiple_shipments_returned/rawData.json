@@ -1,0 +1,216 @@
+[
+    {
+        "id": 5,
+        "order_id": 106,
+        "customer_id": 3,
+        "order_address_id": 7,
+        "date_created": "Thu, 11 Apr 2024 15:28:22 +0000",
+        "tracking_number": "731519400000",
+        "merchant_shipping_cost": "0.0000",
+        "shipping_method": "None",
+        "comments": "",
+        "shipping_provider": "fedex",
+        "tracking_carrier": "",
+        "tracking_link": "",
+        "billing_address": {
+            "first_name": "Bob",
+            "last_name": "Norman",
+            "company": "Gladly",
+            "street_1": "123 Street, City",
+            "street_2": "",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94030",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "15551234567",
+            "email": "primary@email.com"
+        },
+        "shipping_address": {
+            "first_name": "Bob",
+            "last_name": "Norman",
+            "company": "Gladly",
+            "street_1": "123 Street, City",
+            "street_2": "",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94030",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "15551234567",
+            "email": "primary@email.com"
+        },
+        "items": [
+            {
+                "order_product_id": 11,
+                "product_id": 77,
+                "quantity": 1
+            }
+        ],
+        "generated_tracking_link": "https://www.fedex.com/fedextrack/?trknbr=731519400000",
+        "shipping_provider_display_name": "FedEx"
+    },
+    {
+        "id": 6,
+        "order_id": 107,
+        "customer_id": 3,
+        "order_address_id": 8,
+        "date_created": "Thu, 11 Apr 2024 15:29:14 +0000",
+        "tracking_number": "1Z4832XA0395100000",
+        "merchant_shipping_cost": "0.0000",
+        "shipping_method": "None",
+        "comments": "",
+        "shipping_provider": "upsready",
+        "tracking_carrier": "",
+        "tracking_link": "",
+        "billing_address": {
+            "first_name": "Bob",
+            "last_name": "Norman",
+            "company": "Gladly",
+            "street_1": "123 Street, City",
+            "street_2": "",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94030",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "15551234567",
+            "email": "primary@email.com"
+        },
+        "shipping_address": {
+            "first_name": "Bob",
+            "last_name": "Norman",
+            "company": "Gladly",
+            "street_1": "123 Street, City",
+            "street_2": "",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94030",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "15551234567",
+            "email": "primary@email.com"
+        },
+        "items": [
+            {
+                "order_product_id": 13,
+                "product_id": 112,
+                "quantity": 1
+            }
+        ],
+        "generated_tracking_link": "http://wwwapps.ups.com/WebTracking/processRequest?&tracknum=1Z4832XA0395100000",
+        "shipping_provider_display_name": "UPS®"
+    },
+    {
+        "id": 7,
+        "order_id": 109,
+        "customer_id": 3,
+        "order_address_id": 10,
+        "date_created": "Thu, 11 Apr 2024 15:29:42 +0000",
+        "tracking_number": "1Z4832XA0395110000",
+        "merchant_shipping_cost": "0.0000",
+        "shipping_method": "None",
+        "comments": "",
+        "shipping_provider": "upsready",
+        "tracking_carrier": "",
+        "tracking_link": "",
+        "billing_address": {
+            "first_name": "Bob",
+            "last_name": "Norman",
+            "company": "Gladly",
+            "street_1": "123 Street, City",
+            "street_2": "",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94030",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "15551234567",
+            "email": "primary@email.com"
+        },
+        "shipping_address": {
+            "first_name": "Bob",
+            "last_name": "Norman",
+            "company": "Gladly",
+            "street_1": "123 Street, City",
+            "street_2": "",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94030",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "15551234567",
+            "email": "primary@email.com"
+        },
+        "items": [
+            {
+                "order_product_id": 17,
+                "product_id": 98,
+                "quantity": 1
+            },
+            {
+                "order_product_id": 15,
+                "product_id": 103,
+                "quantity": 1
+            }
+        ],
+        "generated_tracking_link": "http://wwwapps.ups.com/WebTracking/processRequest?&tracknum=1Z4832XA0395110000",
+        "shipping_provider_display_name": "UPS®"
+    },
+    {
+        "id": 8,
+        "order_id": 109,
+        "customer_id": 3,
+        "order_address_id": 10,
+        "date_created": "Thu, 11 Apr 2024 15:30:04 +0000",
+        "tracking_number": "1Z4832XA0395111111",
+        "merchant_shipping_cost": "0.0000",
+        "shipping_method": "None",
+        "comments": "",
+        "shipping_provider": "upsready",
+        "tracking_carrier": "",
+        "tracking_link": "",
+        "billing_address": {
+            "first_name": "Bob",
+            "last_name": "Norman",
+            "company": "Gladly",
+            "street_1": "123 Street, City",
+            "street_2": "",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94030",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "15551234567",
+            "email": "primary@email.com"
+        },
+        "shipping_address": {
+            "first_name": "Bob",
+            "last_name": "Norman",
+            "company": "Gladly",
+            "street_1": "123 Street, City",
+            "street_2": "",
+            "city": "San Francisco",
+            "state": "California",
+            "zip": "94030",
+            "country": "United States",
+            "country_iso2": "US",
+            "phone": "15551234567",
+            "email": "primary@email.com"
+        },
+        "items": [
+            {
+                "order_product_id": 18,
+                "product_id": 104,
+                "quantity": 1
+            },
+            {
+                "order_product_id": 16,
+                "product_id": 107,
+                "quantity": 1
+            }
+        ],
+        "generated_tracking_link": "http://wwwapps.ups.com/WebTracking/processRequest?&tracknum=1Z4832XA0395111111",
+        "shipping_provider_display_name": "UPS®"
+    }
+]

@@ -1,0 +1,1 @@
+"unable to retrieve BigCommerce customer data since the customer profile does not have any email addresses"

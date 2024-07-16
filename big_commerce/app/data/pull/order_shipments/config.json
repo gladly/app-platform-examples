@@ -1,0 +1,8 @@
+{
+  "dataType": {
+    "name": "big_commerce_order_shipment",
+    "version": "1.0"
+  },
+  "httpMethod": "GET",
+  "dependsOnDataTypes": ["big_commerce_order"]
+}

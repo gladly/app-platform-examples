@@ -1,0 +1,14 @@
+[
+    {
+        "company": "Gladly",
+        "customer_group_id": 1,
+        "date_created": "2024-03-29T18:42:56Z",
+        "date_modified": "2024-04-11T15:24:55Z",
+        "email": "primary@email.com",
+        "first_name": "Bob",
+        "id": 3,
+        "last_name": "Norman",
+        "notes": "",
+        "phone": ""
+    }
+]

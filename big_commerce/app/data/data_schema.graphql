@@ -1,0 +1,136 @@
+scalar DateTime
+scalar Currency
+
+# These data types are used as inputs to actions. Updates to this type must also
+# be reflected in the actions_schema.graphql file for compatibility.
+type AddressV2 {
+  city: String
+  country: String
+  country_iso2: String
+  company: String
+  email: String
+  first_name: String
+  last_name: String
+  phone: String
+  state: String
+  street_1: String
+  street_2: String
+  zip: String!
+}
+
+# These data types are used as inputs to actions. Updates to this type must also
+# be reflected in the actions_schema.graphql file for compatibility.
+type BigCommerceOrderProduct @dataType(name: "big_commerce_order_product", version:"1.0"){
+  id: Int
+  is_refunded: Boolean
+  name: String
+  order_address_id: Int
+  order_id: Int
+  price_inc_tax: Currency
+  product_id: Int
+  quantity: Int!
+  quantity_refunded: Int
+  quantity_shipped: Int
+  sku: String
+  type: String
+  total_inc_tax: Currency
+  wrapping_cost_inc_tax: Currency
+}
+
+# These enum types are part of data types that are used as inputs to actions. Updates to this type must also
+# be reflected in the actions_schema.graphql file for compatibility. 
+enum TransactionEvent {
+  purchase
+  authorization
+  capture
+  refund
+  void
+  pending
+  settled
+}
+
+# These enum types are part of data types that are used as inputs to actions. Updates to this type must also
+# be reflected in the actions_schema.graphql file for compatibility.
+enum TransactionStatus {
+  ok
+  error
+}
+
+# These data types are used as inputs to actions. Updates to this type must also
+# be reflected in the actions_schema.graphql file for compatibility.
+type BigCommerceTransaction @dataType(name: "big_commerce_transaction", version:"1.0") {
+  amount: Float!
+  currency: String!
+  date_created: DateTime
+  event: TransactionEvent!
+  gateway: String!
+  id: Int
+  order_id: String
+  status: TransactionStatus
+}
+
+# These data types are used as inputs to actions. Updates to this type must also
+# be reflected in the actions_schema.graphql file for compatibility.
+type OrderItem {
+  order_product: BigCommerceOrderProduct @childIds(template: "{{.order_product_id}}")
+}
+
+# These data types are used as inputs to actions. Updates to this type must also
+# be reflected in the actions_schema.graphql file for compatibility.
+type BigCommerceOrderShipment @dataType(name: "big_commerce_order_shipment", version:"1.0") {
+  customer_id: Int
+  date_created: DateTime
+  generated_tracking_link: String
+  id: Int
+  items: [OrderItem]
+  order_id: Int
+  shipping_address: AddressV2
+  shipping_method: String
+  shipping_provider: String
+  tracking_carrier: String
+  tracking_link: String
+  tracking_number: String
+}
+
+# These data types are used as inputs to actions. Updates to this type must also
+# be reflected in the actions_schema.graphql file for compatibility.
+type BigCommerceOrder @dataType(name: "big_commerce_order", version:"1.0"){
+  base_handling_cost: Currency
+  base_shipping_cost: Currency
+  billing_address: AddressV2
+  currency_code: String
+  customer_id: Int
+  date_created: DateTime
+  date_modified: DateTime
+  date_shipped: DateTime
+  external_order_id: String
+  geoip_country: String
+  id: Int!
+  payment_status: String
+  products: [BigCommerceOrderProduct] @parentId(template: "{{.id}}")
+  refunded_amount: Currency
+  shipments: [BigCommerceOrderShipment] @parentId(template: "{{.id}}")
+  staff_notes: String
+  status: String
+  status_id: Int
+  total_inc_tax: Currency
+  transactions: [BigCommerceTransaction] @parentId(template: "{{.id}}")
+}
+
+type BigCommerceCustomer @dataType(name: "big_commerce_customer", version:"1.0") {
+  company: String
+  customer_group_id: Int
+  date_created: DateTime
+  date_modified: DateTime
+  id: Int
+  email: String
+  first_name: String
+  last_name: String
+  notes: String
+  orders: [BigCommerceOrder] @parentId(template: "{{.id}}")
+  phone: String
+}
+
+type Query {
+  customer: BigCommerceCustomer
+}

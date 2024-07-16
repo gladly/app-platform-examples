@@ -1,0 +1,43 @@
+{
+    "data": [
+        {
+            "id": 805352674,
+            "order_id": "106",
+            "event": "purchase",
+            "method": "custom",
+            "amount": 273.9,
+            "currency": "USD",
+            "gateway": "custom",
+            "gateway_transaction_id": null,
+            "payment_method_id": "custom.card",
+            "status": "ok",
+            "test": false,
+            "fraud_review": false,
+            "reference_transaction_id": null,
+            "date_created": "2024-03-29T18:42:57+00:00",
+            "avs_result": null,
+            "cvv_result": null,
+            "credit_card": null,
+            "gift_certificate": null,
+            "store_credit": null,
+            "offline": null,
+            "custom": {
+                "payment_method": "Paid for in cash"
+            },
+            "payment_instrument_token": null,
+            "custom_provider_field_result": null
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "total": 1,
+            "count": 1,
+            "per_page": 50,
+            "current_page": 1,
+            "total_pages": 1,
+            "links": {
+                "current": "?page=1&limit=50"
+            }
+        }
+    }
+}

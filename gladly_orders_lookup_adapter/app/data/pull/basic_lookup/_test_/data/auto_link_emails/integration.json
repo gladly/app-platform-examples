@@ -1,0 +1,14 @@
+{
+  "configuration": {
+    "baseUrl": "https://mydomain.com",
+    "autoLinkFields": ["emails"]
+  },
+  "secrets": {
+    "credentials": {
+      "username": "username",
+      "password": "password",
+      "realm": "realm"
+    },
+    "signingKey": "some-key"
+  }
+}

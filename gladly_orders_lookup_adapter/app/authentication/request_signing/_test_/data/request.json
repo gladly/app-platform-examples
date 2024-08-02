@@ -1,0 +1,12 @@
+{
+  "url": "https://example.organization.com/api/v2/customer/lookup",
+  "method": "POST",
+  "headers": {
+    "Content-Type": ["application/json"],
+    "Accept": ["application/json"],
+    "Gladly-Correlation-Id": ["vXmSEPjVSWCaCMzvjufxZg"],
+    "X-B3-Traceid": ["bd799210f8d549609a08ccef8ee7f166"],
+    "Gladly-Time": ["20190213T214016Z"]
+  },
+  "body": "{\"lookupLevel\":\"DETAILED\",\"query\":{\"emails\":[\"martha.williams@gmail.com\"],\"externalCustomerId\":\"abc\",\"favoriteDate\":\"2018-08-19T07:00:00.000Z\",\"favoriteFood\":\"Apple Pie\",\"id\":\"o2sg-TMTSD2rTwMuxzewbA\",\"name\":\"Martha Williams\",\"phones\":[\"+15013299800\"]},\"uniqueMatchRequired\":true}"
+}

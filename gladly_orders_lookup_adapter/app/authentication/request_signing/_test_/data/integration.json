@@ -1,0 +1,14 @@
+{
+  "configuration": {
+    "baseUrl": "https://example.organization.com",
+    "autoLinkFields": ["emails"]
+  },
+  "secrets": {
+    "credentials": {
+      "username": "username",
+      "password": "password",
+      "realm": "realm"
+    },
+    "signingKey": "test-apikey-1"
+  }
+}

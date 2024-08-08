@@ -1,0 +1,90 @@
+{
+  "results": [
+    {
+      "externalCustomerId": "externalId1",
+      "customAttributes": {
+        "tier": "vip",
+        "lifetimeValue": "$1,234.50"
+      },
+      "name": "Person",
+      "emails": [
+        {
+          "original": "email@example.com"
+        }
+      ],
+      "phones": [
+        {
+          "original": "+16501234567",
+          "type": "MOBILE"
+        }
+      ],
+      "transactions": [
+        {
+          "type": "GENERIC",
+          "value1": "12345",
+          "value2": "54321"
+        },
+        {
+          "type": "ORDER",
+          "createdAt": "2020-08-01T12:00:00.000Z",
+          "orderNumber": "1832",
+          "itemCount": 5,
+          "customerOrderUrl": "https://retail.com/edit/order/1832",
+          "orderLink": "https://retail.com/admin/orders/1832",
+          "orderTotal": "$50",
+          "note": "This order is a gift purchase with an extended returns window.",
+          "orderStatus": "Completed",
+          "billingAddress": {
+            "name": "customer name",
+            "phone": "+15551234567",
+            "street1": "street1",
+            "street2": "street2",
+            "city": "city",
+            "state": "state",
+            "country": "country",
+            "zip": "12345"
+          },
+          "fulfillments": [
+            {
+              "productIds": ["12345", "54321"],
+              "estimatedDeliveryDate": "2020-08-10T12:00:00.000Z",
+              "trackingUrl": "http://track.dhl-usa.com/TrackByNbr.asp?ShipmentNumber=00064735172",
+              "trackingNumber": "00064735172",
+              "status": "delivered",
+              "carrier": "fedex",
+              "shippingSpeed": "standard",
+              "shippingAddress": {
+                "name": "customer name",
+                "phone": "+15551234567",
+                "street1": "street1",
+                "street2": "street2",
+                "city": "city",
+                "state": "state",
+                "country": "country",
+                "zip": "12345"
+              }
+            }
+          ],
+          "products": [
+            {
+              "id": "12345",
+              "name": "Socks",
+              "status": "fulfilled",
+              "productId": "alphanumeric values",
+              "sku": "alphanumeric values",
+              "imageUrl": "https://www.image.com/1",
+              "quantity": 2
+            },
+            {
+              "id": "54321",
+              "name": "Scarf",
+              "status": "fulfilled",
+              "sku": "alphanumeric values",
+              "imageUrl": "https://www.image.com/2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

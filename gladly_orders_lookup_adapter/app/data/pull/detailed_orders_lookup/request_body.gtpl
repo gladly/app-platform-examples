@@ -3,7 +3,7 @@
     "lookupLevel": "DETAILED",
     "query": {
         "id": "{{.customer.id}}",
-        "externalCustomerId": "{{$externalCustomer.id}}",
+        "externalCustomerId": "{{if .customer.externalId}}{{.customer.externalId}}{{else}}{{$externalCustomer.id}}{{end}}",
         "name": "{{.customer.name}}",
         "emails": [{{template "emailAddresses" .customer}}],
         "phones": [{{template "phoneNumbers" .customer}}],

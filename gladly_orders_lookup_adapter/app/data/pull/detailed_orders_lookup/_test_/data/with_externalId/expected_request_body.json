@@ -1,0 +1,19 @@
+{
+  "lookupLevel": "DETAILED",
+  "query": {
+    "id": "customer1",
+    "externalCustomerId": "externalId1",
+    "name": "First Last",
+    "emails": [
+      "primary@email.com",
+      "secondary@email.com"
+    ],
+    "phones": ["+15551234567"],
+    "customAttributes": {
+      "LoyaltyNumber": "54321",
+      "vipStatus": "GOLD",
+      "zipCode": "01234"
+    }
+  },
+  "uniqueMatchRequired": true
+}

@@ -10,7 +10,11 @@
 }
 
 {{- define "emailAddresses"}}
-    {{- range $index, $emailAddress := .emailAddresses}}{{if gt $index 0}},{{end -}}
+    {{- if .primaryEmailAddress -}}
+        "{{.primaryEmailAddress}}"{{if gt (len .emailAddresses) 1}},{{end -}}
+    {{- end}}
+    {{- $nonPrimaries := without .emailAddresses .primaryEmailAddress -}}
+    {{- range $index, $emailAddress := $nonPrimaries}}{{if gt $index 0}},{{end -}}
         "{{$emailAddress}}"
     {{- end}}
 {{- end}}

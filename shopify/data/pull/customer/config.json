@@ -1,0 +1,9 @@
+{
+  "dataType": {
+    "name": "shopify_customer",
+    "version": "2.0"
+  },
+  "httpMethod": "POST",
+  "contentType": "application/json",
+  "rawResponse": false
+}

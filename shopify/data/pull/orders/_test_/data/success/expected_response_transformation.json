@@ -86,7 +86,7 @@
     "transactions": [
       {
         "id": "gid://shopify/OrderTransaction/5503969034391",
-        "created_at": "<no value>",
+        "created_at": null,
         "kind": "gid://shopify/OrderTransaction/5503969034391",
         "gateway": "manual",
         "parent_transaction": null,
@@ -95,7 +95,7 @@
       },
       {
         "id": "gid://shopify/OrderTransaction/5503971000471",
-        "created_at": "<no value>",
+        "created_at": null,
         "kind": "gid://shopify/OrderTransaction/5503971000471",
         "gateway": "manual",
         "parent_transaction": {

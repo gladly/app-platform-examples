@@ -1,7 +1,7 @@
 {{- /* No data is run if customer has no email addresses or phones.
     1. Search for customers matching any of Gladly's customer's emails, for the email we are using exact match
     2. If customer has no emails then use phone numbers. Search for customers matching any of Gladly's customer's phones. For phones we are not using exact match, only last 10 digits from phone.
-    */}} }}
+    */}}
 {{- if and (and (ne .customer.emailAddresses nil) (eq (len .customer.emailAddresses) 0)) (and (ne .customer.phoneNumbers nil) (eq (len .customer.phoneNumbers) 0))}}
 	{{- stop "unable to retrieve customer data since the customer profile does not have any email addresses and phone number"}}
 {{- end}}

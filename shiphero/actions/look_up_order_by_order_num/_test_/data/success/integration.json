@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "lineItemsLimit": 40
+  },
+  "secrets": {
+    "access_token": "access_token"
+  }
+}

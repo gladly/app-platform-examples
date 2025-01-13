@@ -1,0 +1,12 @@
+{
+  "status": "OK",
+  "statusCode": 200,
+  "headers": {
+    "Connection": "keep-alive",
+    "Content-Length": 324,
+    "Content-Type": "application/json",
+    "Date": "Thu, 02 Jan 2025 13:00:00 GMT",
+    "Server": "gunicorn"
+  },
+  "body": "{\"data\":{\"orders\":{\"request_id\":\"67773212c984aab6a2aeb97d\",\"complexity\":206,\"data\":{\"edges\":[]}}},\"extensions\":{\"throttling\":{\"estimated_complexity\":206,\"cost\":1,\"cost_detail\":{\"orders\":{\"items_count\":0,\"cost\":1,\"total_cost\":1,\"fields\":{}}},\"user_quota\":{\"credits_remaining\":4003,\"max_available\":4004,\"increment_rate\":60}}}}"
+}

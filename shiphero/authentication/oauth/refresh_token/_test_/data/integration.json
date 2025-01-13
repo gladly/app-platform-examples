@@ -1,0 +1,7 @@
+{
+  "configuration": {},
+  "secrets": {
+    "access_token": "access_secret",
+    "refresh_token": "refresh_secret"
+  }	
+}

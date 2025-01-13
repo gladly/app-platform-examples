@@ -1,0 +1,35 @@
+{
+  "errors": [
+    {
+      "code": 30,
+      "message": "There are not enough credits to perform the requested operation, which requires 1000001 credits, The max allowed for your account is 4004 credits per operation. ",
+      "operation": "orders",
+      "request_id": "6777357c3c33a06eddb10b37",
+      "required_credits": 1000001,
+      "remaining_credits": 4004,
+      "time_remaining": "0"
+    }
+  ],
+  "data": {
+    "orders": null
+  },
+  "extensions": {
+    "throttling": {
+      "estimated_complexity": 1000001,
+      "cost": 1,
+      "cost_detail": {
+        "orders": {
+          "items_count": 0,
+          "cost": 1,
+          "total_cost": 1,
+          "fields": {}
+        }
+      },
+      "user_quota": {
+        "credits_remaining": 4004,
+        "max_available": 4004,
+        "increment_rate": 60
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "data": {
+    "orders": {
+      "request_id": "6784326b3603f3e11a3a8c71",
+      "complexity": 42,
+      "data": {
+        "edges": [
+          {
+            "node": {
+              "id": "T3JkZXI6NTU1MzAxNTAw",
+              "order_number": "MO1",
+              "partner_order_id": "MO1",
+              "fulfillment_status": "pending",
+              "total_tax": "0",
+              "subtotal": "25",
+              "total_discounts": "0",
+              "total_price": "25",
+              "order_date": "2024-12-18T10:56:15",
+              "updated_at": "2024-12-18T10:56:32",
+              "email": "johndoe1234@example.com",
+              "account_id": "QWNjb3VudDo4MzAyOQ==",
+              "shipping_lines": {
+                "title": "Manual Order Shipping Method",
+                "carrier": "amazon",
+                "method": "1",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "(907) 247-7575",
+                "email": "johndoe1234@example.com",
+                "address1": "test address",
+                "address2": "test adress 2",
+                "city": "Ketchikan",
+                "state": "AK",
+                "country": "US",
+                "zip": "99901"
+              },
+              "billing_address": {
+                "phone": "",
+                "email": null,
+                "address1": "",
+                "address2": "",
+                "city": "",
+                "state": "",
+                "country": "",
+                "zip": ""
+              },
+              "tags": [],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3MDY3ODUyMA==",
+                      "product_name": "Powder Canister",
+                      "sku": "powder-canister",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzI2MDkwNDAz",
+                        "name": "Powder Canister",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": true,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": null,
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null
+            }
+          }
+        ]
+      }
+    }
+  },
+  "extensions": {
+    "throttling": {
+      "estimated_complexity": 42,
+      "cost": 3,
+      "cost_detail": {
+        "orders": { "items_count": 2, "cost": 1, "total_cost": 3, "fields": {} }
+      },
+      "user_quota": {
+        "credits_remaining": 1999,
+        "max_available": 2002,
+        "increment_rate": 30
+      }
+    }
+  }
+}

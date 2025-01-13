@@ -1,0 +1,12 @@
+{
+  "status": "OK",
+  "statusCode": 200,
+  "headers": {
+    "Connection": "keep-alive",
+    "Content-Length": 470,
+    "Content-Type": "application/json",
+    "Date": "Thu, 02 Jan 2025 13:00:00 GMT",
+    "Server": "gunicorn"
+  },
+  "body": "{\"errors\":[{\"message\":\"InvalididFAKEORDERID\",\"operation\":\"shipments\",\"field\":\"data\",\"request_id\":\"677737d1819d115e72bc02c3\",\"code\":3}],\"data\":{\"shipments\":{\"request_id\":\"677737d1819d115e72bc02c3\",\"complexity\":11,\"data\":null}},\"extensions\":{\"throttling\":{\"estimated_complexity\":11,\"cost\":1,\"cost_detail\":{\"shipments\":{\"items_count\":0,\"cost\":1,\"total_cost\":1,\"fields\":{}}},\"user_quota\":{\"credits_remaining\":4001,\"max_available\":4004,\"increment_rate\":60}}}}"
+}

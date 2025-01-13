@@ -1,0 +1,9 @@
+{
+  "dataType": {
+    "name": "shiphero_order",
+    "version": "1.0"
+  },
+  "httpMethod": "POST",
+  "contentType": "application/json",
+  "rawResponse": false
+}

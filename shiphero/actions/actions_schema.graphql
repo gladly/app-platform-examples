@@ -1,0 +1,137 @@
+## Products are representations of a good that is sold by the store.
+type Product {
+  id: ID!
+  name: String
+  tags: [String]
+}
+
+type Address {
+  address1: String
+  address2: String
+  city: String
+  country: String
+  email: String
+  phone: String
+  state: String
+  zip: String
+}
+
+## OrderHolds represent different holds that prevent an order from being processed, packed, or shipped.
+type OrderHolds {
+  address_hold: Boolean
+  client_hold: Boolean
+  fraud_hold: Boolean
+  operator_hold: Boolean
+  payment_hold: Boolean
+  shipping_method_hold: Boolean
+}
+
+# Represents the shipping details that the customer chose for their order.
+type ShippingLines {
+  carrier: String
+  method: String
+  price: Currency
+  title: String
+}
+
+## LineItems are representations of a product that is part of an order.
+type LineItem {
+  id: ID!
+  quantity: Int
+  product_name: String
+  sku: String
+  fulfillment_status: String
+  product: Product
+}
+
+type Order {
+  id: ID
+  order_number: String
+  partner_order_id: String
+  fulfillment_status: String
+  total_tax: Currency
+  subtotal: Currency
+  total_discounts: Currency
+  total_price: Currency
+  order_date: DateTime
+  updated_at: DateTime
+  email: String
+  account_id: String
+  shipping_lines: ShippingLines
+  shipping_address: Address
+  billing_address: Address
+  tags: [String]
+  line_items: [LineItem]
+  holds: OrderHolds
+  currency: String
+  hold_until_date: String
+  tax_id: String
+  tax_type: String
+}
+
+## ShippingLabels allow us to determine the shipping status of an order.
+type ShippingLabel {
+  id: ID!
+  account_id: String
+  box_id: String
+  carrier: String
+  carrier_account_id: String
+  created_date: DateTime
+  delivered: Boolean
+  full_size_to_print: String
+  insurance_amount: Currency
+  needs_refund: Boolean
+  order_account_id: String
+  order_id: String
+  order_number: String
+  packing_slip: String
+  partner_fulfillment_id: String
+  picked_up: Boolean
+  refunded: Boolean
+  shipment_id: String
+  shipping_method: String
+  shipping_name: String
+  source: String
+  status: String
+  tracking_number: String
+  tracking_url: String
+  warehouse: String
+  warehouse_id: String
+}
+
+## ShipmentLineItems are representations of a product that is part of a shipment.
+type ShipmentLineItem {
+  id: ID!
+  shipment_id: String
+  shipping_label_id: String
+  line_item_id: String
+  quantity: Int
+}
+
+## Shipments are representations of a shipment that has been created for a given order.
+type Shipment {
+  id: ID!
+  order_id: String
+  user_id: String
+  warehouse_id: String
+  pending_shipment_id: String
+  picked_up: Boolean
+  needs_refund: Boolean
+  refunded: Boolean
+  delivered: Boolean
+  address: Address
+  created_date: String
+  line_items: [ShipmentLineItem]
+  shipping_labels: [ShippingLabel]
+}
+
+type Query {
+  lookupOrdersByEmail(email: String!): [Order]
+    @action(name: "look_up_orders_by_email")
+  lookupOrderByOrderNum(
+    "The store's internal order number"
+    orderNum: String!
+  ): Order @action(name: "look_up_order_by_order_num")
+  trackShipmentsByOrderId(orderId: String!): [Shipment]
+    @action(name: "track_shipments_by_order_id")
+}

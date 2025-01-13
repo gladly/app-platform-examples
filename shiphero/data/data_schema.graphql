@@ -1,0 +1,95 @@
+## Products are representations of a good that is sold by the store.
+type Product {
+  id: ID!
+  name: String
+  tags: [String]
+}
+
+type Address {
+  address1: String
+  address2: String
+  city: String
+  country: String
+  email: String
+  phone: String
+  state: String
+  zip: String
+}
+
+## OrderHolds represent different holds that prevent an order from being processed, packed, or shipped.
+type OrderHolds {
+  address_hold: Boolean
+  client_hold: Boolean
+  fraud_hold: Boolean
+  operator_hold: Boolean
+  payment_hold: Boolean
+  shipping_method_hold: Boolean
+}
+
+# Represents the shipping details that the customer chose for their order.
+type ShippingLines {
+  carrier: String
+  method: String
+  price: Currency
+  title: String
+}
+
+## LineItems are representations of a product that is part of an order.
+type LineItem {
+  id: ID!
+  quantity: Int
+  product_name: String
+  sku: String
+  fulfillment_status: String
+  quantity_pending_fulfillment: Int
+  quantity_shipped: Int
+  product: Product
+}
+
+## OrderThirdPartyShipper specifies a third-party account for shipping labels, used to apply negotiated carrier rates (e.g., UPS, FedEx).
+type OrderThirdPartyShipper {
+  account_number: String
+  zip: String
+  country: String
+}
+
+type Order @dataType(name: "shiphero_order", version: "1.0") {
+  id: ID!
+  updated_at: DateTime!
+  order_date: DateTime!
+  order_number: String
+  partner_order_id: String
+  fulfillment_status: String
+  total_tax: Currency
+  subtotal: Currency
+  total_discounts: Currency
+  total_price: Currency
+  email: String
+  account_id: String
+  shipping_lines: ShippingLines
+  shipping_address: Address
+  billing_address: Address
+  tags: [String]
+  line_items: [LineItem]
+  holds: OrderHolds
+  currency: String
+  hold_until_date: String
+  tax_id: String
+  tax_type: String
+  packing_note: String
+  required_ship_date: DateTime
+  flagged: Boolean
+  saturday_delivery: Boolean
+  priority_flag: Boolean
+  third_party_shipper: OrderThirdPartyShipper
+  allow_partial: Boolean
+  require_signature: Boolean
+  alcohol: Boolean
+  expected_weight_in_oz: String
+  has_dry_ice: String
+  address_is_business: Boolean
+}
+
+type Query {
+  orders: [Order]
+}

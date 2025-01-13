@@ -1,0 +1,7 @@
+{
+  "configuration": {
+    "ordersLimit": 40,
+    "lineItemsLimit": 40
+  },
+  "secrets": {}
+}

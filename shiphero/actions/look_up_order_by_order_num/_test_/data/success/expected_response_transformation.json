@@ -1,0 +1,67 @@
+{
+  "account_id": "QWNjb3VudDo4MzAyOQ==",
+  "billing_address": {
+    "address1": "",
+    "address2": "",
+    "city": "",
+    "country": "",
+    "email": null,
+    "phone": "",
+    "state": "",
+    "zip": ""
+  },
+  "currency": null,
+  "email": "johndoe1234@example.com",
+  "fulfillment_status": "pending",
+  "hold_until_date": null,
+  "holds": {
+    "address_hold": true,
+    "client_hold": false,
+    "fraud_hold": false,
+    "operator_hold": false,
+    "payment_hold": false,
+    "shipping_method_hold": false
+  },
+  "id": "T3JkZXI6NTU1MzAxNTAw",
+  "line_items": [
+    {
+      "fulfillment_status": "pending",
+      "id": "TGluZUl0ZW06MTM3MDY3ODUyMA==",
+      "product": {
+        "id": "UHJvZHVjdEluZm86MzI2MDkwNDAz",
+        "name": "Powder Canister",
+        "tags": []
+      },
+      "product_name": "Powder Canister",
+      "quantity": 1,
+      "sku": "powder-canister"
+    }
+  ],
+  "order_date": "2024-12-18T10:56:15Z",
+  "order_number": "MO1",
+  "partner_order_id": "MO1",
+  "shipping_address": {
+    "address1": "test address",
+    "address2": "test adress 2",
+    "city": "Ketchikan",
+    "country": "US",
+    "email": "johndoe1234@example.com",
+    "phone": "(907) 247-7575",
+    "state": "AK",
+    "zip": "99901"
+  },
+  "shipping_lines": {
+    "carrier": "amazon",
+    "method": "1",
+    "price": "0.00",
+    "title": "Manual Order Shipping Method"
+  },
+  "subtotal": "25",
+  "tags": [],
+  "tax_id": "",
+  "tax_type": null,
+  "total_discounts": "0",
+  "total_price": "25",
+  "total_tax": "0",
+  "updated_at": "2024-12-18T10:56:32Z"
+}

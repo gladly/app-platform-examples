@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "client_id": "client_id1"
+  },
+  "secrets": {
+    "client_secret": "client_secret1"
+  }
+}

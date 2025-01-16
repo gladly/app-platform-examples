@@ -38,13 +38,13 @@ Shiphero `Order` documentation and all available fields (of which some will not 
 
 <details>
 <summary>Data available by default in Gladly</summary>
-https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/data/data_schema.graphql#L1C1-L91C2
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/data/data_schema.graphql#L1-L91
 </details>
 
 ## Actions
 
 Available Query actions:
-https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L129C1-L136C49
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L129-L136
 
 ### Error handling
 
@@ -61,10 +61,10 @@ This section provides an overview of all available actions, their inputs, output
 #### **1. Lookup Order by Order Number**
 
 Definition and input:
-https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L131C1-L134C55
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L131-L134
 
 Response:
-https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L47C1-L70C2
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L47-L70
 
 Example success response:
 https://github.com/gladly/app-platform-examples/blob/main/shiphero/actions/look_up_order_by_order_num/_test_/data/success/expected_response_transformation.json
@@ -72,10 +72,10 @@ https://github.com/gladly/app-platform-examples/blob/main/shiphero/actions/look_
 #### **2. Lookup Orders by Email**
 
 Definition and input:
-https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L129C1-L130C45
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L129-L130
 
 Response:
-https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L47C1-L70C2
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L47-L70
 
 Example success response:
 https://github.com/gladly/app-platform-examples/blob/main/shiphero/actions/look_up_orders_by_email/_test_/data/success/expected_response_transformation.json
@@ -83,10 +83,10 @@ https://github.com/gladly/app-platform-examples/blob/main/shiphero/actions/look_
 #### **3. Track Shipments by Order Id**
 
 Definition and input:
-https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L135C1-L136C49
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L135-L136
 
 Response:
-https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L112C1-L126C2
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L112-L126
 
 Example success response:
 https://github.com/gladly/app-platform-examples/blob/main/shiphero/actions/track_shipments_by_order_id/_test_/data/success/expected_response_transformation.json

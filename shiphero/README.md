@@ -38,13 +38,13 @@ Shiphero `Order` documentation and all available fields (of which some will not 
 
 <details>
 <summary>Data available by default in Gladly</summary>
-[todo] ADD LINK to data_schema.graphql (l.1-92)
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/data/data_schema.graphql#L1C1-L91C2
 </details>
 
 ## Actions
 
 Available Query actions:
-[todo] ADD LINK to actions_schema.graphql (l.129-136)
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L129C1-L136C49
 
 ### Error handling
 
@@ -61,32 +61,32 @@ This section provides an overview of all available actions, their inputs, output
 #### **1. Lookup Order by Order Number**
 
 Definition and input:
-[todo] ADD LINK to actions_schema.graphql (l.132-133)
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L131C1-L134C55
 
 Response:
-[todo] ADD LINK to actions_schema.graphql (l.48-71)
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L47C1-L70C2
 
 Example success response:
-[todo] ADD LINK to shiphero/actions/look_up_order_by_order_num/\_test\*/data/success/expected_response_transformation.json
+https://github.com/gladly/app-platform-examples/blob/main/shiphero/actions/look_up_order_by_order_num/_test_/data/success/expected_response_transformation.json
 
 #### **2. Lookup Orders by Email**
 
 Definition and input:
-[todo] ADD LINK to actions_schema.graphql (l.130-131)
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L129C1-L130C45
 
 Response:
-[todo] ADD LINK to actions_schema.graphql (l.48-71)
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L47C1-L70C2
 
 Example success response:
-[todo] ADD LINK to shiphero/actions/look_up_orders_by_email/\_test\*/data/success/expected_response_transformation.json
+https://github.com/gladly/app-platform-examples/blob/main/shiphero/actions/look_up_orders_by_email/_test_/data/success/expected_response_transformation.json
 
 #### **3. Track Shipments by Order Id**
 
 Definition and input:
-[todo] ADD LINK to actions_schema.graphql (l.134-135)
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L135C1-L136C49
 
 Response:
-[todo] ADD LINK to actions_schema.graphql (l.113-127)
+https://github.com/gladly/app-platform-examples/blob/8d1ac9254d5e6fb3344e6c3084270b61c6dcc43e/shiphero/actions/actions_schema.graphql#L112C1-L126C2
 
 Example success response:
-[todo] ADD LINK to shiphero/actions/track_shipments_by_order_id/\_test\*/data/success/expected_response_transformation.json
+https://github.com/gladly/app-platform-examples/blob/main/shiphero/actions/track_shipments_by_order_id/_test_/data/success/expected_response_transformation.json

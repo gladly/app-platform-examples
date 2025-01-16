@@ -1,0 +1,37 @@
+{
+  "errors": [
+    {
+      "message": "first and last can't be negative values",
+      "operation": "orders",
+      "field": "data",
+      "request_id": "677690c1e7b9a298c1c2966c",
+      "code": 3
+    }
+  ],
+  "data": {
+    "orders": {
+      "request_id": "677690c1e7b9a298c1c2966c",
+      "complexity": -1639,
+      "data": null
+    }
+  },
+  "extensions": {
+    "throttling": {
+      "estimated_complexity": -1639,
+      "cost": 1,
+      "cost_detail": {
+        "orders": {
+          "items_count": 0,
+          "cost": 1,
+          "total_cost": 1,
+          "fields": {}
+        }
+      },
+      "user_quota": {
+        "credits_remaining": 5643,
+        "max_available": 4004,
+        "increment_rate": 60
+      }
+    }
+  }
+}

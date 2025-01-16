@@ -1,0 +1,28 @@
+{
+  "data": {
+    "shipments": {
+      "request_id": "677736f035db9477fcf98f00",
+      "complexity": 1101,
+      "data": { "edges": [] }
+    }
+  },
+  "extensions": {
+    "throttling": {
+      "estimated_complexity": 1101,
+      "cost": 1,
+      "cost_detail": {
+        "shipments": {
+          "items_count": 0,
+          "cost": 1,
+          "total_cost": 1,
+          "fields": {}
+        }
+      },
+      "user_quota": {
+        "credits_remaining": 4001,
+        "max_available": 4004,
+        "increment_rate": 60
+      }
+    }
+  }
+}

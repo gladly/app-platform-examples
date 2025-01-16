@@ -1,0 +1,12 @@
+{
+  "status": "OK",
+  "statusCode": 200,
+  "headers": {
+    "Connection": "keep-alive",
+    "Content-Length": 470,
+    "Content-Type": "application/json",
+    "Date": "Thu, 02 Jan 2025 13:00:00 GMT",
+    "Server": "gunicorn"
+  },
+  "body": "{\"errors\":[{\"code\":30,\"message\":\"Therearenotenoughcreditstoperformtherequestedoperation,whichrequires1000001credits,Themaxallowedforyouraccountis4004creditsperoperation.\",\"operation\":\"orders\",\"request_id\":\"6777357c3c33a06eddb10b37\",\"required_credits\":1000001,\"remaining_credits\":4004,\"time_remaining\":\"0\"}],\"data\":{\"orders\":null},\"extensions\":{\"throttling\":{\"estimated_complexity\":1000001,\"cost\":1,\"cost_detail\":{\"orders\":{\"items_count\":0,\"cost\":1,\"total_cost\":1,\"fields\":{}}},\"user_quota\":{\"credits_remaining\":4004,\"max_available\":4004,\"increment_rate\":60}}}}"
+}

@@ -1,0 +1,1 @@
+Bearer {{.integration.secrets.access_token}}

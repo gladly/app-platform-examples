@@ -1,0 +1,98 @@
+{
+  "data": {
+    "shipments": {
+      "request_id": "67773732cef3e2c087ff1539",
+      "complexity": 1101,
+      "data": {
+        "edges": [
+          {
+            "node": {
+              "id": "U2hpcG1lbnQ6NDE5NTIzMDA1",
+              "order_id": "T3JkZXI6NDMwODgzODc5",
+              "user_id": "VXNlcjozMjE3NTk=",
+              "warehouse_id": "V2FyZWhvdXNlOjcxNDU=",
+              "pending_shipment_id": "UGVuZGluZ1NoaXBtZW50Ojc4MjYyMzc5NQ==",
+              "picked_up": null,
+              "needs_refund": null,
+              "refunded": null,
+              "delivered": null,
+              "address": {
+                "name": "Amazon - MRO ",
+                "address1": "",
+                "address2": "",
+                "city": "",
+                "state": "",
+                "country": "US",
+                "zip": null,
+                "phone": null
+              },
+              "created_date": "2024-01-11T14:53:00",
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "U2hpcHBlZExpbmVJdGVtOjcwNDExNDYzNw==",
+                      "shipment_id": "U2hpcG1lbnQ6NDE5NTIzMDA1",
+                      "shipping_label_id": "U2hpcHBpbmdMYWJlbDozMTAwODM3NDg=",
+                      "line_item_id": "TGluZUl0ZW06MTA3MzMxMzM2NQ==",
+                      "quantity": 432
+                    }
+                  }
+                ]
+              },
+              "shipping_labels": [
+                {
+                  "id": "U2hpcHBpbmdMYWJlbDozMTAwODM3NDg=",
+                  "account_id": "QWNjb3VudDo0MDg3",
+                  "shipment_id": "U2hpcG1lbnQ6NDE5NTIzMDA1",
+                  "order_id": "T3JkZXI6NDMwODgzODc5",
+                  "box_id": null,
+                  "status": "valid",
+                  "tracking_number": "",
+                  "order_number": "TO00006410",
+                  "order_account_id": "4222",
+                  "carrier": "genericlabel",
+                  "shipping_name": null,
+                  "shipping_method": "genericlabel",
+                  "delivered": null,
+                  "picked_up": null,
+                  "refunded": null,
+                  "needs_refund": null,
+                  "partner_fulfillment_id": null,
+                  "full_size_to_print": null,
+                  "packing_slip": null,
+                  "warehouse": "Primary",
+                  "warehouse_id": "7145",
+                  "insurance_amount": "0.00",
+                  "carrier_account_id": null,
+                  "source": null,
+                  "created_date": "2024-01-11T14:53:00",
+                  "tracking_url": "https://www.google.com/search?q="
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "extensions": {
+    "throttling": {
+      "estimated_complexity": 1101,
+      "cost": 3,
+      "cost_detail": {
+        "shipments": {
+          "items_count": 2,
+          "cost": 1,
+          "total_cost": 3,
+          "fields": {}
+        }
+      },
+      "user_quota": {
+        "credits_remaining": 3999,
+        "max_available": 4004,
+        "increment_rate": 60
+      }
+    }
+  }
+}

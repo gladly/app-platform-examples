@@ -1,0 +1,11 @@
+{
+  "request": {
+    "url": "https://gladly.com/auth-code?code=secret&state=vXmSEPjVSWCaCMzvjufxZg",
+    "method": "GET",
+    "headers": {
+      "header-name": ["header value"]
+    }
+  },
+  "code": "secret",
+  "state": "vXmSEPjVSWCaCMzvjufxZg"
+}

@@ -1,0 +1,619 @@
+{
+  "data": {
+    "orders": {
+      "request_id": "67695d370eec4a87e06dad13",
+      "complexity": 31,
+      "data": {
+        "edges": [
+          {
+            "node": {
+              "id": "T3JkZXI6NTU3MzAxNzk4",
+              "updated_at": "2024-12-23T12:50:13",
+              "order_date": "2024-12-23T12:40:00",
+              "order_number": "#3804495",
+              "partner_order_id": "#3804495",
+              "fulfillment_status": "MaryRuth",
+              "total_tax": "2.14",
+              "subtotal": "24.95",
+              "total_discounts": "-4.99",
+              "total_price": "28.05",
+              "email": "",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "ups",
+                "method": "UPS Expedited Mail Innovations",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "",
+                "email": "",
+                "address1": "2726 PLANTATION WOOD LN",
+                "address2": "",
+                "city": "MISSOURI CITY",
+                "state": "TX",
+                "country": "US",
+                "zip": "77459-4326"
+              },
+              "billing_address": {
+                "phone": "",
+                "email": null,
+                "address1": "2726 Plantation Wood Ln",
+                "address2": "",
+                "city": "Missouri City",
+                "state": "TX",
+                "country": "US",
+                "zip": "77459"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA",
+                "metashop",
+                "signifyd approved",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEyMw==",
+                      "product_name": "Adult Magnesium Calm Gummies, Hibiscus, 60 ct",
+                      "sku": "GM-AD-MAG-CV-SF-060-UN-02",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzEzODYxMjY2",
+                        "name": "Adult Magnesium Calm Gummies, Hibiscus, 60 ct",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null,
+              "packing_note": null,
+              "required_ship_date": "2024-12-24T00:00:00",
+              "flagged": false,
+              "saturday_delivery": false,
+              "priority_flag": false,
+              "third_party_shipper": {
+                "account_number": null,
+                "zip": "None",
+                "country": "None"
+              },
+              "allow_partial": true,
+              "require_signature": false,
+              "alcohol": false,
+              "expected_weight_in_oz": "5.60",
+              "has_dry_ice": false,
+              "address_is_business": false
+            }
+          },
+          {
+            "node": {
+              "id": "T3JkZXI6NTU3MzAxODAy",
+              "updated_at": "2024-12-23T12:50:15",
+              "order_date": "2024-12-23T12:39:00",
+              "order_number": "#3804500",
+              "partner_order_id": "#3804500",
+              "fulfillment_status": "MaryRuth",
+              "total_tax": "8.84",
+              "subtotal": "120.69",
+              "total_discounts": "0",
+              "total_price": "129.53",
+              "email": "",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "fedex",
+                "method": "Fedex SmartPost",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "1 (937) 204-5290",
+                "email": "",
+                "address1": "5170 SWEETLEAF DR",
+                "address2": "",
+                "city": "DAYTON",
+                "state": "OH",
+                "country": "US",
+                "zip": "45424-4931"
+              },
+              "billing_address": {
+                "phone": "1 (937) 204-5290",
+                "email": null,
+                "address1": "5170 Sweetleaf Drive",
+                "address2": "",
+                "city": "Dayton",
+                "state": "OH",
+                "country": "US",
+                "zip": "45424"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA",
+                "PackageProtection",
+                "signifyd approved",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEzNA==",
+                      "product_name": "Nighttime Multimineral Liquid, Coconut, 32 oz",
+                      "sku": "BL-AD-MTM-CV-SF-32Z-DC-03",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzExMjEwODE1",
+                        "name": "Nighttime Multimineral Liquid, Coconut, 32 oz (INW)",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEzNQ==",
+                      "product_name": "Morning Multivitamin Liquid + Hair Growth, Peach Mango, 30 oz",
+                      "sku": "BL-AD-MLC-CV-SF-30Z-UN-01",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5MzcyMTYz",
+                        "name": "Morning Multivitamin Liquid + Hair Growth, Peach Mango, 30 oz",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEzNg==",
+                      "product_name": "Morning Multivitamin Liquid + Hair Growth, Peach Mango, 1 oz",
+                      "sku": "BL-AD-MLC-CV-SF-1OZ-UN-01",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzEyODQ3MDcz",
+                        "name": "Morning Multivitamin Liquid + Hair Growth, Peach Mango, 1 oz",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null,
+              "packing_note": null,
+              "required_ship_date": "2024-12-24T00:00:00",
+              "flagged": false,
+              "saturday_delivery": false,
+              "priority_flag": false,
+              "third_party_shipper": {
+                "account_number": null,
+                "zip": "None",
+                "country": "None"
+              },
+              "allow_partial": true,
+              "require_signature": false,
+              "alcohol": false,
+              "expected_weight_in_oz": "82.08",
+              "has_dry_ice": false,
+              "address_is_business": false
+            }
+          },
+          {
+            "node": {
+              "id": "T3JkZXI6NTU3MzAxNzk5",
+              "updated_at": "2024-12-23T12:50:14",
+              "order_date": "2024-12-23T12:39:00",
+              "order_number": "#3804499",
+              "partner_order_id": "#3804499",
+              "fulfillment_status": "MaryRuth",
+              "total_tax": "0",
+              "subtotal": "0",
+              "total_discounts": "0",
+              "total_price": "5.95",
+              "email": "",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "fedex",
+                "method": "Fedex SmartPost",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "1 (484) 844-9886",
+                "email": "",
+                "address1": "850 W AVONDALE RD",
+                "address2": "",
+                "city": "WEST GROVE",
+                "state": "PA",
+                "country": "US",
+                "zip": "19390-9520"
+              },
+              "billing_address": {
+                "phone": "1 (484) 844-9886",
+                "email": null,
+                "address1": "850 W Avondale Rd",
+                "address2": "",
+                "city": "West grove",
+                "state": "PA",
+                "country": "US",
+                "zip": "19390"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA",
+                "fuego-purchase",
+                "signifyd approved",
+                "Tapcart",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 2,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEyOQ==",
+                      "product_name": "Nighttime Multimineral Liquid, Coconut, 1 oz\r\n",
+                      "sku": "TR-AD-MLM-CV-SF-1OZ-UN-01",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 2,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA4NzYyMDMy",
+                        "name": "Nighttime Multimineral Liquid, Coconut, 1 oz",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEzMA==",
+                      "product_name": "Morning Multivitamin Liquid, Raspberry, 32 oz",
+                      "sku": "BL-AD-MLT-CV-SF-32Z-DC-04",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5MjI3Njg0",
+                        "name": "Morning Multivitamin Liquid, Raspberry, 32 oz",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null,
+              "packing_note": null,
+              "required_ship_date": "2024-12-24T00:00:00",
+              "flagged": false,
+              "saturday_delivery": false,
+              "priority_flag": false,
+              "third_party_shipper": {
+                "account_number": null,
+                "zip": "None",
+                "country": "None"
+              },
+              "allow_partial": true,
+              "require_signature": false,
+              "alcohol": false,
+              "expected_weight_in_oz": "45.60",
+              "has_dry_ice": false,
+              "address_is_business": false
+            }
+          },
+          {
+            "node": {
+              "id": "T3JkZXI6NTU3MzAxNzk2",
+              "updated_at": "2024-12-23T12:50:13",
+              "order_date": "2024-12-23T12:39:00",
+              "order_number": "#3804502",
+              "partner_order_id": "#3804502",
+              "fulfillment_status": "MaryRuth",
+              "total_tax": "6.97",
+              "subtotal": "69.15",
+              "total_discounts": "0",
+              "total_price": "99.07",
+              "email": "",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "fedex",
+                "method": "Fedex SmartPost",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "1 (615) 429-8746",
+                "email": "",
+                "address1": "192 OLD MILAM RD",
+                "address2": "",
+                "city": "FAYETTEVILLE",
+                "state": "GA",
+                "country": "US",
+                "zip": "30214-2510"
+              },
+              "billing_address": {
+                "phone": "1 (615) 429-8746",
+                "email": null,
+                "address1": "192 Old Milam Road",
+                "address2": "",
+                "city": "Fayetteville",
+                "state": "GA",
+                "country": "US",
+                "zip": "30214"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA : Subscription Orders",
+                "PackageProtection",
+                "signifyd approved",
+                "Subscription",
+                "Subscription First Order",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEyMg==",
+                      "product_name": "Morning Multivitamin Liquid + Hair Growth, Peach Mango, 30 oz",
+                      "sku": "BL-AD-MLC-CV-SF-30Z-UN-01",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5MzcyMTYz",
+                        "name": "Morning Multivitamin Liquid + Hair Growth, Peach Mango, 30 oz",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null,
+              "packing_note": null,
+              "required_ship_date": "2024-12-24T00:00:00",
+              "flagged": false,
+              "saturday_delivery": false,
+              "priority_flag": false,
+              "third_party_shipper": {
+                "account_number": null,
+                "zip": "None",
+                "country": "None"
+              },
+              "allow_partial": true,
+              "require_signature": false,
+              "alcohol": false,
+              "expected_weight_in_oz": "33.60",
+              "has_dry_ice": false,
+              "address_is_business": false
+            }
+          },
+          {
+            "node": {
+              "id": "T3JkZXI6NTU3MzAxNzg5",
+              "updated_at": "2024-12-23T12:50:09",
+              "order_date": "2024-12-23T12:39:00",
+              "order_number": "#3804497",
+              "partner_order_id": "#3804497",
+              "fulfillment_status": "MaryRuth",
+              "total_tax": "0",
+              "subtotal": "81.84",
+              "total_discounts": "0",
+              "total_price": "87.79",
+              "email": "",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "fedex",
+                "method": "Fedex SmartPost",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "1 (914) 960-6169",
+                "email": "",
+                "address1": "19 JACKSON RD",
+                "address2": "",
+                "city": "BEDFORD",
+                "state": "NY",
+                "country": "US",
+                "zip": "10506-2206"
+              },
+              "billing_address": {
+                "phone": "1 (914) 960-6169",
+                "email": null,
+                "address1": "19 Jackson Road",
+                "address2": "",
+                "city": "Bedford",
+                "state": "NY",
+                "country": "US",
+                "zip": "10506"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA : Subscription Orders",
+                "signifyd approved",
+                "Subscription",
+                "Subscription First Order",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEwNw==",
+                      "product_name": "Adult Magnesium Calm Gummies, Hibiscus, 60 ct",
+                      "sku": "GM-AD-MAG-CV-SF-060-UN-02",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzEzODYxMjY2",
+                        "name": "Adult Magnesium Calm Gummies, Hibiscus, 60 ct",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEwOA==",
+                      "product_name": "Zinc Gummy (sugar free), 60ct",
+                      "sku": "GM-AD-ZNC-CV-SF-060-UN-01",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86Mjk4MjE0NjMx",
+                        "name": "Zinc Gummy (sugar free), 60ct",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjEwOQ==",
+                      "product_name": "CoQ10 Gummies, Raspberry, 60 ct\r\n",
+                      "sku": "GM-AD-COQ-CV-SG-060-UN-02",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzExNjQ4Nzcx",
+                        "name": "CoQ10 Gummies, Raspberry, 60 ct (GW)",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM3NTI1MjExMA==",
+                      "product_name": "Omega 3-6-7-9 Gummies, Peach Mango Apricot, 120 ct",
+                      "sku": "HL-5JLV-PAW9-3PL",
+                      "fulfillment_status": "pending",
+                      "quantity_pending_fulfillment": 1,
+                      "quantity_shipped": 0,
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MjY1OTI4NjYz",
+                        "name": "Omega 3-6-7-9 Gummies, Peach Mango Apricot, 120 ct",
+                        "tags": [
+                          "Shopify Category VEGAN Vitamin D3 Gummies",
+                          "Shopify Tag Subscription"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null,
+              "packing_note": null,
+              "required_ship_date": "2024-12-24T00:00:00",
+              "flagged": false,
+              "saturday_delivery": false,
+              "priority_flag": false,
+              "third_party_shipper": {
+                "account_number": null,
+                "zip": "None",
+                "country": "None"
+              },
+              "allow_partial": true,
+              "require_signature": false,
+              "alcohol": false,
+              "expected_weight_in_oz": "31.04",
+              "has_dry_ice": false,
+              "address_is_business": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  "extensions": {
+    "throttling": {
+      "estimated_complexity": 31,
+      "cost": 17,
+      "cost_detail": {
+        "orders": {
+          "items_count": 16,
+          "cost": 1,
+          "total_cost": 17,
+          "fields": {}
+        }
+      },
+      "user_quota": {
+        "credits_remaining": 3987,
+        "max_available": 4004,
+        "increment_rate": 60
+      }
+    }
+  }
+}

@@ -1,0 +1,498 @@
+{
+  "data": {
+    "orders": {
+      "request_id": "677732a36a6d4d88bb7a604e",
+      "complexity": 206,
+      "data": {
+        "edges": [
+          {
+            "node": {
+              "id": "T3JkZXI6NTYxMDE2MzU1",
+              "order_number": "#3837189",
+              "partner_order_id": "#3837189",
+              "fulfillment_status": "Tomorrow",
+              "total_tax": "0",
+              "subtotal": "146.67",
+              "total_discounts": "0",
+              "total_price": "146.67",
+              "order_date": "2025-01-03T00:26:00",
+              "updated_at": "2025-01-03T00:36:48",
+              "email": "customer@email.com",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "fedex",
+                "method": "Fedex SmartPost",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "1 (760) 219-8609",
+                "email": "",
+                "address1": "3118 COUNTY ROAD 172",
+                "address2": "APT 1109",
+                "city": "ROUND ROCK",
+                "state": "TX",
+                "country": "US",
+                "zip": "78681-1804"
+              },
+              "billing_address": {
+                "phone": "1 (760) 219-8609",
+                "email": null,
+                "address1": "3118 County Road 172",
+                "address2": "Apt 1109",
+                "city": "Round Rock",
+                "state": "TX",
+                "country": "US",
+                "zip": "78681"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA",
+                "PackageProtection",
+                "signifyd approved",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzM4Nw==",
+                      "product_name": "Gut Flora Health+ Capsules, 60 ct",
+                      "sku": "CP-AD-GFH-CV-SF-060-UN-01",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5Mjk0ODIz",
+                        "name": "Gut Flora Health+ Capsules, 60 ct",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzM4OA==",
+                      "product_name": "Morning Multivitamin Liquid + Hair Growth, Peach Mango, 30 oz",
+                      "sku": "BL-AD-MLC-CV-SF-30Z-UN-01",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5MzcyMTYz",
+                        "name": "Morning Multivitamin Liquid + Hair Growth, Peach Mango, 30 oz",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 2,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzM4OQ==",
+                      "product_name": "Complete Gut Health+ Capsules, 60 ct",
+                      "sku": "CP-AD-GUT-CV-SF-060-UN-02",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5NTE0NTQ5",
+                        "name": "Complete Gut Health+ Capsules, 60 ct",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null
+            }
+          },
+          {
+            "node": {
+              "id": "T3JkZXI6NTYxMDE2MzQ5",
+              "order_number": "#3837181",
+              "partner_order_id": "#3837181",
+              "fulfillment_status": "Tomorrow",
+              "total_tax": "0",
+              "subtotal": "38.94",
+              "total_discounts": "0",
+              "total_price": "38.94",
+              "order_date": "2025-01-03T00:25:00",
+              "updated_at": "2025-01-03T00:36:45",
+              "email": "customer@email.com",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "ups",
+                "method": "UPS Expedited Mail Innovations",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "1 (201) 960-4522",
+                "email": "",
+                "address1": "35 LOCKERBY LN",
+                "address2": "",
+                "city": "WESTWOOD",
+                "state": "NJ",
+                "country": "US",
+                "zip": "07675-1817"
+              },
+              "billing_address": {
+                "phone": "1 (201) 960-4522",
+                "email": null,
+                "address1": "35 Lockerby Lane",
+                "address2": "",
+                "city": "Westwood",
+                "state": "NJ",
+                "country": "US",
+                "zip": "07675"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA",
+                "signifyd approved",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzM2MQ==",
+                      "product_name": "CoQ10 Gummies, Raspberry, 60 ct\r\n",
+                      "sku": "GM-AD-COQ-CV-SG-060-UN-02",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzExNjQ4Nzcx",
+                        "name": "CoQ10 Gummies, Raspberry, 60 ct (GW)",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzM2Mg==",
+                      "product_name": "Lymphatic Cleanse Drops,Org, 1 oz",
+                      "sku": "DR-AD-LYM-OG-SF-1OZ-UN-01",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5Mjk3NTU1",
+                        "name": "Lymphatic Cleanse Drops,Org, 1 oz",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null
+            }
+          },
+          {
+            "node": {
+              "id": "T3JkZXI6NTYxMDE2MzQ2",
+              "order_number": "#3837174",
+              "partner_order_id": "#3837174",
+              "fulfillment_status": "Tomorrow",
+              "total_tax": "0",
+              "subtotal": "46.43",
+              "total_discounts": "0",
+              "total_price": "46.43",
+              "order_date": "2025-01-03T00:25:00",
+              "updated_at": "2025-01-03T00:36:45",
+              "email": "customer@email.com",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "fedex",
+                "method": "Fedex SmartPost",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "1 (551) 206-3431",
+                "email": "",
+                "address1": "36 SYLVAN ST",
+                "address2": "",
+                "city": "RUTHERFORD",
+                "state": "NJ",
+                "country": "US",
+                "zip": "07070-2026"
+              },
+              "billing_address": {
+                "phone": "1 (551) 206-3431",
+                "email": null,
+                "address1": "36 Sylvan St.",
+                "address2": "",
+                "city": "Rutherford",
+                "state": "NJ",
+                "country": "US",
+                "zip": "07070"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA",
+                "PackageProtection",
+                "signifyd approved",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 2,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzM2MA==",
+                      "product_name": "Vitamin K2+D3 Calcium Gummies, Peach Mango Apricot, 60 ct",
+                      "sku": "GM-AD-K2D-CV-SG-060-UN-01",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5MzAxMTk0",
+                        "name": "Vitamin K2+D3 Calcium Gummies, Peach Mango Apricot, 60 ct",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null
+            }
+          },
+          {
+            "node": {
+              "id": "T3JkZXI6NTYxMDE2MzMx",
+              "order_number": "#3837184",
+              "partner_order_id": "#3837184",
+              "fulfillment_status": "Tomorrow",
+              "total_tax": "0.27",
+              "subtotal": "0",
+              "total_discounts": "0",
+              "total_price": "0.27",
+              "order_date": "2025-01-03T00:25:00",
+              "updated_at": "2025-01-03T00:36:45",
+              "email": "customer@email.com",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "shippo__usps",
+                "method": "usps_priority",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "(808) 783-3463",
+                "email": "",
+                "address1": "1294 AKELE ST",
+                "address2": "",
+                "city": "KAILUA",
+                "state": "HI",
+                "country": "US",
+                "zip": "96734-4221"
+              },
+              "billing_address": {
+                "phone": "(808) 783-3463",
+                "email": null,
+                "address1": "1294 Akele St",
+                "address2": "",
+                "city": "Kailua",
+                "state": "HI",
+                "country": "US",
+                "zip": "96734"
+              },
+              "tags": [
+                "Dallas",
+                "E-Commerce : Shopify US/CA",
+                "fuego-purchase",
+                "signifyd approved",
+                "Tapcart",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzMzNQ==",
+                      "product_name": "Morning Multivitamin Liquid, Fruit Punch, 32 oz",
+                      "sku": "BL-AD-MFP-CV-SF-32OZ-UN-02",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5NTE0NjM0",
+                        "name": "Morning Multivitamin Liquid, Fruit Punch, 32 oz",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzMzNg==",
+                      "product_name": "Complete Gut Health+ Capsules, 60 ct",
+                      "sku": "CP-AD-GUT-CV-SF-060-UN-02",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA5NTE0NTQ5",
+                        "name": "Complete Gut Health+ Capsules, 60 ct",
+                        "tags": []
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzMzNw==",
+                      "product_name": "Nighttime Multimineral Liquid, Coconut, 32 oz",
+                      "sku": "BL-AD-MTM-CV-SF-32Z-DC-03",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzExMjEwODE1",
+                        "name": "Nighttime Multimineral Liquid, Coconut, 32 oz (INW)",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null
+            }
+          },
+          {
+            "node": {
+              "id": "T3JkZXI6NTYxMDE2MzA1",
+              "order_number": "#3837168",
+              "partner_order_id": "#3837168",
+              "fulfillment_status": "Tomorrow",
+              "total_tax": "3.96",
+              "subtotal": "50.6",
+              "total_discounts": "0",
+              "total_price": "54.56",
+              "order_date": "2025-01-03T00:25:00",
+              "updated_at": "2025-01-03T00:36:44",
+              "email": "customer@email.com",
+              "account_id": "QWNjb3VudDo0MjIy",
+              "shipping_lines": {
+                "title": "Standard Shipping (6-8 business days) Over $49",
+                "carrier": "fedex",
+                "method": "Fedex SmartPost",
+                "price": "0.00"
+              },
+              "shipping_address": {
+                "phone": "(580) 574-4384",
+                "email": "",
+                "address1": "120 CINNAMON OAK CIR",
+                "address2": "",
+                "city": "COVINGTON",
+                "state": "GA",
+                "country": "US",
+                "zip": "30016-3035"
+              },
+              "billing_address": {
+                "phone": "(580) 574-4384",
+                "email": null,
+                "address1": "120 Cinnamon Oak Circle",
+                "address2": "",
+                "city": "Covington",
+                "state": "GA",
+                "country": "US",
+                "zip": "30016"
+              },
+              "tags": [
+                "CashBack:25%",
+                "Dallas",
+                "E-Commerce : Shopify US/CA : Subscription Orders",
+                "signifyd approved",
+                "Subscription",
+                "Subscription First Order",
+                "wh_7145"
+              ],
+              "line_items": {
+                "edges": [
+                  {
+                    "node": {
+                      "quantity": 1,
+                      "id": "TGluZUl0ZW06MTM4NDE3MzI3Mw==",
+                      "product_name": "Women's Multivitamin + Hair Growth Liposomal, Peach, 15.22 oz",
+                      "sku": "LP-WO-MHG-CV-SF-16Z-UN-01",
+                      "fulfillment_status": "pending",
+                      "product": {
+                        "id": "UHJvZHVjdEluZm86MzA4ODkxNTI2",
+                        "name": "Women's Multivitamin + Hair Growth Liposomal, Peach, 15.22 oz",
+                        "tags": []
+                      }
+                    }
+                  }
+                ]
+              },
+              "holds": {
+                "fraud_hold": false,
+                "address_hold": false,
+                "shipping_method_hold": false,
+                "operator_hold": false,
+                "payment_hold": false,
+                "client_hold": false
+              },
+              "currency": "USD",
+              "hold_until_date": null,
+              "tax_id": null,
+              "tax_type": null
+            }
+          }
+        ]
+      }
+    }
+  },
+  "extensions": {
+    "throttling": {
+      "estimated_complexity": 206,
+      "cost": 16,
+      "cost_detail": {
+        "orders": {
+          "items_count": 15,
+          "cost": 1,
+          "total_cost": 16,
+          "fields": {}
+        }
+      },
+      "user_quota": {
+        "credits_remaining": 3988,
+        "max_available": 4004,
+        "increment_rate": 60
+      }
+    }
+  }
+}

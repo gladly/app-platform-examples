@@ -1,0 +1,4 @@
+{
+  "grantType": "authorization_code",
+  "authDomain": "bogus.public-api.shiphero.foo"
+}

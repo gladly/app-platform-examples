@@ -1,0 +1,310 @@
+## Represents the address of a location. used for billing and shipping addresses.
+type Address {
+  address1: String
+  address2: String
+  city: String
+  country_code: String
+  country: String
+  email: String
+  phone: String
+  province_code: String
+  province: String
+  state: String
+  zip: String
+}
+
+enum FulfillmentStatus {
+  ## The fulfillment was canceled.
+  CANCELLED
+  ## There was an error with the fulfillment request.
+  ERROR
+  ## The fulfillment request failed.
+  FAILURE
+  ## The fulfillment was completed successfully.
+  SUCCESS
+  ## The third-party fulfillment service has acknowledged the fulfillment and is processing it.
+  OPEN
+  ## Shopify has created the fulfillment and is waiting for the third-party fulfillment service to transition it to open or success.
+  PENDING
+}
+
+## Represents a line item from an order that's included in a fulfillment.
+type FulfillmentLineItem {
+  ## Number of line items in the fulfillment.
+  quantity: Int
+  ## The total price before discounts are applied in shop and presentment currencies.
+  original_total: Currency
+  ## The total price after discounts are applied in shop and presentment currencies.
+  discounted_total: Currency
+  ## The associated order's line item id.
+  line_item_id: ID!
+}
+
+enum FulfillmentDisplayStatus {
+  ##Displayed as Attempted delivery.
+  ATTEMPTED_DELIVERY
+
+  ## Displayed as Canceled.
+  CANCELED
+
+  ## Displayed as Confirmed.
+  CONFIRMED
+
+  ## Displayed as Delayed.
+  DELAYED
+
+  ## Displayed as Delivered.
+  DELIVERED
+
+  ## Displayed as Failure.
+  FAILURE
+
+  ## Displayed as Fulfilled.
+  FULFILLED
+
+  ## Displayed as In transit.
+  IN_TRANSIT
+
+  ## Displayed as Label printed.
+  LABEL_PRINTED
+
+  ## Displayed as Label purchased.
+  LABEL_PURCHASED
+
+  ## Displayed as Label voided.
+  LABEL_VOIDED
+
+  ## Displayed as Marked as fulfilled.
+  MARKED_AS_FULFILLED
+
+  ## Displayed as Not delivered.
+  NOT_DELIVERED
+
+  ## Displayed as Out for delivery.
+  OUT_FOR_DELIVERY
+
+  ## Displayed as Picked up.
+  PICKED_UP
+
+  ## Displayed as Ready for pickup.
+  READY_FOR_PICKUP
+
+  ## Displayed as Submitted.
+  SUBMITTED
+}
+
+## Represents the tracking information for a fulfillment.
+type FulfillmentTrackingInfo {
+  ## The name of the tracking company. (Shipping Carriers help page)[https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers?shpxid=de34ac44-9F69-4CCB-9F6D-466867094432#integrated-shipping-carriers]
+  company: String!
+  ## The tracking number of the fulfillment.
+  number: String!
+  ## The URLs to track the fulfillment.
+  url: String!
+}
+
+type Fulfillment {
+  ## A globally-unique ID.
+  id: ID!
+  ## The date and time when the fulfillment was created.
+  created_at: DateTime!
+  ## The date and time when the fulfillment was last modified.
+  updated_at: DateTime!
+  ## The date that this fulfillment was delivered.
+  delivered_at: DateTime
+
+  ## The status of the fulfillment.
+  display_status: FulfillmentDisplayStatus
+  ## The status of the fulfillment.
+  status: FulfillmentStatus!
+
+  ## The estimated date that this fulfillment will arrive.
+  estimated_delivery_at: DateTime
+  ## The date and time when the fulfillment went into transit.
+  in_transit_at: DateTime
+  ## Human readable reference identifier for this fulfillment.
+  name: String!
+  ## The address at which the fulfillment occurred.
+  origin_address: Address
+
+  ## Whether any of the line items in the fulfillment require shipping.
+  requires_shipping: Boolean
+
+  ## Tracking information associated with the fulfillment, such as the tracking company, tracking number, and tracking URL.
+  tracking_info: [FulfillmentTrackingInfo!]!
+
+  fulfillment_line_items: [FulfillmentLineItem!]!
+}
+
+## Product property names like "Size", "Color", and "Material" that the customers can select.
+type ProductOption {
+  name: String!
+  values: [String]
+}
+
+## A product variant represents a different version of a product, such as differing sizes or differing colors.
+type Variant {
+  id: ID!
+  title: String
+  created_at: DateTime
+  price: Currency
+  sku: String
+  updated_at: DateTime
+  inventory_quantity: Int
+}
+
+enum ProductStatus {
+  ACTIVE
+  ARCHIVED
+  DRAFT
+}
+
+## A product represents an individual item for sale in a Shopify store
+type Product {
+  id: ID!
+  title: String
+  status: ProductStatus
+  created_at: DateTime
+  product_type: String
+  vendor: String
+  updated_at: DateTime
+  tags: String
+  variants: [Variant]
+  options: [ProductOption]
+}
+
+## Represents a single line in an order. There is one line item for each distinct product variant.
+type LineItem {
+  id: ID!
+  name: String
+  price: Currency
+  product: Product
+  quantity: Int
+  sku: String
+  gift_card: Boolean
+  total_discount: String
+  variant_id: Int
+  variant_title: String
+  vendor: String
+}
+
+## Represents a shipping line for a Shop Pay payment request.
+type ShippingLine {
+  source: String
+}
+
+## The financial status of the order that can be shown to the merchant.
+enum OrderDisplayFinancialStatus {
+  AUTHORIZED
+  EXPIRED
+  PAID
+  PARTIALLY_PAID
+  PARTIALLY_REFUNDED
+  PENDING
+  REFUNDED
+  VOIDED
+}
+
+## Represents the order's aggregated fulfillment status for display purposes.
+enum OrderDisplayFulfillmentStatus {
+  FULFILLED
+  IN_PROGRESS
+  ON_HOLD
+  OPEN
+  PARTIALLY_FULFILLED
+  PENDING_FULFILLMENT
+  REQUEST_DECLINED
+  RESTOCKED
+  SCHEDULED
+  UNFULFILLED
+}
+
+## The reason provided when the order was canceled.
+enum ShopifyOrderCancelReason {
+  CUSTOMER
+  DECLINED
+  FRAUD
+  INVENTORY
+  OTHER
+  STAFF
+}
+
+## An order from Shopify
+type Order @dataType(name: "shopify_order", version: "2.0") {
+  id: ID!
+  ## Whether there are line items that can be fulfilled. This field returns false when the order has no fulfillable line items.
+  fulfillable: Boolean!
+  ## The count of fulfillments including the cancelled fulfillments.
+  fulfillments_count: Int
+  ## List of shipments for the order.
+  fulfillments: [Fulfillment]
+  order_number: String!
+  customer_id: ID!
+  name: String!
+  email: String
+  currency: String
+  current_subtotal_price: String
+  current_total_discounts: String
+  current_total_tax: String
+  current_total_price: String
+  cancel_reason: ShopifyOrderCancelReason
+  note: String
+  tags: [String]
+  created_at: DateTime
+  updated_at: DateTime
+  financial_status: OrderDisplayFinancialStatus
+  fulfillment_status: OrderDisplayFulfillmentStatus
+  billing_address: Address
+  shipping_address: Address
+  shipping_lines: [ShippingLine]
+  order_status_url: String
+  line_items: [LineItem]
+}
+
+## Represents the address of a location. used for billing and shipping addresses.
+type Address {
+  address1: String
+  address2: String
+  city: String
+  country_code: String
+  country: String
+  email: String
+  phone: String
+  province_code: String
+  province: String
+  state: String
+  zip: String
+}
+
+## The current email marketing state for the customer
+type SmsOrEmailMarketingConsent {
+  marketingState: String
+  marketingOptInLevel: String
+  consentUpdatedAt: DateTime
+}
+
+## Returns a Customer resource.
+type Customer @dataType(name: "shopify_customer", version: "2.0") {
+  id: ID!
+  email: String
+  phone: String
+  first_name: String
+  last_name: String
+  default_address: Address
+  amount_spent: Currency
+  last_order_id: Int
+  email_marketing_consent: SmsOrEmailMarketingConsent
+  sms_marketing_consent: SmsOrEmailMarketingConsent
+  lifetime_duration: String!
+  note: String
+  number_of_orders: Int!
+  tags: [String]
+  orders: [Order] @parentId(template: "{{.id}}")
+  total_spent: Currency
+  created_at: DateTime
+  updated_at: DateTime
+}
+
+type Query {
+  customer: Customer
+}

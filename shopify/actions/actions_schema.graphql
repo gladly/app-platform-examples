@@ -1,0 +1,360 @@
+## Product property names like "Size", "Color", and "Material" that the customers can select.
+type ProductOption {
+  name: String!
+  values: [String]
+}
+
+## A product variant represents a different version of a product, such as differing sizes or differing colors.
+type Variant {
+  id: ID!
+  title: String
+  product_id: String
+  created_at: DateTime
+  price: Currency
+  sku: String
+  updated_at: DateTime
+  inventory_quantity: Int
+}
+
+enum ProductStatus {
+  ## The product is ready to sell and can be published to sales channels and apps. Products with an active status aren't automatically published to sales channels, such as the online store, or apps. By default, existing products are set to active.
+  ACTIVE
+  ## [value-archived](https://shopify.dev/docs/api/admin-graphql/2024-10/enums/ProductStatus#value-archived)
+  ## The product is no longer being sold and isn't available to customers on sales channels and apps.
+  ARCHIVED
+  ## [value-draft](https://shopify.dev/docs/api/admin-graphql/2024-10/enums/ProductStatus#value-draft)
+  ## The product isn't ready to sell and is unavailable to customers on sales channels and apps. By default, duplicated and unarchived products are set to draft.
+  DRAFT
+}
+
+## A product represents an individual item for sale in a Shopify store
+type Product {
+  id: ID!
+  title: String
+  status: ProductStatus
+  created_at: DateTime
+  product_type: String
+  vendor: String
+  updated_at: DateTime
+  tags: String
+  variants: [Variant]
+  options: [ProductOption]
+}
+
+## Represents a single line in an order. There is one line item for each distinct product variant.
+type LineItem {
+  id: ID!
+  name: String
+  price: Currency
+  product: Product
+  quantity: Int
+  sku: String
+  gift_card: Boolean
+  total_discount: String
+  variant_id: Int
+  variant_title: String
+  vendor: String
+}
+
+## Represents a shipping line for a Shop Pay payment request.
+type ShippingLine {
+  ## A reference to the carrier service that provided the rate. Present when the rate was computed by a third-party carrier service.
+  carrierIdentifier: String
+  ## A reference to the shipping method.
+  code: String
+  ## Whether the shipping line is custom or not.
+  custom: Boolean!
+  ## A globally-unique ID.
+  id: ID!
+  ## The phone number at the shipping address.
+  phone: String
+  ## Returns the rate source for the shipping line.
+  source: String
+  ## Returns the title of the shipping line.
+  title: String!
+}
+
+## Represents the address of a location. used for billing and shipping addresses.
+type Address {
+  address1: String
+  address2: String
+  city: String
+  country_code: String
+  country: String
+  email: String
+  phone: String
+  province_code: String
+  province: String
+  state: String
+  zip: String
+}
+
+type ParentTransaction {
+  id: ID!
+}
+
+enum OrderTransactionKind {
+  ## An amount reserved against the cardholder's funding source. Money does not change hands until the authorization is captured.
+  AUTHORIZATION
+  ## A transfer of the money that was reserved by an authorization.
+  CAPTURE
+  ## The money returned to the customer when they've paid too much during a cash transaction.
+  CHANGE
+  ## An authorization for a payment taken with an EMV credit card reader.
+  EMV_AUTHORIZATION
+  ## A partial or full return of captured funds to the cardholder. A refund can happen only after a capture is processed.
+  REFUND
+  ## An authorization and capture performed together in a single step.
+  SALE
+  ## A suggested refund transaction that can be used to create a refund.
+  SUGGESTED_REFUND
+  ## A cancelation of an authorization transaction.
+  VOID
+}
+
+## transaction associated with the order.
+type Transaction {
+  id: ID!
+  amount: Currency
+  currency_code: String
+  created_at: DateTime
+  currency: String
+  kind: OrderTransactionKind
+  status: String
+  gateway: String
+  parent_transaction: ParentTransaction
+}
+
+## The financial status of the order that can be shown to the merchant.
+enum OrderDisplayFinancialStatus {
+  AUTHORIZED
+  EXPIRED
+  PAID
+  PARTIALLY_PAID
+  PARTIALLY_REFUNDED
+  PENDING
+  REFUNDED
+  VOIDED
+}
+
+## Represents the order's aggregated fulfillment status for display purposes.
+enum OrderDisplayFulfillmentStatus {
+  FULFILLED
+  IN_PROGRESS
+  ON_HOLD
+  OPEN
+  PARTIALLY_FULFILLED
+  PENDING_FULFILLMENT
+  REQUEST_DECLINED
+  RESTOCKED
+  SCHEDULED
+  UNFULFILLED
+}
+
+## The reason provided when the order was canceled.
+enum ShopifyOrderCancelReason {
+  CUSTOMER
+  DECLINED
+  FRAUD
+  INVENTORY
+  OTHER
+  STAFF
+}
+
+## Represents the tracking information for a fulfillment.
+type FulfillmentTrackingInfo {
+  ## The name of the tracking company. (Shipping Carriers help page)[https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers?shpxid=de34ac44-9F69-4CCB-9F6D-466867094432#integrated-shipping-carriers]
+  company: String!
+  ## The tracking number of the fulfillment.
+  number: String!
+  ## The URLs to track the fulfillment.
+  url: String!
+}
+
+enum FulfillmentDisplayStatus {
+  ##Displayed as Attempted delivery.
+  ATTEMPTED_DELIVERY
+
+  ## Displayed as Canceled.
+  CANCELED
+
+  ## Displayed as Confirmed.
+  CONFIRMED
+
+  ## Displayed as Delayed.
+  DELAYED
+
+  ## Displayed as Delivered.
+  DELIVERED
+
+  ## Displayed as Failure.
+  FAILURE
+
+  ## Displayed as Fulfilled.
+  FULFILLED
+
+  ## Displayed as In transit.
+  IN_TRANSIT
+
+  ## Displayed as Label printed.
+  LABEL_PRINTED
+
+  ## Displayed as Label purchased.
+  LABEL_PURCHASED
+
+  ## Displayed as Label voided.
+  LABEL_VOIDED
+
+  ## Displayed as Marked as fulfilled.
+  MARKED_AS_FULFILLED
+
+  ## Displayed as Not delivered.
+  NOT_DELIVERED
+
+  ## Displayed as Out for delivery.
+  OUT_FOR_DELIVERY
+
+  ## Displayed as Picked up.
+  PICKED_UP
+
+  ## Displayed as Ready for pickup.
+  READY_FOR_PICKUP
+
+  ## Displayed as Submitted.
+  SUBMITTED
+}
+
+enum FulfillmentStatus {
+  ## The fulfillment was canceled.
+  CANCELLED
+  ## There was an error with the fulfillment request.
+  ERROR
+  ## The fulfillment request failed.
+  FAILURE
+  ## The fulfillment was completed successfully.
+  SUCCESS
+  ## The third-party fulfillment service has acknowledged the fulfillment and is processing it.
+  OPEN
+  ## Shopify has created the fulfillment and is waiting for the third-party fulfillment service to transition it to open or success.
+  PENDING
+}
+
+## Represents a line item from an order that's included in a fulfillment.
+type FulfillmentLineItem {
+  ## Number of line items in the fulfillment.
+  quantity: Int
+  ## The total price before discounts are applied in shop and presentment currencies.
+  original_total: Currency
+  ## The total price after discounts are applied in shop and presentment currencies.
+  discounted_total: Currency
+  ## The associated order's line item id.
+  line_item_id: ID!
+}
+
+type Fulfillment {
+  ## A globally-unique ID.
+  id: ID!
+  ## The date and time when the fulfillment was created.
+  created_at: DateTime!
+  ## The date and time when the fulfillment was last modified.
+  updated_at: DateTime!
+  ## The date that this fulfillment was delivered.
+  delivered_at: DateTime
+
+  ## The status of the fulfillment.
+  display_status: FulfillmentDisplayStatus
+  ## The status of the fulfillment.
+  status: FulfillmentStatus!
+
+  ## The estimated date that this fulfillment will arrive.
+  estimated_delivery_at: DateTime
+  ## The date and time when the fulfillment went into transit.
+  in_transit_at: DateTime
+  ## Human readable reference identifier for this fulfillment.
+  name: String!
+  ## The address at which the fulfillment occurred.
+  origin_address: Address
+
+  ## Whether any of the line items in the fulfillment require shipping.
+  requires_shipping: Boolean
+
+  ## Tracking information associated with the fulfillment, such as the tracking company, tracking number, and tracking URL.
+  tracking_info: [FulfillmentTrackingInfo!]!
+
+  fulfillment_line_items: [FulfillmentLineItem!]!
+}
+
+## An order from Shopify
+type Order {
+  id: ID!
+
+  ## Whether there are line items that can be fulfilled. This field returns false when the order has no fulfillable line items.
+  fulfillable: Boolean!
+  ## The count of fulfillments including the cancelled fulfillments.
+  fulfillments_count: Int
+  ## List of shipments for the order.
+  fulfillments: [Fulfillment]
+
+  order_number: String!
+  name: String!
+  email: String
+  currency: String
+  current_subtotal_price: String
+  current_total_discounts: String
+  current_total_tax: String
+  current_total_price: String
+  cancel_reason: ShopifyOrderCancelReason
+  note: String
+  tags: [String]
+  created_at: DateTime
+  updated_at: DateTime
+  financial_status: OrderDisplayFinancialStatus
+  fulfillment_status: OrderDisplayFulfillmentStatus
+  billing_address: Address
+  shipping_address: Address
+  ## Represents the shipping details that the customer chose for their order.
+  shipping_lines: [ShippingLine]
+  order_status_url: String
+  line_items: [LineItem]
+  ## A list of transactions associated with the order.
+  transactions: [Transaction]
+}
+
+type ShopifyError {
+  message: String!
+  code: String
+}
+
+## The result of looking up a single order
+type OrderResult {
+  order: Order
+  ## error message if the order is not found or there is an error
+  errors: [ShopifyError]
+}
+
+type RefundTransaction {
+  orderId: ID!
+  ## The amount of money for this transaction.
+  amount: Currency!
+  ## The kind of transaction.
+  kind: String!
+  ## The payment gateway to use for this transaction.
+  gateway: String!
+  ## The ID of the optional parent transaction, for example the authorization of a capture.
+  parentId: ID
+}
+
+## the result of looking up an orders by email
+type OrdersResult {
+  orders: [Order!]
+  errors: [ShopifyError]
+}
+
+type Query {
+  lookupOrderByOrderNum(
+    "The unique identifier for the order that appears on the order page in the Shopify admin and the Order status page. For example, " #1001", "EN1001", or "1001-A". This value isn't unique across multiple stores."
+    orderNum: String!
+  ): OrderResult @action(name: "look_up_order_by_order_num")
+  lookupOrdersByEmail(email: String!): OrdersResult
+    @action(name: "look_up_orders_by_email")
+}

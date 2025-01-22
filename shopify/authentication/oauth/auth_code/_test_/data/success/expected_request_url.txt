@@ -1,0 +1,1 @@
+https://company-store.myshopify.com/admin/oauth/authorize?client_id=client-identifier&scope=read_customers,read_orders,read_products,write_orders&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Foauth%2Fauth-code&state=vXmSEPjVSWCaCMzvjufxZg

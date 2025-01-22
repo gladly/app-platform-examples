@@ -1,0 +1,8 @@
+{
+  "secrets": {},
+  "configuration": {
+    "ordersLimit": 10,
+    "shop": "gladly-development",
+    "sortKey": "UPDATED_AT"
+  }
+}

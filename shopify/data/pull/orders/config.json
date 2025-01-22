@@ -1,0 +1,9 @@
+{
+  "dataType": {
+    "name": "shopify_order",
+    "version": "2.0"
+  },
+  "dependsOnDataTypes": ["shopify_customer"],
+  "httpMethod": "POST",
+  "contentType": "application/json"
+}

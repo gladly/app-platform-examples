@@ -1,36 +1,56 @@
 {
   "data": {
     "customers": {
-      "edges": [
+      "nodes": [
         {
-          "node": {
-            "id": "gid://shopify/Customer/5999224094871",
-            "firstName": "Carina",
-            "lastName": "Test-Gladly",
-            "email": "primary@email.com",
-            "emailMarketingConsent": {
-              "marketingState": "SUBSCRIBED",
-              "marketingOptInLevel": "SINGLE_OPT_IN",
-              "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          "id": "gid://shopify/Customer/5999224094871",
+          "firstName": "Carina",
+          "lastName": "Test-Gladly",
+          "email": "primary@email.com",
+          "emailMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          },
+          "smsMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          },
+          "tags": ["big spender", "loyal", "superstar"],
+          "lifetimeDuration": "over 2 years",
+          "note": "",
+          "phone": "+1234567890",
+          "numberOfOrders": "6",
+          "amountSpent": {
+            "amount": "488.64",
+            "currencyCode": "USD"
+          },
+          "createdAt": "2022-02-24T20:42:01Z",
+          "updatedAt": "2022-06-10T21:10:02Z",
+          "defaultAddress": {
+            "formattedArea": "Chandler AZ, United States",
+            "address1": "xxx Some Address",
+            "address2": "",
+            "city": "Chandler",
+            "province": "Arizona",
+            "provinceCode": "AZ",
+            "zip": "85248",
+            "country": "United States",
+            "countryCode": "US"
+          },
+          "addresses": [
+            {
+              "address1": "12345 Happy Valley Ln",
+              "address2": "",
+              "city": "SLC",
+              "province": null,
+              "provinceCode": null,
+              "zip": "UT",
+              "country": "",
+              "countryCode": null
             },
-            "smsMarketingConsent": {
-              "marketingState": "SUBSCRIBED",
-              "marketingOptInLevel": "SINGLE_OPT_IN",
-              "consentUpdatedAt": "2022-03-13T18:26:47Z"
-            },
-            "tags": ["big spender", "loyal", "superstar"],
-            "lifetimeDuration": "over 2 years",
-            "note": "",
-            "phone": "+1234567890",
-            "numberOfOrders": "6",
-            "amountSpent": {
-              "amount": "488.64",
-              "currencyCode": "USD"
-            },
-            "createdAt": "2022-02-24T20:42:01Z",
-            "updatedAt": "2022-06-10T21:10:02Z",
-            "defaultAddress": {
-              "formattedArea": "Chandler AZ, United States",
+            {
               "address1": "xxx Some Address",
               "address2": "",
               "city": "Chandler",
@@ -39,63 +59,61 @@
               "zip": "85248",
               "country": "United States",
               "countryCode": "US"
-            },
-            "addresses": [
-              {
-                "address1": "12345 Happy Valley Ln",
-                "address2": "",
-                "city": "SLC",
-                "province": null,
-                "provinceCode": null,
-                "zip": "UT",
-                "country": "",
-                "countryCode": null
-              },
-              {
-                "address1": "xxx Some Address",
-                "address2": "",
-                "city": "Chandler",
-                "province": "Arizona",
-                "provinceCode": "AZ",
-                "zip": "85248",
-                "country": "United States",
-                "countryCode": "US"
-              }
-            ],
-            "image": {
-              "src": "https://cdn.shopify.com/proxy/3d1f9752317dcb948f93460f0008d1905072ae44fcbcb8b0fedbc016a768dd78/www.gravatar.com/avatar/6069c3efa3da6403e8611b7813128f37.jpg?s=2048&d=https%3A%2F%2Fcdn.shopify.com%2Fshopifycloud%2Fshopify%2Fassets%2Fadmin%2Fcustomers%2Fpolaris%2Favatar-3-d7b953912ef42b1ef360e0a80bf1d474b9cfc90cb46126bd72ff32d10b47cefb.png"
             }
+          ],
+          "image": {
+            "src": "https://cdn.shopify.com/proxy/3d1f9752317dcb948f93460f0008d1905072ae44fcbcb8b0fedbc016a768dd78/www.gravatar.com/avatar/6069c3efa3da6403e8611b7813128f37.jpg?s=2048&d=https%3A%2F%2Fcdn.shopify.com%2Fshopifycloud%2Fshopify%2Fassets%2Fadmin%2Fcustomers%2Fpolaris%2Favatar-3-d7b953912ef42b1ef360e0a80bf1d474b9cfc90cb46126bd72ff32d10b47cefb.png"
           }
         },
         {
-          "node": {
-            "id": "gid://shopify/Customer/5999224094872",
-            "firstName": "Carina",
-            "lastName": "Test-Gladly",
-            "email": "primary@email.com",
-            "emailMarketingConsent": {
-              "marketingState": "SUBSCRIBED",
-              "marketingOptInLevel": "SINGLE_OPT_IN",
-              "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          "id": "gid://shopify/Customer/5999224094872",
+          "firstName": "Carina",
+          "lastName": "Test-Gladly",
+          "email": "primary@email.com",
+          "emailMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          },
+          "smsMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          },
+          "tags": ["big spender", "loyal", "superstar"],
+          "lifetimeDuration": "over 2 years",
+          "note": "",
+          "phone": "+1234567890",
+          "numberOfOrders": "6",
+          "amountSpent": {
+            "amount": "488.64",
+            "currencyCode": "USD"
+          },
+          "createdAt": "2022-02-24T20:42:01Z",
+          "updatedAt": "2022-06-10T21:10:02Z",
+          "defaultAddress": {
+            "formattedArea": "Chandler AZ, United States",
+            "address1": "xxx Some Address",
+            "address2": "",
+            "city": "Chandler",
+            "province": "Arizona",
+            "provinceCode": "AZ",
+            "zip": "85248",
+            "country": "United States",
+            "countryCode": "US"
+          },
+          "addresses": [
+            {
+              "address1": "12345 Happy Valley Ln",
+              "address2": "",
+              "city": "SLC",
+              "province": null,
+              "provinceCode": null,
+              "zip": "UT",
+              "country": "",
+              "countryCode": null
             },
-            "smsMarketingConsent": {
-              "marketingState": "SUBSCRIBED",
-              "marketingOptInLevel": "SINGLE_OPT_IN",
-              "consentUpdatedAt": "2022-03-13T18:26:47Z"
-            },
-            "tags": ["big spender", "loyal", "superstar"],
-            "lifetimeDuration": "over 2 years",
-            "note": "",
-            "phone": "+1234567890",
-            "numberOfOrders": "6",
-            "amountSpent": {
-              "amount": "488.64",
-              "currencyCode": "USD"
-            },
-            "createdAt": "2022-02-24T20:42:01Z",
-            "updatedAt": "2022-06-10T21:10:02Z",
-            "defaultAddress": {
-              "formattedArea": "Chandler AZ, United States",
+            {
               "address1": "xxx Some Address",
               "address2": "",
               "city": "Chandler",
@@ -104,32 +122,10 @@
               "zip": "85248",
               "country": "United States",
               "countryCode": "US"
-            },
-            "addresses": [
-              {
-                "address1": "12345 Happy Valley Ln",
-                "address2": "",
-                "city": "SLC",
-                "province": null,
-                "provinceCode": null,
-                "zip": "UT",
-                "country": "",
-                "countryCode": null
-              },
-              {
-                "address1": "xxx Some Address",
-                "address2": "",
-                "city": "Chandler",
-                "province": "Arizona",
-                "provinceCode": "AZ",
-                "zip": "85248",
-                "country": "United States",
-                "countryCode": "US"
-              }
-            ],
-            "image": {
-              "src": "https://cdn.shopify.com/proxy/3d1f9752317dcb948f93460f0008d1905072ae44fcbcb8b0fedbc016a768dd78/www.gravatar.com/avatar/6069c3efa3da6403e8611b7813128f37.jpg?s=2048&d=https%3A%2F%2Fcdn.shopify.com%2Fshopifycloud%2Fshopify%2Fassets%2Fadmin%2Fcustomers%2Fpolaris%2Favatar-3-d7b953912ef42b1ef360e0a80bf1d474b9cfc90cb46126bd72ff32d10b47cefb.png"
             }
+          ],
+          "image": {
+            "src": "https://cdn.shopify.com/proxy/3d1f9752317dcb948f93460f0008d1905072ae44fcbcb8b0fedbc016a768dd78/www.gravatar.com/avatar/6069c3efa3da6403e8611b7813128f37.jpg?s=2048&d=https%3A%2F%2Fcdn.shopify.com%2Fshopifycloud%2Fshopify%2Fassets%2Fadmin%2Fcustomers%2Fpolaris%2Favatar-3-d7b953912ef42b1ef360e0a80bf1d474b9cfc90cb46126bd72ff32d10b47cefb.png"
           }
         }
       ]

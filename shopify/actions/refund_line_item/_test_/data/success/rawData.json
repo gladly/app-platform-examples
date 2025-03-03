@@ -1,0 +1,16 @@
+{
+  "data": {
+    "refundCreate": {
+      "userErrors": [],
+      "refund": {
+        "id": "gid://shopify/Refund/903220265111",
+        "note": null,
+        "createdAt": "2025-01-02T10:20:19Z",
+        "refundLineItems": { "nodes": [{ "id": "gid://shopify/RefundLineItem/425008562327", "quantity": 1, "restockType": "NO_RESTOCK", "lineItem": { "id": "gid://shopify/LineItem/13715390464151" }, "priceSet": { "shopMoney": { "amount": "29.99", "currencyCode": "USD" } }, "restocked": false, "subtotalSet": { "shopMoney": { "amount": "29.99", "currencyCode": "USD" } }, "totalTaxSet": { "shopMoney": { "amount": "2.58", "currencyCode": "USD" } } }] },
+        "transactions": { "nodes": [{ "id": "gid://shopify/OrderTransaction/7129245155479", "order": { "id": "gid://shopify/Order/5906068897943" }, "kind": "REFUND", "gateway": "manual", "parentTransaction": { "id": "gid://shopify/OrderTransaction/7126018261143" }, "maximumRefundableV2": null, "amountSet": { "shopMoney": { "amount": "32.57", "currencyCode": "USD" } } }] },
+        "orderAdjustments": { "nodes": [] },
+        "totalRefundedSet": { "presentmentMoney": { "amount": "32.57" } }
+      }
+    }
+  }
+}

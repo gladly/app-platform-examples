@@ -4,478 +4,82 @@
       "edges": [
         {
           "node": {
-            "id": "gid://shopify/Order/5869612236951",
+            "id": "gid://shopify/Order/6014215684269",
             "fulfillable": false,
             "fulfillmentsCount": { "count": 1, "precision": "EXACT" },
+            "customer": { "id": "gid://shopify/Customer/6623755337901", "displayName": "Moriah Geer" },
             "fulfillments": [
               {
-                "id": "gid://shopify/Fulfillment/5146232586391",
-                "fulfillmentLineItems": {
-                  "edges": [
-                    {
-                      "node": {
-                        "id": "gid://shopify/FulfillmentLineItem/11685560877207",
-                        "quantity": 1,
-                        "originalTotalSet": {
-                          "shopMoney": { "amount": "55.0" }
-                        },
-                        "discountedTotalSet": {
-                          "shopMoney": { "amount": "55.0" }
-                        },
-                        "lineItem": {
-                          "id": "gid://shopify/LineItem/13629554098327"
-                        }
-                      }
-                    },
-                    {
-                      "node": {
-                        "id": "gid://shopify/FulfillmentLineItem/11685560909975",
-                        "quantity": 1,
-                        "originalTotalSet": {
-                          "shopMoney": { "amount": "89.0" }
-                        },
-                        "discountedTotalSet": {
-                          "shopMoney": { "amount": "89.0" }
-                        },
-                        "lineItem": {
-                          "id": "gid://shopify/LineItem/13629554131095"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "createdAt": "2024-12-15T12:53:49Z",
-                "updatedAt": "2024-12-15T12:53:49Z",
+                "id": "gid://shopify/Fulfillment/5453278511277",
+                "fulfillmentLineItems": { "edges": [{ "node": { "id": "gid://shopify/FulfillmentLineItem/12756013318317", "quantity": 1, "originalTotalSet": { "shopMoney": { "amount": "11.99" } }, "discountedTotalSet": { "shopMoney": { "amount": "11.99" } }, "lineItem": { "id": "gid://shopify/LineItem/14930639880365" } } }, { "node": { "id": "gid://shopify/FulfillmentLineItem/12756013351085", "quantity": 8, "originalTotalSet": { "shopMoney": { "amount": "115.12" } }, "discountedTotalSet": { "shopMoney": { "amount": "115.12" } }, "lineItem": { "id": "gid://shopify/LineItem/14930639913133" } } }] },
+                "createdAt": "2025-02-22T18:53:11Z",
+                "updatedAt": "2025-02-24T23:06:02Z",
                 "deliveredAt": null,
-                "displayStatus": "FULFILLED",
+                "displayStatus": "IN_TRANSIT",
                 "estimatedDeliveryAt": null,
-                "inTransitAt": null,
-                "name": "#1360-F1",
+                "inTransitAt": "2025-02-24T21:59:00Z",
+                "name": "#4059242-F1",
                 "originAddress": null,
                 "requiresShipping": true,
                 "status": "SUCCESS",
-                "trackingInfo": [
-                  {
-                    "company": "AGS",
-                    "number": "rgf",
-                    "url": "https://tracking.agsystems.com/"
-                  },
-                  {
-                    "company": "AGS",
-                    "number": "fggd",
-                    "url": "https://tracking.agsystems.com/"
-                  },
-                  {
-                    "company": "AGS",
-                    "number": "grbrg",
-                    "url": "https://tracking.agsystems.com/"
-                  }
-                ]
+                "trackingInfo": [{ "company": "FEDEX2", "number": "61290328866120575169", "url": "https://www.fedex.com/fedextrack/?trknbr=61290328866120575169" }]
               }
             ],
-            "statusPageUrl": "https://gladly-development.myshopify.com/47554330775/orders/87afc023adb60ef0f06998d6441b4ad0/authenticate?key=0603c7981d2e56719e9d2a363c9cbd11",
-            "createdAt": "2024-12-15T12:53:14Z",
-            "email": "andrii.kuftachov+admin@gladly.com",
-            "name": "#1360",
+            "statusPageUrl": "https://becausemarket.com/61841768621/orders/c7c17b312c796f7f7dff6134659ea328/authenticate?key=90faa26bea30d9f453e6a00065c3e2a6",
+            "createdAt": "2025-02-22T00:29:23Z",
+            "email": "morigeer@gmail.com",
+            "name": "#4059242",
             "note": null,
-            "tags": [],
-            "updatedAt": "2024-12-15T16:07:32Z",
+            "tags": ["3PL:Fosdick", "Netsuite:5417464", "Netsuite:created", "OrderType:Renewal"],
+            "updatedAt": "2025-02-24T23:06:02Z",
             "currencyCode": "USD",
             "cancelReason": null,
-            "currentSubtotalPriceSet": {
-              "presentmentMoney": { "amount": "144.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "144.0", "currencyCode": "USD" }
-            },
-            "currentTotalDiscountsSet": {
-              "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-            },
-            "currentTotalTaxSet": {
-              "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-            },
-            "currentTotalPriceSet": {
-              "presentmentMoney": { "amount": "144.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "144.0", "currencyCode": "USD" }
-            },
-            "subtotalPriceSet": {
-              "presentmentMoney": { "amount": "144.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "144.0", "currencyCode": "USD" }
-            },
+            "currentSubtotalPriceSet": { "presentmentMoney": { "amount": "127.11", "currencyCode": "USD" }, "shopMoney": { "amount": "127.11", "currencyCode": "USD" } },
+            "currentTotalDiscountsSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } },
+            "currentTotalTaxSet": { "presentmentMoney": { "amount": "6.99", "currencyCode": "USD" }, "shopMoney": { "amount": "6.99", "currencyCode": "USD" } },
+            "currentTotalPriceSet": { "presentmentMoney": { "amount": "134.1", "currencyCode": "USD" }, "shopMoney": { "amount": "134.1", "currencyCode": "USD" } },
+            "subtotalPriceSet": { "presentmentMoney": { "amount": "127.11", "currencyCode": "USD" }, "shopMoney": { "amount": "127.11", "currencyCode": "USD" } },
             "displayFinancialStatus": "PAID",
             "displayFulfillmentStatus": "FULFILLED",
-            "shippingAddress": {
-              "address1": "address1",
-              "address2": null,
-              "city": "city",
-              "province": "Madrid",
-              "provinceCode": "M",
-              "zip": "28806",
-              "country": "Spain",
-              "countryCode": "ES"
-            },
-            "shippingLines": { "edges": [] },
-            "billingAddress": {
-              "address1": "",
-              "address2": null,
-              "city": "",
-              "province": null,
-              "provinceCode": null,
-              "zip": null,
-              "country": "United States",
-              "countryCode": "US"
-            },
+            "shippingAddress": { "address1": "4 Bodwell st.", "address2": null, "city": "Old Town", "province": "Maine", "provinceCode": "ME", "zip": "04468", "country": "United States", "countryCode": "US" },
+            "shippingLines": { "edges": [{ "node": { "carrierIdentifier": "afedc08b31165df4c41d3d60cc6051dc", "code": "Standard", "custom": false, "id": "gid://shopify/ShippingLine/4900919771309", "phone": null, "source": "pdq-shipping", "title": "Standard" } }] },
+            "billingAddress": { "address1": "4 Bodwell st.", "address2": null, "city": "Old Town", "province": "Maine", "provinceCode": "ME", "zip": "04468", "country": "United States", "countryCode": "US" },
             "lineItems": {
               "edges": [
                 {
                   "node": {
-                    "id": "gid://shopify/LineItem/13629554098327",
-                    "name": "Cat Pajamas - Small",
+                    "id": "gid://shopify/LineItem/14930639880365",
+                    "name": "Because Disposable Bed Protectors - 30\" x 36\" / 10",
                     "product": {
-                      "id": "gid://shopify/Product/7451895464087",
-                      "title": "Cat Pajamas",
+                      "id": "gid://shopify/Product/7254938386605",
+                      "title": "Because Disposable Bed Protectors",
                       "status": "ACTIVE",
-                      "createdAt": "2022-02-28T22:47:35Z",
-                      "productType": "Sleepwear & Loungewear",
-                      "vendor": "gladly-development",
-                      "updatedAt": "2024-12-18T14:41:16Z",
-                      "tags": [],
-                      "variants": {
-                        "edges": [
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41799856586903",
-                              "title": "Small",
-                              "createdAt": "2022-02-28T22:47:35Z",
-                              "price": "55.00",
-                              "sku": "111-1",
-                              "updatedAt": "2024-12-15T12:53:16Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41799856619671",
-                              "title": "Medium",
-                              "createdAt": "2022-02-28T22:47:35Z",
-                              "price": "55.00",
-                              "sku": "111-2",
-                              "updatedAt": "2024-12-18T14:41:16Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41799856652439",
-                              "title": "Large",
-                              "createdAt": "2022-02-28T22:47:35Z",
-                              "price": "55.00",
-                              "sku": "111-3",
-                              "updatedAt": "2024-12-13T18:31:30Z"
-                            }
-                          }
-                        ]
-                      },
+                      "createdAt": "2022-09-30T15:16:01Z",
+                      "productType": "Bed Protectors",
+                      "vendor": "Drylock",
+                      "updatedAt": "2025-03-03T10:15:07Z",
+                      "tags": ["absmoderate", "absovernight", "Bladder Protection", "genmen", "genwomen", "padsguards"],
+                      "variants": { "edges": [{ "node": { "id": "gid://shopify/ProductVariant/41889958133933", "title": "30\" x 36\" / 10", "createdAt": "2022-09-30T15:16:01Z", "price": "13.32", "sku": "UIBAMX0NM010", "updatedAt": "2025-03-03T10:22:27Z" } }] },
                       "options": [
-                        {
-                          "name": "Size",
-                          "values": ["Small", "Medium", "Large"]
-                        }
+                        { "name": "Select Size", "values": ["30\" x 36\""] },
+                        { "name": "Select Pack Size", "values": ["10"] }
                       ]
                     },
                     "quantity": 1,
-                    "sku": "111-1",
-                    "originalUnitPriceSet": {
-                      "presentmentMoney": {
-                        "amount": "55.0",
-                        "currencyCode": "USD"
-                      },
-                      "shopMoney": { "amount": "55.0", "currencyCode": "USD" }
-                    },
+                    "sku": "UIBAMX0NM010",
+                    "originalUnitPriceSet": { "presentmentMoney": { "amount": "11.99", "currencyCode": "USD" }, "shopMoney": { "amount": "11.99", "currencyCode": "USD" } },
                     "isGiftCard": false,
-                    "totalDiscountSet": {
-                      "presentmentMoney": {
-                        "amount": "0.0",
-                        "currencyCode": "USD"
-                      },
-                      "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-                    },
-                    "variant": {
-                      "id": "gid://shopify/ProductVariant/41799856586903",
-                      "title": "Small"
-                    },
-                    "vendor": "gladly-development"
-                  }
-                },
-                {
-                  "node": {
-                    "id": "gid://shopify/LineItem/13629554131095",
-                    "name": "Jeans: Womens Comfort - 29",
-                    "product": {
-                      "id": "gid://shopify/Product/7469729644695",
-                      "title": "Jeans: Womens Comfort",
-                      "status": "ACTIVE",
-                      "createdAt": "2022-03-13T17:59:15Z",
-                      "productType": "Pants",
-                      "vendor": "gladly-development",
-                      "updatedAt": "2024-12-15T12:53:15Z",
-                      "tags": [],
-                      "variants": {
-                        "edges": [
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41845388083351",
-                              "title": "27",
-                              "createdAt": "2022-03-13T17:59:15Z",
-                              "price": "89.00",
-                              "sku": null,
-                              "updatedAt": "2024-12-02T10:52:50Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41845388116119",
-                              "title": "28",
-                              "createdAt": "2022-03-13T17:59:15Z",
-                              "price": "89.00",
-                              "sku": null,
-                              "updatedAt": "2024-11-25T13:26:50Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41845388148887",
-                              "title": "29",
-                              "createdAt": "2022-03-13T17:59:15Z",
-                              "price": "89.00",
-                              "sku": null,
-                              "updatedAt": "2024-12-15T12:53:15Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41845388050583",
-                              "title": "30",
-                              "createdAt": "2022-03-13T17:59:15Z",
-                              "price": "89.00",
-                              "sku": null,
-                              "updatedAt": "2023-10-27T18:08:38Z"
-                            }
-                          }
-                        ]
-                      },
-                      "options": [
-                        { "name": "Size", "values": ["27", "28", "29", "30"] }
-                      ]
-                    },
-                    "quantity": 1,
-                    "sku": null,
-                    "originalUnitPriceSet": {
-                      "presentmentMoney": {
-                        "amount": "89.0",
-                        "currencyCode": "USD"
-                      },
-                      "shopMoney": { "amount": "89.0", "currencyCode": "USD" }
-                    },
-                    "isGiftCard": false,
-                    "totalDiscountSet": {
-                      "presentmentMoney": {
-                        "amount": "0.0",
-                        "currencyCode": "USD"
-                      },
-                      "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-                    },
-                    "variant": {
-                      "id": "gid://shopify/ProductVariant/41845388148887",
-                      "title": "29"
-                    },
-                    "vendor": "gladly-development"
+                    "totalDiscountSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } },
+                    "variant": { "id": "gid://shopify/ProductVariant/41889958133933", "title": "30\" x 36\" / 10" },
+                    "vendor": "Drylock"
                   }
                 }
               ]
             },
-            "transactions": [
-              {
-                "id": "gid://shopify/OrderTransaction/7076053876887",
-                "createdAt": "2024-12-15T12:53:14Z",
-                "kind": "SALE",
-                "gateway": "manual",
-                "parentTransaction": null,
-                "amountSet": {
-                  "shopMoney": { "amount": "144.0", "currencyCode": "USD" }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "node": {
-            "id": "gid://shopify/Order/5866764009623",
-            "fulfillable": false,
-            "fulfillmentsCount": { "count": 0, "precision": "EXACT" },
-            "fulfillments": [],
-            "statusPageUrl": "https://gladly-development.myshopify.com/47554330775/orders/ad012aab7708f5b1fb6ea8960543eeb8/authenticate?key=d766a41e6c790246d1881ab5bb3906b5",
-            "createdAt": "2024-12-13T18:13:50Z",
-            "email": "andrii.kuftachov+admin@gladly.com",
-            "name": "#1355",
-            "note": null,
-            "tags": [],
-            "updatedAt": "2024-12-13T18:25:15Z",
-            "currencyCode": "USD",
-            "cancelReason": "CUSTOMER",
-            "currentSubtotalPriceSet": {
-              "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-            },
-            "currentTotalDiscountsSet": {
-              "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-            },
-            "currentTotalTaxSet": {
-              "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-            },
-            "currentTotalPriceSet": {
-              "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" },
-              "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-            },
-            "subtotalPriceSet": {
-              "presentmentMoney": { "amount": "29.99", "currencyCode": "USD" },
-              "shopMoney": { "amount": "29.99", "currencyCode": "USD" }
-            },
-            "displayFinancialStatus": "REFUNDED",
-            "displayFulfillmentStatus": "UNFULFILLED",
-            "shippingAddress": null,
-            "shippingLines": { "edges": [] },
-            "billingAddress": null,
-            "lineItems": {
-              "edges": [
-                {
-                  "node": {
-                    "id": "gid://shopify/LineItem/13624307515543",
-                    "name": "t-shirt (short):  product managers - Medium",
-                    "product": {
-                      "id": "gid://shopify/Product/7469735116951",
-                      "title": "t-shirt (short):  product managers",
-                      "status": "ACTIVE",
-                      "createdAt": "2022-03-13T18:13:46Z",
-                      "productType": "Shirts & Tops",
-                      "vendor": "gladly-development",
-                      "updatedAt": "2024-12-13T18:25:32Z",
-                      "tags": [],
-                      "variants": {
-                        "edges": [
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41845504639127",
-                              "title": "Small",
-                              "createdAt": "2022-03-13T18:13:46Z",
-                              "price": "29.99",
-                              "sku": null,
-                              "updatedAt": "2023-10-27T18:08:38Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41845504671895",
-                              "title": "Medium",
-                              "createdAt": "2022-03-13T18:13:46Z",
-                              "price": "29.99",
-                              "sku": null,
-                              "updatedAt": "2024-12-13T18:25:32Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41845504704663",
-                              "title": "Large",
-                              "createdAt": "2022-03-13T18:13:46Z",
-                              "price": "29.99",
-                              "sku": null,
-                              "updatedAt": "2023-10-27T18:08:38Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41845504737431",
-                              "title": "X-Large",
-                              "createdAt": "2022-03-13T18:13:46Z",
-                              "price": "29.99",
-                              "sku": null,
-                              "updatedAt": "2023-10-27T18:08:38Z"
-                            }
-                          }
-                        ]
-                      },
-                      "options": [
-                        {
-                          "name": "Size",
-                          "values": ["Small", "Medium", "Large", "X-Large"]
-                        }
-                      ]
-                    },
-                    "quantity": 1,
-                    "sku": null,
-                    "originalUnitPriceSet": {
-                      "presentmentMoney": {
-                        "amount": "29.99",
-                        "currencyCode": "USD"
-                      },
-                      "shopMoney": { "amount": "29.99", "currencyCode": "USD" }
-                    },
-                    "isGiftCard": false,
-                    "totalDiscountSet": {
-                      "presentmentMoney": {
-                        "amount": "0.0",
-                        "currencyCode": "USD"
-                      },
-                      "shopMoney": { "amount": "0.0", "currencyCode": "USD" }
-                    },
-                    "variant": {
-                      "id": "gid://shopify/ProductVariant/41845504671895",
-                      "title": "Medium"
-                    },
-                    "vendor": "gladly-development"
-                  }
-                }
-              ]
-            },
-            "transactions": [
-              {
-                "id": "gid://shopify/OrderTransaction/7071895355543",
-                "createdAt": "2024-12-13T18:13:50Z",
-                "kind": "SALE",
-                "gateway": "manual",
-                "parentTransaction": null,
-                "amountSet": {
-                  "shopMoney": { "amount": "32.57", "currencyCode": "USD" }
-                }
-              },
-              {
-                "id": "gid://shopify/OrderTransaction/7071921537175",
-                "createdAt": "2024-12-13T18:25:14Z",
-                "kind": "REFUND",
-                "gateway": "manual",
-                "parentTransaction": {
-                  "id": "gid://shopify/OrderTransaction/7071895355543"
-                },
-                "amountSet": {
-                  "shopMoney": { "amount": "32.57", "currencyCode": "USD" }
-                }
-              }
-            ]
+            "transactions": [{ "id": "gid://shopify/OrderTransaction/7628652413101", "createdAt": "2025-02-22T00:29:21Z", "kind": "SALE", "gateway": "shopify_payments", "parentTransaction": null, "amountSet": { "shopMoney": { "amount": "134.1", "currencyCode": "USD" } } }]
           }
         }
       ]
-    }
-  },
-  "extensions": {
-    "cost": {
-      "requestedQueryCost": 402,
-      "actualQueryCost": 24,
-      "throttleStatus": {
-        "maximumAvailable": 2000.0,
-        "currentlyAvailable": 1976,
-        "restoreRate": 100.0
-      }
     }
   }
 }

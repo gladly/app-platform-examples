@@ -1,0 +1,8 @@
+{
+  "status": "",
+  "statusCode": 403,
+  "headers": {
+    "response_header_name": []
+  },
+  "body": "{\"errors\": \"User does not have access\"}"
+}

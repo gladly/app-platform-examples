@@ -1,6 +1,7 @@
 {
   "configuration": {
-    "ordersLimit": 40
+    "ordersLimit": 1,
+    "shop": "gladly-development"
   },
   "secrets": {}
 }

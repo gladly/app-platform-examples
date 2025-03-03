@@ -1,0 +1,10 @@
+{
+  "orderId": "gid://shopify/Order/5825492418711",
+  "note": "Want to exchange for a different item",
+  "lineItemId": "gid://shopify/LineItem/13532516319383",
+  "quantity": 1,
+  "transactionGateway": "manual",
+  "transactionKind": "REFUND",
+  "transactionAmount": "55.00",
+  "transactionParentId": "gid://shopify/OrderTransaction/7011214688407"
+}

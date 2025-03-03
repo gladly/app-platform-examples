@@ -1,0 +1,4 @@
+{
+    "query": "\nmutation orderCancel($notifyCustomer: Boolean, $orderId: ID!, $reason: OrderCancelReason!, $refund: Boolean!, $restock: Boolean!, $staffNote: String) {\n    orderCancel(\n        notifyCustomer: $notifyCustomer, \n        orderId: $orderId, \n        reason: $reason, \n        refund: $refund, \n        restock: $restock, \n        staffNote: $staffNote\n    ) {\n        job {\n            id\n            done\n        }\n        orderCancelUserErrors {\n            code\n            field\n            message\n        }\n    }\n}\n",
+    "variables": {"orderId":"4459950243991","reason":"CUSTOMER","refund":true,"restock":true}
+}

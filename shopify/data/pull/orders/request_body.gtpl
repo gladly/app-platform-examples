@@ -7,36 +7,37 @@
 {{ $ol := .integration.configuration.ordersLimit}}
 {{- $ordersLimit := $ol | default 40 -}}
 
- {{- $customerId := splitList "/" $externalCustomer.id | last -}}
+{{- $customerId := splitList "/" $externalCustomer.id | last -}}
 
 {{$query := printf `
 query {
     orders(first: %v, reverse: true, query: "customer_id:'%s'", sortKey: UPDATED_AT) {
-        edges {
-            node {
+        nodes {
+            id
+            customer {
                 id
-                customer {
-                    id
-                }
-                fulfillable
-                fulfillmentsCount {count precision}
-                fulfillments {
+                displayName
+            }            
+            confirmationNumber
+            customer {
+                id
+            }
+            fulfillable
+            fulfillmentsCount {count precision}
+            fulfillments {
                     id
                     fulfillmentLineItems(first:10) {
-                        edges {
-                            node {
+                        nodes {
+                            id
+                            quantity
+                            originalTotalSet{
+                                shopMoney { amount currencyCode }
+                            }
+                            discountedTotalSet {
+                                shopMoney { amount currencyCode }
+                            }
+                            lineItem {
                                 id
-                                quantity
-                                originalTotalSet{
-                                    shopMoney {amount}
-                                }
-                                discountedTotalSet {
-                                    shopMoney {amount}
-                                }
-                                lineItem {
-                                    id
-                                    
-                                }
                             }
                         }
                     }
@@ -62,179 +63,143 @@ query {
                         number
                         url
                     }
+            }
+            statusPageUrl
+            createdAt
+            email
+            name
+            note
+            tags
+            updatedAt
+            currencyCode
+            cancelReason
+            currentSubtotalPriceSet {
+                shopMoney {
+                    amount
+                    currencyCode
                 }
-                statusPageUrl
-                createdAt
-                email
-                name
-                note
-                tags
-                updatedAt
-                currencyCode
-                cancelReason
-                currentSubtotalPriceSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
-                    shopMoney {
-                        amount
-                        currencyCode
-                    }
+            }
+            currentTotalDiscountsSet {
+                shopMoney {
+                    amount
+                    currencyCode
                 }
-                currentTotalDiscountsSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
-                    shopMoney {
-                        amount
-                        currencyCode
-                    }
+            }
+            currentTotalTaxSet {
+                shopMoney {
+                    amount
+                    currencyCode
                 }
-                currentTotalTaxSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
-                    shopMoney {
-                        amount
-                        currencyCode
-                    }
+            }
+            currentTotalPriceSet {
+                shopMoney {
+                    amount
+                    currencyCode
                 }
-                currentTotalPriceSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
-                    shopMoney {
-                        amount
-                        currencyCode
-                    }
+            }
+            subtotalPriceSet {
+                shopMoney {
+                    amount
+                    currencyCode
                 }
-                subtotalPriceSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
-                    shopMoney {
-                        amount
-                        currencyCode
-                    }
+            }
+            displayFinancialStatus
+            displayFulfillmentStatus
+            shippingAddress {
+                address1
+                address2
+                city
+                province
+                provinceCode
+                zip
+                country
+                countryCode
+            }
+            shippingLines(first: 10) {
+                nodes {
+                    carrierIdentifier
+                    code
+                    custom
+                    id
+                    phone
+                    source
+                    title
                 }
-                displayFinancialStatus
-                displayFulfillmentStatus
-                shippingAddress {
-                    address1
-                    address2
-                    city
-                    province
-                    provinceCode
-                    zip
-                    country
-                    countryCode
-                }
-                shippingLines(first: 10) {
-                    edges {
-                        node {
-                            carrierIdentifier
-                            code
-                            custom
+            }
+            billingAddress {
+                address1
+                address2
+                city
+                province
+                provinceCode
+                zip
+                country
+                countryCode
+            }
+            lineItems(first: 40) {
+                nodes {
+                        id
+                        name
+                        product {
                             id
-                            phone
-                            source
+                            title
+                            status
+                            createdAt
+                            productType
+                            vendor
+                            updatedAt
+                            tags
+                            variants(first: 10) {
+                                nodes {
+                                    id
+                                    title
+                                    createdAt
+                                    price
+                                    sku
+                                    updatedAt
+                                }
+                            }
+                            options {
+                                name
+                                values
+                            }
+                        }
+                        quantity
+                        sku
+                        originalUnitPriceSet {
+                            shopMoney {
+                                amount
+                                currencyCode
+                            }
+                        }
+                        isGiftCard
+                        totalDiscountSet {
+                            shopMoney {
+                                amount
+                                currencyCode
+                            }
+                        }
+                        variant {
+                            id
                             title
                         }
-                    }
+                        vendor
                 }
-                billingAddress {
-                    address1
-                    address2
-                    city
-                    province
-                    provinceCode
-                    zip
-                    country
-                    countryCode
-                }
-                lineItems(first: 40) {
-                    edges {
-                        node {
-                            id
-                            name
-                            product {
-                                id
-                                title
-                                status
-                                createdAt
-                                productType
-                                vendor
-                                updatedAt
-                                tags
-                                variants(first: 10) {
-                                    edges {
-                                        node {
-                                            id
-                                            title
-                                            createdAt
-                                            price
-                                            sku
-                                            updatedAt
-                                        }
-                                    }
-                                }
-                                options {
-                                    name
-                                    values
-                                }
-                            }
-                            quantity
-                            sku
-                            originalUnitPriceSet {
-                                presentmentMoney {
-                                    amount
-                                    currencyCode
-                                }
-                                shopMoney {
-                                    amount
-                                    currencyCode
-                                }
-                            }
-                            isGiftCard
-                            totalDiscountSet {
-                                presentmentMoney {
-                                    amount
-                                    currencyCode
-                                }
-                                shopMoney {
-                                    amount
-                                    currencyCode
-                                }
-                            }
-                            variant {
-                                id
-                                title
-                            }
-                            vendor
-                        }
-                    }
-                }
-                transactions(first: 5) {
+            }
+            transactions(first: 5) {
+                id
+                createdAt
+                kind
+                gateway
+                parentTransaction {
                     id
-                    createdAt
-                    kind
-                    gateway
-                    parentTransaction {
-                        id
-                    }
-                    amountSet {
-                        shopMoney {
-                            amount
-                            currencyCode
-                        }
+                }
+                amountSet {
+                    shopMoney {
+                        amount
+                        currencyCode
                     }
                 }
-
             }
         }
     }

@@ -7,7 +7,7 @@
     {{ end }}
 
     {{ if or (eq .response.statusCode 402) (eq .response.statusCode 403) (eq .response.statusCode 404) (eq .response.statusCode 423) }}
-        {{ fail .rawData.errors }}
+        {{ fail .rawData.errors }}s
     {{ end }}
 
     {{ range $k, $v := .rawData.errors }}
@@ -54,17 +54,18 @@
         "tags": {{ toJson $order.tags }},
         "created_at": {{ toJson $order.createdAt }},
         "updated_at": {{ toJson $order.updatedAt }},
+        "customerId": {{if $order.customer}}{{ toJson $order.customer.id }}{{else}}null{{end}},
         "line_items": [
             {{- range $index, $lineItemsEdge := $order.lineItems.edges -}}
             {{- $lineItem := $lineItemsEdge.node}}
             {
                 "id": "{{ $lineItem.id }}",
-                "name": "{{ $lineItem.name }}",
+                "name": {{ toJson $lineItem.name }},
                 "price": "{{ $lineItem.originalUnitPriceSet.presentmentMoney.amount }}",
                 {{- $product := $lineItem.product}}
                 "product": {
                     "id": "{{ $product.id }}",
-                    "title": "{{ $product.title }}",
+                    "title": {{ toJson $product.title }},
                     "status": "{{ $product.status }}",
                     "created_at": {{ toJson $product.createdAt }},
                     "product_type": "{{ $product.productType }}",
@@ -80,7 +81,7 @@
                             "created_at": {{ toJson $variant.createdAt }},
                             "id": "{{ $variant.id }}",
                             "price": "{{ $variant.price }}",
-                            "title": "{{ $variant.title }}",
+                            "title": {{ toJson $variant.title }},
                             "updated_at": {{ toJson $variant.updatedAt }}
                         }          
                         {{- if lt (add $index2 1) (len $product.variants.edges) -}},{{- end -}}
@@ -93,7 +94,7 @@
                 "total_discount": "{{ $lineItem.totalDiscountSet.presentmentMoney.amount }}",
                 {{- if ne $lineItem.variant nil -}}
                 "variant_id": "{{ $lineItem.variant.id }}",
-                "variant_title": "{{ $lineItem.variant.title }}",
+                "variant_title": {{ toJson $lineItem.variant.title }},
                 {{- end -}}
                 "vendor": "{{ $lineItem.vendor }}"
             }
@@ -125,7 +126,7 @@
                 "id": "{{ $lineItem.id }}",
                 "phone": {{ toJson $lineItem.phone }},
                 "source": "{{ $lineItem.source }}",
-                "title": "{{ $lineItem.title }}"
+                "title": {{ toJson $lineItem.title }}
             }
             {{- if lt (add $index 1) (len $order.shippingLines.edges) -}},{{- end -}}
             {{- end -}}

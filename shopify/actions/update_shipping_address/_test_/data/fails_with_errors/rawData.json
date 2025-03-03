@@ -1,0 +1,29 @@
+{
+  "errors": [
+    {
+      "message": "Variable $input of type OrderInput! was provided invalid value for shippingAddress.address3 (Field is not defined on MailingAddressInput)",
+      "locations": [{ "line": 1, "column": 22 }],
+      "extensions": {
+        "value": {
+          "id": "gid://shopify/Order/4459956043927",
+          "shippingAddress": {
+            "address1": "address1",
+            "address3": "address3",
+            "city": "City",
+            "country": "ES",
+            "lastName": "A",
+            "phone": "+34600600601",
+            "province": "Madrid",
+            "zip": "28806"
+          }
+        },
+        "problems": [
+          {
+            "path": ["shippingAddress", "address3"],
+            "explanation": "Field is not defined on MailingAddressInput"
+          }
+        ]
+      }
+    }
+  ]
+}

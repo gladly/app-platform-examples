@@ -1,0 +1,29 @@
+{
+  "recharge_customer": [
+    {
+      "analytics_data": {
+        "utm_params": []
+      },
+      "apply_credit_to_next_checkout_charge": false,
+      "apply_credit_to_next_recurring_charge": false,
+      "created_at": "2022-05-10T22:10:21+00:00",
+      "email": "example@email.com",
+      "external_customer_id": {
+        "ecommerce": "5566132519063"
+      },
+      "first_charge_processed_at": "2022-05-10T22:10:13+00:00",
+      "first_name": "FirstName",
+      "has_payment_method_in_dunning": false,
+      "has_valid_payment_method": true,
+      "hash": "180158069ff328b652c6646ae4d0f8",
+      "id": "86876670",
+      "last_name": "LastName",
+      "phone": "+13456705104",
+      "subscription_related_charge_streak": 0,
+      "subscriptions_active_count": 0,
+      "subscriptions_total_count": 3,
+      "tax_exempt": false,
+      "updated_at": "2025-01-29T12:53:01+00:00"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Gladly-OAuth-Nonce={{hmacSha256 .integration.secrets.client_secret "" .correlationId}}

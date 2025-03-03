@@ -1,0 +1,19 @@
+{
+  "shopify_customer": [
+    {
+      "id": "gid://shopify/Customer/5999224094871",
+      "email": "primary@email.com",
+      "phone": "+1234567890",
+      "number_of_orders": "6",
+      "first_name": "Carina",
+      "last_name": "Test-Gladly",
+      "default_address": { "address1": "xxx Some Address", "address2": "", "city": "Chandler", "country": "United States", "countryCode": "US", "formattedArea": "Chandler AZ, United States", "province": "Arizona", "provinceCode": "AZ", "zip": "85248" },
+      "total_spent": { "amount": "488.64", "currencyCode": "USD" },
+      "email_marketing_consent": { "consentUpdatedAt": "2022-03-13T18:26:47Z", "marketingOptInLevel": "SINGLE_OPT_IN", "marketingState": "SUBSCRIBED" },
+      "sms_marketing_consent": { "consentUpdatedAt": "2022-03-13T18:26:47Z", "marketingOptInLevel": "SINGLE_OPT_IN", "marketingState": "SUBSCRIBED" },
+      "lifetime_duration": "over 2 years",
+      "note": "",
+      "tags": ["big spender", "loyal", "superstar"]
+    }
+  ]
+}

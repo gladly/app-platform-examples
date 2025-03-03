@@ -1,0 +1,11 @@
+{
+  "request": {
+    "url": "http://localhost:8080/oauth/auth-code?hmac=9d0ffe47b1210aee98baeedc64d6e8a4ea5f600b47b61e81571ed147fcd0e9cd&state=vXmSEPjVSWCaCMzvjufxZg&timestamp=1732065696",
+    "method": "GET",
+    "headers": {
+      "Cookie": ["Gladly-OAuth-Nonce=b6780d647ee32f38293f29f607b25dd511863f5c5217df8adeac8ab88eda7c6a; HttpOnly"]
+    }
+  },
+  "code": "authorization-code",
+  "state": "vXmSEPjVSWCaCMzvjufxZg"
+}

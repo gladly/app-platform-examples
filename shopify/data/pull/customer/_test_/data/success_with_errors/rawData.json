@@ -1,0 +1,18 @@
+{
+  "errors": [
+    {
+      "message": "Some error",
+      "locations": [
+        {
+          "line": 2,
+          "column": 14
+        }
+      ],
+      "path": ["query", "customers", "first1"],
+      "extensions": {
+        "code": "someErrorCode",
+        "name": "customers"
+      }
+    }
+  ]
+}

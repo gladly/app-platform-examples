@@ -1,0 +1,24 @@
+{
+  "errors": [
+      {
+          "message": "Field 'orders' doesn't accept argument 'first1'",
+          "locations": [
+              {
+                  "line": 2,
+                  "column": 14
+              }
+          ],
+          "path": [
+              "query",
+              "orders",
+              "first1"
+          ],
+          "extensions": {
+              "code": "argumentNotAccepted",
+              "name": "orders",
+              "typeName": "Field",
+              "argumentName": "first1"
+          }
+      }
+  ]
+}

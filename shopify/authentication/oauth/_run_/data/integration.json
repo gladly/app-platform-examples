@@ -1,0 +1,9 @@
+{
+  "configuration": {
+    "shop": "<value>",
+    "client_id": "<value>"
+  },
+  "secrets": {
+    "client_secret" : "<value>"
+  }
+}

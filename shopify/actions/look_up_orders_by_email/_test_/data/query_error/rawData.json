@@ -1,0 +1,37 @@
+{
+    "errors": [
+        {
+            "message": "Field 'orders' doesn't accept argument 'unknown'",
+            "locations": [
+                {
+                    "line": 2,
+                    "column": 22
+                }
+            ],
+            "path": [
+                "query",
+                "orders",
+                "unknown"
+            ],
+            "extensions": {
+                "code": "argumentNotAccepted",
+                "name": "orders",
+                "typeName": "Field",
+                "argumentName": "unknown"
+            }
+        },
+        {
+            "message": "first cannot be negative",
+            "locations": [
+                {
+                    "line": 2,
+                    "column": 5
+                }
+            ],
+            "path": [
+                "orders"
+            ]
+        }
+    ],
+    "data": null
+}

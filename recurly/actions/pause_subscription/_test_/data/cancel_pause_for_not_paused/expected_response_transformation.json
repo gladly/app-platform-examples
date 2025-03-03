@@ -1,0 +1,1 @@
+{ "error": { "message": "Remaining pause cycles A scheduled pause must be for 1 or more pause cycles.", "params": [{ "message": "A scheduled pause must be for 1 or more pause cycles.", "param": "remaining_pause_cycles" }], "type": "validation" } }

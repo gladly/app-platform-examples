@@ -1,0 +1,1 @@
+{ "remaining_pause_cycles": {{ .inputs.remainingPauseCycles }} }

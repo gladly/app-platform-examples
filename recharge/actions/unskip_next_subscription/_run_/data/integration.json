@@ -1,0 +1,6 @@
+{
+  "configuration": {},
+  "secrets": {
+    "accessToken": "access_token"
+  }
+}

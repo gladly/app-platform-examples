@@ -1,0 +1,1 @@
+https://api.rechargeapps.com/subscriptions/585061940/cancel

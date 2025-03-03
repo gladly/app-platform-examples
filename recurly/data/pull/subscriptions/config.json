@@ -1,0 +1,8 @@
+{
+  "dataType": {
+    "name": "recurly_subscription",
+    "version": "1.0"
+  },
+  "httpMethod": "GET",
+  "dependsOnDataTypes": ["recurly_account"]
+}

@@ -1,0 +1,20 @@
+{
+    "query": "\nmutation M($input: RefundInput!) {\n    refundCreate(input: $input) {\n        userErrors {\n            field\n            message\n        }\n        refund {\n            id\n            note\n            createdAt\n            refundLineItems(first: 10) {\n                nodes {\n                    id\n                    quantity\n                    restockType\n                    lineItem {\n                        id\n                    }\n                    priceSet {\n                        shopMoney {\n                            amount\n                            currencyCode\n                        }\n                    }\n                    restocked\n                    subtotalSet {\n                        shopMoney {\n                            amount\n                            currencyCode\n                        }\n                    }\n                    totalTaxSet {\n                        shopMoney {\n                            amount\n                            currencyCode\n                        }\n                    }                        \n                }\n            }\n            transactions(first: 10) {\n                nodes {\n                        id\n                        order {\n                            id\n                        }\n                        kind\n                        gateway\n                        parentTransaction {\n                            id\n                        }\n                        maximumRefundableV2 {\n                            amount\n                        }\n                        amountSet {\n                            shopMoney {\n                                amount\n                                currencyCode\n                            }\n                        }\n                        status\n                        errorCode\n                }\n            }\n            orderAdjustments(first: 10) {\n                nodes {\n                        id\n                        amountSet {\n                            shopMoney {\n                                amount\n                                currencyCode\n                            }\n                        }\n                        taxAmountSet {\n                            shopMoney {\n                                amount\n                                currencyCode\n                            }\n                        }\n                        reason\n                }\n            }\n            totalRefundedSet {\n                shopMoney { amount currencyCode }\n            }\n        }\n    }\n}\n",
+    "variables": {
+        "input": {
+            "note": "Want to exchange for a different item",
+            "refundLineItems": [{
+                "lineItemId": "gid://shopify/LineItem/13532516319383",
+                "quantity": 1
+            }], 
+            "transactions": [{
+                    "orderId": "gid://shopify/Order/5825492418711",
+                    "amount": 55.00,
+                    "gateway": "manual",
+                    "kind": "REFUND",
+                    "parentId": "gid://shopify/OrderTransaction/7011214688407"
+            }],
+            "orderId": "gid://shopify/Order/5825492418711"
+        }
+    }
+}

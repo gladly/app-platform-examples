@@ -1,0 +1,8 @@
+{
+  "userErrors": [
+    {
+      "message": "Enter a city",
+      "field": "[shippingAddress city]"
+    }
+  ]
+}

@@ -4,16 +4,35 @@ type ProductOption {
   values: [String]
 }
 
+type Money {
+  ## Decimal money amount.
+  amount: Currency
+  ## Currency of the money.
+  currencyCode: String
+}
+
+## A collection of monetary values in their respective currencies. 
+## Typically used in the context of multi-currency pricing and transactions, 
+## when an amount in the shop's currency is converted to the customer's currency of choice.
+type MoneySet {
+  ## Amount in shop currency.
+  shop: Money
+}
+
+type LineItemOnlyId {
+  id: ID!
+}
+
 ## A product variant represents a different version of a product, such as differing sizes or differing colors.
 type Variant {
   id: ID!
   title: String
-  product_id: String
-  created_at: DateTime
+  productId: String
+  createdAt: DateTime
   price: Currency
   sku: String
-  updated_at: DateTime
-  inventory_quantity: Int
+  updatedAt: DateTime
+  inventoryQuantity: Int
 }
 
 enum ProductStatus {
@@ -32,12 +51,12 @@ type Product {
   id: ID!
   title: String
   status: ProductStatus
-  created_at: DateTime
-  product_type: String
+  createdAt: DateTime
+  productType: String
   vendor: String
-  updated_at: DateTime
+  updatedAt: DateTime
   tags: String
-  variants: [Variant]
+  variants: [Variant!]
   options: [ProductOption]
 }
 
@@ -45,14 +64,14 @@ type Product {
 type LineItem {
   id: ID!
   name: String
-  price: Currency
+  price: Money
   product: Product
   quantity: Int
   sku: String
-  gift_card: Boolean
-  total_discount: String
-  variant_id: Int
-  variant_title: String
+  giftCard: Boolean
+  totalDiscount: String
+  variantId: Int
+  variantTitle: String
   vendor: String
 }
 
@@ -72,21 +91,6 @@ type ShippingLine {
   source: String
   ## Returns the title of the shipping line.
   title: String!
-}
-
-## Represents the address of a location. used for billing and shipping addresses.
-type Address {
-  address1: String
-  address2: String
-  city: String
-  country_code: String
-  country: String
-  email: String
-  phone: String
-  province_code: String
-  province: String
-  state: String
-  zip: String
 }
 
 type ParentTransaction {
@@ -112,17 +116,128 @@ enum OrderTransactionKind {
   VOID
 }
 
-## transaction associated with the order.
-type Transaction {
+## A standardized error code, independent of the payment provider.
+enum OrderTransactionErrorCode {
+  ## The payment method was invalid.
+  AMAZON_PAYMENTS_INVALID_PAYMENT_METHOD
+
+  ## The maximum amount has been captured.
+  AMAZON_PAYMENTS_MAX_AMOUNT_CHARGED
+
+  ## The maximum amount has been refunded.
+  AMAZON_PAYMENTS_MAX_AMOUNT_REFUNDED
+
+  ## The maximum of 10 authorizations has been captured for an order.
+  AMAZON_PAYMENTS_MAX_AUTHORIZATIONS_CAPTURED
+
+  ## The maximum of 10 refunds has been processed for an order.
+  AMAZON_PAYMENTS_MAX_REFUNDS_PROCESSED
+
+  ## The order was canceled, which canceled all open authorizations.
+  AMAZON_PAYMENTS_ORDER_REFERENCE_CANCELED
+
+  ## The order was not confirmed within three hours.
+  AMAZON_PAYMENTS_STALE
+
+  ## Call the card issuer.
+  CALL_ISSUER
+
+  ## The card was declined.
+  CARD_DECLINED
+
+  ## There is an error in the gateway or merchant configuration.
+  CONFIG_ERROR
+
+  ## The card is expired.
+  EXPIRED_CARD
+
+  ## There was an unknown error with processing the payment.
+  GENERIC_ERROR
+
+  ## The address does not match the card number.
+  INCORRECT_ADDRESS
+
+  ## The CVC does not match the card number.
+  INCORRECT_CVC
+
+  ## The card number is incorrect.
+  INCORRECT_NUMBER
+
+  ## The entered PIN is incorrect.
+  INCORRECT_PIN
+
+  ## The ZIP or postal code does not match the card number.
+  INCORRECT_ZIP
+
+  ## The amount is either too high or too low for the provider.
+  INVALID_AMOUNT
+
+  ## The payment method is not available in the customer's country.
+  INVALID_COUNTRY
+
+  ## The format of the CVC is incorrect.
+  INVALID_CVC
+
+  ## The format of the expiry date is incorrect.
+  INVALID_EXPIRY_DATE
+
+  ## The format of the card number is incorrect.
+  INVALID_NUMBER
+
+  ## The payment method is momentarily unavailable.
+  PAYMENT_METHOD_UNAVAILABLE
+
+  ## The card has been reported as lost or stolen, and the card issuer has requested that the merchant keep the card and call the number on the back.
+  PICK_UP_CARD
+
+  ## There was an error while processing the payment.
+  PROCESSING_ERROR
+
+  ## A real card was used but the gateway was in test mode.
+  TEST_MODE_LIVE_CARD
+
+  ## The gateway or merchant configuration doesn't support a feature, such as network tokenization.
+  UNSUPPORTED_FEATURE
+}
+
+## he different states that an OrderTransaction can have.
+enum OrderTransactionStatus {
+  ## Awaiting a response.
+  AWAITING_RESPONSE
+
+  ## There was an error while processing the transaction.
+  ERROR
+
+  ## The transaction failed.
+  FAILURE
+
+  ## The transaction is pending.
+  PENDING
+
+  ## The transaction succeeded.
+  SUCCESS
+
+  ## The transaction status is unknown.
+  UNKNOWN
+}
+
+type ParentTransaction {
   id: ID!
-  amount: Currency
-  currency_code: String
-  created_at: DateTime
-  currency: String
+}
+
+## transaction associated with the order.
+type OrderTransaction {
+  ## A globally-unique ID.
+  id: ID!
+  ## he amount and currency of the transaction in shop and presentment currencies.
+  amountSet: MoneySet
+  createdAt: DateTime
   kind: OrderTransactionKind
-  status: String
+  status: OrderTransactionStatus
   gateway: String
-  parent_transaction: ParentTransaction
+  parentTransaction: ParentTransaction
+  ## A standardized error code, independent of the payment provider.
+  errorCode: OrderTransactionErrorCode
 }
 
 ## The financial status of the order that can be shown to the merchant.
@@ -244,80 +359,108 @@ type FulfillmentLineItem {
   ## Number of line items in the fulfillment.
   quantity: Int
   ## The total price before discounts are applied in shop and presentment currencies.
-  original_total: Currency
+  originalTotal: MoneySet
   ## The total price after discounts are applied in shop and presentment currencies.
-  discounted_total: Currency
+  discountedTotalSet: MoneySet
   ## The associated order's line item id.
-  line_item_id: ID!
+  lineItem: LineItemOnlyId!
+}
+
+type FulfillmentOriginAddress {
+  address1: String
+  address2: String
+  city: String
+  countryCode: String!
+  provinceCode: String
+  zip: String
 }
 
 type Fulfillment {
   ## A globally-unique ID.
   id: ID!
   ## The date and time when the fulfillment was created.
-  created_at: DateTime!
+  createdAt: DateTime!
   ## The date and time when the fulfillment was last modified.
-  updated_at: DateTime!
+  updatedAt: DateTime!
   ## The date that this fulfillment was delivered.
-  delivered_at: DateTime
+  deliveredAt: DateTime
 
   ## The status of the fulfillment.
-  display_status: FulfillmentDisplayStatus
+  displayStatus: FulfillmentDisplayStatus
   ## The status of the fulfillment.
   status: FulfillmentStatus!
 
   ## The estimated date that this fulfillment will arrive.
-  estimated_delivery_at: DateTime
+  estimatedDeliveryAt: DateTime
   ## The date and time when the fulfillment went into transit.
-  in_transit_at: DateTime
+  inTransitAt: DateTime
   ## Human readable reference identifier for this fulfillment.
   name: String!
   ## The address at which the fulfillment occurred.
-  origin_address: Address
+  originAddress: FulfillmentOriginAddress
 
   ## Whether any of the line items in the fulfillment require shipping.
-  requires_shipping: Boolean
+  requiresShipping: Boolean
 
   ## Tracking information associated with the fulfillment, such as the tracking company, tracking number, and tracking URL.
-  tracking_info: [FulfillmentTrackingInfo!]!
+  trackingInfo: [FulfillmentTrackingInfo!]!
 
-  fulfillment_line_items: [FulfillmentLineItem!]!
+  fulfillmentLineItems: [FulfillmentLineItem!]!
+}
+
+type MailingAddress {
+  address1: String
+  address2: String
+  city: String
+  company: String
+  country: String
+  countryCodeV2: String
+  firstName: String
+  lastName: String
+  name: String
+  phone: String
+  province: String
+  provinceCode: String
+  zip: String
+}
+
+type CustomerInfo {
+  id: ID!
+  displayName: String
 }
 
 ## An order from Shopify
 type Order {
   id: ID!
-
+  confirmationNumber: String
+  customer: CustomerInfo
   ## Whether there are line items that can be fulfilled. This field returns false when the order has no fulfillable line items.
   fulfillable: Boolean!
   ## The count of fulfillments including the cancelled fulfillments.
-  fulfillments_count: Int
+  fulfillmentsCount: Int
   ## List of shipments for the order.
   fulfillments: [Fulfillment]
-
-  order_number: String!
   name: String!
   email: String
-  currency: String
-  current_subtotal_price: String
-  current_total_discounts: String
-  current_total_tax: String
-  current_total_price: String
-  cancel_reason: ShopifyOrderCancelReason
+  currentSubtotalPriceSet: MoneySet
+  currentTotalDiscountsSet: MoneySet
+  currentTotalTaxSet: MoneySet
+  currentTotalPriceSet: MoneySet
+  cancelReason: ShopifyOrderCancelReason
   note: String
   tags: [String]
-  created_at: DateTime
-  updated_at: DateTime
-  financial_status: OrderDisplayFinancialStatus
-  fulfillment_status: OrderDisplayFulfillmentStatus
-  billing_address: Address
-  shipping_address: Address
+  createdAt: DateTime
+  updatedAt: DateTime
+  financialStatus: OrderDisplayFinancialStatus
+  fulfillmentStatus: OrderDisplayFulfillmentStatus
+  billingAddress: MailingAddress
+  shippingAddress: MailingAddress
   ## Represents the shipping details that the customer chose for their order.
-  shipping_lines: [ShippingLine]
-  order_status_url: String
-  line_items: [LineItem]
+  shippingLines: [ShippingLine]
+  orderStatusUrl: String
+  lineItems: [LineItem]
   ## A list of transactions associated with the order.
-  transactions: [Transaction]
+  transactions: [OrderTransaction]
 }
 
 type ShopifyError {
@@ -332,22 +475,226 @@ type OrderResult {
   errors: [ShopifyError]
 }
 
-type RefundTransaction {
-  orderId: ID!
-  ## The amount of money for this transaction.
-  amount: Currency!
-  ## The kind of transaction.
-  kind: String!
-  ## The payment gateway to use for this transaction.
-  gateway: String!
-  ## The ID of the optional parent transaction, for example the authorization of a capture.
-  parentId: ID
-}
-
 ## the result of looking up an orders by email
 type OrdersResult {
   orders: [Order!]
   errors: [ShopifyError]
+}
+
+## The type of restock for the refunded line item.
+enum RefundLineItemRestockType {
+  ## The refund line item was canceled. Use this when restocking unfulfilled line items.
+  CANCEL
+  ## Deprecated. The refund line item was restocked, without specifically being identified as a return or cancelation. This value is not accepted when creating new refunds.
+  LEGACY_RESTOCK
+  ## Refund line item was not restocked.
+  NO_RESTOCK
+  ## The refund line item was returned. Use this when restocking line items that were fulfilled.
+  RETURN
+}
+
+type RefundLineItem {
+  id: ID
+  quantity: Int!
+  restockType: RefundLineItemRestockType!
+  lineItem: LineItemOnlyId!
+  priceSet: MoneySet!
+  restocked: Boolean!
+  subtotalSet: MoneySet!
+  totalTaxSet: MoneySet!
+}
+
+type RefundResult {
+  id: ID!
+  createdAt: DateTime!
+  note: String
+  transactions: [OrderTransaction!]!
+  refundLineItems: [RefundLineItem!]
+}
+
+## Whether to send a notification to the customer about the order cancellation.
+enum CancelOrderReason {
+  """
+  The customer wanted to cancel the order.
+  """
+  CUSTOMER
+  """
+  Payment was declined.
+  """
+  DECLINED
+  """
+  The order was fraudulent.
+  """
+  FRAUD
+  """
+  There was insufficient inventory.
+  """
+  INVENTORY
+  """
+  The order was canceled for an unlisted reason.
+  """
+  OTHER
+  """
+  Staff made an error.
+  """
+  STAFF
+}
+
+type UserError {
+  message: String!
+  field: String
+}
+
+enum OrderCancelUserErrorCode {
+  ## The input value is invalid.
+  INVALID
+  ## The record with the ID used as the input value couldn't be found.
+  NOT_FOUND
+  ## An order refund was requested but the user does not have the refund_orders permission.
+  NO_REFUND_PERMISSION
+}
+
+type OrderCancelUserError {
+  message: String!
+  code: OrderCancelUserErrorCode!
+  field: String
+}
+
+type CancelOrderResult {
+  jobId: ID
+  done: Boolean
+  errors: [ShopifyError]
+  ## The list of errors that occurred from executing the mutation.
+  userErrors: [OrderCancelUserError]
+}
+
+type RefundLineItemResult {
+  id: ID
+  createdAt: DateTime
+  note: String
+  transactions: [OrderTransaction!]
+  refundLineItems: [RefundLineItem!]
+  errors: [ShopifyError]
+  ## The list of errors that occurred from executing the mutation.
+  userErrors: [UserError]
+}
+
+## The record of the line items and transactions that were refunded to a customer, along with restocking instructions for refunded line items.
+type OrderRefund {
+  id: ID!
+  note: String
+  totalRefundedSet: MoneySet
+}
+
+type OrderCancelInformation {
+  name: String!
+  cancelledAt: DateTime
+  cancelReason: ShopifyOrderCancelReason
+  refunds: [OrderRefund]
+}
+
+## Returns a Job resource by ID. Used to check the status of internal jobs and any applicable changes. (i.e. order cancellation)
+type JobStatus {
+  ## The ID of the job.
+  id: ID
+  done: Boolean
+  order: OrderCancelInformation
+  errors: [ShopifyError]
+  userErrors: [UserError]
+}
+
+## A suggested transaction. Suggested transaction are usually used in the context of refunds and exchanges.
+## https://shopify.dev/docs/api/admin-graphql/2024-10/objects/SuggestedOrderTransaction
+type SuggestedOrderTransaction {
+  ## The masked account number associated with the payment method.
+  accountNumber: String
+  ## The amount of the suggested order transaction in shop.
+  amountSet: MoneySet
+  ## The human-readable payment gateway name suggested to process the transaction.
+  formattedGateway: String
+  ## The suggested payment gateway used to process the transaction.
+  gateway: String
+  ## Specifies the kind of the suggested order transaction.
+  kind: OrderTransactionKind!
+  ## Specifies the available amount to refund on the gateway in shop currencies. Only available within SuggestedRefund.
+  maximumRefundableSet: MoneySet
+  ## The associated parent transaction ID, for example the authorization of a capture.
+  parentTransaction: ParentTransaction
+}
+
+## Represents the shipping costs refunded on the Refund.
+## https://shopify.dev/docs/api/admin-graphql/2024-10/objects/ShippingRefund
+type ShippingRefund {
+  ## The monetary value of the shipping fees to be refunded.
+  amountSet: MoneySet!
+  ## The maximum amount of shipping fees currently refundable.
+  maximumRefundableSet: MoneySet!
+  ## The monetary value of the tax allocated to shipping fees to be refunded.
+  taxSet: MoneySet!
+}
+
+## The duty details for a line item.
+type Duty {
+  ## The ISO 3166-1 alpha-2 country code of the country of origin used in calculating the duty.
+  countryCodeOfOrigin: String
+  ## The harmonized system code of the item used in calculating the duty.
+  harmonizedSystemCode: String
+  ## A globally-unique ID.
+  id: ID!
+  ## The amount of the duty.
+  price: MoneySet!
+}
+
+## Represents a refunded duty.
+## https://shopify.dev/docs/api/admin-graphql/2024-10/objects/RefundDuty
+type RefundDuty {
+  ## The amount of a refunded duty in shop currencies.
+  amountSet: MoneySet!
+  ## The duty associated with this refunded duty.
+  originalDuty: Duty
+}
+
+## Represents a refund suggested by Shopify based on the items being reimbursed. You can then use the suggested refund object to generate an actual refund.
+## https://shopify.dev/docs/api/admin-graphql/2024-10/objects/SuggestedRefund
+type SuggestedRefund {
+  ## The total monetary value to be refunded in shop currencies.
+  amountSet: MoneySet!
+  ## The sum of all the discounted prices of the line items being refunded.
+  discountedSubtotalSet: MoneySet!
+  ## The total monetary value available to refund in shop currencies.
+  maximumRefundableSet: MoneySet!
+  ## The sum of all the prices of the line items being refunded in shop currencies.
+  subtotalSet: MoneySet!
+  ## The total cart discount amount that was applied to all line items in this refund.
+  totalCartDiscountAmountSet: MoneySet!
+  ## The sum of all the duties being refunded from the order in shop currencies. The value must be positive.
+  totalDutiesSet: MoneySet!
+  ## The sum of the taxes being refunded from the order in shop currencies. The value must be positive.
+  totalTaxSet: MoneySet!
+  ## suggested order transaction.
+  suggestedTransactions: SuggestedOrderTransaction!
+  ## The shipping costs to be refunded from the order.
+  shipping: ShippingRefund!
+  ## A list of line items to be refunded, along with restock instructions.
+  refundLineItems: [RefundLineItem!]!
+  ## A list of duties to be refunded from the order.
+  refundDuties: [RefundDuty!]!
+}
+
+type SuggestedRefundResult {
+  errors: [ShopifyError]
+  suggestedRefund: SuggestedRefund
+}
+
+type UpdateShippingAddressResult {
+  order: Order
+  errors: [ShopifyError]
+  userErrors: [UserError]
+}
+
+type UserError {
+  message: String!
+  field: [String!]
 }
 
 type Query {
@@ -355,6 +702,41 @@ type Query {
     "The unique identifier for the order that appears on the order page in the Shopify admin and the Order status page. For example, " #1001", "EN1001", or "1001-A". This value isn't unique across multiple stores."
     orderNum: String!
   ): OrderResult @action(name: "look_up_order_by_order_num")
-  lookupOrdersByEmail(email: String!): OrdersResult
-    @action(name: "look_up_orders_by_email")
+
+  lookupOrdersByEmail(email: String!): OrdersResult @action(name: "look_up_orders_by_email")
+
+  jobStatus("The ID of the job." jobId: ID!, "The order ID related the job." orderId: ID!): JobStatus @action(name: "job_status")
+
+  suggestedRefund(orderId: ID!, lineItemId: ID!, quantity: Int): SuggestedRefundResult @action(name: "suggested_refund")
+}
+
+type Mutation {
+  cancelOrder(
+    "The ID of the order to be canceled."
+    orderId: ID!
+
+    "The reason for canceling the order."
+    reason: CancelOrderReason!
+
+    "Whether to refund the amount paid by the customer."
+    refund: Boolean!
+
+    "Whether to restock the inventory committed to the order. For unpaid orders fulfilled from locations that have been deactivated, inventory will not be restocked to the deactivated locations even if this argument is set to true."
+    restock: Boolean!
+
+    "A staff-facing note about the order cancellation. This is not visible to the customer. default: null"
+    staffNote: String
+  ): CancelOrderResult @action(name: "cancel_order")
+
+  jobStatus(
+    "The ID of the job."
+    jobId: ID!
+
+    "The order ID related the job."
+    orderId: ID!
+  ): JobStatus @action(name: "job_status")
+
+  refundLineItem(notify: Boolean, note: String, orderId: ID!, lineItemId: ID!, quantity: Int!, transactionAmount: Currency!, transactionGateway: String!, transactionKind: OrderTransactionKind!, transactionParentId: ID): RefundLineItemResult @action(name: "refund_line_item")
+
+  updateShippingAddress(orderId: ID!, address1: String, address2: String, city: String, country_code: String, country: String, email: String, phone: String, province_code: String, province: String, state: String, zip: String): UpdateShippingAddressResult @action(name: "update_shipping_address")
 }

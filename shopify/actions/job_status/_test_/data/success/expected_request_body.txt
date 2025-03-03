@@ -1,0 +1,3 @@
+{
+    "query":"\nquery jobStatus($jobId: ID!, $orderId: ID!) {\n  job(id: $jobId) {\n    id\n    done\n    query {\n      order(id: $orderId) {\n          name\n          cancelledAt\n          cancelReason\n          refunds(first: 10) {\n            id\n            note\n            totalRefundedSet {\n              shopMoney {\n                amount\n                currencyCode\n              }\n            }\n          }\n        }\n    }\n  }\n}\n",
+    "variables":{"jobId":"gid://shopify/Job/0dc20457-a372-4c18-ad5d-67d0e29590a1"}}

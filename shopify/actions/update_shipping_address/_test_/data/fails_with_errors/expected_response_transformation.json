@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "message": "Variable $input of type OrderInput! was provided invalid value for shippingAddress.address3 (Field is not defined on MailingAddressInput)",
+      "code": null
+    }
+  ]
+}

@@ -726,6 +726,9 @@ type Mutation {
 
     "A staff-facing note about the order cancellation. This is not visible to the customer. default: null"
     staffNote: String
+
+    "Whether to notify the customer about the action being performed, such as order cancellation or refund."
+    notifyCustomer: Boolean, 
   ): CancelOrderResult @action(name: "cancel_order")
 
   jobStatus(

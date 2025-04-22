@@ -564,7 +564,6 @@ type CancelOrderResult {
   jobId: ID
   done: Boolean
   errors: [ShopifyError]
-  ## The list of errors that occurred from executing the mutation.
   userErrors: [OrderCancelUserError]
 }
 
@@ -575,7 +574,6 @@ type RefundLineItemResult {
   transactions: [OrderTransaction!]
   refundLineItems: [RefundLineItem!]
   errors: [ShopifyError]
-  ## The list of errors that occurred from executing the mutation.
   userErrors: [UserError]
 }
 

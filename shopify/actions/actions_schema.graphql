@@ -705,12 +705,21 @@ type Query {
 
   lookupOrdersByEmail(email: String!): OrdersResult @action(name: "look_up_orders_by_email")
 
-  jobStatus("The ID of the job." jobId: ID!, "The order ID related the job." orderId: ID!): JobStatus @action(name: "job_status")
+  jobStatus(
+    "The ID of the job."
+    jobId: ID!
+
+    "The order ID related the job."
+    orderId: ID!
+  ): JobStatus @action(name: "job_status")
+
 
   suggestedRefund(orderId: ID!, lineItemId: ID!, quantity: Int): SuggestedRefundResult @action(name: "suggested_refund")
 }
 
 type Mutation {
+"Mutation to cancel an order with options for refund, restocking, and customer notification."
+cancelOrder(
   cancelOrder(
     "The ID of the order to be canceled."
     orderId: ID!
@@ -730,14 +739,6 @@ type Mutation {
     "Whether to notify the customer about the action being performed, such as order cancellation or refund."
     notifyCustomer: Boolean, 
   ): CancelOrderResult @action(name: "cancel_order")
-
-  jobStatus(
-    "The ID of the job."
-    jobId: ID!
-
-    "The order ID related the job."
-    orderId: ID!
-  ): JobStatus @action(name: "job_status")
 
   refundLineItem(notify: Boolean, note: String, orderId: ID!, lineItemId: ID!, quantity: Int!, transactionAmount: Currency!, transactionGateway: String!, transactionKind: OrderTransactionKind!, transactionParentId: ID): RefundLineItemResult @action(name: "refund_line_item")
 

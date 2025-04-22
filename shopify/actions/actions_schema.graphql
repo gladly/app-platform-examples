@@ -561,7 +561,10 @@ type OrderCancelUserError {
 }
 
 type CancelOrderResult {
+  ## The unique identifier for the job associated with the order cancellation.
   jobId: ID
+
+  ## Indicates whether the order cancellation process is complete.
   done: Boolean
   errors: [ShopifyError]
   userErrors: [OrderCancelUserError]

@@ -11,16 +11,15 @@ type Money {
   currencyCode: String
 }
 
-## A collection of monetary values in their respective currencies. 
-## Typically used in the context of multi-currency pricing and transactions, 
+## A collection of monetary values in their respective currencies.
+## Typically used in the context of multi-currency pricing and transactions,
 ## when an amount in the shop's currency is converted to the customer's currency of choice.
 type MoneySet {
   ## Amount in shop currency.
-  shop: Money
-}
+  shopMoney: Money
 
-type LineItemOnlyId {
-  id: ID!
+  ## Amount in presentment currency.
+  presentmentMoney: Money
 }
 
 ## A product variant represents a different version of a product, such as differing sizes or differing colors.
@@ -363,7 +362,7 @@ type FulfillmentLineItem {
   ## The total price after discounts are applied in shop and presentment currencies.
   discountedTotalSet: MoneySet
   ## The associated order's line item id.
-  lineItem: LineItemOnlyId!
+  lineItem: LineItem!
 }
 
 type FulfillmentOriginAddress {
@@ -497,7 +496,7 @@ type RefundLineItem {
   id: ID
   quantity: Int!
   restockType: RefundLineItemRestockType!
-  lineItem: LineItemOnlyId!
+  lineItem: LineItem!
   priceSet: MoneySet!
   restocked: Boolean!
   subtotalSet: MoneySet!
@@ -561,10 +560,9 @@ type OrderCancelUserError {
 }
 
 type CancelOrderResult {
-  ## The unique identifier for the job associated with the order cancellation.
+  ## The ID of the job, used to track the status of internal operations.
   jobId: ID
-
-  ## Indicates whether the order cancellation process is complete.
+  ## Indicates whether the job has been completed.
   done: Boolean
   errors: [ShopifyError]
   userErrors: [OrderCancelUserError]
@@ -596,8 +594,9 @@ type OrderCancelInformation {
 
 ## Returns a Job resource by ID. Used to check the status of internal jobs and any applicable changes. (i.e. order cancellation)
 type JobStatus {
-  ## The ID of the job.
+  ## The ID of the job, used to track the status of internal operations.
   id: ID
+  ## Indicates whether the job has been completed.
   done: Boolean
   order: OrderCancelInformation
   errors: [ShopifyError]
@@ -706,21 +705,16 @@ type Query {
 
   lookupOrdersByEmail(email: String!): OrdersResult @action(name: "look_up_orders_by_email")
 
-  jobStatus(
-    "The ID of the job."
-    jobId: ID!
-
-    "The order ID related the job."
-    orderId: ID!
-  ): JobStatus @action(name: "job_status")
-
+  jobStatus("The ID of the job." jobId: ID!, "The order ID related the job." orderId: ID!): JobStatus @action(name: "job_status")
 
   suggestedRefund(orderId: ID!, lineItemId: ID!, quantity: Int): SuggestedRefundResult @action(name: "suggested_refund")
 }
 
 type Mutation {
-"Mutation to cancel an order with options for refund, restocking, and customer notification."
-cancelOrder(
+  """
+  Mutation to cancel an order with options for refund, restocking, and customer notification.
+  This is an asynchronous task and will return a jobId to track the status of the operation.
+  """
   cancelOrder(
     "The ID of the order to be canceled."
     orderId: ID!
@@ -738,7 +732,7 @@ cancelOrder(
     staffNote: String
 
     "Whether to notify the customer about the action being performed, such as order cancellation or refund."
-    notifyCustomer: Boolean, 
+    notifyCustomer: Boolean
   ): CancelOrderResult @action(name: "cancel_order")
 
   refundLineItem(notify: Boolean, note: String, orderId: ID!, lineItemId: ID!, quantity: Int!, transactionAmount: Currency!, transactionGateway: String!, transactionKind: OrderTransactionKind!, transactionParentId: ID): RefundLineItemResult @action(name: "refund_line_item")

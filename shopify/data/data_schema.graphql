@@ -1,4 +1,4 @@
-## Represents the address of a location. used for billing and shipping addresses.
+## Represents a mailing address, commonly used for billing and shipping purposes.
 type MailingAddress {
   address1: String
   address2: String
@@ -30,7 +30,11 @@ type Money {
 }
 
 type MoneySet {
-  shop: Money
+  ## Amount in shop currency.
+  shopMoney: Money
+
+  ## Amount in presentment currency.
+  presentmentMoney: Money
 }
 
 enum FulfillmentStatus {
@@ -48,8 +52,56 @@ enum FulfillmentStatus {
   PENDING
 }
 
-type LineItemOnlyId {
+## Product property names like "Size", "Color", and "Material" that the customers can select.
+type ProductOption {
+  name: String!
+  values: [String]
+}
+
+## A product variant represents a different version of a product, such as differing sizes or differing colors.
+type Variant {
   id: ID!
+  title: String
+  createdAt: DateTime
+  price: Currency
+  sku: String
+  updatedAt: DateTime
+  inventoryQuantity: Int
+}
+
+enum ProductStatus {
+  ACTIVE
+  ARCHIVED
+  DRAFT
+}
+
+## A product represents an individual item for sale in a Shopify store
+type Product {
+  id: ID!
+  title: String
+  status: ProductStatus
+  createdAt: DateTime
+  productType: String
+  vendor: String
+  updatedAt: DateTime
+  tags: String
+  variants: [Variant!]
+  options: [ProductOption]
+}
+
+## Represents a single line in an order. There is one line item for each distinct product variant.
+type LineItem {
+  id: ID!
+  name: String
+  price: Money
+  product: Product
+  quantity: Int
+  sku: String
+  giftCard: Boolean
+  totalDiscount: String
+  variantId: Int
+  variantTitle: String
+  vendor: String
 }
 
 ## Represents a line item from an order that's included in a fulfillment.
@@ -61,7 +113,7 @@ type FulfillmentLineItem {
   ## The total price after discounts are applied in shop and presentment currencies.
   discountedTotalSet: MoneySet
   ## The associated order's line item id.
-  lineItem: LineItemOnlyId!
+  lineItem: LineItem!
 }
 
 enum FulfillmentDisplayStatus {
@@ -158,58 +210,6 @@ type Fulfillment {
   trackingInfo: [FulfillmentTrackingInfo!]!
 
   fulfillmentLineItems: [FulfillmentLineItem!]!
-}
-
-## Product property names like "Size", "Color", and "Material" that the customers can select.
-type ProductOption {
-  name: String!
-  values: [String]
-}
-
-## A product variant represents a different version of a product, such as differing sizes or differing colors.
-type Variant {
-  id: ID!
-  title: String
-  createdAt: DateTime
-  price: Currency
-  sku: String
-  updatedAt: DateTime
-  inventoryQuantity: Int
-}
-
-enum ProductStatus {
-  ACTIVE
-  ARCHIVED
-  DRAFT
-}
-
-## A product represents an individual item for sale in a Shopify store
-type Product {
-  id: ID!
-  title: String
-  status: ProductStatus
-  createdAt: DateTime
-  productType: String
-  vendor: String
-  updatedAt: DateTime
-  tags: String
-  variants: [Variant!]
-  options: [ProductOption]
-}
-
-## Represents a single line in an order. There is one line item for each distinct product variant.
-type LineItem {
-  id: ID!
-  name: String
-  price: Money
-  product: Product
-  quantity: Int
-  sku: String
-  giftCard: Boolean
-  totalDiscount: String
-  variantId: Int
-  variantTitle: String
-  vendor: String
 }
 
 ## Represents a shipping line for a Shop Pay payment request.
@@ -358,7 +358,6 @@ enum OrderTransactionStatus {
   UNKNOWN
 }
 
-
 enum OrderTransactionKind {
   ## An amount reserved against the cardholder's funding source. Money does not change hands until the authorization is captured.
   AUTHORIZATION
@@ -414,7 +413,7 @@ type Order @dataType(name: "shopify_order", version: "3.0") {
   fulfillments: [Fulfillment]
   name: String!
   email: String
-  
+
   customer: CustomerInfo
   customerId: ID!
 

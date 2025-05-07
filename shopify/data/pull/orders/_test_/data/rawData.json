@@ -1,216 +1,209 @@
 {
   "data": {
     "orders": {
-      "edges": [
+      "nodes": [
         {
-          "node": {
-            "id": "gid://shopify/Order/4602612154519",
-            "customer": {
-              "id": "gid://shopify/Customer/5999224094871"
+          "id": "gid://shopify/Order/4602612154519",
+          "fulfillable": false,
+          "customer": {
+            "displayName": "Jon Doe",
+            "id": "gid://shopify/Customer/7711469076631"
+          },
+          "confirmationNumber": "XW52L5HCU",
+          "statusPageUrl": "https://gladly-development.myshopify.com/47554330775/orders/e7bcdb7edcd1a42a2eda083b586c266e/authenticate?key=1336dc7625f78fb28e1c647998573b42",
+          "createdAt": "2022-06-10T21:08:24Z",
+          "email": "primary@email.com",
+          "name": "#1044",
+          "note": null,
+          "tags": [],
+          "updatedAt": "2022-06-10T21:09:59Z",
+          "currencyCode": "USD",
+          "cancelReason": null,
+          "currentSubtotalPriceSet": {
+            "presentmentMoney": {
+              "amount": "99.0",
+              "currencyCode": "USD"
             },
-            "statusPageUrl": "https://gladly-development.myshopify.com/47554330775/orders/e7bcdb7edcd1a42a2eda083b586c266e/authenticate?key=1336dc7625f78fb28e1c647998573b42",
-            "createdAt": "2022-06-10T21:08:24Z",
-            "email": "primary@email.com",
-            "name": "#1044",
-            "note": null,
-            "tags": [],
-            "updatedAt": "2022-06-10T21:09:59Z",
-            "currencyCode": "USD",
-            "cancelReason": null,
-            "currentSubtotalPriceSet": {
-              "presentmentMoney": {
-                "amount": "99.0",
-                "currencyCode": "USD"
-              },
-              "shopMoney": {
-                "amount": "99.0",
-                "currencyCode": "USD"
-              }
+            "shopMoney": {
+              "amount": "99.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalDiscountsSet": {
+            "presentmentMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
             },
-            "currentTotalDiscountsSet": {
-              "presentmentMoney": {
-                "amount": "0.0",
-                "currencyCode": "USD"
-              },
-              "shopMoney": {
-                "amount": "0.0",
-                "currencyCode": "USD"
-              }
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalTaxSet": {
+            "presentmentMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
             },
-            "currentTotalTaxSet": {
-              "presentmentMoney": {
-                "amount": "0.0",
-                "currencyCode": "USD"
-              },
-              "shopMoney": {
-                "amount": "0.0",
-                "currencyCode": "USD"
-              }
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalPriceSet": {
+            "presentmentMoney": {
+              "amount": "99.0",
+              "currencyCode": "USD"
             },
-            "currentTotalPriceSet": {
-              "presentmentMoney": {
-                "amount": "99.0",
-                "currencyCode": "USD"
-              },
-              "shopMoney": {
-                "amount": "99.0",
-                "currencyCode": "USD"
-              }
+            "shopMoney": {
+              "amount": "99.0",
+              "currencyCode": "USD"
+            }
+          },
+          "subtotalPriceSet": {
+            "presentmentMoney": {
+              "amount": "99.0",
+              "currencyCode": "USD"
             },
-            "subtotalPriceSet": {
-              "presentmentMoney": {
-                "amount": "99.0",
-                "currencyCode": "USD"
-              },
-              "shopMoney": {
-                "amount": "99.0",
-                "currencyCode": "USD"
-              }
-            },
-            "displayFinancialStatus": "PARTIALLY_REFUNDED",
-            "displayFulfillmentStatus": "UNFULFILLED",
-            "shippingAddress": {
-              "address1": "1281 West Bartlett Way",
-              "address2": "",
-              "city": "Chandler",
-              "province": "Arizona",
-              "provinceCode": "AZ",
-              "zip": "85248",
-              "country": "United States",
-              "countryCode": "US"
-            },
-            "shippingLines": {
-              "edges": []
-            },
-            "billingAddress": {
-              "address1": "1281 West Bartlett Way",
-              "address2": "",
-              "city": "Chandler",
-              "province": "Arizona",
-              "provinceCode": "AZ",
-              "zip": "85248",
-              "country": "United States",
-              "countryCode": "US"
-            },
-            "lineItems": {
-              "edges": [
-                {
-                  "node": {
-                    "id": "gid://shopify/LineItem/11166584701079",
-                    "name": "t-shirt (short):  Cat Shirt - Small",
-                    "product": {
-                      "id": "gid://shopify/Product/7175822475415",
-                      "title": "t-shirt (short):  Cat Shirt",
-                      "status": "ACTIVE",
-                      "createdAt": "2021-09-22T16:15:58Z",
-                      "productType": "Shirts & Tops",
-                      "vendor": "gladly-development",
-                      "updatedAt": "2024-12-03T11:30:06Z",
-                      "tags": [],
-                      "variants": {
-                        "edges": [
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41799856357527",
-                              "title": "Small",
-                              "createdAt": "2022-02-28T22:47:09Z",
-                              "price": "99.00",
-                              "sku": "09876",
-                              "updatedAt": "2023-10-27T18:08:37Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41799856390295",
-                              "title": "Medium",
-                              "createdAt": "2022-02-28T22:47:09Z",
-                              "price": "99.00",
-                              "sku": "09877",
-                              "updatedAt": "2024-11-25T13:26:50Z"
-                            }
-                          },
-                          {
-                            "node": {
-                              "id": "gid://shopify/ProductVariant/41799856423063",
-                              "title": "Large",
-                              "createdAt": "2022-02-28T22:47:09Z",
-                              "price": "99.00",
-                              "sku": "09878",
-                              "updatedAt": "2024-12-03T11:30:04Z"
-                            }
-                          }
-                        ]
-                      },
-                      "options": [
-                        {
-                          "name": "Size",
-                          "values": ["Small", "Medium", "Large"]
-                        }
-                      ]
-                    },
-                    "quantity": 1,
-                    "sku": "09876",
-                    "originalUnitPriceSet": {
-                      "presentmentMoney": {
-                        "amount": "99.0",
-                        "currencyCode": "USD"
-                      },
-                      "shopMoney": {
-                        "amount": "99.0",
-                        "currencyCode": "USD"
-                      }
-                    },
-                    "isGiftCard": false,
-                    "totalDiscountSet": {
-                      "presentmentMoney": {
-                        "amount": "0.0",
-                        "currencyCode": "USD"
-                      },
-                      "shopMoney": {
-                        "amount": "0.0",
-                        "currencyCode": "USD"
-                      }
-                    },
-                    "variant": {
-                      "id": "gid://shopify/ProductVariant/41799856357527",
-                      "title": "Small"
-                    },
-                    "vendor": "gladly-development"
-                  }
-                }
-              ]
-            },
-            "transactions": [
+            "shopMoney": {
+              "amount": "99.0",
+              "currencyCode": "USD"
+            }
+          },
+          "displayFinancialStatus": "PARTIALLY_REFUNDED",
+          "displayFulfillmentStatus": "UNFULFILLED",
+          "shippingAddress": {
+            "address1": "1281 West Bartlett Way",
+            "address2": "",
+            "city": "Chandler",
+            "province": "Arizona",
+            "provinceCode": "AZ",
+            "zip": "85248",
+            "country": "United States",
+            "countryCode": "US"
+          },
+          "shippingLines": {
+            "nodes": []
+          },
+          "billingAddress": {
+            "address1": "1281 West Bartlett Way",
+            "address2": "",
+            "city": "Chandler",
+            "province": "Arizona",
+            "provinceCode": "AZ",
+            "zip": "85248",
+            "country": "United States",
+            "countryCode": "US"
+          },
+          "lineItems": {
+            "nodes": [
               {
-                "id": "gid://shopify/OrderTransaction/5503969034391",
-                "createdAt": "2022-06-10T21:08:24Z",
-                "kind": "SALE",
-                "gateway": "manual",
-                "parentTransaction": null,
-                "amountSet": {
+                "id": "gid://shopify/LineItem/11166584701079",
+                "name": "t-shirt (short):  Cat Shirt - Small",
+                "product": {
+                  "id": "gid://shopify/Product/7175822475415",
+                  "title": "t-shirt (short):  Cat Shirt",
+                  "status": "ACTIVE",
+                  "createdAt": "2021-09-22T16:15:58Z",
+                  "productType": "Shirts & Tops",
+                  "vendor": "gladly-development",
+                  "updatedAt": "2024-12-03T11:30:06Z",
+                  "tags": [],
+                  "variants": {
+                    "nodes": [
+                      {
+                        "id": "gid://shopify/ProductVariant/41799856357527",
+                        "title": "Small",
+                        "createdAt": "2022-02-28T22:47:09Z",
+                        "price": "99.00",
+                        "sku": "09876",
+                        "updatedAt": "2023-10-27T18:08:37Z"
+                      },
+                      {
+                        "id": "gid://shopify/ProductVariant/41799856390295",
+                        "title": "Medium",
+                        "createdAt": "2022-02-28T22:47:09Z",
+                        "price": "99.00",
+                        "sku": "09877",
+                        "updatedAt": "2024-11-25T13:26:50Z"
+                      },
+                      {
+                        "id": "gid://shopify/ProductVariant/41799856423063",
+                        "title": "Large",
+                        "createdAt": "2022-02-28T22:47:09Z",
+                        "price": "99.00",
+                        "sku": "09878",
+                        "updatedAt": "2024-12-03T11:30:04Z"
+                      }
+                    ]
+                  },
+                  "options": [
+                    {
+                      "name": "Size",
+                      "values": ["Small", "Medium", "Large"]
+                    }
+                  ]
+                },
+                "quantity": 1,
+                "sku": "09876",
+                "originalUnitPriceSet": {
+                  "presentmentMoney": {
+                    "amount": "99.0",
+                    "currencyCode": "USD"
+                  },
                   "shopMoney": {
                     "amount": "99.0",
                     "currencyCode": "USD"
                   }
-                }
-              },
-              {
-                "id": "gid://shopify/OrderTransaction/5503971000471",
-                "createdAt": "2022-06-10T21:09:59Z",
-                "kind": "REFUND",
-                "gateway": "manual",
-                "parentTransaction": {
-                  "id": "gid://shopify/OrderTransaction/5503969034391"
                 },
-                "amountSet": {
+                "isGiftCard": false,
+                "totalDiscountSet": {
+                  "presentmentMoney": {
+                    "amount": "0.0",
+                    "currencyCode": "USD"
+                  },
                   "shopMoney": {
-                    "amount": "11.0",
+                    "amount": "0.0",
                     "currencyCode": "USD"
                   }
-                }
+                },
+                "variant": {
+                  "id": "gid://shopify/ProductVariant/41799856357527",
+                  "title": "Small"
+                },
+                "vendor": "gladly-development"
               }
             ]
-          }
+          },
+          "transactions": [
+            {
+              "id": "gid://shopify/OrderTransaction/5503969034391",
+              "createdAt": "2022-06-10T21:08:24Z",
+              "kind": "SALE",
+              "gateway": "manual",
+              "parentTransaction": null,
+              "amountSet": {
+                "shopMoney": {
+                  "amount": "99.0",
+                  "currencyCode": "USD"
+                }
+              }
+            },
+            {
+              "id": "gid://shopify/OrderTransaction/5503971000471",
+              "createdAt": "2022-06-10T21:09:59Z",
+              "kind": "REFUND",
+              "gateway": "manual",
+              "parentTransaction": {
+                "id": "gid://shopify/OrderTransaction/5503969034391"
+              },
+              "amountSet": {
+                "shopMoney": {
+                  "amount": "11.0",
+                  "currencyCode": "USD"
+                }
+              }
+            }
+          ]
         }
       ]
     }

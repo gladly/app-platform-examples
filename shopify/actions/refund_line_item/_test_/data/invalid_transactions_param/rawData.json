@@ -1,0 +1,17 @@
+{
+  "data": {
+    "refundCreate": {
+      "userErrors": [
+        {
+          "field": ["transactions"],
+          "message": "Transactions require a parent_id associated with the order"
+        },
+        {
+          "field": ["refundLineItems", "0", "lineItemId"],
+          "message": "Line item can't be blank"
+        }
+      ],
+      "refund": null
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "input": {
+    "subscriptionId": "test-subscription-id",
+    "shouldSendNotif": true
+  }
+}

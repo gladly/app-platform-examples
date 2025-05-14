@@ -1,0 +1,35 @@
+{
+  "data": {
+    "StorefrontUsers": [
+      {
+        "id": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+        "email": "primary@email.com",
+        "firstName": "Sam",
+        "lastName": "Boonba",
+        "phoneNumber": "+1234567890",
+        "platformId": "gid://shopify/Customer/7827118522567",
+        "createdAt": "2025-04-02T11:03:06.720361+00:00",
+        "updatedAt": "2025-04-02T17:18:02.398227+00:00",
+        "Subscriptions": [
+          {
+            "id": "sub-456",
+            "status": "CANCELLED",
+            "createdAt": "2025-03-01T10:00:00.000Z",
+            "updatedAt": "2025-04-01T10:00:00.000Z",
+            "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+            "BillingPolicy": {
+              "id": "bp-2",
+              "interval": "MONTH",
+              "intervalCount": 1
+            },
+            "DeliveryPolicy": {
+              "id": "dp-2",
+              "interval": "MONTH",
+              "intervalCount": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

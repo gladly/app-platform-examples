@@ -1,0 +1,8 @@
+{
+  "dataType": {
+    "name": "skio_storefront_user",
+    "version": "2.0"
+  },
+  "httpMethod": "POST",
+  "contentType": "application/graphql"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "John Doe",
+  "address": "123 Main St, Anytown, USA",
+  "primaryEmailAddress": "primary@email.com",
+  "emailAddresses": [
+    "primary@email.com",
+    "j.doe@work.com",
+    "johnny@personal.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+447883727933",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+447883727933",
+      "type": "MOBILE"
+    },
+    {
+      "number": "+14155552672",
+      "type": "HOME"
+    },
+    {
+      "number": "+14155552673",
+      "type": "MOBILE"
+    },
+    {
+      "number": "+14155552674",
+      "type": "OFFICE"
+    }
+  ]
+}

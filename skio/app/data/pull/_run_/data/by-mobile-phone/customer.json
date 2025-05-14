@@ -1,0 +1,12 @@
+{
+  "phoneNumbers": [
+    {
+      "number": "+447888727888",
+      "type": "MOBILE"
+    },
+    {
+      "number": "+447888727889",
+      "type": "HOME"
+    }
+  ]
+}

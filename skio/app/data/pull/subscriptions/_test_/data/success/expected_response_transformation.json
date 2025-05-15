@@ -1,0 +1,88 @@
+[
+  {
+    "BillingPolicy": {
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    },
+    "createdAt": "2025-04-23T13:30:03.189513+00:00",
+    "currencyCode": "USD",
+    "cyclesCompleted": 1,
+    "DeliveryPolicy": {
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "id": "9adb5633-f5d0-4a53-b4d5-a800c2bd2f76",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    },
+    "id": "feb6b3f2-7ba3-47ba-9869-8e7a5cee11e1",
+    "SubscriptionLines": [
+      {
+        "ProductVariant": {
+          "Product": { "title": "Membership Subscription" },
+          "title": "Default Title"
+        },
+        "id": "6606d87e-4596-44bd-88f2-d5c1d8bc65d6",
+        "isPrepaid": false,
+        "priceWithoutDiscount": 8.3,
+        "quantity": 1,
+        "sellingPlanId": "ed35c96a-fb22-4708-b180-7d12eef0fb1c"
+      }
+    ],
+    "nextBillingDate": "2025-05-23T13:30:02.021+00:00",
+    "platformId": "gid://shopify/SubscriptionContract/16778854599",
+    "status": "ACTIVE",
+    "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f"
+  },
+  {
+    "BillingPolicy": {
+      "createdAt": "2025-04-02T11:03:15.576783+00:00",
+      "id": "a23f5788-f259-414c-bc4d-1e8fb8f3b484",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "updatedAt": "2025-04-02T11:03:15.576783+00:00"
+    },
+    "cancelledAt": "2025-04-10T16:09:52.962+00:00",
+    "createdAt": "2025-04-02T11:03:15.576783+00:00",
+    "currencyCode": "USD",
+    "cyclesCompleted": 1,
+    "DeliveryPolicy": {
+      "createdAt": "2025-04-02T11:03:15.576783+00:00",
+      "id": "084eae4f-14e8-4a82-80d7-9e01c15d611f",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "updatedAt": "2025-04-02T11:03:15.576783+00:00"
+    },
+    "id": "1e671650-4876-4e80-a0b7-130f355281ac",
+    "SubscriptionLines": [
+      {
+        "ProductVariant": {
+          "Product": { "title": "Membership Subscription" },
+          "title": "Default Title"
+        },
+        "id": "277e148e-7947-43c3-8922-d23e7226531d",
+        "isPrepaid": false,
+        "priceWithoutDiscount": 8.3,
+        "quantity": 1,
+        "sellingPlanId": "ed35c96a-fb22-4708-b180-7d12eef0fb1c"
+      }
+    ],
+    "platformId": "gid://shopify/SubscriptionContract/16458875079",
+    "status": "CANCELLED",
+    "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f"
+  }
+]

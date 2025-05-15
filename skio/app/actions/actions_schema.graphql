@@ -1,0 +1,204 @@
+"""
+Additional details and context about the error.
+"""
+type SkioErrorExtensions {
+  code: String!
+  path: String
+  detail: String
+}
+
+type SkioError {
+  """
+  The main error message provided by Skio.
+  Example: "Lambda policy revoked"
+  """
+  message: String!
+  extensions: SkioErrorExtensions
+}
+
+"""
+A product represents an item that can be sold in your store.
+"""
+type Product {
+  title: String
+}
+
+"""
+A specific version of a product, like different sizes or colors
+"""
+type ProductVariant {
+  title: String
+  Product: Product
+}
+
+"""
+A policy defines the frequency and rules for billing or delivery
+"""
+type Policy {
+  id: String
+  interval: String
+  intervalCount: Int
+  isMaxCycleV2: Boolean
+  maxCycles: Int
+  minCycles: Int
+  createdAt: String
+  updatedAt: String
+}
+
+"""
+A line item in a subscription, representing one product variant being subscribed to
+"""
+type SubscriptionLine {
+  id: String
+  priceWithoutDiscount: Float
+  quantity: Int
+  isPrepaid: Boolean
+  ordersRemaining: Int
+  sellingPlanId: String
+  ProductVariant: ProductVariant
+}
+
+"""
+A subscription object containing key details.
+Matches the structure needed by the getSubscriptionById action.
+"""
+type Subscription {
+  id: String
+  platformId: String
+  storefrontUserId: String
+  status: String
+  currencyCode: String
+  cyclesCompleted: Int
+  createdAt: String
+  updatedAt: String
+  cancelledAt: String
+  nextBillingDate: String
+  SubscriptionLines: [SubscriptionLine]
+  BillingPolicy: Policy
+  DeliveryPolicy: Policy
+}
+
+# Cancel Subscription Action Types
+input CancelSubscriptionInput {
+  subscriptionId: String!
+  shouldSendNotif: Boolean
+}
+
+type CancelSubscriptionOutput {
+  ok: Boolean
+  errors: [SkioError!]
+}
+
+# Pause Subscription Action Types
+"""
+Output for the pauseSubscription action.
+"""
+type PauseSubscriptionOutput {
+  """
+  Response message from Skio.
+  """
+  message: String
+  """
+  Indicates if the operation was successful. Note: Skio returns `true` even if the subscription was already paused.
+  """
+  ok: Boolean
+  errors: [SkioError!]
+}
+
+# Ship Now Action Types
+"""
+Output for the shipNow action.
+"""
+type ShipNowOutput {
+  """
+  Success message from Skio.
+  """
+  message: String
+  """
+  Indicates if the operation was successful.
+  """
+  ok: Boolean
+  errors: [SkioError!]
+}
+
+"""
+Output for the getSubscriptionById query.
+"""
+type GetSubscriptionByIdOutput {
+  errors: [SkioError!]
+  subscription: Subscription
+}
+
+"""
+A customer with their subscriptions.
+"""
+type CustomerWithSubscriptionsOutput {
+  id: String
+  email: String
+  firstName: String
+  lastName: String
+  phoneNumber: String
+  platformId: String
+  createdAt: String
+  updatedAt: String
+  Subscriptions: [Subscription]
+}
+
+"""
+Output for the getCustomers action.
+"""
+type GetCustomersOutput {
+  customers: [CustomerWithSubscriptionsOutput]
+  errors: [SkioError!]
+}
+
+# Queries
+type Query {
+  """
+  Fetches details of a specific subscription by its ID.
+  This is useful for checking the current status (e.g., ACTIVE, CANCELLED).
+
+  Uses the Skio GraphQL API endpoint: https://graphql.skio.com/v1/graphql
+  API Documentation: https://code.skio.com/
+
+  The query returns:
+  - Basic subscription information (id, status, dates)
+  - Subscription lines with product details
+  - Only active subscription lines (where removedAt is null)
+  - Product variant and product information
+  """
+  getSubscriptionById(subscriptionId: String!): GetSubscriptionByIdOutput
+    @action(name: "getSubscriptionById")
+
+  """
+  Retrieves customers by email or phone number, including their subscriptions.
+  Returns an array of customers (with subscriptions) matching the provided email or phone number.
+  """
+  getCustomers(email: String, phone: String): [CustomerWithSubscriptionsOutput]
+    @action(name: "getCustomers")
+}
+
+# Mutations
+type Mutation {
+  """
+  Cancels a customer's subscription in Skio.
+  This marks the subscription as cancelled and handles prepaid subscriptions appropriately.
+  Note: This action will report success (`ok: true`) even if the subscription ID does not exist or the subscription was already cancelled.
+  """
+  cancelSubscription(
+    input: CancelSubscriptionInput!
+  ): CancelSubscriptionOutput! @action(name: "cancelSubscription")
+
+  """
+  Triggers an immediate, unscheduled shipment for a specified subscription.
+  """
+  shipNow(subscriptionId: String!): ShipNowOutput @action(name: "shipNow")
+
+  """
+  Pauses a customer's subscription in Skio.
+  This temporarily stops the subscription from being billed and shipped.
+  Note: This action will report success (`ok: true`) even if the subscription ID does not exist or the subscription was already paused.
+  """
+  pauseSubscription(subscriptionId: String!): PauseSubscriptionOutput!
+    @action(name: "pauseSubscription")
+}

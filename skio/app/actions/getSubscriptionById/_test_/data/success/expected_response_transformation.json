@@ -1,0 +1,50 @@
+{
+  "subscription": {
+    "id": "1e671650-4876-4e80-a0b7-130f355281ac",
+    "status": "CANCELLED",
+    "createdAt": "2025-04-02T11:03:15.576783+00:00",
+    "nextBillingDate": null,
+    "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+    "BillingPolicy": {
+      "id": "billing-policy-1",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": false,
+      "maxCycles": null,
+      "minCycles": 1,
+      "createdAt": "2025-04-02T11:03:15.576783+00:00",
+      "updatedAt": "2025-04-02T11:03:15.576783+00:00"
+    },
+    "DeliveryPolicy": {
+      "id": "delivery-policy-1",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": false,
+      "maxCycles": null,
+      "minCycles": 1,
+      "createdAt": "2025-04-02T11:03:15.576783+00:00",
+      "updatedAt": "2025-04-02T11:03:15.576783+00:00"
+    },
+    "SubscriptionLines": [
+      {
+        "id": "line-1",
+        "priceWithoutDiscount": 29.99,
+        "quantity": 1,
+        "isPrepaid": false,
+        "ordersRemaining": null,
+        "sellingPlanId": "plan-1",
+        "ProductVariant": {
+          "title": "Large",
+          "Product": {
+            "title": "T-Shirt"
+          }
+        }
+      }
+    ],
+    "platformId": "gid://shopify/SubscriptionContract/16458875079",
+    "currencyCode": "USD",
+    "cyclesCompleted": 1,
+    "cancelledAt": "2025-04-10T16:09:52.962+00:00",
+    "updatedAt": "2025-04-10T17:46:31.356263+00:00"
+  }
+}

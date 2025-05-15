@@ -1,0 +1,3 @@
+{
+  "query": "\nquery {\n    StorefrontUsers(\n        where: {\n            _or: [{email: {_eq: \"primary@email.com\"}}, {email: {_eq: \"primary@email.com\"}}, {email: {_eq: \"j.doe@work.com\"}}, {email: {_eq: \"johnny@personal.com\"}}, {phoneNumber: {_eq: \"+447883727933\"}}, {phoneNumber: {_eq: \"+447883727933\"}}, {phoneNumber: {_eq: \"+14155552673\"}}]\n        }\n    ) {\n        id\n        email\n        firstName\n        lastName\n        phoneNumber\n        platformId\n        createdAt\n        updatedAt\n    }\n}\n"
+}

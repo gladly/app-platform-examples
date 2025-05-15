@@ -1,0 +1,3 @@
+{
+  "query": "\nquery {\n    StorefrontUsers(\n        where: {\n            _or: [{email: {_eq: \"%!s(\u003cnil\u003e)\"}}, {phoneNumber: {_eq: \"%!s(\u003cnil\u003e)\"}}, {phoneNumber: {_eq: \"+447888727888\"}}]\n        }\n    ) {\n        id\n        email\n        firstName\n        lastName\n        phoneNumber\n        platformId\n        createdAt\n        updatedAt\n    }\n}\n"
+}

@@ -1,0 +1,6 @@
+{
+  "query": "mutation PauseSubscription($subscriptionId: String!) { pauseSubscription(input: {subscriptionId: $subscriptionId}) { message ok } }",
+  "variables": {
+    "subscriptionId": "11111111-1111-1111-1111-111111111111"
+  }
+}

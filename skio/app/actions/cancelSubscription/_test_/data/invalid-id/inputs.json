@@ -1,0 +1,6 @@
+{
+  "input": {
+    "subscriptionId": "invalid-id",
+    "shouldSendNotif": true
+  }
+}

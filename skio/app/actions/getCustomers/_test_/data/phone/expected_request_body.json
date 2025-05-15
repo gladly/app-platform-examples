@@ -1,0 +1,3 @@
+{
+  "query": "\nquery {\n  StorefrontUsers(where: {_or: [{phoneNumber: {_eq: \"+447888727888\"}}]}) {\n    id\n    email\n    firstName\n    lastName\n    phoneNumber\n    platformId\n    createdAt\n    updatedAt\n    Subscriptions {\n      id\n      status\n      createdAt\n      updatedAt\n      storefrontUserId\n      BillingPolicy {\n        id\n        interval\n        intervalCount\n      }\n      DeliveryPolicy {\n        id\n        interval\n        intervalCount\n      }\n    }\n  }\n}\n"
+}

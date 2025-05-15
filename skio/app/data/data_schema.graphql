@@ -1,0 +1,225 @@
+"""
+A product represents an item that can be sold in your store.
+"""
+type Product {
+  """
+  The name of the product as it appears in your store
+  """
+  title: String!
+}
+
+"""
+A specific version of a product, like different sizes or colors
+"""
+type ProductVariant {
+  """
+  The name of this specific variant (e.g., "Large", "Blue")
+  """
+  title: String!
+  """
+  The parent product this variant belongs to
+  """
+  Product: Product!
+}
+
+"""
+A line item in a subscription, representing one product variant being subscribed to
+"""
+type SubscriptionLine {
+  """
+  Unique identifier for this subscription line
+  """
+  id: String!
+  """
+  The price of the product before any discounts are applied
+  """
+  priceWithoutDiscount: Float!
+  """
+  The specific product variant being subscribed to
+  """
+  ProductVariant: ProductVariant!
+  """
+  The quantity of this product in the subscription
+  """
+  quantity: Int
+  """
+  Whether this is a prepaid subscription line
+  """
+  isPrepaid: Boolean
+  """
+  Number of orders remaining for prepaid subscriptions
+  """
+  ordersRemaining: Int
+  """
+  The ID of the selling plan associated with this line
+  """
+  sellingPlanId: String
+}
+
+"""
+A policy defines the frequency and rules for billing or delivery
+"""
+type Policy {
+  """
+  Unique identifier for this policy
+  """
+  id: String!
+  """
+  The interval of the policy (e.g., DAY, WEEK, MONTH)
+  """
+  interval: String!
+  """
+  The number of intervals between occurrences
+  """
+  intervalCount: Int!
+  """
+  Whether this policy uses the v2 max cycles feature
+  """
+  isMaxCycleV2: Boolean
+  """
+  Maximum number of cycles for this policy
+  """
+  maxCycles: Int
+  """
+  Minimum number of cycles for this policy
+  """
+  minCycles: Int
+  """
+  When this policy was created
+  """
+  createdAt: String!
+  """
+  When this policy was last updated
+  """
+  updatedAt: String!
+}
+
+"""
+A subscription represents a customer's recurring order
+"""
+type SkioSubscription @dataType(name: "skio_subscription", version: "1.0") {
+  """
+  Unique identifier for this subscription
+  """
+  id: String!
+  """
+  Current status of the subscription (e.g., ACTIVE, CANCELLED)
+  """
+  status: String!
+  """
+  When the subscription was first created
+  """
+  createdAt: String!
+  """
+  The next date when the subscription will be billed
+  """
+  nextBillingDate: String
+  """
+  The ID of the customer who owns this subscription
+  """
+  storefrontUserId: String!
+  """
+  The products included in this subscription
+  """
+  SubscriptionLines: [SubscriptionLine]!
+  """
+  The ID of this subscription in your Shopify store
+  """
+  platformId: String!
+  """
+  The currency code for this subscription (e.g., USD)
+  """
+  currencyCode: String
+  """
+  Number of billing cycles completed
+  """
+  cyclesCompleted: Int
+  """
+  When the subscription was cancelled, if applicable
+  """
+  cancelledAt: String
+  """
+  When the subscription was last updated
+  """
+  updatedAt: String
+  """
+  The billing policy for this subscription
+  """
+  BillingPolicy: Policy
+  """
+  The delivery policy for this subscription
+  """
+  DeliveryPolicy: Policy
+}
+
+"""
+A customer in your store who can have subscriptions
+"""
+type SkioStorefrontUser
+  @dataType(name: "skio_storefront_user", version: "1.0") {
+  """
+  Unique identifier for this customer
+  """
+  id: String!
+  """
+  The customer's email address
+  """
+  email: String!
+  """
+  The customer's first name
+  """
+  firstName: String
+  """
+  The customer's last name
+  """
+  lastName: String
+  """
+  The customer's phone number
+  """
+  phoneNumber: String
+  """
+  The ID of this customer in your Shopify store
+  """
+  platformId: String!
+  """
+  When this customer account was created
+  """
+  createdAt: String!
+  """
+  When this customer's information was last updated
+  """
+  updatedAt: String!
+  """
+  All active subscriptions for this customer
+  """
+  Subscriptions: [SkioSubscription] @parentId(template: "{{.id}}")
+}
+
+type Query {
+  """
+  Retrieves information about a customer and their subscriptions.
+
+  The customer is looked up using:
+  - Primary email address
+  - All email addresses from the customer profile
+  - Primary phone number
+  - Mobile phone numbers from the customer profile
+
+  The query will:
+  - Return a single customer if exactly one match is found
+  - Return an error if no customer is found
+  - Return an error if multiple customers are found
+
+  For the matching customer, this query returns:
+  - Customer details (name, email, contact information)
+  - All subscriptions for the customer (regardless of status)
+  - For each subscription:
+    - Subscription status and next billing date
+    - Products included in the subscription
+    - Pricing information for each product
+    - Subscription policies and settings
+    - Billing and delivery information
+  """
+  storefront_user: SkioStorefrontUser
+  subscriptions: [SkioSubscription]
+}

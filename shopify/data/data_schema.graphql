@@ -1,16 +1,40 @@
-## Represents the address of a location. used for billing and shipping addresses.
-type Address {
+## Represents a mailing address, commonly used for billing and shipping purposes.
+type MailingAddress {
   address1: String
   address2: String
   city: String
-  country_code: String
+  company: String
   country: String
-  email: String
+  countryCodeV2: String
+  firstName: String
+  lastName: String
+  name: String
   phone: String
-  province_code: String
   province: String
-  state: String
+  provinceCode: String
   zip: String
+}
+
+type FulfillmentOriginAddress {
+  address1: String
+  address2: String
+  city: String
+  countryCode: String!
+  provinceCode: String
+  zip: String
+}
+
+type Money {
+  amount: Currency
+  currencyCode: String
+}
+
+type MoneySet {
+  ## Amount in shop currency.
+  shopMoney: Money
+
+  ## Amount in presentment currency.
+  presentmentMoney: Money
 }
 
 enum FulfillmentStatus {
@@ -28,16 +52,68 @@ enum FulfillmentStatus {
   PENDING
 }
 
+## Product property names like "Size", "Color", and "Material" that the customers can select.
+type ProductOption {
+  name: String!
+  values: [String]
+}
+
+## A product variant represents a different version of a product, such as differing sizes or differing colors.
+type Variant {
+  id: ID!
+  title: String
+  createdAt: DateTime
+  price: Currency
+  sku: String
+  updatedAt: DateTime
+  inventoryQuantity: Int
+}
+
+enum ProductStatus {
+  ACTIVE
+  ARCHIVED
+  DRAFT
+}
+
+## A product represents an individual item for sale in a Shopify store
+type Product {
+  id: ID!
+  title: String
+  status: ProductStatus
+  createdAt: DateTime
+  productType: String
+  vendor: String
+  updatedAt: DateTime
+  tags: String
+  variants: [Variant!]
+  options: [ProductOption]
+}
+
+## Represents a single line in an order. There is one line item for each distinct product variant.
+type LineItem {
+  id: ID!
+  name: String
+  price: Money
+  product: Product
+  quantity: Int
+  sku: String
+  giftCard: Boolean
+  totalDiscount: String
+  variantId: Int
+  variantTitle: String
+  vendor: String
+}
+
 ## Represents a line item from an order that's included in a fulfillment.
 type FulfillmentLineItem {
   ## Number of line items in the fulfillment.
   quantity: Int
   ## The total price before discounts are applied in shop and presentment currencies.
-  original_total: Currency
+  originalTotal: MoneySet
   ## The total price after discounts are applied in shop and presentment currencies.
-  discounted_total: Currency
+  discountedTotalSet: MoneySet
   ## The associated order's line item id.
-  line_item_id: ID!
+  lineItem: LineItem!
 }
 
 enum FulfillmentDisplayStatus {
@@ -107,85 +183,33 @@ type Fulfillment {
   ## A globally-unique ID.
   id: ID!
   ## The date and time when the fulfillment was created.
-  created_at: DateTime!
+  createdAt: DateTime!
   ## The date and time when the fulfillment was last modified.
-  updated_at: DateTime!
+  updatedAt: DateTime!
   ## The date that this fulfillment was delivered.
-  delivered_at: DateTime
+  deliveredAt: DateTime
 
   ## The status of the fulfillment.
-  display_status: FulfillmentDisplayStatus
+  displayStatus: FulfillmentDisplayStatus
   ## The status of the fulfillment.
   status: FulfillmentStatus!
 
   ## The estimated date that this fulfillment will arrive.
-  estimated_delivery_at: DateTime
+  estimatedDeliveryAt: DateTime
   ## The date and time when the fulfillment went into transit.
-  in_transit_at: DateTime
+  inTransitAt: DateTime
   ## Human readable reference identifier for this fulfillment.
   name: String!
   ## The address at which the fulfillment occurred.
-  origin_address: Address
+  originAddress: FulfillmentOriginAddress
 
   ## Whether any of the line items in the fulfillment require shipping.
-  requires_shipping: Boolean
+  requiresShipping: Boolean
 
   ## Tracking information associated with the fulfillment, such as the tracking company, tracking number, and tracking URL.
-  tracking_info: [FulfillmentTrackingInfo!]!
+  trackingInfo: [FulfillmentTrackingInfo!]!
 
-  fulfillment_line_items: [FulfillmentLineItem!]!
-}
-
-## Product property names like "Size", "Color", and "Material" that the customers can select.
-type ProductOption {
-  name: String!
-  values: [String]
-}
-
-## A product variant represents a different version of a product, such as differing sizes or differing colors.
-type Variant {
-  id: ID!
-  title: String
-  created_at: DateTime
-  price: Currency
-  sku: String
-  updated_at: DateTime
-  inventory_quantity: Int
-}
-
-enum ProductStatus {
-  ACTIVE
-  ARCHIVED
-  DRAFT
-}
-
-## A product represents an individual item for sale in a Shopify store
-type Product {
-  id: ID!
-  title: String
-  status: ProductStatus
-  created_at: DateTime
-  product_type: String
-  vendor: String
-  updated_at: DateTime
-  tags: String
-  variants: [Variant]
-  options: [ProductOption]
-}
-
-## Represents a single line in an order. There is one line item for each distinct product variant.
-type LineItem {
-  id: ID!
-  name: String
-  price: Currency
-  product: Product
-  quantity: Int
-  sku: String
-  gift_card: Boolean
-  total_discount: String
-  variant_id: Int
-  variant_title: String
-  vendor: String
+  fulfillmentLineItems: [FulfillmentLineItem!]!
 }
 
 ## Represents a shipping line for a Shop Pay payment request.
@@ -229,51 +253,188 @@ enum ShopifyOrderCancelReason {
   STAFF
 }
 
-## An order from Shopify
-type Order @dataType(name: "shopify_order", version: "2.0") {
+## A standardized error code, independent of the payment provider.
+enum OrderTransactionErrorCode {
+  ## The payment method was invalid.
+  AMAZON_PAYMENTS_INVALID_PAYMENT_METHOD
+
+  ## The maximum amount has been captured.
+  AMAZON_PAYMENTS_MAX_AMOUNT_CHARGED
+
+  ## The maximum amount has been refunded.
+  AMAZON_PAYMENTS_MAX_AMOUNT_REFUNDED
+
+  ## The maximum of 10 authorizations has been captured for an order.
+  AMAZON_PAYMENTS_MAX_AUTHORIZATIONS_CAPTURED
+
+  ## The maximum of 10 refunds has been processed for an order.
+  AMAZON_PAYMENTS_MAX_REFUNDS_PROCESSED
+
+  ## The order was canceled, which canceled all open authorizations.
+  AMAZON_PAYMENTS_ORDER_REFERENCE_CANCELED
+
+  ## The order was not confirmed within three hours.
+  AMAZON_PAYMENTS_STALE
+
+  ## Call the card issuer.
+  CALL_ISSUER
+
+  ## The card was declined.
+  CARD_DECLINED
+
+  ## There is an error in the gateway or merchant configuration.
+  CONFIG_ERROR
+
+  ## The card is expired.
+  EXPIRED_CARD
+
+  ## There was an unknown error with processing the payment.
+  GENERIC_ERROR
+
+  ## The address does not match the card number.
+  INCORRECT_ADDRESS
+
+  ## The CVC does not match the card number.
+  INCORRECT_CVC
+
+  ## The card number is incorrect.
+  INCORRECT_NUMBER
+
+  ## The entered PIN is incorrect.
+  INCORRECT_PIN
+
+  ## The ZIP or postal code does not match the card number.
+  INCORRECT_ZIP
+
+  ## The amount is either too high or too low for the provider.
+  INVALID_AMOUNT
+
+  ## The payment method is not available in the customer's country.
+  INVALID_COUNTRY
+
+  ## The format of the CVC is incorrect.
+  INVALID_CVC
+
+  ## The format of the expiry date is incorrect.
+  INVALID_EXPIRY_DATE
+
+  ## The format of the card number is incorrect.
+  INVALID_NUMBER
+
+  ## The payment method is momentarily unavailable.
+  PAYMENT_METHOD_UNAVAILABLE
+
+  ## The card has been reported as lost or stolen, and the card issuer has requested that the merchant keep the card and call the number on the back.
+  PICK_UP_CARD
+
+  ## There was an error while processing the payment.
+  PROCESSING_ERROR
+
+  ## A real card was used but the gateway was in test mode.
+  TEST_MODE_LIVE_CARD
+
+  ## The gateway or merchant configuration doesn't support a feature, such as network tokenization.
+  UNSUPPORTED_FEATURE
+}
+
+## he different states that an OrderTransaction can have.
+enum OrderTransactionStatus {
+  ## Awaiting a response.
+  AWAITING_RESPONSE
+
+  ## There was an error while processing the transaction.
+  ERROR
+
+  ## The transaction failed.
+  FAILURE
+
+  ## The transaction is pending.
+  PENDING
+
+  ## The transaction succeeded.
+  SUCCESS
+
+  ## The transaction status is unknown.
+  UNKNOWN
+}
+
+enum OrderTransactionKind {
+  ## An amount reserved against the cardholder's funding source. Money does not change hands until the authorization is captured.
+  AUTHORIZATION
+  ## A transfer of the money that was reserved by an authorization.
+  CAPTURE
+  ## The money returned to the customer when they've paid too much during a cash transaction.
+  CHANGE
+  ## An authorization for a payment taken with an EMV credit card reader.
+  EMV_AUTHORIZATION
+  ## A partial or full return of captured funds to the cardholder. A refund can happen only after a capture is processed.
+  REFUND
+  ## An authorization and capture performed together in a single step.
+  SALE
+  ## A suggested refund transaction that can be used to create a refund.
+  SUGGESTED_REFUND
+  ## A cancelation of an authorization transaction.
+  VOID
+}
+
+type ParentTransaction {
   id: ID!
+}
+
+## transaction associated with the order.
+type OrderTransaction {
+  ## A globally-unique ID.
+  id: ID!
+  ## he amount and currency of the transaction in shop and presentment currencies.
+  amountSet: MoneySet
+  createdAt: DateTime
+  kind: OrderTransactionKind
+  status: OrderTransactionStatus
+  gateway: String
+  parentTransaction: ParentTransaction
+  ## A standardized error code, independent of the payment provider.
+  errorCode: OrderTransactionErrorCode
+}
+
+type CustomerInfo {
+  id: ID!
+  displayName: String
+}
+
+## An order from Shopify
+type Order @dataType(name: "shopify_order", version: "3.0") {
+  id: ID!
+  confirmationNumber: String
   ## Whether there are line items that can be fulfilled. This field returns false when the order has no fulfillable line items.
   fulfillable: Boolean!
   ## The count of fulfillments including the cancelled fulfillments.
-  fulfillments_count: Int
+  fulfillmentsCount: Int
   ## List of shipments for the order.
   fulfillments: [Fulfillment]
-  order_number: String!
-  customer_id: ID!
   name: String!
   email: String
-  currency: String
-  current_subtotal_price: String
-  current_total_discounts: String
-  current_total_tax: String
-  current_total_price: String
-  cancel_reason: ShopifyOrderCancelReason
+
+  customer: CustomerInfo
+  customerId: ID!
+
+  currentSubtotalPriceSet: MoneySet
+  currentTotalDiscountsSet: MoneySet
+  currentTotalTaxSet: MoneySet
+  currentTotalPriceSet: MoneySet
+  cancelReason: ShopifyOrderCancelReason
   note: String
   tags: [String]
-  created_at: DateTime
-  updated_at: DateTime
-  financial_status: OrderDisplayFinancialStatus
-  fulfillment_status: OrderDisplayFulfillmentStatus
-  billing_address: Address
-  shipping_address: Address
-  shipping_lines: [ShippingLine]
-  order_status_url: String
-  line_items: [LineItem]
-}
-
-## Represents the address of a location. used for billing and shipping addresses.
-type Address {
-  address1: String
-  address2: String
-  city: String
-  country_code: String
-  country: String
-  email: String
-  phone: String
-  province_code: String
-  province: String
-  state: String
-  zip: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  financialStatus: OrderDisplayFinancialStatus
+  fulfillmentStatus: OrderDisplayFulfillmentStatus
+  billingAddress: MailingAddress
+  shippingAddress: MailingAddress
+  shippingLines: [ShippingLine]
+  orderStatusUrl: String
+  lineItems: [LineItem]
+  ## A list of transactions associated with the order.
+  transactions: [OrderTransaction]
 }
 
 ## The current email marketing state for the customer
@@ -283,26 +444,32 @@ type SmsOrEmailMarketingConsent {
   consentUpdatedAt: DateTime
 }
 
+type LastOrderId {
+  id: ID!
+}
+
 ## Returns a Customer resource.
-type Customer @dataType(name: "shopify_customer", version: "2.0") {
+type Customer @dataType(name: "shopify_customer", version: "3.0") {
   id: ID!
   email: String
   phone: String
-  first_name: String
-  last_name: String
-  default_address: Address
-  amount_spent: Currency
-  last_order_id: Int
-  email_marketing_consent: SmsOrEmailMarketingConsent
-  sms_marketing_consent: SmsOrEmailMarketingConsent
-  lifetime_duration: String!
+  firstName: String
+  lastName: String
+  defaultAddress: MailingAddress
+  ## The total amount that the customer has spent on orders in their lifetime.
+  amountSpent: Money
+  lastOrder: LastOrderId
+  ## The current email marketing state for the customer. If the customer doesn't have an email address, then this property is null.
+  emailMarketingConsent: SmsOrEmailMarketingConsent
+  ## The current SMS marketing state for the customer's phone number.
+  smsMarketingConsent: SmsOrEmailMarketingConsent
+  lifetimeDuration: String!
   note: String
-  number_of_orders: Int!
+  numberOfOrders: Int!
   tags: [String]
   orders: [Order] @parentId(template: "{{.id}}")
-  total_spent: Currency
-  created_at: DateTime
-  updated_at: DateTime
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 type Query {

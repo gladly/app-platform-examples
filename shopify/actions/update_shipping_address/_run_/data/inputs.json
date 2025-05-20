@@ -1,0 +1,12 @@
+{
+  "orderId": "gid://shopify/Order/4459956043927",
+  "shippingAddress": {
+    "phone": "+34600600601",
+    "lastName": "A",
+    "country": "ES",
+    "address1": "address1",
+    "zip": "28806",
+    "province": "Madrid",
+    "city": "City"
+  }
+}

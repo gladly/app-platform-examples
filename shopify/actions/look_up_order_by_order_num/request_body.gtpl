@@ -4,29 +4,31 @@
 {{$query := printf `
 {
     orders(first: 1, query: "name:'%s'") {
-        edges {
-            node {
+        nodes {
                 id
+                customer {
+                    id
+                    displayName
+                }
+                confirmationNumber
                 fulfillable
                 fulfillmentsCount {count precision}
                 fulfillments {
                     id
                     fulfillmentLineItems(first:10) {
-                        edges {
-                            node {
+                        nodes {
                                 id
                                 quantity
                                 originalTotalSet{
-                                    shopMoney {amount}
+                                    shopMoney { amount currencyCode}
                                 }
                                 discountedTotalSet {
-                                    shopMoney {amount}
+                                    shopMoney { amount currencyCode}
                                 }
                                 lineItem {
                                     id
                                     
                                 }
-                            }
                         }
                     }
                     createdAt
@@ -62,50 +64,30 @@
                 currencyCode
                 cancelReason
                 currentSubtotalPriceSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
                     shopMoney {
                         amount
                         currencyCode
                     }
                 }
                 currentTotalDiscountsSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
                     shopMoney {
                         amount
                         currencyCode
                     }
                 }
                 currentTotalTaxSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
                     shopMoney {
                         amount
                         currencyCode
                     }
                 }
                 currentTotalPriceSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
                     shopMoney {
                         amount
                         currencyCode
                     }
                 }
                 subtotalPriceSet {
-                    presentmentMoney {
-                        amount
-                        currencyCode
-                    }
                     shopMoney {
                         amount
                         currencyCode
@@ -124,8 +106,7 @@
                     countryCode
                 }
                 shippingLines(first: 40) {
-                    edges {
-                        node {
+                    nodes {
                             carrierIdentifier
                             code
                             custom
@@ -133,7 +114,6 @@
                             phone
                             source
                             title
-                        }
                     }
                 }
                 billingAddress {
@@ -147,8 +127,7 @@
                     countryCode
                 }
                 lineItems(first: 40) {
-                    edges {
-                        node {
+                    nodes {
                             id
                             name
                             product {
@@ -161,8 +140,7 @@
                                 updatedAt
                                 tags
                                 variants(first: 10) {
-                                    edges {
-                                        node {
+                                    nodes {
                                             id
                                             title
                                             createdAt
@@ -170,7 +148,6 @@
                                             sku
                                             updatedAt
                                         }
-                                    }
                                 }
                                 options {
                                     name
@@ -180,10 +157,6 @@
                             quantity
                             sku
                             originalUnitPriceSet {
-                                presentmentMoney {
-                                    amount
-                                    currencyCode
-                                }
                                 shopMoney {
                                     amount
                                     currencyCode
@@ -191,10 +164,6 @@
                             }
                             isGiftCard
                             totalDiscountSet {
-                                presentmentMoney {
-                                    amount
-                                    currencyCode
-                                }
                                 shopMoney {
                                     amount
                                     currencyCode
@@ -205,7 +174,6 @@
                                 title
                             }
                             vendor
-                        }
                     }
                 }
                 transactions(first: 5) {
@@ -222,8 +190,9 @@
                             currencyCode
                         }
                     }
+                    status
+                    errorCode
                 }
-            }
         }
     }
 }

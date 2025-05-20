@@ -1,0 +1,25 @@
+{
+  "data": {
+    "orderCancel": {
+      "job": null,
+      "orderCancelUserErrors": [
+        {
+          "code": "NOT_FOUND",
+          "field": ["orderId"],
+          "message": "Order does not exist"
+        }
+      ]
+    }
+  },
+  "extensions": {
+    "cost": {
+      "actualQueryCost": 10,
+      "requestedQueryCost": 10,
+      "throttleStatus": {
+        "currentlyAvailable": 1990,
+        "maximumAvailable": 2000,
+        "restoreRate": 100
+      }
+    }
+  }
+}

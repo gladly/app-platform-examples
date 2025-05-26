@@ -1,1 +1,1 @@
-{{.updated_at}}
+{{.updatedAt}}

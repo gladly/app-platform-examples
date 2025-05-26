@@ -1,1 +1,1 @@
-{{.customer_id}}
+{{.customer.id}}

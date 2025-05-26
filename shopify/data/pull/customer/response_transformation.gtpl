@@ -23,29 +23,17 @@
     {{- end -}}
 
     {{- fail $errorMessages -}}
-{{-  else if and .rawData.data .rawData.data.customers (eq (len .rawData.data.customers.edges) 0) -}}
+{{-  else if and .rawData.data .rawData.data.customers (eq (len .rawData.data.customers.nodes) 0) -}}
     {{- stop "Customer does not exist" -}}
-{{-  else if and .rawData.data .rawData.data.customers (gt (len .rawData.data.customers.edges) 1) -}}
+{{-  else if and .rawData.data .rawData.data.customers (gt (len .rawData.data.customers.nodes) 1) -}}
     {{- stop "Shopify returned more than one customer for the customer profile email or phone." -}}    
 {{- else -}}
-{
-    {{/* Iterate through all customers. Simplify edges and nodes out of the response. */}}
-    {{- $customer := (index .rawData.data.customers.edges 0).node}}
-    "id": "{{ $customer.id }}",
-    "email": "{{ $customer.email }}",
-    "phone": {{ toJson $customer.phone }},
-    "number_of_orders": "{{ $customer.numberOfOrders }}",
-    "first_name": "{{ $customer.firstName }}",
-    "last_name": "{{ $customer.lastName }}",
-    "default_address": {{ toJson $customer.defaultAddress }},
-    "total_spent": {{ toJson $customer.amountSpent }},
-    "email_marketing_consent": {{ toJson $customer.emailMarketingConsent }},
-    "sms_marketing_consent": {{ toJson $customer.smsMarketingConsent }},
-    "lifetime_duration": "{{ $customer.lifetimeDuration }}",
-    "note": {{ toJson $customer.note }},
-    "tags": {{ toJson $customer.tags }},
-    "created_at": {{ toJson $customer.createdAt }},
-    "updated_at": {{ toJson $customer.updatedAt }}
-}
+
+{{/* Iterate through all customers. Simplify nodes and nodes out of the response. */}}
+{{- $customer := (index .rawData.data.customers.nodes 0) -}}
+{{- with $customer -}}
+{{ toJson . -}}
+{{- end -}}
+
 {{- end -}}
 

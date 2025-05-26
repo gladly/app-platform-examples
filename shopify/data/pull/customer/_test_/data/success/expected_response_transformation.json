@@ -1,17 +1,22 @@
 {
-  "id": "gid://shopify/Customer/5999224094871",
+  "addresses": [
+    { "address1": "12345 Happy Valley Ln", "address2": "", "city": "SLC", "country": "", "countryCode": null, "province": null, "provinceCode": null, "zip": "UT" },
+    { "address1": "xxx Some Address", "address2": "", "city": "Chandler", "country": "United States", "countryCode": "US", "province": "Arizona", "provinceCode": "AZ", "zip": "85248" }
+  ],
+  "amountSpent": { "amount": "488.64", "currencyCode": "USD" },
+  "createdAt": "2022-02-24T20:42:01Z",
+  "defaultAddress": { "address1": "xxx Some Address", "address2": "", "city": "Chandler", "country": "United States", "countryCode": "US", "formattedArea": "Chandler AZ, United States", "province": "Arizona", "provinceCode": "AZ", "zip": "85248" },
   "email": "primary@email.com",
-  "phone": "+1234567890",
-  "number_of_orders": "6",
-  "first_name": "Carina",
-  "last_name": "Test-Gladly",
-  "default_address": { "address1": "xxx Some Address", "address2": "", "city": "Chandler", "country": "United States", "countryCode": "US", "formattedArea": "Chandler AZ, United States", "province": "Arizona", "provinceCode": "AZ", "zip": "85248" },
-  "total_spent": { "amount": "488.64", "currencyCode": "USD" },
-  "email_marketing_consent": { "consentUpdatedAt": "2022-03-13T18:26:47Z", "marketingOptInLevel": "SINGLE_OPT_IN", "marketingState": "SUBSCRIBED" },
-  "sms_marketing_consent": { "consentUpdatedAt": "2022-03-13T18:26:47Z", "marketingOptInLevel": "SINGLE_OPT_IN", "marketingState": "SUBSCRIBED" },
-  "lifetime_duration": "over 2 years",
+  "emailMarketingConsent": { "consentUpdatedAt": "2022-03-13T18:26:47Z", "marketingOptInLevel": "SINGLE_OPT_IN", "marketingState": "SUBSCRIBED" },
+  "firstName": "Carina",
+  "id": "gid://shopify/Customer/5999224094871",
+  "image": { "src": "https://cdn.shopify.com/proxy/3d1f9752317dcb948f93460f0008d1905072ae44fcbcb8b0fedbc016a768dd78/www.gravatar.com/avatar/6069c3efa3da6403e8611b7813128f37.jpg?s=2048\u0026d=https%3A%2F%2Fcdn.shopify.com%2Fshopifycloud%2Fshopify%2Fassets%2Fadmin%2Fcustomers%2Fpolaris%2Favatar-3-d7b953912ef42b1ef360e0a80bf1d474b9cfc90cb46126bd72ff32d10b47cefb.png" },
+  "lastName": "Test-Gladly",
+  "lifetimeDuration": "over 2 years",
   "note": "",
+  "numberOfOrders": "6",
+  "phone": "+1234567890",
+  "smsMarketingConsent": { "consentUpdatedAt": "2022-03-13T18:26:47Z", "marketingOptInLevel": "SINGLE_OPT_IN", "marketingState": "SUBSCRIBED" },
   "tags": ["big spender", "loyal", "superstar"],
-  "created_at": "2022-02-24T20:42:01Z",
-  "updated_at": "2022-06-10T21:10:02Z"
+  "updatedAt": "2022-06-10T21:10:02Z"
 }

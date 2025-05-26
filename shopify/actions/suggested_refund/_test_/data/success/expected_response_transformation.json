@@ -1,0 +1,20 @@
+{
+  "suggestedRefund": {
+    "amountSet": { "presentmentMoney": { "amount": "32.57", "currencyCode": "USD" }, "shopMoney": { "amount": "32.57", "currencyCode": "USD" } },
+    "discountedSubtotalSet": { "presentmentMoney": { "amount": "29.99", "currencyCode": "USD" }, "shopMoney": { "amount": "29.99", "currencyCode": "USD" } },
+    "maximumRefundableSet": { "presentmentMoney": { "amount": "2997.11", "currencyCode": "USD" }, "shopMoney": { "amount": "2997.11", "currencyCode": "USD" } },
+    "refundDuties": [],
+    "refundLineItems": [{ "id": null, "lineItem": { "id": "gid://shopify/LineItem/13715390464151" }, "priceSet": { "shopMoney": { "amount": "29.99", "currencyCode": "USD" } }, "quantity": 1, "restockType": "NO_RESTOCK", "restocked": false, "subtotalSet": { "shopMoney": { "amount": "29.99", "currencyCode": "USD" } }, "totalTaxSet": { "shopMoney": { "amount": "2.58", "currencyCode": "USD" } } }],
+    "shipping": { "amountSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } }, "maximumRefundableSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } }, "taxSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } } },
+    "subtotalSet": { "presentmentMoney": { "amount": "29.99", "currencyCode": "USD" }, "shopMoney": { "amount": "29.99", "currencyCode": "USD" } },
+    "suggestedTransactions": [
+      { "accountNumber": "", "amountSet": { "presentmentMoney": { "amount": "32.57", "currencyCode": "USD" }, "shopMoney": { "amount": "32.57", "currencyCode": "USD" } }, "formattedGateway": "Manual", "gateway": "manual", "kind": "SUGGESTED_REFUND", "maximumRefundableSet": { "presentmentMoney": { "amount": "2801.69", "currencyCode": "USD" }, "shopMoney": { "amount": "2801.69", "currencyCode": "USD" } }, "parentTransaction": { "id": "gid://shopify/OrderTransaction/7126018261143" }, "paymentDetails": null },
+      { "accountNumber": "", "amountSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } }, "formattedGateway": "Manual", "gateway": "manual", "kind": "SUGGESTED_REFUND", "maximumRefundableSet": { "presentmentMoney": { "amount": "32.57", "currencyCode": "USD" }, "shopMoney": { "amount": "32.57", "currencyCode": "USD" } }, "parentTransaction": { "id": "gid://shopify/OrderTransaction/7126027993239" }, "paymentDetails": null },
+      { "accountNumber": "", "amountSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } }, "formattedGateway": "Manual", "gateway": "manual", "kind": "SUGGESTED_REFUND", "maximumRefundableSet": { "presentmentMoney": { "amount": "32.57", "currencyCode": "USD" }, "shopMoney": { "amount": "32.57", "currencyCode": "USD" } }, "parentTransaction": { "id": "gid://shopify/OrderTransaction/7126032318615" }, "paymentDetails": null },
+      { "accountNumber": "", "amountSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } }, "formattedGateway": "Manual", "gateway": "manual", "kind": "SUGGESTED_REFUND", "maximumRefundableSet": { "presentmentMoney": { "amount": "130.28", "currencyCode": "USD" }, "shopMoney": { "amount": "130.28", "currencyCode": "USD" } }, "parentTransaction": { "id": "gid://shopify/OrderTransaction/7126050570391" }, "paymentDetails": null }
+    ],
+    "totalCartDiscountAmountSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } },
+    "totalDutiesSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } },
+    "totalTaxSet": { "presentmentMoney": { "amount": "2.58", "currencyCode": "USD" }, "shopMoney": { "amount": "2.58", "currencyCode": "USD" } }
+  }
+}

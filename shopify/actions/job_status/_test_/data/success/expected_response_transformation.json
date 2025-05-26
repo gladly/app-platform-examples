@@ -1,0 +1,16 @@
+{
+  "done": true,
+  "id": "gid://shopify/Job/1f2ebdb6-1fc7-47da-ab7a-d0c206dc2d10",
+  "order": {
+    "cancelReason": "CUSTOMER",
+    "cancelledAt": "2024-12-03T15:52:52Z",
+    "name": "#1339",
+    "refunds": [
+      {
+        "id": "gid://shopify/Refund/900710727831",
+        "note": "Order canceled",
+        "totalRefundedSet": { "presentmentMoney": { "amount": "1130.0", "currencyCode": "USD" } }
+      }
+    ]
+  }
+}

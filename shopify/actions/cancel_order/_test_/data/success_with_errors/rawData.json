@@ -1,0 +1,24 @@
+{
+  "errors": [
+      {
+          "message": "Something went wrong",
+          "locations": [
+              {
+                  "line": 2,
+                  "column": 14
+              }
+          ],
+          "path": [
+              "query",
+              "orders",
+              "first1"
+          ],
+          "extensions": {
+              "code": "SomethingWentWrongCode",
+              "name": "orders",
+              "typeName": "Field",
+              "argumentName": "first1"
+          }
+      }
+  ]
+}

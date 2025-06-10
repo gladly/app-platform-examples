@@ -1,0 +1,5 @@
+{
+  "description": "Display customer data with orders",
+  "graphqlSchema": "data",
+  "graphqlType": "Customer"
+}

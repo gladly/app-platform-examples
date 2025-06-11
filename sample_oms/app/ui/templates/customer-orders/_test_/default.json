@@ -1,0 +1,172 @@
+{
+  "id": "cHJpbWFyeUBlbWFpbC5jb20=",
+  "fullName": "John F. Doe, Jr.",
+  "numberOfOrders": 3,
+  "orders": [
+    {
+      "billingAddress": "",
+      "customerId": "cHJpbWFyeUBlbWFpbC5jb20=",
+      "gladlyAppConfigId": "test-external-app-id",
+      "gladlyIntegrationId": "test-external-app-id",
+      "id": "1aaa9504-e616-418f-b018-c72054574a60",
+      "lineItems": [
+        {
+          "id": "e6fd4f06-ffad-4a7a-9db5-20601e410988",
+          "price": "784.00",
+          "product": {
+            "id": "8eb4d2af-5c20-4484-95aa-654ea42ec32a",
+            "imageUrl": "https://picsum.photos/seed/RbtqB/200/200",
+            "name": "Practical Steel Sausages",
+            "productType": "Electronic",
+            "sku": "AQiihhtKhUHs"
+          },
+          "quantity": 1,
+          "status": "canceled"
+        },
+        {
+          "id": "8186b940-b375-442d-84d7-8121122fe84b",
+          "price": "3.00",
+          "product": {
+            "id": "bc362312-12c3-4ef1-ba20-f79c53a88a95",
+            "imageUrl": "https://picsum.photos/seed/5yk58Tk/200/200",
+            "name": "Tasty Metal Pants",
+            "productType": "Generic",
+            "sku": "NLHerJoeVGEs"
+          },
+          "quantity": 2,
+          "status": "return_initiated"
+        }
+      ],
+      "orderDate": "2025-03-06T19:11:38.566Z",
+      "orderNumber": "zUChaYfU",
+      "shippingAddress": "58828 Davis Branch Suite 335",
+      "shippingAndHandling": "160.00",
+      "shippingSpeed": "expedited",
+      "status": "canceled",
+      "totalPrice": "787"
+    },
+    {
+      "billingAddress": "80456 Hauck Falls Suite 185",
+      "customerId": "cHJpbWFyeUBlbWFpbC5jb20=",
+      "gladlyAppConfigId": "test-external-app-id",
+      "gladlyIntegrationId": "test-external-app-id",
+      "id": "39ceb79c-6672-434b-817b-d9a7a43ab339",
+      "lineItems": [
+        {
+          "id": "f97b9e70-a523-4249-a616-890399ef3630",
+          "price": "253.00",
+          "product": {
+            "id": "f1b38ae7-843b-44b0-95bb-5713fd8be8df",
+            "imageUrl": "https://picsum.photos/seed/iThykdVgf/200/200",
+            "name": "Tasty Wooden Gloves",
+            "productType": "Practical",
+            "sku": "relsQaihOybV"
+          },
+          "quantity": 1,
+          "status": "return_initiated"
+        },
+        {
+          "id": "3563faa2-dfde-4f2e-b723-dd9463f677ab",
+          "price": "845.00",
+          "product": {
+            "id": "915ab623-0196-4e15-8b7b-8637ece26a16",
+            "imageUrl": "https://picsum.photos/seed/UEZuu/200/200",
+            "name": "Handmade Plastic Tuna",
+            "productType": "Modern",
+            "sku": "dmbSYqHtELaS"
+          },
+          "quantity": 2,
+          "status": "delivered"
+        },
+        {
+          "id": "2f8bf00a-193d-4518-8970-3de97681754b",
+          "price": "44.00",
+          "product": {
+            "id": "57bedf97-ffd7-43b7-aabe-97d0462e2b0b",
+            "imageUrl": "https://picsum.photos/seed/iPiSAG/200/200",
+            "name": "Oriental Plastic Bike",
+            "productType": "Oriental",
+            "sku": "httAOjdYBMWm"
+          },
+          "quantity": 3,
+          "status": "refunded"
+        },
+        {
+          "id": "3ef09017-ccbe-4d81-ac56-0a80bba72b03",
+          "price": "166.00",
+          "product": {
+            "id": "4d8a195e-8b45-4bd3-8dbd-62e99333fd1d",
+            "imageUrl": "https://picsum.photos/seed/RtZcjKkas/200/200",
+            "name": "Tasty Soft Cheese",
+            "productType": "Tasty",
+            "sku": "XUqVNienjQFY"
+          },
+          "quantity": 4,
+          "status": "canceled"
+        }
+      ],
+      "orderDate": "2021-09-11T18:46:11.432Z",
+      "orderNumber": "TfplUmoR",
+      "shippingAddress": "53179 Rylan Pine Apt. 862",
+      "shippingAndHandling": "360.00",
+      "shippingSpeed": "regular",
+      "status": "canceled",
+      "totalPrice": "1308"
+    },
+    {
+      "billingAddress": "",
+      "customerId": "cHJpbWFyeUBlbWFpbC5jb20=",
+      "gladlyAppConfigId": "test-external-app-id",
+      "gladlyIntegrationId": "test-external-app-id",
+      "id": "bf676a4a-8d6c-4cb7-a994-3e516c691fd3",
+      "lineItems": [
+        {
+          "id": "4ae0937b-b9a8-4bbc-b85d-1a58a5ca82bb",
+          "price": "763.00",
+          "product": {
+            "id": "7583d9b3-0eff-45a1-931a-1b3a102d8beb",
+            "imageUrl": "https://picsum.photos/seed/KeXG2/200/200",
+            "name": "Bespoke Steel Bacon",
+            "productType": "Gorgeous",
+            "sku": "YGqBKaLXJpqM"
+          },
+          "quantity": 4,
+          "status": "delivered"
+        },
+        {
+          "id": "3b1a24c7-c127-4cce-b9f7-80a0c6e543d5",
+          "price": "429.00",
+          "product": {
+            "id": "1e57e138-16fb-41cf-bb76-3edd83ab4482",
+            "imageUrl": "https://picsum.photos/seed/rKTmQbQDOm/200/200",
+            "name": "Oriental Granite Tuna",
+            "productType": "Tasty",
+            "sku": "hCWpPENGeHZX"
+          },
+          "quantity": 3,
+          "status": "refunded"
+        },
+        {
+          "id": "13a9ffbc-e345-4cd8-bd1a-da69825dc9f2",
+          "price": "665.00",
+          "product": {
+            "id": "f223c8bd-748f-44c8-bb47-5c3ae87daf92",
+            "imageUrl": "https://picsum.photos/seed/C2sT5/200/200",
+            "name": "Sleek Metal Chips",
+            "productType": "Bespoke",
+            "sku": "otAXJJMLXTwZ"
+          },
+          "quantity": 3,
+          "status": "pending"
+        }
+      ],
+      "orderDate": "2024-03-06T19:45:15.587Z",
+      "orderNumber": "OhVCgDqR",
+      "shippingAddress": "755 Russel Key Apt. 172",
+      "shippingAndHandling": "63.00",
+      "shippingSpeed": "regular",
+      "status": "pending",
+      "totalPrice": "1857"
+    }
+  ]
+}

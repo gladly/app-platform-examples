@@ -1,0 +1,38 @@
+<?Template languageVersion="1.1" ?>
+<Card title="{{ orders | length }} Orders">
+  <List dataSource="orders" separateItems="true">
+    <Drawer initialState="expandFirst">
+      <Fixed>
+        <StringValue dataSource="orderNumber" label="Order Number" valueAlignment="right" valueFontWeight="medium" />
+        <DateTimeValue dataSource="orderDate" label="Order Date" valueAlignment="right" valueFontWeight="medium" format="MM/DD/YYYY" />
+        <CurrencyValue dataSource="totalPrice" label="Total Amount" valueAlignment="right" valueFontWeight="medium" />
+      </Fixed>
+      <Expandable>
+        <Link linkText="Manage the order in OMS" linkUrl="https://www.example.com/oms/orders/{{- orderNumber }}" />
+        <Formula label="Order Status" valueAlignment="right" valueFontWeight="medium">
+          {{- status | title }}
+        </Formula>
+        <Formula label="Shipping" valueAlignment="right" valueFontWeight="medium">
+          {{- shippingSpeed | title }}
+        </Formula>
+        <StringValue dataSource="shippingAddress" maxLines="3" displayStyle="stacked" label="Shipping Address" />
+        <Spacer size="large" />
+
+        <List dataSource="lineItems">
+          <ColumnGroup columnSpacing="large">
+            <Column width="25%" verticalAlignment="center">
+              <Image dataSource="product.imageUrl" border="true" />
+            </Column>
+            <Column width="stretch">
+              <Text fontWeight="medium" maxLines="2">{{ product.name }}</Text>
+              <NumericValue dataSource="quantity" valueAlignment="right" valueFontWeight="medium" label="Quantity" decimalPlaces="0" />
+              <CurrencyValue dataSource="price" valueAlignment="right" valueFontWeight="medium" label="Item Price" />
+            </Column>
+          </ColumnGroup>
+          <Spacer size="medium" />
+        </List>
+        <Spacer size="medium" />
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

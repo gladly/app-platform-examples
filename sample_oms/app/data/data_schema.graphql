@@ -1,5 +1,6 @@
-type Product @dataType(name: "sample_oms_product", version: "1.0") {
+type Product @dataType(name: "sample_oms_product", version: "1.1") {
   id: ID
+  imageUrl: String
   name: String
   productType: String
   sku: String
@@ -8,6 +9,7 @@ type Product @dataType(name: "sample_oms_product", version: "1.0") {
 type LineItem {
   id: String
   quantity: Int
+  price: Currency
   product: Product @childIds(template: "{{.productId}}")
   status: String
 }

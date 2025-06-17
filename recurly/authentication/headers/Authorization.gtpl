@@ -1,0 +1,1 @@
+Basic {{b64enc .integration.secrets.access_token}}

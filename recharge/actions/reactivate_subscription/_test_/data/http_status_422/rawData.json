@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "subscription": [
+      "item already set to active",
+      "first error message",
+      "second error message"
+    ]
+  }
+}

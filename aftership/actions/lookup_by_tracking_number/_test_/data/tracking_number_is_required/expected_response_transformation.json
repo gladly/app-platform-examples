@@ -1,0 +1,8 @@
+{
+  "error": {
+    "code": 4007,
+    "message": "`tracking_number` is required.",
+    "type": "BadRequest"
+  },
+  "tracking": null
+}

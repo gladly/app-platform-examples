@@ -1,0 +1,9 @@
+{
+  "errors": {
+    "status": [
+      "Only charges with status skipped can be un-skipped",
+      "Second error message",
+      "Third error message"
+    ]
+  }
+}

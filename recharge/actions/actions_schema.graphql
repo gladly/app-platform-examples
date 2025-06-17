@@ -1,0 +1,241 @@
+# Enums
+enum PurchaseItemType {
+  subscription
+  onetime
+}
+
+enum ChargeType {
+  checkout
+  recurring
+}
+
+enum ChargeStatus {
+  success
+  error
+  queued
+  skipped
+  refunded
+  partially_refunded
+  pending_manual_payment
+  pending
+}
+
+enum SubscriptionStatus {
+  active
+  cancelled
+  expired
+}
+
+enum OrderInternalUnits {
+  day
+  week
+  month
+}
+
+# Common Types
+type Property {
+  name: String!
+  value: String!
+}
+
+type ExternalId {
+  ecommerce: String
+  payment_processor: String
+}
+
+type OrderAttribute {
+  name: String
+  value: String
+}
+
+type TaxLine {
+  price: String
+  rate: String
+  title: String
+}
+
+type ShippingLine {
+  code: String
+  price: String
+  source: String
+  title: String
+  taxable: String
+  tax_lines: [TaxLine!]
+}
+
+type Images {
+  large: String
+  medium: String
+  small: String
+  original: String
+}
+
+type Address {
+  address1: String
+  address2: String
+  city: String
+  company: String
+  country_code: String
+  first_name: String
+  last_name: String
+  phone: String
+  province: String
+  zip: String
+}
+
+type ClientDetails {
+  browser_ip: String
+  user_agent: String
+}
+
+type Customer {
+  id: ID!
+  email: String
+  external_customer_id: ExternalId
+  hash: String
+}
+
+type RechargeError {
+  http_status: Int!
+  error_message: String
+}
+
+# Core Business Types
+
+# The charge object > line_items: https://developer.rechargepayments.com/2021-11/charges/charge_object
+type LineItem {
+  purchase_item_id: ID! # The Subscription or Onetime ID associated with the line_item
+  external_product_id: ExternalId
+  external_variant_id: ExternalId
+  grams: Int
+  handle: String
+  images: Images
+  original_price: Currency
+  properties: [Property!]
+  purchase_item_type: PurchaseItemType
+  quantity: Int
+  sku: String
+  tax_due: String
+  tax_lines: [TaxLine!]
+  taxable: Boolean
+  taxable_amount: Currency
+  title: String
+  total_price: Currency
+  unit_price: Currency
+  unit_price_includes_tax: Boolean
+  variant_title: String
+}
+
+# The charge object: https://developer.rechargepayments.com/2021-11/charges/charge_object
+type Charge {
+  id: ID!
+  address_id: ID!
+  billing_address: Address
+  client_details: ClientDetails
+  created_at: DateTime
+  currency: String
+  customer: Customer
+  external_order_id: ExternalId
+  external_transaction_id: ExternalId
+  line_items: [LineItem!]
+  note: String
+  order_attributes: [OrderAttribute!]
+  orders_count: Int
+  payment_processor: String
+  processed_at: DateTime
+  scheduled_at: String
+  shipping_address: Address
+  shipping_lines: [ShippingLine!]
+  status: ChargeStatus
+  subtotal_price: Currency
+  tags: String
+  tax_lines: [TaxLine!]
+  taxable: Boolean
+  taxes_included: Boolean
+  total_discounts: Currency
+  total_line_items_price: Currency
+  total_price: Currency
+  total_refunds: Currency
+  total_tax: Currency
+  total_weight_grams: Int
+  type: ChargeType
+  updated_at: DateTime
+}
+
+# The subscription object: https://developer.rechargepayments.com/2021-11/subscriptions/subscriptions_object
+type Subscription {
+  id: ID!
+  address_id: ID!
+  customer_id: ID
+  cancellation_reason: String
+  cancellation_reason_comments: String
+  cancelled_at: DateTime
+  charge_interval_frequency: Int!
+  created_at: DateTime
+  expire_after_specific_number_of_charges: Int
+  external_product_id: ExternalId!
+  external_variant_id: ExternalId
+  has_queued_charges: Boolean
+  is_prepaid: Boolean
+  is_skippable: Boolean
+  is_swappable: Boolean
+  max_retries_reached: Boolean
+  order_day_of_month: Int
+  order_day_of_week: Int
+  order_interval_frequency: Int! # doc incorrectly specifies String, actual type is Int
+  next_charge_scheduled_at: String
+  order_interval_unit: OrderInternalUnits!
+  presentment_currency: String
+  price: Currency
+  product_title: String
+  properties: [Property!]
+  quantity: Int!
+  sku: String
+  sku_override: Boolean
+  status: SubscriptionStatus!
+  updated_at: DateTime
+  variant_title: String
+}
+
+# Response Types
+type SubscriptionActionResult {
+  error: RechargeError
+  subscription: Subscription
+}
+
+type SubscriptionSkipActionResult {
+  error: RechargeError
+  charge: Charge
+}
+
+# API Token Scopes doc: https://developer.rechargepayments.com/2021-11/authentication
+type Mutation {
+  # Requires the 'write_subscriptions' scope to cancel a subscription
+  cancelSubscription(
+    subscriptionId: ID!
+    reason: String # Optional, default: "Cancellation reason was not specified"
+    sendEmail: Boolean # Optional, default: true
+  ): SubscriptionActionResult! @action(name: "cancel_subscription")
+
+  # Requires the 'write_subscriptions' scope to reactivate a subscription
+  reactivateSubscription(subscriptionId: ID!): SubscriptionActionResult!
+    @action(name: "reactivate_subscription")
+
+  # Requires the 'write_orders' scope to skip a subscription (skip a charge)
+  skipNextSubscription(
+    subscriptionId: ID!
+    chargeId: ID!
+  ): SubscriptionSkipActionResult! @action(name: "skip_next_subscription")
+
+  # Requires the 'write_orders' scope to unskip a subscription (unskip a charge)
+  unskipNextSubscription(
+    subscriptionId: ID!
+    chargeId: ID!
+  ): SubscriptionSkipActionResult! @action(name: "unskip_next_subscription")
+}
+
+type Query {
+  # Requires the 'read_subscriptions' scope to view subscription details
+  getSubscriptionById(subscriptionId: ID!): Subscription
+    @action(name: "get_subscription_by_id")
+}

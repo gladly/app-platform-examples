@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "code": 500,
+    "message": "Something went wrong on AfterShip's end.",
+    "type": "InternalError"
+  },
+  "data": {}
+}

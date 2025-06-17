@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "code": 4003,
+    "message": "Tracking already exists.",
+    "type": "BadRequest"
+  },
+  "data": {
+    "created_at": "2025-01-24T16:49:49.210Z",
+    "id": "795cfb3dbb3b4fd3aab9348306a79588",
+    "slug": "amazon",
+    "tracking_number": "TBA315051751515"
+  }
+}

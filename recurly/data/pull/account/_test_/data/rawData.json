@@ -1,0 +1,43 @@
+{
+  "object": "list",
+  "has_more": false,
+  "next": null,
+  "data": [
+    {
+      "address": { "street1": "", "street2": "", "city": "", "region": "", "postal_code": "", "country": "", "phone": "" },
+      "bill_to": "self",
+      "billing_info": { "id": "wax78f2fnckp", "object": "billing_info", "account_id": "wax5poc2a0hn", "primary_payment_method": true, "backup_payment_method": false, "first_name": "Jon", "last_name": "Doe", "company": "", "address": { "street1": "Lubinska 6", "street2": "6", "city": "Lviv", "region": "", "postal_code": "79000", "country": "UA", "phone": "" }, "vat_number": "", "valid": true, "payment_method": { "object": "credit_card", "card_type": "MasterCard", "first_six": "555555", "last_four": "4444", "cc_bin_country": "ZZ", "exp_month": 1, "exp_year": 2030, "card_network_preference": null }, "payment_gateway_references": [], "created_at": "2025-01-23T09:43:14Z", "updated_at": "2025-01-23T09:43:14Z", "updated_by": { "ip": "45.89.90.135", "country": "UA" }, "fraud": null },
+      "cc_emails": "",
+      "code": "accountcode",
+      "company": "my_company",
+      "created_at": "2025-01-23T09:34:42Z",
+      "custom_fields": [],
+      "deleted_at": null,
+      "dunning_campaign_id": null,
+      "email": "primary@email.com",
+      "exemption_certificate": null,
+      "external_accounts": [],
+      "first_name": "Jon",
+      "has_active_subscription": true,
+      "has_canceled_subscription": false,
+      "has_future_subscription": false,
+      "has_live_subscription": true,
+      "has_past_due_invoice": false,
+      "has_paused_subscription": false,
+      "id": "wax5poc2a0hn",
+      "last_name": "Doe",
+      "object": "account",
+      "parent_account_id": null,
+      "preferred_locale": "",
+      "preferred_time_zone": null,
+      "shipping_addresses": [],
+      "state": "active",
+      "tax_exempt": false,
+      "updated_at": "2025-01-23T09:46:47Z",
+      "username": "username",
+      "vat_number": "",
+      "invoice_template_id": null,
+      "override_business_entity_id": null
+    }
+  ]
+}

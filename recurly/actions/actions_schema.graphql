@@ -1,0 +1,337 @@
+""" Represents an address with various fields like city, country, etc. """
+type ShippingAddress {
+    """ The city of the address. """
+    city: String
+    """ The country of the address. """
+    country: String
+    """ The phone number associated with the address. """
+    phone: String
+    """ The postal code of the address. """
+    postal_code: String
+    """ The region or state of the address. """
+    region: String
+    """ The first line of the street address. """
+    street1: String
+    """ The second line of the street address. """
+    street2: String
+    """ The company associated with the address. """
+    company: String
+    """ The email associated with the address. """
+    email: String
+    """ The first name of the person associated with the address. """
+    first_name: String
+    """ The last name of the person associated with the address. """
+    last_name: String
+    """ The nickname for the address. """
+    nickname: String
+}
+
+""" Enum representing the type of an add-on. """
+enum AddOnType {
+    """ A fixed add-on type. """
+    fixed
+    """ A usage-based add-on type. """
+    usage
+}
+
+""" Enum representing the usage type of an add-on. """
+enum AddOnUsageType {
+    """ The usage type is based on price. """
+    price
+    """ The usage type is based on percentage. """
+    percentage
+}
+
+""" Represents an add-on item with various details like code, name, type, etc. """
+type AddOnItem {
+    """ The unique identifier for the add-on item. """
+    id: ID!
+    """ The code for the add-on item. """
+    code: String
+    """ The name of the add-on item. """
+    name: String
+    """ The type of the add-on. """
+    add_on_type: AddOnType
+    """ The usage type of the add-on. """
+    usage_type: AddOnUsageType
+}
+
+""" Enum representing the source of an add-on. """
+enum AddOnSource {
+    """ The add-on is sourced from a plan add-on. """
+    plan_add_on
+    """ The add-on is sourced from an item. """
+    item
+}
+
+""" Represents an add-on associated with a subscription. """
+type AddOn {
+    """ The unique identifier for the add-on. """
+    id: ID!
+    """ The unique identifier for the associated subscription. """
+    subscription_id: ID
+    """ The details of the add-on item. """
+    add_on: AddOnItem
+    """ The source of the add-on. """
+    add_on_source: AddOnSource
+    """ The quantity of the add-on. """
+    quantity: Int
+}
+
+""" Represents a mini version of an account with basic details. """
+type AccountMini {
+    """ The unique identifier for the account. """
+    id: ID!
+    """ The email associated with the account. """
+    email: String
+    """ The code for the account. """
+    code: String
+    """ The first name of the person associated with the account. """
+    first_name: String
+    """ The last name of the person associated with the account. """
+    last_name: String
+}
+
+""" Enum representing the state of a subscription. """
+enum SubscriptionState {
+    """ The subscription is active. """
+    active
+    """ The subscription is canceled. """
+    canceled
+    """ The subscription is expired. """
+    expired
+    """ The subscription has failed. """
+    failed
+    """ The subscription is set to start in the future. """
+    future
+    """ The subscription is paused. """
+    paused
+}
+
+""" Represents a shipping method with an internal code and name. """
+type ShippingMethod {
+    """ The unique identifier for the shipping method. """
+    id: ID!
+    """ The internal code for the shipping method. """
+    code: String
+    """ The name of the shipping method. """
+    name: String
+}
+
+""" Represents shipping information for a subscription. """
+type SubscriptionShipping {
+    """ The address for shipping. """
+    address: ShippingAddress
+    """ The shipping method used. """
+    method: ShippingMethod
+    """ The amount charged for shipping. """
+    amount: Currency
+}
+
+""" Enum representing the state of a coupon redemption. """
+enum CouponRedemptionsState {
+    """ The coupon redemption is active. """
+    active
+    """ The coupon redemption is inactive. """
+    inactive
+}
+
+""" Enum representing the state of a coupon. """
+enum CouponState {
+    """ The coupon is expired. """
+    expired
+    """ The coupon has reached its maximum redemptions. """
+    maxed_out
+    """ The coupon is redeemable. """
+    redeemable
+}
+
+""" Represents a mini version of a coupon with basic details. """
+type CouponMini {
+    """ The unique identifier for the coupon. """
+    id: ID!
+    """ The name of the coupon. """
+    name: String
+    """ The code used to redeem the coupon. """
+    code: String
+    """ The state of the coupon. """
+    state: CouponState
+}
+
+""" Represents coupon redemptions with state, coupon details, and discounted amount. """
+type CouponRedemptions {
+    """ The unique identifier for the coupon redemption. """
+    id: ID!
+    """ The state of the coupon redemption. """
+    state: CouponRedemptionsState
+    """ The coupon details. """
+    coupon: CouponMini
+    """ The amount discounted by the coupon. """
+    discounted: Currency
+    """ The date and time when the coupon was redeemed. """
+    created_at: DateTime
+}
+
+""" Represents a subscription plan with a unique code and name. """
+type Plan {
+    """ The unique identifier for the plan. """
+    id: ID!
+    """ The unique code for the plan. """
+    code: String!
+    """ The name of the plan. """
+    name: String!
+}
+
+""" Represents a pending change to a subscription. """
+type PendingChange {
+    """ The unique identifier for the pending change. """
+    id: ID!
+    """ The unique identifier for the associated subscription. """
+    subscription_id: ID
+    """ The unit amount for the pending change. """
+    unit_amount: Currency
+    """ The quantity for the pending change. """
+    quantity: Int
+    """ The plan details for the pending change. """
+    plan: Plan
+    """ The add-ons for the pending change. """
+    add_ons: [AddOn]
+    """ The date and time when the pending change was created. """
+    created_at: DateTime
+    """ The date and time when the pending change was last updated. """
+    updated_at: DateTime
+    activated: Boolean
+    shipping: SubscriptionShipping
+}
+
+""" Represents a subscription with various details like plan, state, shipping, etc.
+    [Subscription](https://recurly.com/developers/api/v2021-02-25/index.html#tag/subscription) """
+type Subscription {
+    """ The unique identifier for the subscription. """
+    id: ID!
+    account: AccountMini!
+    """ The unique identifier for the subscription. """
+    uuid: String
+    """ The unique identifier for the billing information. """
+    billing_info_id: ID
+    """ The unique identifier for the active invoice. """
+    active_invoice_id: ID
+    """ The plan associated with the subscription. """
+    plan: Plan
+    """ The state of the subscription. """
+    state: SubscriptionState
+    """ The shipping information for the subscription. """
+    shipping: SubscriptionShipping
+    """ The coupon redemptions associated with the subscription. """
+    coupon_redemptions: [CouponRedemptions]
+    """ The pending change for the subscription. """
+    pending_change: PendingChange
+    """ The date and time when the current billing period started. """
+    current_period_started_at: DateTime
+    """ The date and time when the current billing period ends. """
+    current_period_ends_at: DateTime
+    """ The date and time when the current term started. """
+    current_term_started_at: DateTime
+    """ The date and time when the current term ends. """
+    current_term_ends_at: DateTime
+    """ The date and time when the trial period started. """
+    trial_started_at: DateTime
+    """ The date and time when the trial period ends. """
+    trial_ends_at: DateTime
+    """ The remaining billing cycles for the subscription. """
+    remaining_billing_cycles: Int
+    """ The total billing cycles for the subscription. """
+    total_billing_cycles: Int
+    """ The renewal billing cycles for the subscription. """
+    renewal_billing_cycles: Int
+    """ Indicates if the subscription auto-renews. """
+    auto_renew: Boolean
+    """ The date and time when the subscription was paused. """
+    paused_at: DateTime
+    """ The remaining pause cycles for the subscription. """
+    remaining_pause_cycles: Int
+    """ The currency for the subscription. """
+    currency: String
+    """ The unit amount for the subscription. """
+    unit_amount: Currency
+    """ The quantity for the subscription. """
+    quantity: Int
+    """ The add-ons for the subscription. """
+    add_ons: [AddOn]
+    """ The total amount for the add-ons. """
+    add_ons_total: Currency
+    """ The subtotal for the subscription. """
+    subtotal: Currency
+    """ The collection method for the subscription. """
+    collection_method: String
+    """ The net terms for the subscription. """
+    net_terms: Int
+    """ The date and time when the subscription was created. """
+    created_at: DateTime
+    """ The date and time when the subscription was last updated. """
+    updated_at: DateTime
+    """ The date and time when the subscription was canceled. """
+    canceled_at: DateTime
+    """ The date and time when the subscription expires. """
+    expires_at: DateTime
+    """ The total amount for the subscription. """
+    total: Currency
+    """ The date and time when the subscription was reactivated. """
+    activated_at: DateTime
+}
+
+""" Error type for Recurly actions. """
+type RecurlyError {
+    """ The error type. """
+    type: String!
+    """ The error message. """
+    message: String
+}
+
+type OperationResult {
+    subscription: Subscription
+    error: RecurlyError
+}
+
+type Query {
+    """ Lookup a subscription by its unique identifier.
+    [Lookup Subscription by ID](https://recurly.com/developers/api/v2021-02-25/#operation/get_subscription) """
+    lookupSubscriptionById(subscriptionId: ID!): OperationResult @action(name: "lookup_subscription_by_id")
+}
+
+type Mutation {
+    """ A canceled subscription will continue through its current billing cycle.
+    At the end of the current billing cycle the subscription will expire and the customer will no longer be billed.
+    Canceled subscriptions can be reactivated until the end of the billing cycle.
+    [Cancel Subscription](https://recurly.com/developers/api/v2021-02-25/#operation/cancel_subscription) """
+    cancelSubscription(
+        "Subscription ID"
+        subscriptionId: ID!
+    ): OperationResult @action(name: "cancel_subscription")  
+
+    """ This will bring the subscription back to an active, renewing state on the customer's original billing cycle.
+    Expired or failed subscriptions cannot be reactivated; instead a new subscription plan will need to be applied to the account.
+    [Reactivate Subscription](https://recurly.com/developers/api/v2021-02-25/#operation/reactivate_subscription) """
+    reactivateSubscription(
+        "Subscription ID"
+        subscriptionId: ID!
+    ): OperationResult @action(name: "reactivate_subscription")  
+    
+    """ Pause a subscription for a specified number of billing cycles.
+    To cancel pauses on a subscription, set the remainingPauseCycles to 0.
+    [Pause Subscription](https://recurly.com/developers/api/v2021-02-25/#operation/pause_subscription) """
+    pauseSubscription(
+        "Subscription ID"
+        subscriptionId: ID!,
+        "Number of billing cycles to pause the subscriptions. A value of 0 will cancel any pending pauses on the subscription." 
+        remainingPauseCycles: Int!
+    ): OperationResult @action(name: "pause_subscription")  
+
+    """ This will immediately resume a paused subscription and move it into the active state.
+    The subscription must be in the paused state. Active, expired, cancelled, or failed subscriptions cannot be resumed.
+    [Resume Subscription](https://recurly.com/developers/api/v2021-02-25/#operation/resume_subscription) """
+    resumeSubscription(
+         "Subscription ID"
+        subscriptionId: ID!
+    ): OperationResult @action(name: "resume_subscription")  
+}

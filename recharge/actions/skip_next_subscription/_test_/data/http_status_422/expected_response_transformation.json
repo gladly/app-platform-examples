@@ -1,0 +1,7 @@
+{
+  "error": {
+    "error_message": "Only charges with status queued and error can be skipped; Second error message; Third error message",
+    "http_status": 422
+  },
+  "charge": null
+}

@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "code": 200
+  },
+  "data": {
+    "pagination": {
+      "total": 0,
+      "next_cursor": "",
+      "has_next_page": false
+    },
+    "trackings": []
+  }
+}

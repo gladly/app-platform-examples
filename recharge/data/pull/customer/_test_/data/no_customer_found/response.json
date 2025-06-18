@@ -1,0 +1,8 @@
+{
+  "status": "",
+  "statusCode": 200,
+  "headers": {
+    "response_header_name": []
+  },
+  "body": "{\n  \"next_cursor\": null,\n  \"previous_cursor\": null,\n  \"customers\": []\n}"
+}

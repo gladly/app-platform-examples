@@ -1,0 +1,223 @@
+type EstimatedDeliveryDate {
+  ## The estimated arrival date of the shipment. It reflects the shipment recipients timezone and and the format may vary based on how the carrier provides it
+  estimated_delivery_date: String
+  ## The earliest estimated delivery date of the shipment. It reflects the shipment recipients timezone and the format may vary based on how the carrier provides it
+  estimated_delivery_date_min: String
+  ## The Latest estimated delivery date of the shipment. It reflects the shipment recipient's timezone and the format may vary based on how the carrier provides it
+  estimated_delivery_date_max: String
+}
+
+## Current status of tracking. See details: https://www.aftership.com/docs/tracking/enum/delivery-statuses
+enum DeliveryStatusTag {
+  Pending
+  InfoReceived
+  InTransit
+  OutForDelivery
+  AttemptFail
+  AvailableForPickup
+  Delivered
+  Exception
+  Expired
+}
+
+enum SignatureRequired {
+  signature_required
+  adult_signature_required
+  indirect_signature_required
+  no_signature_required
+}
+
+## Object describes checkpoint information. More info at https://www.aftership.com/docs/tracking/model/checkpoint
+type Checkpoint {
+  ## The unique code of courier for this checkpoint ("slug" in AfterShip API)
+  slug: String
+  ## The date and time of the checkpoint event, provided by the carrier. It uses the timezone of the checkpoint
+  checkpoint_time: DateTime!
+  ## Location info provided by carrier.
+  location: String
+  ## City info provided by carrier.
+  city: String
+  ## State info provided by carrier.
+  state: String
+  ## Postal code info provided by carrier.
+  zip: String
+  ## Country/Region name of the checkpoint, may also contain other location info.
+  country_region_name: String
+  ## Checkpoint message
+  message: String!
+  ## Current status of tracking. See tag definition: https://www.aftership.com/docs/tracking/others/supported-couriers If courier code is marked as "unrecognized", it will be returned empty.
+  tag: String!
+  ## Current subtag of checkpoint.. See subtag definition: https://www.aftership.com/docs/tracking/enum/delivery-sub-statuses.
+  subtag: String!
+  ### Normalized checkpoint message. See subtag definition: https://www.aftership.com/docs/tracking/enum/delivery-sub-statuses.
+  subtag_message: String!
+  ## The source of the checkpoint, which can either be from the carrier or when the user marks the tracking as completed.
+  source: String
+}
+
+type LastMileTracking {
+  ## The tracking number of the last-mile carrier.
+  tracking_number: String
+  ## The unique code of the carrier responsible for the last-mile of the shipment. Find all the courier slugs at https://www.aftership.com/docs/tracking/others/supported-couriers.
+  slug: String
+  ## The field contains the official tracking URL of the last-mile carrier, if available. The language parameter of this link is determined by the destination country/region and the language associated with the shipment. If the destination country/region and language data is unavailable, AfterShip will default the language parameter to "US".
+  courier_tracking_link: String
+  ## The field provides the link for modifying delivery instructions (such as delivery date and shipping address), if supported by the last-mile carrier. The language parameter of this link is determined by the destination country/region and the language associated with the shipment. If the destination country/region and language data is unavailable, AfterShip will default the language parameter to "US".
+  courier_redirect_link: String
+}
+
+## Object describes the tracking information. More info at: https://www.aftership.com/docs/tracking/model/tracking
+type Tracking {
+  ## Tracking ID.
+  id: ID!
+  ## The date and time the shipment was imported or added to AfterShip.
+  created_at: DateTime!
+  ## The date and time the shipment was updated.
+  updated_at: DateTime!
+  ## Tracking number.
+  tracking_number: String!
+  ## Unique courier code. Find all the courier slugs at https://www.aftership.com/docs/tracking/others/supported-couriers.
+  slug: String!
+  ## Whether or not AfterShip will continue tracking the shipments. Value is false when tag (status) is Delivered, Expired, or further updates for 30 days since last update.
+  active: Boolean!
+  ## Total transit time in days. For delivered shipments: Transit time (in days) = Delivered date - Pick-up date For undelivered shipments: Transit time (in days) = Current date - Pick-up date Value as null for the shipment without pick-up date.
+  transit_time: Int
+  ## The ISO Alpha-3 code (3 letters) for the origin country/region. E.g. USA for the United States.
+  origin_country_region: String
+  ## The state of the sender's address.
+  origin_state: String
+  ## The city of the sender's address.
+  origin_city: String
+  ## The postal code of the sender's address.
+  origin_postal_code: String
+  ## The sender address that the shipment is shipping from.
+  origin_raw_location: String
+  ## The ISO Alpha-3 code (3 letters) for the destination country/region. E.g. USA for the United States.
+  destination_country_region: String
+  ## The state of the recipient's address.
+  destination_state: String
+  ## The city of the recipient's address.
+  destination_city: String
+  ## The postal code of the recipient's address.
+  destination_postal_code: String
+  ## The shipping address that the shipment is shipping to.
+  destination_raw_location: String
+  ## The field contains the estimated delivery date provided by the carrier.
+  courier_estimated_delivery_date: EstimatedDeliveryDate
+  ## Text field for the note.
+  note: String
+  ## A globally-unique identifier for the order.
+  order_id: String
+  ## The URL for the order in your system or store.
+  order_id_path: String
+  ## The date and time the order was created in your system or store.
+  order_date: DateTime
+  ## Number of packages under the tracking.
+  shipment_package_count: Int
+  ## The date and time the shipment was picked up by the carrier. It uses the timezone where the pickup occured. The format may differ depending on how the carrier provides it
+  shipment_pickup_date: String
+  ## The date and time the shipment was delivered. It uses the shipment recipient's timezone. The format may differ depending on how the carrier provides it
+  shipment_delivery_date: String
+  ## The carrier service type for the shipment.
+  shipment_type: String
+  ## Signed by information for delivered shipment.
+  signed_by: String
+  ## Current status of tracking. See tag definition: https://www.aftership.com/docs/tracking/others/supported-couriers If courier code is marked as "unrecognized", it will be returned empty.
+  tag: String!
+  ## Current subtag of tracking. See subtag definition: https://www.aftership.com/docs/tracking/enum/delivery-sub-statuses
+  subtag: String!
+  ### Normalized tracking message. See subtag definition: https://www.aftership.com/docs/tracking/enum/delivery-sub-statuses
+  subtag_message: String!
+  ## Indicates if the shipment is trackable till the final destination.
+  last_mile_tracking_supported: Boolean
+  ## Official tracking URL of the courier (if any).
+  courier_tracking_link: String
+  ## Delivery instructions (delivery date or address) can be modified by visiting the link if supported by a carrier.
+  courier_redirect_link: String
+  checkpoints: [Checkpoint]
+  ## Whether or not the shipment is returned to sender. Value is true when any of its checkpoints has subtag Exception_010 (returning to sender) or Exception_011 (returned to sender). Otherwise value is false.
+  return_to_sender: Boolean!
+  ## The promised delivery date of the order.
+  order_promised_delivery_date: String
+  ## Shipment delivery type.
+  delivery_type: String
+  ## Shipment pickup location for receiver.
+  pickup_location: String
+  ## Shipment pickup note for receiver.
+  pickup_note: String
+  ## Official tracking URL of the courier (if any). The language parameter of this link relies on the destination country/region and the language associated with the shipment, if the data regarding the destination country/region and language of the shipment is not available, AfterShip will set the language parameter of the link to "US" by default.
+  courier_tracking_link: String
+  ## Delivery instructions (delivery date or address) can be modified by visiting the link if supported by a carrier. The language parameter of this link relies on the destination country/region and the language associated with the shipment, if the data regarding the destination country/region and language of the shipment is not available, AfterShip will set the language parameter of the link to "US" by default.
+  courier_redirect_link: String
+  ## The date and time of the carrier's first attempt to deliver the package to the recipient. It uses the shipment recipients timezone.
+  first_attempted_at: DateTime
+  ## Whether the tracking is delivered on time or not.
+  on_time_status: String
+  ## A unique, human-readable identifier for the order.
+  order_number: String
+  ## The shipping_method string refers to the chosen method for delivering the package. Merchants typically offer various shipping methods to consumers during the checkout process, such as, Local Delivery, Free Express Worldwide Shipping, etc.
+  shipping_method: String
+  ## The signature_requirement field serves the purpose of validating the service option type, specifically proof of delivery. By collecting the recipient's signature upon delivery, it ensures the package reaches the intended recipient and prevents disputes related to non-delivery or lost packages.
+  signature_requirement: String
+  ## By dynamically tracking failed delivery attempts during shipment, this field allows you to pinpoint carriers accountable for the most failures.
+  failed_delivery_attempts: Int
+  ## The delivery location type represents the secure area where the carrier leaves the package, such as a safe place, locker, mailbox, front porch, etc. This information helps ensure the shipment reaches the intended recipient efficiently, minimizing the risk of theft or damage.
+  delivery_location_type: String
+  ## This field contains information about the last leg of the shipment, starting from the carrier who hands it over to the last-mile carrier, all the way to delivery. Once AfterShip detects that the shipment involves multiple legs and identifies the last-mile carrier, we will populate the last-mile carrier information in this object.
+  last_mile: LastMileTracking
+}
+
+"""
+Represents an error returned from AfterShip
+Error handling:
+   - Errors with code 400 will be returned to client
+   - Errors with codes other than 400 will result in failure
+Read more on AfterShip errors https://www.aftership.com/docs/tracking/quickstart/request-errors
+"""
+type RequestError {
+  code: Int!
+  message: String!
+  type: String!
+}
+
+type CreateTrackingResult {
+  tracking: Tracking
+  error: RequestError
+}
+
+type LookupTrackingResult {
+  tracking: Tracking
+  error: RequestError
+}
+
+type Mutation {
+  """
+  Create a tracking.
+  """
+  createTracking(
+    """
+    Tracking number of a shipment.
+    """
+    trackingNumber: String!
+    """
+    A globally-unique identifier for the order.
+    """
+    orderID: ID
+    """
+    A unique, human-readable identifier for the order.
+    """
+    orderNumber: String
+  ): CreateTrackingResult! @action(name: "create_tracking")
+}
+
+type Query {
+  """
+  Lookup tracking information by tracking number.
+  """
+  lookupByTrackingNumber(
+    """
+    Tracking number of a shipment.
+    """
+    trackingNumber: String!
+  ): LookupTrackingResult! @action(name: "lookup_by_tracking_number")
+}

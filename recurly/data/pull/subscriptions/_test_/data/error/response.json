@@ -1,0 +1,8 @@
+{
+  "status": "",
+  "statusCode": 404,
+  "headers": {
+    "response_header_name": []
+  },
+  "body": { "error": { "type": "not_found", "message": "Couldn't find Account with id = wax5poc2a0hn1", "params": [{ "param": "account_id" }] } }
+}

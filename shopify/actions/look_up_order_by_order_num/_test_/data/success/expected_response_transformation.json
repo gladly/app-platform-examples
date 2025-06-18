@@ -99,6 +99,7 @@
     ],
     "name": "#1360",
     "note": null,
+    "orderNumber": "#1360",
     "shippingAddress": { "address1": "address1", "address2": null, "city": "city", "country": "Spain", "countryCode": "ES", "province": "Madrid", "provinceCode": "M", "zip": "28806" },
     "shippingLines": [],
     "statusPageUrl": "https://gladly-development.myshopify.com/47554330775/orders/87afc023adb60ef0f06998d6441b4ad0/authenticate?key=0603c7981d2e56719e9d2a363c9cbd11",

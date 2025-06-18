@@ -48,6 +48,7 @@
     ],
     "name": "#1044",
     "note": null,
+    "orderNumber": "#1044",
     "shippingAddress": { "address1": "1281 West Bartlett Way", "address2": "", "city": "Chandler", "country": "United States", "countryCode": "US", "province": "Arizona", "provinceCode": "AZ", "zip": "85248" },
     "shippingLines": [],
     "statusPageUrl": "https://gladly-development.myshopify.com/47554330775/orders/e7bcdb7edcd1a42a2eda083b586c266e/authenticate?key=1336dc7625f78fb28e1c647998573b42",

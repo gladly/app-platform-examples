@@ -412,6 +412,7 @@ type Order @dataType(name: "shopify_order", version: "3.0") {
   ## List of shipments for the order.
   fulfillments: [Fulfillment]
   name: String!
+  orderNumber: String!
   email: String
 
   customer: CustomerInfo

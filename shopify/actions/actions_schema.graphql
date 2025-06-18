@@ -440,6 +440,7 @@ type Order {
   ## List of shipments for the order.
   fulfillments: [Fulfillment]
   name: String!
+  orderNumber: String!
   email: String
   currentSubtotalPriceSet: MoneySet
   currentTotalDiscountsSet: MoneySet

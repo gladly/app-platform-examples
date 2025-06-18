@@ -1,3 +1,9 @@
+# version "3.1.0"
+
+- Added new field `orderNumber` to the `Order` type in all relevant schemas and response transformations.
+- Updated response transformation templates for order lookups and data pulls to include `orderNumber`.
+- Bumped app version to 3.1.0 in manifest.
+
 # version "3.0.0"
 
 - Optimized response transformation: minimized changes, no field renaming.

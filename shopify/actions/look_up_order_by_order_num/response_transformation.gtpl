@@ -45,6 +45,7 @@
 {{- define "orderTemplate" }}
     {{- $order := . -}}
     {{- $_ := set $order "shippingLines" $order.shippingLines.nodes -}}
+    {{- $_ := set $order "orderNumber" $order.name -}}
     
     {{- /* get rid of order->fulfillments[<i>]->fulfillmentLineItems->"nodes" */ -}}
     {{- $arr := list -}}

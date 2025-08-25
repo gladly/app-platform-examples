@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "username": "username"
+  },
+  "secrets": {
+    "apiToken": "token"
+  }
+}

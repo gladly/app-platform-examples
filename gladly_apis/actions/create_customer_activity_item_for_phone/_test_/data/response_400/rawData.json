@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "attr": "content",
+      "code": "blank",
+      "detail": "content cannot be blank"
+    }
+  ]
+}

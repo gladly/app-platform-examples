@@ -1,0 +1,7 @@
+{
+    "customer": {
+        "mobileNumber": "+14152223000"
+    },
+    "from": "+14152223316",
+    "body": "hello, this is a sample SMS message!"
+}

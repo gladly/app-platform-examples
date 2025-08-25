@@ -1,0 +1,16 @@
+{
+  "customer": {
+    "emailAddress": "michelle.smith@example.org"
+  },
+  "content": {
+    "type": "CUSTOMER_ACTIVITY",
+    "activityType": "EMAIL",
+    "title": "Handed off to Zendesk",
+    "body": "Sidekick handed off this conversation to Zendesk.",
+    "sourceName": "Sidekick",
+    "link": {
+      "url": "https://www.zendesk.com",
+      "text": "View this conversation in Zendesk"
+    }
+  }
+}

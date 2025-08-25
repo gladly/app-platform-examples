@@ -1,0 +1,11 @@
+{
+   "mobilePhone": "+15551234567",
+   "activityType": "SMS",
+   "title": "Test Activity",
+   "body": "This is a test customer activity item",
+   "sourceName": "Test Source",
+   "link": {
+     "url": "https://example.com/test",
+     "text": "View Details"
+   }
+}

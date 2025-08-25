@@ -1,0 +1,3 @@
+{
+    "topicIds": {{toJson .inputs.topicIds}}
+}

@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "gladlyHost": "us-master.gladly.qa",
+    "username": "integrations@gladly.com"
+  },
+  "secrets": {
+  }
+}

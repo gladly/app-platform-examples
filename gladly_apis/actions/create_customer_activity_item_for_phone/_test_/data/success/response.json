@@ -1,0 +1,8 @@
+{
+  "status": "OK",
+  "statusCode": 200,
+  "headers": {
+    "Content-Type": ["application/json"]
+  },
+  "body": "{\"id\":\"pOVVdzweSumI4bFxjlT8LA\",\"customerId\":\"gHufx-U3QqOmhvFuViceTw\",\"timestamp\":\"2025-06-09T17:30:12.07Z\",\"initiator\":{\"id\":\"sjTGQBcESVqkqFlcDvxnXw\",\"type\":\"API\"},\"content\":{\"type\":\"CUSTOMER_ACTIVITY\",\"title\":\"Handed off to Zendesk\",\"body\":\"Sidekick handed off this conversation to Zendesk.\",\"activityType\":\"SMS\",\"sourceName\":\"Sidekick\",\"link\":{\"url\":\"https://www.zendesk.com\",\"text\":\"View this conversation in Zendesk\"},\"receivedAt\":\"2025-06-09T17:30:12.07Z\"}}"
+}

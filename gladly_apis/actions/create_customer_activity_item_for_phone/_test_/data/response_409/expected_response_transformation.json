@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "attr": "newConversationItems",
+      "code": "taken",
+      "detail": "conversation item already exists"
+    }
+  ]
+}

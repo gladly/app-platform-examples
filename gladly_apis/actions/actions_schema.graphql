@@ -1,0 +1,71 @@
+enum ConversationStatus {
+    OPEN
+    WAITING
+    CLOSED
+}
+
+enum ActivityType {
+    EMAIL
+    ISSUE
+    SMS
+    SURVEY
+}
+
+type Error {
+    attr: String
+    code: String
+    detail: String
+}
+
+type Inbox {
+    id: ID!
+    name: String!
+    disabled: Boolean!
+}
+
+type SimpleResult {
+    success: Boolean!
+    errors: [Error]
+}
+
+type SendSmsResult {
+    customerId: String
+    conversationItemId: String
+    errors: [Error]
+}
+
+type CustomerActivityItemResult {
+    id: String
+    customerId: String
+    timestamp: String
+    errors: [Error]
+}
+
+type Topic {
+    id: ID!
+    disabled: Boolean!
+    name: String!
+    parentId: String
+}
+
+input LinkInput {
+    url: String!
+    text: String!
+}
+
+type Query {
+    inboxes(enabledOnly: Boolean): [Inbox] @action(name: "inboxes")
+    topics(enabledOnly: Boolean): [Topic] @action(name: "topics")
+}
+
+type Mutation {
+    addTopicsToConversation(conversationId: String!, topicIds: [String!]!): SimpleResult! @action(name: "add_topics_to_conversation")
+    createCustomerActivityItemForEmailAddress(emailAddress: String!, activityType: ActivityType!, title: String, body: String, sourceName: String, link: LinkInput): CustomerActivityItemResult! @action(name: "create_customer_activity_item_for_email")
+    createCustomerActivityItemForMobilePhone(mobilePhone: String!, activityType: ActivityType!, title: String, body: String, sourceName: String, link: LinkInput): CustomerActivityItemResult! @action(name: "create_customer_activity_item_for_phone")
+    createTaskEmailAddress(emailAddress: String!, inboxId: String!, agentId: String, task: String!, dueAt: DateTime!): SimpleResult! @action(name: "create_task_email")
+    createTaskMobilePhone(mobilePhone: String!, inboxId: String!, agentId: String, task: String!, dueAt: DateTime!): SimpleResult! @action(name: "create_task_phone")
+    createTaskCustomerId(customerId: String!, inboxId: String!, agentId: String, task: String!, dueAt: DateTime!): SimpleResult! @action(name: "create_task_customerid")
+    sendSms(customerNumber: String!, fromNumber: String!, message: String!): SendSmsResult @action(name: "send_sms")
+    updateConversationAssignee(conversationId: String!, inboxId: String!, agentId: String): SimpleResult! @action(name: "update_conversation_assignee")
+    updateConversationStatus(conversationId: String!, status: ConversationStatus!, force: Boolean): SimpleResult! @action(name: "update_conversation_status")
+}

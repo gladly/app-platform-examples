@@ -1,0 +1,1 @@
+https://{{.integration.configuration.gladlyHost}}/api/v1/customers/{{.inputs.customerId}}/tasks

@@ -1,0 +1,10 @@
+{
+    "success": false,
+    "errors": [
+        {
+            "attr": "newConversationItems",
+            "code": "taken",
+            "detail": "task already exists"
+        }
+    ]
+}

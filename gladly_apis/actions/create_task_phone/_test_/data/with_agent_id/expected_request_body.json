@@ -1,0 +1,11 @@
+{
+    "assignee": {
+      "inboxId": "NFpDZtfqhk2pI6fjaVDlFf",
+      "agentId": "zGaHXjD4SR-moMR9LbULDa"
+    },
+    "body": "Call customer back with information about booking",
+    "dueAt": "2020-03-15T06:13:00.125Z",
+    "customer": {
+      "mobilePhone": "+16505551987"
+  }
+}

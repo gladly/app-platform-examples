@@ -1,0 +1,8 @@
+{
+  "status": "Bad Request",
+  "statusCode": 400,
+  "headers": {
+    "Content-Type": ["application/json"]
+  },
+  "body": "{\"errors\":[{\"attr\":\"content\",\"code\":\"blank\",\"detail\":\"content cannot be blank\"}]}"
+}

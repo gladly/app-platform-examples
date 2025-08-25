@@ -1,0 +1,8 @@
+{
+  "status": "Conflict",
+  "statusCode": 409,
+  "headers": {
+    "Content-Type": ["application/json"]
+  },
+  "body": "{\"errors\":[{\"attr\":\"newConversationItems\",\"code\":\"taken\",\"detail\":\"conversation item already exists\"}]}"
+}

@@ -1,0 +1,19 @@
+[
+        {
+            "id": "Z_Oto7j-Sy2DlQdnZBDdDw",
+            "disabled": false,
+            "name": "Order Return"
+        },
+        {
+            "id": "8eiDakrnTgKa3HIxtgV5OA",
+            "disabled": false,
+            "name": "Damaged Merchandise",
+            "parentId": "Z_Oto7j-Sy2DlQdnZBDdDw"
+        },
+        {
+            "id": "WgZnWNicSMmORcNzP8rwGQ",
+            "disabled": true,
+            "name": "Holiday 2019",
+            "parentId": "Z_Oto7j-Sy2DlQdnZBDdDw"
+        }
+]

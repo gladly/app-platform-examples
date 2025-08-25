@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "errors": [
+        {
+            "code": "not_exist",
+            "detail": "entity does not exist"
+        }
+    ]
+}

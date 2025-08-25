@@ -1,0 +1,16 @@
+{
+  "customer": {
+    "mobilePhone": "+15551234567"
+  },
+  "content": {
+    "type": "CUSTOMER_ACTIVITY",
+    "activityType": "SMS",
+    "title": "Updated External System",
+    "body": "This Customer's profile was updated on an external system",
+    "sourceName": "Sidekick",
+    "link": {
+      "url": "https://www.external-system.example",
+      "text": "View external system changes"
+    }
+  }
+}

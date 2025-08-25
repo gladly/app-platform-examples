@@ -1,0 +1,16 @@
+{
+  "customer": {
+    "emailAddress": "michelle.smith@example.org"
+  },
+  "content": {
+    "type": "CUSTOMER_ACTIVITY",
+    "activityType": "EMAIL",
+    "title": "Updated External System",
+    "body": "This Customer's profile was updated on an external system",
+    "sourceName": "Sidekick",
+    "link": {
+      "url": "https://www.external-system.example",
+      "text": "View external system changes"
+    }
+  }
+}

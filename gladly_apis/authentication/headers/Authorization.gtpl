@@ -1,0 +1,1 @@
+Basic {{b64enc (printf "%s:%s" .integration.configuration.username .integration.secrets.apiToken)}}

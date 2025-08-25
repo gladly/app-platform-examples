@@ -5,12 +5,12 @@
   "content": {
     "type": "CUSTOMER_ACTIVITY",
     "activityType": "SMS",
-    "title": "Handed off to Zendesk",
-    "body": "Sidekick handed off this conversation to Zendesk.",
+    "title": "Updated External System",
+    "body": "This Customer's profile was updated on an external system",
     "sourceName": "Sidekick",
     "link": {
-      "url": "https://www.zendesk.com",
-      "text": "View this conversation in Zendesk"
+      "url": "https://www.external-system.example",
+      "text": "View external system changes"
     }
   }
 }

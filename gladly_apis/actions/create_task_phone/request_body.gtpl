@@ -6,7 +6,7 @@
         {{end -}}
     },
     "body": "{{.inputs.task}}",
-    "dueAt": "{{.inputs.dueAt}}",
+    "dueAt": "{{date "2006-01-02T15:04:05Z07:00" .inputs.dueAt}}",
     "customer": {
         "mobilePhone": "{{.inputs.mobilePhone}}"
     }

@@ -1,0 +1,8 @@
+{
+  "dataType": {
+    "name": "loop_returns_note",
+    "version": "1.0"
+  },
+  "httpMethod": "GET",
+  "dependsOnDataTypes": ["loop_returns_return"]
+}

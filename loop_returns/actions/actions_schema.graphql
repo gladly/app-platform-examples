@@ -1,0 +1,54 @@
+type LoopReturnsError {
+    message: String!
+}
+
+type LoopReturnsReturnLink {
+    url: String
+    errors: [LoopReturnsError!]
+}
+
+enum AllowlistType {
+    order
+    product
+    email
+    product_tag
+}
+
+type LoopReturnsAllowlistEntry {
+    id: ID
+    type: String
+    value: String
+    errors: [LoopReturnsError!]
+}
+
+type Mutation {
+    """
+    Create an allowlist entry.
+    """
+    createAllowlistItem(
+        """
+        The type of value allowed by this allowlist entry.
+        """
+        type: AllowlistType!,
+        """
+        The allowed value.
+        """
+        value: String!
+    ): LoopReturnsAllowlistEntry @action(name: "create_allowlist_item")
+}
+
+type Query {
+    """
+    Create a return link.
+    """
+    generateReturnLink(
+        """
+        The name of the order in Shopify.
+        """
+        orderName: String!,
+        """
+        The order detail used to identify the order. Often the customer's shipping ZIP code, but depending on the merchant's shop settings, could also be the customer's email or phone number.
+        """
+        orderZIP: String!
+    ): LoopReturnsReturnLink @action(name: "generate_return_link")
+}

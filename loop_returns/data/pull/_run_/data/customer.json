@@ -1,0 +1,16 @@
+{
+  "id": "customer1",
+  "name": "First Last",
+  "address": "123 Street, City, State 12345",
+  "primaryEmailAddress": "emailWithReturns@company.com",
+  "emailAddresses": [
+    "emailWithReturns@company.com"
+  ],
+  "primaryPhoneNumber": {
+
+  },
+  "phoneNumbers": [
+
+  ]
+}
+  

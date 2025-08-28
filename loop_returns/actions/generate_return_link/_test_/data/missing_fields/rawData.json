@@ -1,0 +1,5 @@
+{
+    "errors": {
+        "message": "Missing fields - \"name\" and \"zip\" are required."
+    }
+}

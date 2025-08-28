@@ -1,0 +1,92 @@
+<?Template languageVersion="1.1" ?>
+<Card title="{{ __data.length }} Return{{- __data.length > 1 ? 's' : '' }}" cardType="expandable">
+  <List dataSource="__data" separateItems="true">
+    <Drawer initialState="expandFirst">
+      <Fixed>
+        <Text fontSize="medium" fontWeight="semiBold">Order {{ order.name }}</Text>
+        <DateTimeValue dataSource="createdAt" label="Created on" valueFontWeight="medium" />
+        <Formula>{{ state | capitalize }}</Formula>
+      </Fixed>
+      <Expandable>
+        <!-- Top portion that we display for each return -->
+        <Text fontSize="medium" fontWeight="semiBold">RMA {{ id }}</Text>
+        <Link dataSource="url" linkText="Manage the return in Loop" valueFontWeight="medium" />
+        <Spacer size="medium" />
+        <StringValue dataSource="customerEmail" label="Order email" valueFontWeight="medium" />
+        <DateTimeValue dataSource="updatedAt" label="Last updated" valueFontWeight="medium" />
+        <Formula label="Status" valueFontWeight="medium">{{ state | capitalize }}</Formula>
+        <StringValue dataSource="outcome" label="Outcome" valueFontWeight="medium" />
+        <Divider spacing="medium"/>
+        <!-- Credits -->
+        <Section title="Returned item {{- (return.items | length) > 1 ? 's' : '' }}" padding="none" titleFontSize="medium">
+          <List dataSource="return.items">
+            <Text fontWeight="semiBold" maxLines="2">{{ title | capitalize }}</Text>
+            <Formula>{{returnReason}} / {{parentReturnReason}}</Formula>
+            <CurrencyValue currencyCodeSource="__root.currency" dataSource="cost.price" label="Price" valueAlignment="right" />
+            <Spacer size="small"/>
+          </List>
+        </Section>
+        <!-- Exchanges -->
+        <Spacer size="small"/>
+        <Section title="Purchased item {{- (exchange.items | length) > 1 ? 's' : '' }}" padding="none" titleFontSize="medium" when="exchange.items | length > 0">
+          <List dataSource="exchange.items">
+            <Text fontWeight="semiBold" maxLines="2">{{ title | capitalize }}</Text>
+            <StringValue dataSource="sku" label="SKU" valueAlignment="right" />
+            <CurrencyValue dataSource="cost.price" currencyCodeSource="__root.currency" label="Price" valueAlignment="right" />
+            <StringValue dataSource="isOutOfStock" label="Out of stock" valueAlignment="right" />
+            <Spacer size="small"/>
+          </List>
+        </Section>
+        <!-- Return summary -->
+        <Divider when="return is not empty" />
+        <Section padding="none" title="Return credits" titleFontSize="medium" when="return is not empty">
+          <CurrencyValue dataSource="return.productTotal" currencyCodeSource="__root.currency" label="Item total" valueAlignment="right" />
+          <CurrencyValue dataSource="return.discountTotal" currencyCodeSource="__root.currency" label="Discounts" valueAlignment="right" />
+          <CurrencyValue dataSource="return.taxTotal" currencyCodeSource="__root.currency" label="Tax" valueAlignment="right" />
+          <CurrencyValue dataSource="return.total" currencyCodeSource="__root.currency" label="Total" valueAlignment="right" valueFontWeight="semiBold" />
+        </Section>
+        <Spacer size="small"/>
+        <Section padding="none" title="Purchased" titleFontSize="medium">
+          <CurrencyValue dataSource="exchange.productTotal" currencyCodeSource="__root.currency" label="Item total" valueAlignment="right" />
+          <CurrencyValue dataSource="exchange.discountTotal" currencyCodeSource="__root.currency" label="Discounts" valueAlignment="right" />
+          <CurrencyValue dataSource="exchange.taxTotal" currencyCodeSource="__root.currency" label="Tax" valueAlignment="right" />
+          <CurrencyValue dataSource="exchange.total" currencyCodeSource="__root.currency" label="Total" valueAlignment="right" valueFontWeight="semiBold" />
+        </Section>
+        <Spacer size="small" />
+        <Section padding="none" title="Other fees" titleFontSize="medium">
+          <CurrencyValue dataSource="costBreakdown.handlingFee" currencyCodeSource="__root.currency" label="Handling fee" valueAlignment="right" />
+        </Section>
+        <Spacer size="small" />
+        <Section padding="none" title="Totals" titleFontSize="medium">
+          <CurrencyValue dataSource="costBreakdown.refund" currencyCodeSource="__root.currency" label="Refund total" valueAlignment="right" valueFontWeight="semiBold" />
+          <CurrencyValue dataSource="costBreakdown.upsell" currencyCodeSource="__root.currency" label="Upsell total" valueAlignment="right" valueFontWeight="semiBold" />
+          <CurrencyValue dataSource="costBreakdown.giftCardAmount" currencyCodeSource="__root.currency" label="Gift card total" valueAlignment="right" valueFontWeight="semiBold" />
+        </Section>
+        <!-- Shipping -->
+        <Spacer size="small" />
+        <Divider when="shipping is not empty" />
+        <Section title="Shipping details" expandable="true" padding="none" titleFontSize="medium">
+          <StringValue dataSource="shipping.labelStatus" label="Shipment status" valueFontWeight="medium" />
+          <DateTimeValue dataSource="shipping.labelUpdatedAt" label="Last updated at" valueFontWeight="medium" />
+          <StringValue dataSource="shipping.carrier" label="Carrier" valueFontWeight="medium" />
+          <StringValue dataSource="shipping.trackingNumber" label="Tracking number" valueFontWeight="medium" />
+          <StringValue dataSource="shipping.returnMethod" label="Return method" valueFontWeight="medium" />
+          <Spacer size="medium" />
+          <Link dataSource="shipping.statusPageUrl" linkText="View the return status page" valueFontWeight="medium" />
+        </Section>
+        <!-- Notes -->
+        <Spacer size="small" />
+        <Divider when="notes | length > 0" />
+        <Section title="Notes" expandable="true" padding="none" titleFontSize="medium">
+          <List dataSource="notes">
+            <DateTimeValue dataSource="createdAt" valueFontWeight="semiBold" />
+            <StringValue dataSource="content" maxLines="3" multilineStyle="expandable" />
+            <Spacer size="medium" />
+          </List>
+        </Section>
+        <!-- Final spacer to visually separate the return from the list -->
+        <Spacer size="medium"/>
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

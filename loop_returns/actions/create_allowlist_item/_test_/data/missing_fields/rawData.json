@@ -1,0 +1,8 @@
+{
+    "message": "The value field is required.",
+    "errors": {
+        "value": [
+            "The value field is required."
+        ]
+    }
+}

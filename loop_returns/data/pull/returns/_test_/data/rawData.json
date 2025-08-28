@@ -1,0 +1,91 @@
+{
+  "status": "success",
+  "query": {
+    "from": "2022-02-01T00:00:00+00:00",
+    "to": "2022-11-10T23:59:59+00:00",
+    "customer_email": "primary@email.com",
+    "filter": "created_at",
+    "limit": 300,
+    "offset": 0
+  },
+  "data": [
+    {
+      "id": "25044777",
+      "state": "closed",
+      "created_at": "2022-11-02T00:13:08+00:00",
+      "updated_at": "2022-11-02T00:20:00+00:00",
+      "edited_at": null,
+      "total": "0.00",
+      "order_id": "50265228",
+      "order_name": "#1086",
+      "provider_order_id": "4803021602967",
+      "order_number": "86",
+      "outcome": "credit",
+      "customer": "primary@email.com",
+      "multi_currency": false,
+      "currency": "USD",
+      "return_product_total": "29.99",
+      "return_discount_total": "0.00",
+      "return_tax_total": "0.00",
+      "return_total": "29.99",
+      "return_credit_total": "29.99",
+      "exchange_product_total": "29.99",
+      "exchange_discount_total": "0.00",
+      "exchange_tax_total": "0.00",
+      "exchange_total": "29.99",
+      "exchange_credit_total": "29.99",
+      "gift_card": "0.00",
+      "gift_card_order_name": null,
+      "gift_card_order_id": null,
+      "handling_fee": "0.00",
+      "refund": "0.00",
+      "upsell": "0.00",
+      "line_items": [
+        {
+          "line_item_id": "123194218",
+          "provider_line_item_id": "11520238092439",
+          "product_id": "7469735116951",
+          "variant_id": "41845504639127",
+          "sku": "",
+          "title": "t-shirt (short):  product managers - Small",
+          "price": "-29.99",
+          "discount": "0.00",
+          "tax": "0.00",
+          "refund": "0.00",
+          "returned_at": "2022-11-02 00:13:08",
+          "exchange_variant": "41845504671895",
+          "return_reason": "\"Item was too big\"",
+          "parent_return_reason": "\"Item didn't fit\"",
+          "return_comment": "\"This is a comment with extra quotations\"",
+          "barcode": "N/A",
+          "outcome": "default"
+        }
+      ],
+      "exchanges": [
+        {
+          "exchange_id": "11801246",
+          "exchange_order_id": 4804378558615,
+          "exchange_order_name": "EXC-1086-1",
+          "product_id": "7469735116951",
+          "variant_id": "41845504671895",
+          "sku": "",
+          "type": "exchange",
+          "title": "t-shirt (short):  product managers - Medium",
+          "price": "29.99",
+          "discount": "0.00",
+          "tax": "0.00",
+          "total": "29.99",
+          "out_of_stock": false,
+          "out_of_stock_resolution": null
+        }
+      ],
+      "carrier": "N/A",
+      "tracking_number": "N/A",
+      "label_status": "N/A",
+      "status_page_url": "https://company.loopreturns.com/#/return/3e9b7d03-53cd-43b0-aad9-73a1eff525ae",
+      "label_updated_at": "N/A",
+      "destination_id": 7295,
+      "return_method": null
+    }
+  ]
+}

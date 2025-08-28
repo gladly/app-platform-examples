@@ -1,0 +1,88 @@
+{
+  "loop_returns_return": [
+    {
+        "id": "25044777",
+        "state": "closed",
+        "createdAt": "2022-11-02T00:13:08+00:00",
+        "updatedAt": "2022-11-02T00:20:00+00:00",
+        "editedAt": null,
+        "currency": "USD",
+        "url": "https://admin.loopreturns.com/returns/25044777",
+        "outcome": "credit",
+        "customerEmail": "primary@email.com",
+        "order": {
+          "loopId": "50265228",
+          "name": "#1086",
+          "providerId": "4803021602967",
+          "number": "86"
+        },
+        "return": {
+          "productTotal": "29.99",
+          "discountTotal": "0.00",
+          "taxTotal": "0.00",
+          "total": "29.99",
+          "items": [
+            {
+              "id": "123194218",
+              "providerId": "11520238092439",
+              "productId": "7469735116951",
+              "variantId": "41845504639127",
+              "sku": "",
+              "title": "t-shirt (short):  product managers - Small",
+              "returnReason": "\"Item was too big\"",
+              "parentReturnReason": "\"Item didn't fit\"",
+              "returnedAt": "2022-11-02T00:13:08Z",
+              "outcome": "default",
+              "comment": "\"This is a comment with extra quotations\"",
+              "cost": {
+                "price": "-29.99",
+                "discount": "0.00",
+                "tax": "0.00",
+                "total": "0.00"
+              }
+            }
+          ]
+        },
+        "exchange": {
+          "productTotal": "29.99",
+          "discountTotal": "0.00",
+          "taxTotal": "0.00",
+          "total": "29.99",
+          "items": [
+            {
+              "id": "11801246",
+              "orderId": "4804378558615",
+              "orderName": "EXC-1086-1",
+              "productId": "7469735116951",
+              "variantId": "41845504671895",
+              "sku": "",
+              "title": "t-shirt (short):  product managers - Medium",
+              "cost": {
+                "price": "29.99",
+                "discount": "0.00",
+                "tax": "0.00",
+                "total": "29.99"
+              },
+              "isOutOfStock": false,
+              "outOfStockResolution": ""
+            }
+          ]
+        },
+        "costBreakdown": {
+          "handlingFee": "0.00",
+          "giftCardAmount": "0.00",
+          "refund": "0.00",
+          "upsell": "0.00"
+        },
+        "shipping": {
+          "carrier": "N/A",
+          "trackingNumber": "N/A",
+          "labelStatus": "N/A",
+          "statusPageUrl": "https://company.loopreturns.com/#/return/3e9b7d03-53cd-43b0-aad9-73a1eff525ae",
+          "labelUpdatedAt": null,
+          "destinationId": "7295",
+          "returnMethod": ""
+        }
+      }    
+  ]
+}

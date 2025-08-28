@@ -1,0 +1,1 @@
+https://api.loopreturns.com/api/v1/allowlists

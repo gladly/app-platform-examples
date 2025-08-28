@@ -1,0 +1,2 @@
+/https://api.loopreturns.com/api/v2/returns\?filter=updated_at&limit=10&from=\d{4}-\d{2}-\d{2}&customer_email=primary%40email.com
+https://api.loopreturns.com/api/v2/returns\?filter=updated_at&limit=10&from=\d{4}-\d{2}-\d{2}&customer_email=secondary%40email.com/

@@ -1,0 +1,103 @@
+type ItemCost {
+  price: Currency!
+  discount: Currency!
+  tax: Currency!
+  total: Currency!
+}
+
+type ReturnItem {
+  id: String!
+  providerId: String!
+  productId: String!
+  variantId: String!
+  sku: String!
+  title: String
+  returnReason: String
+  parentReturnReason: String
+  returnedAt: DateTime
+  outcome: String!
+  comment: String
+  cost: ItemCost!
+}
+
+type Return {
+  productTotal: Currency!
+  discountTotal: Currency!
+  taxTotal: Currency!
+  total: Currency!
+  items: [ReturnItem]!
+}
+
+type ExchangeItem {
+  id: String!
+  productId: String!
+  variantId: String!
+  orderName: String!
+  orderId: String!
+  sku: String!
+  title: String
+  isOutOfStock: Boolean!
+  outOfStockResolution: String!
+  cost: ItemCost!
+}
+
+type Exchange {
+  productTotal: Currency!
+  discountTotal: Currency!
+  taxTotal: Currency!
+  total: Currency!
+  items: [ExchangeItem]!
+}
+
+type Order {
+  loopId: String!
+  name: String!
+  providerId: String!
+  number: String!
+}
+
+type CostBreakdown {
+  handlingFee: Currency!
+  giftCardAmount: Currency!
+  refund: Currency!
+  upsell: Currency!
+}
+
+type Shipping {
+  carrier: String!
+  trackingNumber: String!
+  labelStatus: String!
+  labelUpdatedAt: DateTime
+  statusPageUrl: String!
+  returnMethod: String
+  destinationId: String!
+}
+
+type Note @dataType(name: "loop_returns_note", version: "1.0") {
+  id: ID!
+  returnId: String!
+  content: String!
+  createdAt: DateTime!
+}
+
+type LoopReturn @dataType(name: "loop_returns_return", version: "1.0") {
+  id: ID!
+  state: String!
+  updatedAt: DateTime!
+  createdAt: DateTime!
+  editedAt: DateTime
+  currency: String!
+  url: String!
+  outcome: String!
+  customerEmail: String!
+  return: Return!
+  order: Order!
+  exchange: Exchange!
+  costBreakdown: CostBreakdown!
+  shipping: Shipping!
+  notes: [Note] @parentId(template: "{{.id}}")
+}
+
+type Query {
+  returns: [LoopReturn]
+}

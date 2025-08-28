@@ -1,0 +1,110 @@
+[
+  {
+    "id": "25044777",
+    "state": "closed",
+    "currency": "USD",
+    "createdAt": "2022-11-02T00:13:08+00:00",
+    "updatedAt": "2022-11-02T00:20:00+00:00",
+    "orderName": "#1086",
+    "url": "https://admin.loopreturns.com/returns/25044777",
+    "outcome": "Exchange, Credit",
+    "customerEmail": "cooper@gladly.com",
+    "order": {
+      "loopId": "665544",
+      "name": "#1864",
+      "providerId": "providerID778899",
+      "number": "1864"
+    },
+    "return": {
+      "productTotal": "29.99",
+      "taxTotal": "4.00",
+      "discountTotal": "6.00",
+      "total": "27.99",
+      "items": [
+        {
+          "id": "123194218",
+          "title": "t-shirt (short):  product managers - \"Small\"",
+          "returnReason": "Item was too big",
+          "parentReturnReason": "Item didn't fit",
+          "cost": {
+            "price": "20.99",
+            "discount": "1.99",
+            "tax": "3.00",
+            "total": "24.00"
+          }
+        },
+        {
+          "id": "123194218",
+          "title": "t-shirt (short):  product managers - \"Small\"",
+          "returnReason": "Item was too big",
+          "parentReturnReason": "Item didn't fit",
+          "cost": {
+            "price": "20.99",
+            "discount": "1.99",
+            "tax": "3.00",
+            "total": "24.00"
+          }
+        }
+      ]
+    },
+    "exchange": {
+      "productTotal": "29.99",
+      "taxTotal": "4.00",
+      "discountTotal": "6.00",
+      "total": "27.99",
+      "items": [
+        {
+          "id": "11801246",
+          "sku": "123",
+          "title": "t-shirt (short):  product managers - \"Medium\"",
+          "isOutOfStock": "Yes",
+          "cost": {
+            "price": "20.99",
+            "discount": "1.99",
+            "tax": "3.00",
+            "total": "24.00"
+          }
+        }
+      ]
+    },
+    "costBreakdown": {
+      "handlingFee": "10.00",
+      "giftCardAmount": "10.00",
+      "refund": "10.00",
+      "upsell": "10.00"
+    },
+    "shipping": {
+      "carrier": "Happy Returns",
+      "trackingNumber": "123455",
+      "labelStatus": "Pre transit",
+      "labelUpdatedAt": "2022-11-02T00:20:00+00:00",
+      "statusPageUrl": "https://company.loopreturns.com/#/return/3e9b7d03-53cd-43b0-aad9-73a1eff525ae"
+    },
+    "notes": [
+      {
+        "content": "Just a note",
+        "createdAt": "2025-02-25T17:26:47Z",
+        "id": "14454431",
+        "returnId": "73415553"
+      },
+      {
+        "content": "Another note",
+        "createdAt": "2025-02-25T17:26:56Z",
+        "id": "14454437",
+        "returnId": "73415553"
+      },
+      {
+        "content": "Just noted something noteworthy",
+        "createdAt": "2025-02-25T17:27:10Z",
+        "id": "14454447",
+        "returnId": "73415553"
+      },
+      {
+        "content": "Four notes in a row!",
+        "createdAt": "2025-02-25T17:27:21Z",
+        "id": "14454456",
+        "returnId": "73415553"
+      }
+    ]
+  }
+]

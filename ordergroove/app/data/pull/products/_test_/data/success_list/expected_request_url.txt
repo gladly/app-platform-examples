@@ -1,0 +1,1 @@
+https://restapi.ordergroove.com/products/?external_product_id__in=HDPH-001,SHIRT-002

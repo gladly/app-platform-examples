@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "offer": "4a10a0e1738f46bf9d81be56ea6d8d85",
+      "order": "9e78860ef49c4a86861ca11f638e5488",
+      "subscription": "565998a03d7a4647971aab47f8c487f9",
+      "product": "62900-W01",
+      "components": "product_id_1,product_id_2",
+      "subscription_component": "85eae83c245111eeb185acde48001122",
+      "quantity": 2,
+      "public_id": "f9cb2f93e1c845eb9de9eff46ddb3cbf",
+      "product_attribute": null,
+      "price": "12.99",
+      "extra_cost": "1.00",
+      "total_price": "9.20",
+      "one_time": false,
+      "order_updated": "2025-01-31 00:00:00",
+      "frozen": false,
+      "first_placed": "2025-01-15 10:30:00"
+    },
+    {
+      "offer": "5b21b1f2849g57cg0e92cf67fb7e9e96",
+      "order": "9e78860ef49c4a86861ca11f638e5488",
+      "subscription": null,
+      "product": "62901-W02",
+      "components": null,
+      "subscription_component": null,
+      "quantity": 1,
+      "public_id": "g0dc3g04f2d946fc0f0afgg57eec9dch",
+      "product_attribute": "color:blue",
+      "price": "25.00",
+      "extra_cost": "0.00",
+      "total_price": "25.00",
+      "one_time": true,
+      "order_updated": "2025-01-31 00:00:00",
+      "frozen": false,
+      "first_placed": "2025-01-15 10:30:00"
+    }
+  ]
+}

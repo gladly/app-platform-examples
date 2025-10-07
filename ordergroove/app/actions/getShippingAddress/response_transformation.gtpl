@@ -1,0 +1,21 @@
+{
+  "customer": {{if .rawData.customer}}"{{.rawData.customer}}"{{else}}null{{end}},
+  "public_id": {{if .rawData.public_id}}"{{.rawData.public_id}}"{{else}}null{{end}},
+  "label": {{if .rawData.label}}"{{.rawData.label}}"{{else}}null{{end}},
+  "first_name": {{if .rawData.first_name}}"{{.rawData.first_name}}"{{else}}null{{end}},
+  "last_name": {{if .rawData.last_name}}"{{.rawData.last_name}}"{{else}}null{{end}},
+  "company_name": {{if .rawData.company_name}}"{{.rawData.company_name}}"{{else}}null{{end}},
+  "address": {{if .rawData.address}}"{{.rawData.address}}"{{else}}null{{end}},
+  "address2": {{if .rawData.address2}}"{{.rawData.address2}}"{{else}}null{{end}},
+  "city": {{if .rawData.city}}"{{.rawData.city}}"{{else}}null{{end}},
+  "state_province_code": {{if .rawData.state_province_code}}"{{.rawData.state_province_code}}"{{else}}null{{end}},
+  "zip_postal_code": {{if .rawData.zip_postal_code}}"{{.rawData.zip_postal_code}}"{{else}}null{{end}},
+  "phone": {{if .rawData.phone}}"{{.rawData.phone}}"{{else}}null{{end}},
+  "fax": {{if .rawData.fax}}"{{.rawData.fax}}"{{else}}null{{end}},
+  "country_code": {{if .rawData.country_code}}"{{.rawData.country_code}}"{{else}}null{{end}},
+  "live": {{if ne .rawData.live nil}}{{.rawData.live}}{{else}}null{{end}},
+  "created": {{if .rawData.created}}"{{date "2006-01-02T15:04:05Z" (toDate "2006-01-02 15:04:05" .rawData.created)}}"{{else}}null{{end}},
+  "updated": {{if .rawData.updated}}"{{date "2006-01-02T15:04:05Z" (toDate "2006-01-02 15:04:05" .rawData.updated)}}"{{else}}null{{end}},
+  "token_id": {{if .rawData.token_id}}"{{.rawData.token_id}}"{{else}}null{{end}},
+  "store_public_id": {{if .rawData.store_public_id}}"{{.rawData.store_public_id}}"{{else}}null{{end}}
+}

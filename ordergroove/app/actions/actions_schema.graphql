@@ -1,0 +1,267 @@
+type SubscriptionComponent {
+  public_id: String
+  quantity: Int
+  product: String
+}
+
+type PrepaidSubscriptionContext {
+  prepaid_orders_remaining: Int
+  prepaid_orders_per_billing: Int
+  renewal_behavior: String
+  last_renewal_revenue: Float
+  prepaid_origin_merchant_order_id: String
+}
+
+type CancellationReason {
+  code: String!
+  description: String!
+}
+
+type MerchantCancellationReason {
+  code: Int!
+  application: String
+}
+
+type CancellationReasonResponse {
+  """
+  Standard cancellation reasons as described in https://help.ordergroove.com/hc/en-us/articles/360046017813-Subscriptions-Cancel-Reasons
+  Ordergroove Subscription Manager themes have these 9 built-in cancellation reasons, pre-configured
+  """
+  standard_cancellation_reasons: [CancellationReason]
+  """
+  All cancellation reasons as described in https://help.ordergroove.com/hc/en-us/articles/360046017813-Subscriptions-Cancel-Reasons
+  In addition to the standard 9 built-in, Ordergroove has additional Cancel Reasons available to use in the Subscription Manager.
+  """
+  all_cancellation_reasons: [CancellationReason]
+  """
+  Overview of all recorded reasons for cancellation per application.
+  """
+  merchant_cancellation_reasons: [MerchantCancellationReason]
+}
+
+type OrderItem {
+  """Offer ID associated with this item"""
+  offer: String
+  """Order ID that this item belongs to"""
+  order: String
+  """Subscription ID associated with this item, if applicable"""
+  subscription: String
+  """Product ID for this item"""
+  product: String
+  """Legacy Bundle components"""
+  components: String
+  """New Bundle Subscription Component ID"""
+  subscription_component: String
+  """Number of items"""
+  quantity: Int
+  """Item public ID"""
+  public_id: String
+  """Product attribute details"""
+  product_attribute: String
+  """Item price"""
+  price: String
+  """Extra cost associated with this item"""
+  extra_cost: String
+  """Total price of item in order"""
+  total_price: String
+  """Indicates if item order was result of Impulse Upsell functionality"""
+  one_time: Boolean
+  """The date and time the order this item belongs to was last updated"""
+  order_updated: DateTime
+  """Indicates if this item is frozen"""
+  frozen: Boolean
+  """Date and time when this item was first placed"""
+  first_placed: DateTime
+}
+
+type ShippingAddress {
+  """Customer ID associated with this address"""
+  customer: String
+  """Address public ID"""
+  public_id: String
+  """Address label for identification"""
+  label: String
+  """Customer's first name"""
+  first_name: String
+  """Customer's last name"""
+  last_name: String
+  """Company name"""
+  company_name: String
+  """Primary street address"""
+  address: String
+  """Secondary address line"""
+  address2: String
+  """City name"""
+  city: String
+  """State or province code"""
+  state_province_code: String
+  """ZIP or postal code"""
+  zip_postal_code: String
+  """Phone number"""
+  phone: String
+  """Fax number"""
+  fax: String
+  """Country code"""
+  country_code: String
+  """Account status: active = True"""
+  live: Boolean
+  """Date time the address object was created"""
+  created: DateTime
+  """Date time the address object was last modified"""
+  updated: DateTime
+  """Token ID"""
+  token_id: String
+  """Store public ID"""
+  store_public_id: String
+}
+
+type Order {
+  """The merchant identifier associated with this order"""
+  merchant: String
+  """The customer identifier who placed this order"""
+  customer: String
+  """The payment method or payment identifier used for this order"""
+  payment: String
+  """The shipping address identifier or details for order delivery"""
+  shipping_address: String
+  """The public-facing unique identifier for this order"""
+  public_id: String
+  """The subtotal amount before taxes, shipping, and discounts"""
+  sub_total: String
+  """The total tax amount applied to this order"""
+  tax_total: String
+  """The total shipping cost for this order"""
+  shipping_total: String
+  """The total discount amount applied to this order"""
+  discount_total: String
+  """The final total amount for this order including all fees and discounts"""
+  total: String
+  """The timestamp when this order was created"""
+  created: DateTime
+  """The timestamp when this order was placed/submitted"""
+  place: DateTime
+  """The timestamp when this order was cancelled, if applicable"""
+  cancelled: DateTime
+  """The number of processing attempts made for this order"""
+  tries: Int
+  """The count of generic errors encountered while processing this order"""
+  generic_error_count: Int
+  """The current status code of this order (e.g., pending, processed, failed)"""
+  status: Int
+  """The type classification of this order (e.g., subscription, one-time)"""
+  type: Int
+  """The merchant's internal order identifier"""
+  order_merchant_id: String
+  """The error message if this order was rejected"""
+  rejected_message: String
+  """Additional custom data stored with this order"""
+  extra_data: String
+  """Indicates if this order is currently locked for processing"""
+  locked: Boolean
+  """Indicates if out-of-stock items qualify for free shipping"""
+  oos_free_shipping: Boolean
+}
+
+type Subscription {
+  customer: String
+  merchant: String
+  product: String
+  payment: String
+  shipping_address: String
+  offer: String
+  subscription_type: String
+  components: [SubscriptionComponent]
+  extra_data: String
+  public_id: String
+  product_attribute: String
+  quantity: Int
+  price: String
+  frequency_days: Int
+  reminder_days: Int
+  every: Int
+  every_period: Int
+  start_date: DateTime
+  cancelled: DateTime
+  cancel_reason: String
+  cancel_reason_code: String
+  currency_code: String
+  iteration: String
+  sequence: String
+  session_id: String
+  merchant_order_id: String
+  customer_rep: String
+  club: String
+  created: DateTime
+  updated: DateTime
+  live: Boolean
+  prepaid_subscription_context: PrepaidSubscriptionContext
+}
+
+type Query {
+  """
+  Returns all subscriptions for a given Customer ID. The customer ID should match the customer's ID in the ecommerce platform.
+  """
+  getSubscriptionsByCustomerId(customerId: String!): [Subscription]
+    @action(name: "getSubscriptionsByCustomerId")
+  """
+  Returns a single subscription by its subscription ID.
+  """
+  getSubscriptionById(subscriptionId: String!): Subscription
+    @action(name: "getSubscriptionById")
+  """
+  Returns static list of standard and all available OrderGroove cancellation reasons, as well as all recorded reasons for cancellation per application
+  """
+  getCancellationReasons: CancellationReasonResponse
+    @action(name: "getCancellationReasons")
+  """
+  Returns all items for a given order ID.
+  """
+  getOrderItems(orderId: String!): [OrderItem]
+    @action(name: "getOrderItems")
+  """
+  Returns shipping address details by address ID.
+  """
+  getShippingAddress(addressId: String!): ShippingAddress
+    @action(name: "getShippingAddress")
+}
+
+type Mutation {
+  cancelSubscription(
+    subscriptionId: String!
+    cancelReasonCode: String
+    cancelReasonDetails: String
+  ): Subscription @action(name: "cancelSubscription")
+  """
+  Reactivates a canceled/inactive subscription by its subscription ID.
+  """
+  reactivateSubscription(
+    subscriptionId: String!
+    every: Int!
+    everyPeriod: Int!
+    startDate: String!
+  ): Subscription @action(name: "reactivateSubscription")
+  """
+  Skips the next order by removing all subscription items from the given order and rescheduling them for the following delivery cycle.
+  
+  This operation allows customers to skip their entire next scheduled order while keeping all subscriptions active. 
+  All subscription items in the order will be rescheduled for the next delivery cycle based on each subscription's frequency settings.
+  
+  Use cases:
+  - Customer is traveling and wants to skip one delivery
+  - Customer has excess inventory and wants to delay next shipment
+  - Customer wants to adjust delivery timing without canceling subscriptions
+  
+  Returns the updated Order object after all subscription items have been removed and rescheduled.
+  
+  API Reference: https://developer.ordergroove.com/reference/skip-subscription
+  """
+  skipSubscription(
+    """
+    The unique identifier of the order that should be skipped.
+    This must be a valid OrderGroove order ID that contains subscription items.
+    The order should be in a state that allows modification (typically pending or scheduled orders).
+    All subscription items in this order will be removed and rescheduled for the next delivery cycle.
+    """
+    orderId: String!
+  ): Order @action(name: "skipSubscription")
+}

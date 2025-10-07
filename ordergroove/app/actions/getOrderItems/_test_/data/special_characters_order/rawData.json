@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "offer": "special-offer-123",
+      "order": "order-123@test.com",
+      "subscription": null,
+      "product": "SPEC-001",
+      "components": null,
+      "subscription_component": null,
+      "quantity": 1,
+      "public_id": "special-item-456",
+      "product_attribute": "special:chars",
+      "price": "9.99",
+      "extra_cost": "0.50",
+      "total_price": "10.49",
+      "one_time": true,
+      "order_updated": "2025-02-01 12:00:00",
+      "frozen": false,
+      "first_placed": "2025-02-01 12:00:00"
+    }
+  ]
+}

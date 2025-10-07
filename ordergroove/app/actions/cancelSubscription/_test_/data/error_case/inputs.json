@@ -1,0 +1,5 @@
+{
+    "subscriptionId": "invalid_subscription_id",
+    "cancelReasonCode": "1",
+    "cancelReasonDetails": "Customer request"
+}

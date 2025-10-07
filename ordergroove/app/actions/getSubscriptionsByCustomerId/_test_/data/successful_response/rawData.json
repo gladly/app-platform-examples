@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "customer": "00026001",
+      "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+      "product": "0070000693",
+      "payment": "070001bc02fd11e99542bc764e1043b0",
+      "shipping_address": "66c25cd0564011e9abc5bc764e107990",
+      "offer": "a748aa648ac811e8af3bbc764e106cf4",
+      "subscription_type": "Replenish",
+      "components": [
+        {
+          "public_id": "79d2dc76245111eeb185acde48001122",
+          "quantity": 1,
+          "product": "0070067690"
+        }
+      ],
+      "extra_data": "{\"some\": \"extra\", \"fields\": \"here\"}",
+      "public_id": "f9cb2f93e1c845eb9de9eff46ddb3cbf",
+      "product_attribute": null,
+      "quantity": 21,
+      "price": "12.99",
+      "frequency_days": 42,
+      "reminder_days": 42,
+      "every": 6,
+      "every_period": 3,
+      "start_date": "2019-07-21",
+      "cancelled": null,
+      "cancel_reason": null,
+      "cancel_reason_code": null,
+      "currency_code": "USD",
+      "iteration": "1",
+      "sequence": "1",
+      "session_id": "ac4f7938383a11e89ecbbc764e1107f2.896371.1539022086",
+      "merchant_order_id": "301617",
+      "customer_rep": null,
+      "club": null,
+      "created": "2019-07-21 12:00:00",
+      "updated": "2019-07-21 12:00:00",
+      "live": true,
+      "prepaid_subscription_context": {
+        "prepaid_orders_remaining": 0,
+        "prepaid_orders_per_billing": 3,
+        "renewal_behavior": "autorenew",
+        "last_renewal_revenue": 100.8,
+        "prepaid_origin_merchant_order_id": "#3082"
+      }
+    }
+  ]
+}

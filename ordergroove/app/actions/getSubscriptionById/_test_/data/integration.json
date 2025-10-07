@@ -1,0 +1,10 @@
+{
+  "configuration": {
+    "api_key": "test_api_key"
+  },
+  "secrets": {
+    "api_secret": "test_api_secret"
+  }
+}
+
+

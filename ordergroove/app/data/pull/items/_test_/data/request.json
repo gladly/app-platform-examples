@@ -1,0 +1,8 @@
+{
+  "url": "https://restapi.ordergroove.com/items/?order=order_abc123def456",
+  "method": "GET",
+  "headers": {
+    "X-Api-Key": "test-api-key-12345",
+    "Accept": "application/json"
+  }
+}

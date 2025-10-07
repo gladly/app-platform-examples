@@ -1,0 +1,29 @@
+[
+  {
+    "merchant": "merchant_test",
+    "customer": "cust_12345",
+    "payment": "pay_123456",
+    "shipping_address": "addr_789123",
+    "public_id": "order_abc123def456",
+    "currency_code": "USD",
+    "tax_total": "8.99",
+    "shipping_total": "5.99",
+    "discount_total": "10.00",
+    "total": "104.98",
+    "created": "2023-01-15T10:30:00Z",
+    "updated": "2023-01-15T14:45:00Z",
+    "place": "2023-01-15T10:30:00Z",
+    "cancelled": null,
+    "tries": 1,
+    "generic_error_count": null,
+    "status": 1,
+    "type": "1",
+    "order_merchant_id": "ORD-2023-001",
+    "rejected_message": null,
+    "extra_data": {"custom_field":"custom_value","notes":"Test order"},
+    "locked": false,
+    "oos_free_shipping": false,
+    "subscription": "sub_123456789",
+    "subscriptionId": "874602544b0b11ed9404dad12a24024b"
+  }
+]

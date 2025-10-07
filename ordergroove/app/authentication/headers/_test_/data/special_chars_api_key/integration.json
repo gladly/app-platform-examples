@@ -1,0 +1,8 @@
+{
+    "configuration": {
+        "base_url": "https://api.ordergroove.com"
+    },
+    "secrets": {
+        "api_key": "test-key_with-special.chars@123!$%"
+    }
+}

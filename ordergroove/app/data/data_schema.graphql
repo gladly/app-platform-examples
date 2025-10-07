@@ -1,0 +1,151 @@
+type Product @dataType(name: "ordergroove_product", version: "1.0") {
+  id: ID!
+  merchant: String
+  groups: [String]
+  name: String
+  price: String
+  image_url: String
+  detail_url: String
+  external_product_id: String
+  sku: String
+  autoship_enabled: Boolean
+  prepaid_eligible: Boolean
+  premier_enabled: Int
+  created: DateTime
+  last_update: DateTime
+  live: Boolean
+  discontinued: Boolean
+  extra_data: String
+  ## Product type (standard, rotating, static price bundle, dynamic price bundle)
+  product_type: String
+  autoship_by_default: Boolean
+  ## Number of periods for subscription frequency
+  every: Int
+  ## Type of period for subscription frequency
+  every_period: Int
+  offer_profile: String
+  incentive_group: String
+}
+
+type SubscriptionComponent {
+  public_id: String
+  quantity: Int
+  product: String
+}
+
+type Item @dataType(name: "ordergroove_item", version: "1.0") {
+  offer: String
+  order: String
+  subscription: String
+  product: String
+  subscription_component: String
+  quantity: Int
+  public_id: ID!
+  product_attribute: String
+  price: String
+  extra_cost: String
+  total_price: String
+  ## Indicates if item order was result of Impulse Upsell functionality
+  one_time: Boolean
+  order_updated: DateTime
+  frozen: Boolean
+  first_placed: DateTime
+  product_detail: Product @childIds(template: "{{.product}}")
+}
+
+type Order @dataType(name: "ordergroove_order", version: "1.0") {
+  merchant: String
+  customer: String
+  payment: String
+  shipping_address: String
+  public_id: ID!
+  currency_code: String
+  tax_total: Currency
+  shipping_total: Currency
+  discount_total: Currency
+  total: Currency
+  created: DateTime
+  updated: DateTime
+  place: DateTime
+  ## Date of cancellation; 'null' = not cancelled
+  cancelled: DateTime
+  tries: Int
+  generic_error_count: Int
+  status: Int
+  type: Int
+  order_merchant_id: String
+  rejected_message: String
+  extra_data: String
+  locked: Boolean
+  oos_free_shipping: Boolean
+  subscriptionId: String!
+  items: [Item] @parentId(template: "{{.public_id}}")
+}
+
+type Subscription @dataType(name: "ordergroove_subscription", version: "1.0") {
+  customer: String
+  merchant: String
+  product: String
+  payment: String
+  shipping_address: String
+  offer: String
+  subscription_type: String
+  components: [SubscriptionComponent]
+  extra_data: String
+  public_id: ID!
+  product_attribute: String
+  quantity: Int
+  price: String
+  frequency_days: Int
+  reminder_days: Int
+  every: Int
+  ## numeric value of the frequency period, 1=days, 2=weeks, 3=months, 4=years
+  every_period: Int
+  ## Date of subscription start, in format YYYY-MM-DD
+  start_date: DateTime
+  cancelled: DateTime
+  ## Pipe-delimited cancel reason code and cancel reason details
+  cancel_reason: String
+  cancel_reason_code: String
+  currency_code: String
+  iteration: String
+  sequence: String
+  session_id: String
+  merchant_order_id: String
+  customer_rep: String
+  club: String
+  created: DateTime
+  updated: DateTime
+  live: Boolean
+  prepaid_subscription_context: String
+  orders: [Order] @parentId(template: "{{.public_id}}")
+  product_detail: Product @childIds(template: "{{.product}}")
+}
+
+type Customer @dataType(name: "ordergroove_customer", version: "1.0") {
+  id: ID!
+  merchant: String
+  session_id: String
+  user_token_id: String
+  first_name: String
+  last_name: String
+  email: String
+  phone_number: String
+  ## Customer phone type. Options: 0, 1, 2, 3 0 = 'Invalid' 1 = 'Landline' 2 = 'Mobile' 3 = 'VoIP'
+  phone_type: Int
+  live: Boolean
+  created: DateTime
+  last_updated: DateTime
+  last_login: DateTime
+  extra_data: String
+  locale: Int
+  price_code: String
+  subscriptions: [Subscription] @parentId(template: "{{.id}}")
+}
+
+type Query {
+  customers: [Customer]
+  subscriptions: [Subscription]
+  items: [Item]
+  products: [Product]
+}

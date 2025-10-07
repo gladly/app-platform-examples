@@ -1,0 +1,10 @@
+{
+  "status": "Bad Request",
+  "statusCode": 400,
+  "headers": {
+    "content-type": ["application/json"]
+  },
+  "body": "{\"error\": \"Invalid subscription ID\"}"
+}
+
+

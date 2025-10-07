@@ -1,0 +1,22 @@
+{
+  "ordergroove_customer": [
+    {
+      "merchant_user_id": "cust_12345",
+      "customer": "cust_12345",
+      "session_id": null,
+      "user_token_id": null,
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "phone_number": null,
+      "phone_type": null,
+      "live": null,
+      "created": null,
+      "last_updated": "0001-01-01T02:02:04Z",
+      "last_login": null,
+      "extra_data": null,
+      "locale": null,
+      "price_code": null
+    }
+  ]
+}

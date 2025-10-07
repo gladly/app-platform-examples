@@ -1,0 +1,22 @@
+{
+  "ordergroove_item": [
+    {
+      "public_id": "item1",
+      "product": "HDPH-001",
+      "quantity": 1,
+      "order": "order1"
+    },
+    {
+      "public_id": "item2", 
+      "product": "HDPH-001",
+      "quantity": 2,
+      "order": "order1"
+    },
+    {
+      "public_id": "item3",
+      "product": "HDPH-001",
+      "quantity": 1,
+      "order": "order2"
+    }
+  ]
+}

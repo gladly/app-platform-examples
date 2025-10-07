@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "base_url": "https://restapi.ordergroove.com"
+  },
+  "secrets": {
+    "api_key": "test-api-key-12345"
+  }
+}

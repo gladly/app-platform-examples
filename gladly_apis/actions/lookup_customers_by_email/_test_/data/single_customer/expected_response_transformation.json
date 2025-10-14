@@ -1,0 +1,15 @@
+[
+  {
+    "name": "John Smith",
+    "emails": [
+      {
+        "normalized": "john.smith@example.com",
+        "original": "john.smith@example.com",
+        "primary": true
+      }
+    ],
+    "id": "SingleCustomerId456",
+    "createdAt": "2021-03-10T14:22:00Z",
+    "updatedAt": "2021-03-10T14:22:00Z"
+  }
+]

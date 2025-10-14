@@ -1,0 +1,43 @@
+{
+  "name": "Martha J Williams",
+  "image": "https://www.gladly.com/your-image.jpg",
+  "address": "563 Rigoberto Station Apt. 197",
+  "emails": [
+    {
+      "normalized": "martha.williams@gmail.com",
+      "original": "Martha.Williams@gmail.com",
+      "primary": false
+    }
+  ],
+  "phones": [
+    {
+      "normalized": "+17244895501",
+      "extension": "123",
+      "original": "7244895501",
+      "regionCode": "US",
+      "primary": false,
+      "smsPreference": "OFF",
+      "type": "OFFICE"
+    }
+  ],
+  "externalCustomerId": "a21c1636-c622-48b7-bf6a-d9032645aa55",
+  "customAttributes": [
+    {
+      "name": "membershipNumber",
+      "value": "RQ564555333"
+    },
+    {
+      "name": "membershipTier",
+      "value": "gold"
+    }
+  ],
+  "id": "OOrlNMXeS72gs_WEX2TtMg",
+  "createdAt": "2019-02-21T07:15:18.07272933Z",
+  "updatedAt": "2019-02-21T19:50:23.486566336Z",
+  "externalCustomerIds": [
+    {
+      "name": "ABC12345",
+      "value": "54321"
+    }
+  ]
+}

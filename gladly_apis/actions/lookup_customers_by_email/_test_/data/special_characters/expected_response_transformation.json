@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Test User",
+    "emails": [
+      {
+        "normalized": "test+alias@example.com",
+        "original": "Test+Alias@example.com",
+        "primary": true
+      }
+    ],
+    "id": "SpecialCharId789",
+    "createdAt": "2022-05-20T09:15:00Z",
+    "updatedAt": "2022-05-20T09:15:00Z"
+  }
+]

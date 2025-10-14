@@ -1,0 +1,6 @@
+{
+  "configuration": {
+    "gladlyHost": "api.gladly.com"
+  },
+  "secrets": {}
+}

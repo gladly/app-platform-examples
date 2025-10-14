@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Martha J Williams",
+    "image": "https://www.gladly.com/your-image.jpg",
+    "address": "563 Rigoberto Station Apt. 197",
+    "emails": [
+      {
+        "normalized": "martha.williams@gmail.com",
+        "original": "Martha.Williams@gmail.com",
+        "primary": false
+      }
+    ],
+    "phones": [
+      {
+        "normalized": "+17244895501",
+        "extension": "123",
+        "original": "7244895501",
+        "regionCode": "US",
+        "primary": true,
+        "smsPreference": "OFF",
+        "type": "OFFICE"
+      }
+    ],
+    "externalCustomerId": "a21c1636-c622-48b7-bf6a-d9032645aa55",
+    "customAttributes": {
+      "membershipNumber": "RQ564555333",
+      "membershipTier": "gold"
+    },
+    "id": "OOrlNMXeS72gs_WEX2TtMg",
+    "createdAt": "2019-02-21T07:15:18.07272933Z",
+    "updatedAt": "2019-02-21T19:50:23.486566336Z",
+    "externalCustomerIds": {
+      "ABC12345": "54321"
+    }
+  },
+  {
+    "name": "John Williams",
+    "phones": [
+      {
+        "normalized": "+17244895501",
+        "original": "724-489-5501",
+        "regionCode": "US",
+        "primary": true,
+        "smsPreference": "ON",
+        "type": "MOBILE"
+      }
+    ],
+    "id": "AnotherPhoneId999",
+    "createdAt": "2020-06-10T15:45:00Z",
+    "updatedAt": "2020-06-10T15:45:00Z"
+  }
+]

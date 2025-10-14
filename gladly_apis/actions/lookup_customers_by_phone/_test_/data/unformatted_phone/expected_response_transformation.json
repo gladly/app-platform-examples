@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Bob Smith",
+    "phones": [
+      {
+        "normalized": "+17244895501",
+        "original": "7244895501",
+        "regionCode": "US",
+        "primary": true,
+        "smsPreference": "OFF",
+        "type": "HOME"
+      }
+    ],
+    "id": "UnformattedPhoneId456",
+    "createdAt": "2022-08-25T16:20:00Z",
+    "updatedAt": "2022-08-25T16:20:00Z"
+  }
+]

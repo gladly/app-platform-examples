@@ -11,6 +11,46 @@ enum ActivityType {
     SURVEY
 }
 
+type CustomerEmail {
+    normalized: String
+    original: String
+    primary: Boolean
+}
+
+type CustomerPhone {
+    normalized: String
+    extension: String
+    original: String
+    regionCode: String
+    primary: Boolean
+    smsPreference: String
+    type: String
+}
+
+type CustomAttribute {
+	name: String!
+	value: String
+}
+
+type ExternalCustomerId {
+    name: String
+    value: String
+}
+
+type Customer {
+  name: String
+  image: String
+  address: String
+  emails: [CustomerEmail]
+  phones: [CustomerPhone]
+  externalCustomerId: String
+  customAttributes: [CustomAttribute]
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  externalCustomerIds: [ExternalCustomerId]
+}
+
 type Error {
     attr: String
     code: String
@@ -56,6 +96,9 @@ input LinkInput {
 type Query {
     inboxes(enabledOnly: Boolean): [Inbox] @action(name: "inboxes")
     topics(enabledOnly: Boolean): [Topic] @action(name: "topics")
+    lookupCustomerById(customerId: String!): Customer @action(name: "lookup_customer_by_id")
+    lookupCustomersByEmail(email: String!): [Customer] @action(name: "lookup_customers_by_email")
+    lookupCustomersByPhone(phoneNumber: String!): [Customer] @action(name: "lookup_customers_by_phone")
 }
 
 type Mutation {

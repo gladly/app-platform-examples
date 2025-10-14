@@ -44,6 +44,15 @@ The Gladly APIs for App Platform app supports the following management actions:
 - **inboxes**  
   Retrieve a list of available Inboxes.
 
+- **lookup_customer_by_id**  
+  Retrieve a Gladly Customer Profile using their customer ID.
+
+- **lookup_customers_by_email**  
+  Retrieve a list of Gladly Customer Profiles using their email address.
+
+- **lookup_customers_by_phone**  
+  Retrieve a list of Gladly Customer Profiles using their phone number.
+
 - **send_sms**  
   Send an SMS message to a Customer.
 

@@ -50,10 +50,25 @@
     {{- $_ := set $order "shippingLines" $order.shippingLines.nodes -}}
     {{- $_ := set $order "orderNumber" $order.name -}}
     
-    {{- /* get rid of order->fulfillments[<i>]->fulfillmentLineItems->"nodes" */ -}}
+    {{- /* get rid of order->fulfillments[<i>]->fulfillmentLineItems->"nodes" and handle trackingInfo.url, trackingInfo.company, and trackingInfo.number nil values */ -}}
     {{- $arr := list -}}
     {{- range $order.fulfillments -}}
         {{- $_ := set . "fulfillmentLineItems" .fulfillmentLineItems.nodes -}}
+        {{- /* handle trackingInfo nil values */ -}}
+        {{- $trackingArr := list -}}
+        {{- range .trackingInfo -}}
+            {{- if eq .url nil -}}
+                {{- $_ := set . "url" "" -}}
+            {{- end -}}
+            {{- if eq .company nil -}}
+                {{- $_ := set . "company" "" -}}
+            {{- end -}}
+            {{- if eq .number nil -}}
+                {{- $_ := set . "number" "" -}}
+            {{- end -}}
+            {{- $trackingArr = append $trackingArr . -}}
+        {{- end -}}
+        {{- $_ := set . "trackingInfo" $trackingArr -}}
         {{- $arr = append $arr . -}}
     {{- end -}}
     {{- $_ := set $order "fulfillments" $arr -}}

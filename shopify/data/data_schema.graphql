@@ -172,11 +172,11 @@ enum FulfillmentDisplayStatus {
 ## Represents the tracking information for a fulfillment.
 type FulfillmentTrackingInfo {
   ## The name of the tracking company. (Shipping Carriers help page)[https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers?shpxid=de34ac44-9F69-4CCB-9F6D-466867094432#integrated-shipping-carriers]
-  company: String!
+  company: String
   ## The tracking number of the fulfillment.
-  number: String!
+  number: String
   ## The URLs to track the fulfillment.
-  url: String!
+  url: String
 }
 
 type Fulfillment {
@@ -402,7 +402,7 @@ type CustomerInfo {
 }
 
 ## An order from Shopify
-type Order @dataType(name: "shopify_order", version: "3.0") {
+type Order @dataType(name: "shopify_order", version: "3.1") {
   id: ID!
   confirmationNumber: String
   ## Whether there are line items that can be fulfilled. This field returns false when the order has no fulfillable line items.

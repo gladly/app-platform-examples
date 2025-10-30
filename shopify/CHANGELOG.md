@@ -13,6 +13,18 @@
 - Upgraded Shopify GraphQL to the latest version (April 2025).
 - Changed Currency type now it's Money
 
+
+# version "4.0.0"
+
+- Bumped app version to 4.0.0 in manifest.
+- Updated all relevant GraphQL schemas and response transformation templates for orders and order lookups.
+- Improved error handling and data mapping in response transformations.
+- Updated test data for order lookups and pulls.
+- Schema fields changed:
+	- Changed `FulfillmentTrackingInfo` fields: `company`, `number`, and `url` from non-nullable (`String!`) to nullable (`String`)
+	- Changed `Product.tags` from `String` to `[String!]!`
+
+
 # version "2.0.7"
 
 WISMO app

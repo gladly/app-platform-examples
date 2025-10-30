@@ -33,7 +33,7 @@
           "requiresShipping": true,
           "status": "SUCCESS",
           "trackingInfo": [
-            { "company": "AGS", "number": "rgf", "url": "https://tracking.agsystems.com/" },
+            { "company": "AGS", "number": "rgf", "url": "" },
             { "company": "AGS", "number": "fggd", "url": "https://tracking.agsystems.com/" },
             { "company": "AGS", "number": "grbrg", "url": "https://tracking.agsystems.com/" }
           ],

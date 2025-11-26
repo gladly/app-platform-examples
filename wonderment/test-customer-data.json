@@ -1,0 +1,6 @@
+{
+    "id": "customer123",
+    "emailAddresses": ["test@example.com"],
+    "primaryEmailAddress": "test@example.com",
+    "name": "Test Contact"
+}

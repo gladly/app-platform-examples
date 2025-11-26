@@ -1,0 +1,22 @@
+{{if .rawData.data.orders}}
+[
+  {{range $index, $order := .rawData.data.orders}}{{if $index}},{{end}}
+  {
+    "id": "{{$order.name}}",
+    "name": "{{$order.name}}",
+    "shipmentUrl": "https://app.wonderment.com/shipments?query={{$order.name | urlquery}}",
+    "shipments": [
+      {{range $shipIndex, $shipment := $order.shipments}}{{if $shipIndex}},{{end}}
+      {
+        "trackingCode": {{toJson $shipment.trackingCode}},
+        "status": {{toJson $shipment.status}},
+        "carrierDisplayName": {{toJson $shipment.carrierDisplayName}}
+      }
+      {{end}}
+    ]
+  }
+  {{end}}
+]
+{{else}}
+[]
+{{end}}

@@ -1,0 +1,19 @@
+<?Template languageVersion="1.1" ?>
+<Card title="{{ __data.length }} Order{{- __data.length > 1 ? 's' : '' }}" cardType="expandable">
+  <List dataSource="__data" separateItems="true">
+    <Drawer>
+      <Fixed>
+        <StringValue dataSource="name" label="Order Name" valueFontWeight="semiBold"/>
+        <Formula label="Number of Shipments" valueFontWeight="medium">{{ shipments | length }}</Formula>
+      </Fixed>
+      <Expandable>
+        <Link dataSource="shipmentUrl" linkText="View order shipments" valueFontWeight="medium"/>
+        <List dataSource="shipments" separateItems="true">
+          <StringValue dataSource="trackingCode" label="Tracking Number"/>
+          <StringValue dataSource="status" label="Shipment Status"/>
+          <StringValue dataSource="carrierDisplayName" label="Carrier"/>
+        </List>
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

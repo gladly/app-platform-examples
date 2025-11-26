@@ -1,0 +1,8 @@
+{
+    "dataType": {
+        "name": "wonderment_order",
+        "version": "1.0"
+    },
+    "httpMethod": "POST",
+    "contentType": "application/json"
+}

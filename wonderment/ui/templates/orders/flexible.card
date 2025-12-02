@@ -5,7 +5,7 @@
       <Fixed>
         <StringValue dataSource="name" label="Order Name" valueFontWeight="semiBold"/>
         <Formula label="Number of Shipments" valueFontWeight="medium">{{ shipments | length }}</Formula>
-        <Link dataSource="shipmentUrl" linkText="View order shipments" valueFontWeight="medium"/>
+        <StringValue dataSource="shipmentUrl" label="View order shipments"/>
       </Fixed>
       <Expandable>
         <List dataSource="shipments" separateItems="true">

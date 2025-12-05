@@ -1,0 +1,103 @@
+[
+  {
+    "id": "507f1f77bcf86cd799439012",
+    "status": "complete",
+    "type": "return",
+    "createdAt": "2024-11-15T10:30:00.000Z",
+    "updatedAt": "2024-11-16T14:00:00.000Z",
+    "order": {
+      "id": "507f1f77bcf86cd799439013",
+      "name": "#1234",
+      "externalId": "5680711598114"
+    },
+    "source": {
+      "emailAddress": "jsmith@example.com",
+      "phoneNumber": "4105551234",
+      "name": "John Smith",
+      "address": "123 Main St, Anytown, USA"
+    },
+    "destination": {
+      "phoneNumber": "3852369539",
+      "address": "123 Main St, Anytown, USA"
+    },
+    "items": [
+      {
+        "id": "item001",
+        "sku": "BTS-M-001",
+        "quantity": 1,
+        "reason": "Didn't fit",
+        "customerComment": "Too small, need a larger size",
+        "status": "received",
+        "greenReturn": false,
+        "refund": {
+          "amount": "29.99",
+          "currency": "USD",
+          "type": "refund"
+        }
+      },
+      {
+        "id": "item002",
+        "sku": "RH-L-002",
+        "quantity": 1,
+        "reason": "Changed mind",
+        "customerComment": "",
+        "status": "received",
+        "greenReturn": false,
+        "refund": {
+          "amount": "59.99",
+          "currency": "USD",
+          "type": "exchange"
+        }
+      }
+    ],
+    "totals": {
+      "refund": {
+        "amount": "29.99",
+        "currency": "USD"
+      },
+      "exchange": {
+        "amount": "64.99",
+        "currency": "USD"
+      },
+      "storeCredit": {
+        "amount": "25.00",
+        "currency": "USD"
+      },
+      "charge": {
+        "amount": "0.00",
+        "currency": "USD"
+      }
+    },
+    "exchange": {
+      "itemCount": 1,
+      "provision": "processed",
+      "items": [
+        {
+          "id": "ex001",
+          "sku": "RH-XL-002",
+          "quantity": 1,
+          "variantName": "Red Hoodie - XL",
+          "price": "64.99",
+          "currency": "USD"
+        }
+      ]
+    },
+    "shipment": {
+      "carrier": "UPS",
+      "status": "delivered",
+      "tracker": "1Z999AA10123456784",
+      "trackingUrl": "https://example.com/tracking123",
+      "postageLabel": "https://example.com/label123.pdf"
+    },
+    "giftCards": [
+      {
+        "code": "EXAMPLE-ABC123",
+        "amount": "25.00",
+        "currency": "USD"
+      }
+    ],
+    "notes": [
+      "Customer requested expedited processing"
+    ]
+  }
+]

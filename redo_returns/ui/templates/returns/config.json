@@ -1,0 +1,5 @@
+{
+  "description": "Display returns",
+  "graphqlSchema": "data",
+  "graphqlType": "[RedoReturn]"
+}

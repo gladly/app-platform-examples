@@ -1,0 +1,96 @@
+type Order {
+  id: String!
+  name: String!
+  externalId: String!
+}
+
+type Source {
+  emailAddress: String!
+  phoneNumber: String!
+  name: String!
+  address: String!
+}
+
+type Destination {
+  phoneNumber: String!
+  address: String!
+}
+
+type ItemRefund {
+  amount: String!
+  currency: String!
+  type: String!
+}
+
+type Item {
+  id: String!
+  sku: String!
+  quantity: Int!
+  reason: String!
+  customerComment: String!
+  status: String!
+  greenReturn: Boolean!
+  refund: ItemRefund!
+}
+
+type Money {
+  amount: String!
+  currency: String!
+}
+
+type Totals {
+  refund: Money!
+  exchange: Money!
+  storeCredit: Money!
+  charge: Money!
+}
+
+type ExchangeItem {
+  id: String!
+  sku: String!
+  quantity: Int!
+  variantName: String!
+  price: String!
+  currency: String!
+}
+
+type Exchange {
+  itemCount: Int!
+  provision: String!
+  items: [ExchangeItem!]!
+}
+
+type Shipment {
+  carrier: String!
+  status: String!
+  tracker: String!
+  trackingUrl: String!
+  postageLabel: String!
+}
+
+type GiftCard {
+  code: String!
+  amount: String!
+  currency: String!
+}
+
+type RedoReturn @dataType(name: "redo_returns_return", version: "1.0") {
+  id: ID!
+  status: String!
+  type: String!
+  createdAt: String!
+  updatedAt: String!
+  order: Order!
+  source: Source!
+  destination: Destination!
+  items: [Item!]!
+  totals: Totals!
+  exchange: Exchange!
+  shipment: Shipment!
+  giftCards: [GiftCard!]!
+  notes: [String!]!
+}
+
+type Query {
+  returns: [RedoReturn]
+}

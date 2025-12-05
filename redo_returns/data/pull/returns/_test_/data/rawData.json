@@ -1,0 +1,276 @@
+{
+  "orders": [
+    {
+      "customer": {
+        "emailAddress": "jsmith@example.com",
+        "name": {
+          "given": "John",
+          "surname": "Smith"
+        }
+      },
+      "discounts": {
+        "amount": "10.00",
+        "currency": "USD"
+      },
+      "externalId": "5680711598114",
+      "id": "507f1f77bcf86cd799439013",
+      "items": [
+        {
+          "externalId": "14245152423970",
+          "id": "507f1f77bcf86cd799439013/1",
+          "quantity": 1,
+          "product": {
+            "externalId": "7918732607522",
+            "name": "Blue T-Shirt"
+          },
+          "variant": {
+            "externalId": "43560569339938",
+            "name": "Blue T-Shirt - Medium"
+          },
+          "price": {
+            "amount": "29.99",
+            "currency": "USD"
+          },
+          "fulfillmentLocationId": "100104241186"
+        },
+        {
+          "externalId": "14245152456738",
+          "id": "507f1f77bcf86cd799439013/2",
+          "quantity": 1,
+          "product": {
+            "externalId": "7918732607523",
+            "name": "Red Hoodie"
+          },
+          "variant": {
+            "externalId": "43560569307170",
+            "name": "Red Hoodie - Large"
+          },
+          "price": {
+            "amount": "59.99",
+            "currency": "USD"
+          },
+          "fulfillmentLocationId": "100104241186"
+        }
+      ],
+      "name": "#1234",
+      "lineItemsTotal": {
+        "amount": "89.98",
+        "currency": "USD"
+      },
+      "shippingCost": {
+        "amount": "5.99",
+        "currency": "USD"
+      },
+      "taxes": {
+        "amount": "3.50",
+        "currency": "USD"
+      },
+      "total": {
+        "amount": "99.47",
+        "currency": "USD"
+      }
+    }
+  ],
+  "returns": [
+    {
+      "id": "507f1f77bcf86cd799439012",
+      "createdAt": "2024-11-15T10:30:00.000Z",
+      "updatedAt": "2024-11-16T14:00:00.000Z",
+      "type": "return",
+      "status": "complete",
+      "externalOrderIds": [
+        "5680711598114"
+      ],
+      "shopifyOrderIds": [
+        "5680711598114"
+      ],
+      "order": {
+        "id": "507f1f77bcf86cd799439013"
+      },
+      "destination": {
+        "mailingAddress": {
+          "city": "Anytown",
+          "country": "US",
+          "line1": "123 Main St",
+          "line2": "",
+          "postalCode": "12345",
+          "state": "Anytown"
+        },
+        "phoneNumber": "3852369539"
+      },
+      "source": {
+        "emailAddress": "jsmith@example.com",
+        "mailingAddress": {
+          "city": "Anytown",
+          "country": "US",
+          "line1": "123 Main St",
+          "line2": "",
+          "postalCode": "12345",
+          "state": "Anytown"
+        },
+        "name": {
+          "given": "John",
+          "surname": "Smith"
+        },
+        "phoneNumber": "4105551234"
+      },
+      "items": [
+        {
+          "id": "item001",
+          "orderItem": {
+            "id": "507f1f77bcf86cd799439013/1",
+            "line_item_id": "14245152423970"
+          },
+          "quantity": 1,
+          "reason": "Didn't fit",
+          "reasons": [
+            "Didn't fit"
+          ],
+          "reasonCode": "SIZE",
+          "reasonCodes": [
+            "SIZE"
+          ],
+          "customerComment": "Too small, need a larger size",
+          "sku": "BTS-M-001",
+          "variantId": "43560569339938",
+          "productId": "7918732607522",
+          "greenReturn": false,
+          "refund": {
+            "amount": {
+              "currency": "USD",
+              "amount": "29.99"
+            },
+            "type": "refund"
+          },
+          "status": "received",
+          "productAdjustment": "0.00"
+        },
+        {
+          "id": "item002",
+          "orderItem": {
+            "id": "507f1f77bcf86cd799439013/2",
+            "line_item_id": "14245152456738"
+          },
+          "quantity": 1,
+          "reason": "Changed mind",
+          "reasons": [
+            "Changed mind"
+          ],
+          "reasonCode": "CHANGE",
+          "reasonCodes": [
+            "CHANGE"
+          ],
+          "customerComment": "",
+          "sku": "RH-L-002",
+          "variantId": "43560569307170",
+          "productId": "7918732607523",
+          "greenReturn": false,
+          "refund": {
+            "amount": {
+              "currency": "USD",
+              "amount": "59.99"
+            },
+            "type": "exchange"
+          },
+          "status": "received",
+          "productAdjustment": "0.00"
+        }
+      ],
+      "internalCreatedByName": "",
+      "giftCards": [
+        {
+          "code": "EXAMPLE-ABC123",
+          "amount": {
+            "amount": "25.00",
+            "currency": "USD"
+          },
+          "externalId": "gc001"
+        }
+      ],
+      "refunds": [],
+      "totals": {
+        "refund": {
+          "amount": {
+            "currency": "USD",
+            "amount": "29.99"
+          }
+        },
+        "exchange": {
+          "amount": {
+            "currency": "USD",
+            "amount": "64.99"
+          }
+        },
+        "storeCredit": {
+          "amount": {
+            "currency": "USD",
+            "amount": "25.00"
+          }
+        },
+        "charge": {
+          "amount": {
+            "currency": "USD",
+            "amount": "0.00"
+          }
+        },
+        "labelCost": {
+          "amount": {
+            "currency": "USD",
+            "amount": "5.99"
+          }
+        }
+      },
+      "exchange": {
+        "order": {
+          "externalId": "5680711598200"
+        },
+        "items": [
+          {
+            "id": "ex001",
+            "variant": {
+              "externalId": "43560569307171",
+              "name": "Red Hoodie - XL"
+            },
+            "sku": "RH-XL-002",
+            "quantity": 1,
+            "price": {
+              "amount": "64.99",
+              "currency": "USD"
+            },
+            "originalPrice": {
+              "amount": "64.99",
+              "currency": "USD"
+            }
+          }
+        ],
+        "totalTax": {
+          "amount": "0.00",
+          "currency": "USD"
+        },
+        "itemCount": 1,
+        "provision": "processed"
+      },
+      "notes": [
+        {
+          "message": "Customer requested expedited processing"
+        }
+      ],
+      "shipment": {
+        "carrier": "UPS",
+        "status": "delivered",
+        "tracker": "1Z999AA10123456784",
+        "trackingUrl": "https://track.easypost.com/abc123",
+        "postageLabel": "https://example.com/label123.pdf"
+      },
+      "shipments": [
+        {
+          "carrier": "UPS",
+          "status": "delivered",
+          "tracker": "1Z999AA10123456784",
+          "trackingUrl": "https://track.easypost.com/abc123",
+          "postageLabel": "https://example.com/label123.pdf"
+        }
+      ]
+    }
+  ]
+}

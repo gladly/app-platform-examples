@@ -1,0 +1,93 @@
+<?Template languageVersion="1.1" ?>
+<Card title="{{ __data.length }} Return{{- __data.length > 1 ? 's' : '' }}" cardType="expandable">
+  <List dataSource="__data" separateItems="true">
+    <Drawer initialState="expandFirst">
+      <Fixed>
+        <Text fontSize="medium" fontWeight="semiBold">Order {{ order.name }}</Text>
+        <StringValue dataSource="createdAt" label="Created on" valueFontWeight="medium" />
+        <Formula>{{ status | capitalize }}</Formula>
+      </Fixed>
+      <Expandable>
+        <!-- Return details -->
+        <Text fontSize="medium" fontWeight="semiBold">Return {{ id }}</Text>
+        <Formula label="Status" valueFontWeight="medium">{{ status | capitalize }}</Formula>
+        <Formula label="Type" valueFontWeight="medium">{{ type | capitalize }}</Formula>
+        <Spacer size="medium" />
+
+        <!-- Order associated with return -->
+        <Section title="Order" padding="none" titleFontSize="medium" when="order">
+          <StringValue dataSource="order.name" label="Order Number" valueFontWeight="medium" />
+          <StringValue dataSource="order.externalId" label="External ID" valueFontWeight="medium" />
+        </Section>
+
+        <Divider spacing="medium" />
+
+        <!-- Items being returned -->
+        <Section title="Returned Item{{- (items | length) > 1 ? 's' : '' }}" padding="none" titleFontSize="medium" when="items | length > 0">
+          <List dataSource="items">
+            <Text fontWeight="semiBold" maxLines="2">{{ sku }}</Text>
+            <Formula label="Quantity" valueAlignment="right">{{ quantity }}</Formula>
+            <StringValue dataSource="reason" label="Reason" valueAlignment="right" />
+            <StringValue dataSource="customerComment" label="Comment" valueAlignment="right" when="customerComment" />
+            <Formula label="Status" valueAlignment="right">{{ status | capitalize }}</Formula>
+            <Formula label="Type" valueAlignment="right">{{ refund.type | capitalize }}</Formula>
+            <Formula label="Amount" valueAlignment="right" valueFontWeight="semiBold">{{ refund.amount }} {{ refund.currency }}</Formula>
+            <Spacer size="small"/>
+          </List>
+        </Section>
+
+        <!-- Exchange Items -->
+        <Spacer size="small"/>
+        <Section title="Exchange Item{{- (exchange.items | length) > 1 ? 's' : '' }}" padding="none" titleFontSize="medium" when="exchange.items | length > 0">
+          <Formula label="Provision" valueFontWeight="medium">{{ exchange.provision | capitalize }}</Formula>
+          <List dataSource="exchange.items">
+            <Text fontWeight="semiBold" maxLines="2">{{ variantName }}</Text>
+            <StringValue dataSource="sku" label="SKU" valueAlignment="right" />
+            <Formula label="Quantity" valueAlignment="right">{{ quantity }}</Formula>
+            <Formula label="Price" valueAlignment="right" valueFontWeight="semiBold">{{ price }} {{ currency }}</Formula>
+            <Spacer size="small"/>
+          </List>
+        </Section>
+
+        <!-- Gift Cards -->
+        <Spacer size="small"/>
+        <Section title="Gift Card{{- (giftCards | length) > 1 ? 's' : '' }}" padding="none" titleFontSize="medium" when="giftCards | length > 0">
+          <List dataSource="giftCards">
+            <StringValue dataSource="code" label="Code" valueFontWeight="medium" />
+            <Formula label="Amount" valueAlignment="right" valueFontWeight="semiBold">{{ amount }} {{ currency }}</Formula>
+          </List>
+        </Section>
+
+        <!-- Totals -->
+        <Divider spacing="medium" />
+        <Section padding="none" title="Totals" titleFontSize="medium">
+          <Formula label="Refund" valueAlignment="right" valueFontWeight="semiBold" when="totals.refund">{{ totals.refund.amount }} {{ totals.refund.currency }}</Formula>
+          <Formula label="Exchange" valueAlignment="right" valueFontWeight="semiBold" when="totals.exchange">{{ totals.exchange.amount }} {{ totals.exchange.currency }}</Formula>
+          <Formula label="Store Credit" valueAlignment="right" valueFontWeight="semiBold" when="totals.storeCredit">{{ totals.storeCredit.amount }} {{ totals.storeCredit.currency }}</Formula>
+          <Formula label="Charge" valueAlignment="right" when="totals.charge">{{ totals.charge.amount }} {{ totals.charge.currency }}</Formula>
+        </Section>
+
+        <!-- Shipment -->
+        <Spacer size="small" />
+        <Divider spacing="medium" />
+        <Section title="Shipment" padding="none" titleFontSize="medium" when="shipment">
+          <StringValue dataSource="shipment.carrier" label="Carrier" valueFontWeight="medium" />
+          <Formula label="Status" valueFontWeight="medium">{{ shipment.status | capitalize }}</Formula>
+          <StringValue dataSource="shipment.tracker" label="Tracking #" valueFontWeight="medium" />
+          <Link dataSource="shipment.trackingUrl" linkText="Track Shipment" valueFontWeight="medium" when="shipment.trackingUrl" />
+          <Link dataSource="shipment.postageLabel" linkText="View Label" valueFontWeight="medium" when="shipment.postageLabel" />
+        </Section>
+
+        <!-- Notes -->
+        <Section title="Notes" padding="none" titleFontSize="medium" when="notes | length > 0">
+          <List dataSource="notes">
+            <Formula>{{ __item }}</Formula>
+          </List>
+        </Section>
+
+        <!-- Final spacer -->
+        <Spacer size="medium"/>
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

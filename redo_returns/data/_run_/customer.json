@@ -1,0 +1,15 @@
+{
+  "id": "customer1",
+  "name": "John Smith",
+  "address": "123 Street, City, State 12345",
+  "primaryEmailAddress": "jsmith@example.com",
+  "emailAddresses": [
+    "jsmith@example.com"
+  ],
+  "primaryPhoneNumber": {
+
+  },
+  "phoneNumbers": [
+
+  ]
+}

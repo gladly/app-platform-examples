@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "storeId": ""
+  },
+  "secrets": {
+    "apiToken": ""
+  }
+}

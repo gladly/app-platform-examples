@@ -10,8 +10,17 @@
 {{- range $return := .rawData.returns }}
     {{- if not $firstReturn }},{{ end }}
     {{- $firstReturn = false }}
+    {{- $orderName := "" -}}
+    {{- if and $return.order $return.order.id -}}
+        {{- range $order := $.rawData.orders -}}
+            {{- if eq $order.id $return.order.id -}}
+                {{- $orderName = $order.name -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
     {
         "id": {{ $return.id | toJson }},
+        "orderName": {{- if $orderName -}}{{ $orderName | toJson }}{{- else -}}{{ $return.id | toJson }}{{- end -}},
         "createdAt": {{ $return.createdAt | toJson }},
         "updatedAt": {{ $return.updatedAt | toJson }},
         "status": {{ $return.status | toJson }},
@@ -63,8 +72,19 @@
         {{- range $item := $return.items }}
             {{- if not $firstItem }},{{ end }}
             {{- $firstItem = false }}
+            {{- $productName := "" -}}
+            {{- if $item.productId -}}
+                {{- range $order := $.rawData.orders -}}
+                    {{- range $orderItem := $order.items -}}
+                        {{- if and $orderItem.product (eq $orderItem.product.externalId $item.productId) -}}
+                            {{- $productName = $orderItem.product.name -}}
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- end -}}
             {
                 "id": {{ $item.id | toJson }},
+                "productName": {{- if $productName -}}{{ $productName | toJson }}{{- else -}}{{ $item.id | toJson }}{{- end -}},
                 "orderItem": {{- if $item.orderItem -}}
                 {
                     "id": {{ $item.orderItem.id | toJson }},

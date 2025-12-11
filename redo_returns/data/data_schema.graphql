@@ -120,6 +120,7 @@ type RedoExchangeItem {
 # Return line item
 type RedoReturnItem {
   id: String!
+  productName: String
   orderItem: RedoReturnOrderItem
   quantity: Int
   reason: String
@@ -213,6 +214,7 @@ type RedoOrderReference {
 # A return from Redo Returns
 type RedoReturn @dataType(name: "redo_returns_return", version: "1.0") {
   id: ID!
+  orderName: String
   createdAt: DateTime!
   updatedAt: DateTime
   status: String!

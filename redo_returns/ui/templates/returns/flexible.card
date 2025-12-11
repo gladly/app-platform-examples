@@ -3,13 +3,12 @@
   <List dataSource="__data" separateItems="true">
     <Drawer initialState="expandFirst">
       <Fixed>
-        <Text fontSize="medium" fontWeight="semiBold">Return {{ id }}</Text>
+        <Text fontSize="medium" fontWeight="semiBold">Order {{ orderName }}</Text>
         <DateTimeValue dataSource="createdAt" label="Created on" valueFontWeight="medium" />
         <Formula>{{ status | capitalize }}</Formula>
       </Fixed>
       <Expandable>
         <!-- Return details -->
-        <Text fontSize="medium" fontWeight="semiBold">Return ID: {{ id }}</Text>
         <Formula label="Type" valueFontWeight="medium">{{ type | capitalize }}</Formula>
         <DateTimeValue dataSource="updatedAt" label="Last updated" valueFontWeight="medium" />
         <Formula label="Status" valueFontWeight="medium">{{ status | capitalize }}</Formula>
@@ -41,7 +40,7 @@
         <!-- Returned Items -->
         <Section title="Returned Item{{- (items | length) > 1 ? 's' : '' }}" padding="none" titleFontSize="medium" when="items | length > 0">
           <List dataSource="items">
-            <Text fontWeight="semiBold">Item: {{ id }}</Text>
+            <Text fontWeight="semiBold">{{ productName }}</Text>
             <StringValue dataSource="sku" label="SKU" valueAlignment="right" />
             <Formula label="Quantity" valueAlignment="right">{{ quantity }}</Formula>
             <StringValue dataSource="reasonCode" label="Reason Code" valueAlignment="right" />

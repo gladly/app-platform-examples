@@ -1,6 +1,6 @@
 {{if .rawData.data.orders}}
 [
-  {{range $index, $order := .rawData.data.orders}}{{if $index}},{{end}}
+  {{range $index, $order := .rawData.data.orders}}{{if lt $index 10}}{{if $index}},{{end}}
   {
     "id": "{{$order.name}}",
     "name": "{{$order.name}}",
@@ -15,7 +15,7 @@
       {{end}}
     ]
   }
-  {{end}}
+  {{end}}{{end}}
 ]
 {{else}}
 []

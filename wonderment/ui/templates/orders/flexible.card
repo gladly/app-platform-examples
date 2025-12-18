@@ -1,11 +1,11 @@
 <?Template languageVersion="1.1" ?>
-<Card title="{{ data.length }} Order{{- data.length > 1 ? 's' : '' }}" cardType="expandable">
-  <List dataSource="data" separateItems="true">
+<Card title="{{ __data.length }} Order{{- __data.length > 1 ? 's' : '' }}" cardType="expandable">
+  <List dataSource="__data" separateItems="true">
     <Drawer>
       <Fixed>
         <StringValue dataSource="name" label="Order Name" valueFontWeight="semiBold"/>
         <Formula label="Number of Shipments" valueFontWeight="medium">{{ shipments | length }}</Formula>
-        <StringValue dataSource="shipmentUrl" label="View order shipments"/>
+        <Link dataSource="shipmentUrl" linkText="View Shipments"/>
       </Fixed>
       <Expandable>
         <List dataSource="shipments" separateItems="true">

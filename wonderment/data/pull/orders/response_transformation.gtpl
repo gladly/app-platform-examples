@@ -6,7 +6,7 @@
   {
     "id": "{{$order.name}}",
     "name": "{{$order.name}}",
-    "shipmentUrl": "https://app.wonderment.com/shipments?query={{$order.name | urlquery}}",
+    "shipmentUrl": "https://app.wonderment.com/shipments?order_name={{$order.name | urlquery}}",
     "shipments": [
       {{range $shipIndex, $shipment := $order.shipments}}{{if $shipIndex}},{{end}}
       {

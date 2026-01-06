@@ -4,7 +4,7 @@ type Shipment {
     trackingCode: String!
 }
 
-type Order @dataType(name: "wonderment_order", version: "1.0") {
+type Order @dataType(name: "loop_order_tracking_order", version: "1.0") {
     id: ID!
     name: String!
     shipments: [Shipment!]!

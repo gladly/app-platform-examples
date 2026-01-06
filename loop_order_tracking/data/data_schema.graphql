@@ -1,0 +1,16 @@
+type Shipment {
+    carrierDisplayName: String!
+    status: String!
+    trackingCode: String!
+}
+
+type Order @dataType(name: "loop_order_tracking_order", version: "1.0") {
+    id: ID!
+    name: String!
+    shipments: [Shipment!]!
+    shipmentUrl: String
+}
+
+type Query {
+    orders: [Order]
+}

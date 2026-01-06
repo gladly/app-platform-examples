@@ -1,0 +1,8 @@
+{
+    "dataType": {
+        "name": "loop_order_tracking_order",
+        "version": "1.0"
+    },
+    "httpMethod": "POST",
+    "contentType": "application/json"
+}

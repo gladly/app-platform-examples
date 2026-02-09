@@ -1,0 +1,7 @@
+{
+  "ticket_id": "invalid_id",
+  "comment": {
+    "body": "This comment won't be added",
+    "public": false
+  }
+}

@@ -1,0 +1,10 @@
+/{
+  "ticket": {
+    "comment": {
+      "body": "This is an internal note",
+      "public": false
+    },
+    "safe_update": true,
+    "updated_stamp": "\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z"
+  }
+}/

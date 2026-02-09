@@ -1,0 +1,1 @@
+https://my-company.zendesk.com/api/v2/tickets.json

@@ -1,0 +1,8 @@
+{
+  "status": "Not Found",
+  "statusCode": 404,
+  "headers": {
+    "content-type": ["application/json; charset=utf-8"]
+  },
+  "body": "{\"error\":\"RecordNotFound\",\"description\":\"Not found\"}"
+}

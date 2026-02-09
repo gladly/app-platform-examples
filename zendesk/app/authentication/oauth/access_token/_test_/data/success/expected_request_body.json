@@ -1,0 +1,8 @@
+{
+  "grant_type": "authorization_code",
+  "code": "test_auth_code_abc",
+  "client_id": "test_client_id_123",
+  "client_secret": "test_client_secret_456",
+  "redirect_uri": "https://example.com/zendesk_callback",
+  "scope": "tickets:read tickets:write users:read users:write hc:read"
+}

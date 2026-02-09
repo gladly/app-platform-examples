@@ -1,0 +1,16 @@
+{
+  "error": "RecordInvalid",
+  "description": "Record validation errors",
+  "details": {
+    "subject": [
+      {
+        "description": "Subject: cannot be blank"
+      }
+    ],
+    "comment": [
+      {
+        "description": "Comment: body cannot be blank"
+      }
+    ]
+  }
+}

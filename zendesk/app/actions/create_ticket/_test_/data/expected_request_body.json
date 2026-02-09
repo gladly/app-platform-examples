@@ -1,0 +1,21 @@
+{
+  "ticket": {
+    "subject": "Test ticket subject",
+    "comment": {
+      "body": "This is a test ticket description",
+      "public": true
+    },
+    "requester": {
+      "name": "John Doe",
+      "email": "john.doe@example.com"
+    },
+    "priority": "high",
+    "status": "new",
+    "type": "incident",
+    "tags": ["urgent", "customer-issue"],
+    "assignee_id": 123456789,
+    "group_id": 987654321,
+    "ticket_form_id": 360000654321,
+    "via": { "channel": "api" }
+  }
+}

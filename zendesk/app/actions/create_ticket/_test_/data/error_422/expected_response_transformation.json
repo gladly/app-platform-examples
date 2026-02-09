@@ -1,0 +1,8 @@
+{
+  "ticket": null,
+  "error": {
+    "error": "RecordInvalid",
+    "description": "Record validation errors",
+    "details": "{\"comment\":[{\"description\":\"Comment: body cannot be blank\"}],\"subject\":[{\"description\":\"Subject: cannot be blank\"}]}"
+  }
+}

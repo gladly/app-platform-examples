@@ -1,0 +1,7 @@
+{
+  "ticket": null,
+  "error": {
+    "error": "RecordNotFound",
+    "description": "Not found"
+  }
+}

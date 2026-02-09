@@ -1,0 +1,6 @@
+{
+  "configuration": {},
+  "secrets": {
+    "access_token": "test_oauth_access_token_789"
+  }
+}

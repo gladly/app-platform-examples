@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "subdomain": "test-subdomain"
+  },
+  "secrets": {
+    "access_token": "test_access_token"
+  }
+}

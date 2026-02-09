@@ -1,0 +1,17 @@
+{
+  "ticket": {
+    "subject": "Test ticket with HTML content",
+    "comment": {
+      "html_body": "<p>This is a <strong>simple HTML test</strong> with basic formatting.</p>",
+      "public": true
+    },
+    "requester": {
+      "name": "Test User",
+      "email": "user@example.com"
+    },
+    "priority": "urgent",
+    "status": "new",
+    "type": "incident",
+    "tags": ["html-content", "payment-issue", "system-error"]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "user": {
+    "name": "Bob Smith",
+    "role": "end-user",
+    "email": "bob@example.com"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "count": 1,
+  "users": [
+    {
+      "id": "12345678901",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "+15551234567",
+      "shared_phone_number": false,
+      "role": "end-user",
+      "verified": true,
+      "active": true,
+      "suspended": false,
+      "created_at": "2023-01-15T10:30:00Z",
+      "updated_at": "2023-06-20T14:45:00Z",
+      "last_login_at": "2023-12-01T09:15:00Z",
+      "external_id": "gladly-customer-abc123",
+      "url": "https://test-subdomain.zendesk.com/api/v2/users/12345678901.json"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,14 @@
+{
+  "error": {
+    "error": "RecordInvalid",
+    "description": "Record validation errors",
+    "details": {
+      "email": [
+        {
+          "description": "Email: new-email@email.com is already being used by another user",
+          "error": "DuplicateValue"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "count": 2,
+  "users": [
+    {
+      "id": "12345678901",
+      "name": "Active User",
+      "email": "active@example.com",
+      "phone": "+15551234567",
+      "shared_phone_number": false,
+      "role": "end-user",
+      "verified": true,
+      "active": true,
+      "suspended": false,
+      "created_at": "2023-01-15T10:30:00Z",
+      "updated_at": "2023-06-20T14:45:00Z",
+      "last_login_at": null,
+      "external_id": "gladly-customer-abc123",
+      "url": "https://test-subdomain.zendesk.com/api/v2/users/12345678901.json"
+    },
+    {
+      "id": "12345678903",
+      "name": "Another Active User",
+      "email": "active2@example.com",
+      "phone": "+15551234567",
+      "shared_phone_number": true,
+      "role": "end-user",
+      "verified": false,
+      "active": true,
+      "suspended": false,
+      "created_at": "2023-03-10T12:00:00Z",
+      "updated_at": "2023-08-01T09:30:00Z",
+      "last_login_at": null,
+      "external_id": "gladly-customer-xyz789",
+      "url": "https://test-subdomain.zendesk.com/api/v2/users/12345678903.json"
+    }
+  ],
+  "error": null
+}

@@ -1,0 +1,18 @@
+{
+  "ticket": {
+    "id": "1001",
+    "url": "https://acme-support.zendesk.com/api/v2/tickets/1001.json",
+    "subject": "Order inquiry #12345",
+    "status": "open",
+    "priority": null,
+    "type": null,
+    "created_at": "2024-03-15T14:30:00Z",
+    "updated_at": "2025-11-25T22:38:28Z",
+    "due_at": null,
+    "requester_id": "98765432100",
+    "tags": [],
+    "group_id": "36305747",
+    "ticket_form_id": "360000064226"
+  },
+  "error": null
+}

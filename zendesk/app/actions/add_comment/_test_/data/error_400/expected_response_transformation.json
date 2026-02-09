@@ -1,0 +1,7 @@
+{
+  "ticket": null,
+  "error": {
+    "error": "Invalid attribute",
+    "description": "You passed an invalid value for the id attribute. Invalid parameter: id must be an integer from api/v2/tickets/update"
+  }
+}

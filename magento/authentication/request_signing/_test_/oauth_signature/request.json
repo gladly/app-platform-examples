@@ -1,0 +1,5 @@
+{
+    "url": "https://magento.example.com/rest/V1/customers/search?searchCriteria[filter_groups][0][filters][0][field]=email&searchCriteria[filter_groups][0][filters][0][value]=test%40example.com&searchCriteria[filter_groups][0][filters][0][condition_type]=eq",
+    "method": "GET",
+    "headers": {}
+}

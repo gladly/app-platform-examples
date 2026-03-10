@@ -1,0 +1,32 @@
+{
+    "items": [
+        {
+            "id": 400000001,
+            "sku": "WIDGET-BLUE-001",
+            "name": "Blue Widget",
+            "custom_attributes": [
+                {
+                    "attribute_code": "url_key",
+                    "value": "blue-widget"
+                },
+                {
+                    "attribute_code": "description",
+                    "value": "A blue widget"
+                }
+            ],
+            "media_gallery_entries": [
+                {
+                    "id": 100000001,
+                    "file": "/w/i/widget-blue.jpg",
+                    "disabled": false
+                },
+                {
+                    "id": 100000002,
+                    "file": "/w/i/widget-blue-back.jpg",
+                    "disabled": true
+                }
+            ]
+        }
+    ],
+    "total_count": 1
+}

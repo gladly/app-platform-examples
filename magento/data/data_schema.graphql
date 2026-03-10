@@ -1,0 +1,112 @@
+enum OrderItemStatus {
+    fulfilled
+    processing
+    pending
+    cancelled
+    on_hold
+}
+
+type Product @dataType(name: "product", version: "1.0") {
+    sku: ID!
+    """ URL-friendly key for the product page """
+    urlKey: String
+    """ File path to the product's main image """
+    imageFilePath: String
+}
+
+type ShipmentItem {
+    """ The product ID associated with this shipment item """
+    productId: String
+}
+
+type Shipment @dataType(name: "shipment", version: "1.0") {
+    shipmentId: ID!
+    """ The order ID this shipment belongs to """
+    orderId: String!
+    trackingNumber: String
+    """ The shipping method or carrier title """
+    shipmentMethod: String
+    """ The carrier code """
+    carrier: String
+    trackingUrl: String
+    items: [ShipmentItem]
+}
+
+type BillingAddress {
+    name: String
+    street1: String
+    street2: String
+    city: String
+    state: String
+    zip: String
+    country: String
+    phone: String
+}
+
+type OrderItem {
+    itemId: ID!
+    productId: String
+    name: String
+    sku: String
+    status: OrderItemStatus
+    unitPrice: Currency
+    quantity: String
+    currencyCode: String
+    weight: Float
+    productType: String
+    rowTotal: Currency
+    taxAmount: Currency
+    discountAmount: Currency
+    qtyShipped: Float
+    qtyInvoiced: Float
+    qtyCanceled: Float
+}
+
+type Order @dataType(name: "order", version: "1.0") {
+    orderId: ID!
+    """ The customer-facing order number (increment_id) """
+    incrementId: String!
+    createdAt: DateTime!
+    updatedAt: DateTime
+    """ Magento order status (raw value — not an enum because Magento supports custom statuses) """
+    status: String
+    grandTotal: Currency
+    discountAmount: Currency
+    taxAmount: Currency
+    shippingAmount: Currency
+    currencyCode: String
+    paymentMethod: String
+    shippingMethod: String
+    customerEmail: String
+    couponCode: String
+    """ The customer ID for parent relationship """
+    customerId: String
+    """ Deep link to the order in Magento admin """
+    orderLink: String
+    items: [OrderItem]
+    billingAddress: BillingAddress
+    shipments: [Shipment] @parentId(template: "{{.orderId}}")
+    productDetails: [Product] @childIds(template: "{{- $skus := dict -}}{{- range .items -}}{{- if .sku -}}{{- $_ := set $skus .sku true -}}{{- end -}}{{- end -}}{{- keys $skus | join \",\" -}}")
+}
+
+type Customer @dataType(name: "customer", version: "1.0") {
+    customerId: ID!
+    email: String
+    firstName: String
+    lastName: String
+    createdAt: DateTime
+    updatedAt: DateTime
+    """ Street address from default billing address """
+    street: String
+    city: String
+    region: String
+    postCode: String
+    countryCode: String
+    telephone: String
+    orders: [Order] @parentId(template: "{{.customerId}}")
+}
+
+type Query {
+    customers: [Customer]
+    orders: [Order]
+}

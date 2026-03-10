@@ -1,0 +1,52 @@
+{
+    "items": [
+        {
+            "entity_id": 200000001,
+            "increment_id": "000000001",
+            "created_at": "2024-01-15 10:30:00",
+            "updated_at": "2024-01-15 11:00:00",
+            "status": "processing",
+            "grand_total": 109.99,
+            "discount_amount": 0,
+            "tax_amount": 5.00,
+            "shipping_amount": 10.00,
+            "base_currency_code": "USD",
+            "customer_id": 100000001,
+            "customer_email": "john@example.com",
+            "coupon_code": null,
+            "shipping_description": "Flat Rate - Fixed",
+            "payment": {
+                "method": "checkmo"
+            },
+            "billing_address": {
+                "firstname": "John",
+                "lastname": "Smith",
+                "street": ["123 Main St"],
+                "city": "Springfield",
+                "region": "Illinois",
+                "postcode": "62701",
+                "country_id": "US",
+                "telephone": "555-1234"
+            },
+            "items": [
+                {
+                    "item_id": 300000001,
+                    "product_id": 400000001,
+                    "name": "Blue Widget",
+                    "sku": "WIDGET-BLUE-001",
+                    "price": 50.00,
+                    "qty_ordered": 2,
+                    "product_type": "simple",
+                    "row_total": 99.99,
+                    "tax_amount": 5.00,
+                    "discount_amount": 0,
+                    "weight": 0.5,
+                    "qty_shipped": 0,
+                    "qty_invoiced": 2,
+                    "qty_canceled": 0
+                }
+            ]
+        }
+    ],
+    "total_count": 1
+}

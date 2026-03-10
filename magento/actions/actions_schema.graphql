@@ -1,0 +1,63 @@
+enum OrderItemStatus {
+    fulfilled
+    processing
+    pending
+    cancelled
+    on_hold
+}
+
+type BillingAddress {
+    name: String
+    street1: String
+    street2: String
+    city: String
+    state: String
+    zip: String
+    country: String
+    phone: String
+}
+
+type OrderItem {
+    itemId: ID!
+    productId: String
+    name: String
+    sku: String
+    status: OrderItemStatus
+    unitPrice: Currency
+    quantity: String
+    currencyCode: String
+    weight: Float
+    productType: String
+    rowTotal: Currency
+    taxAmount: Currency
+    discountAmount: Currency
+    qtyShipped: Float
+    qtyInvoiced: Float
+    qtyCanceled: Float
+}
+
+type Order {
+    orderId: ID!
+    """ The customer-facing order number """
+    incrementId: String!
+    createdAt: DateTime!
+    """ Magento order status (raw value — not an enum because Magento supports custom statuses) """
+    status: String
+    grandTotal: Currency
+    discountAmount: Currency
+    taxAmount: Currency
+    shippingAmount: Currency
+    currencyCode: String
+    paymentMethod: String
+    shippingMethod: String
+    customerEmail: String
+    couponCode: String
+    """ Deep link to the order in Magento admin """
+    orderLink: String
+    items: [OrderItem]
+    billingAddress: BillingAddress
+}
+
+type Query {
+    lookupOrder(orderNumber: String!): Order @action(name: "lookupOrder")
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "shipmentId": "500000001",
+        "orderId": "200000001",
+        "trackingNumber": "1Z999AA10123456784",
+        "shipmentMethod": "UPS Ground",
+        "carrier": "ups",
+        "items": [
+            {
+                "productId": "400000001"
+            }
+        ]
+    }
+]

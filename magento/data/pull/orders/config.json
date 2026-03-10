@@ -1,0 +1,8 @@
+{
+    "dataType": {
+        "name": "order",
+        "version": "1.0"
+    },
+    "dependsOnDataTypes": ["customer"],
+    "httpMethod": "GET"
+}

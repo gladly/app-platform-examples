@@ -1,0 +1,1 @@
+https://magento.example.com/rest/V1/shipments?searchCriteria[filter_groups][0][filters][0][field]=order_id&searchCriteria[filter_groups][0][filters][0][value]=200000001&searchCriteria[filter_groups][0][filters][0][condition_type]=eq

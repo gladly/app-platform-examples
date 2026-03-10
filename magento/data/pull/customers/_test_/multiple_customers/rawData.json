@@ -1,0 +1,23 @@
+{
+    "items": [
+        {
+            "id": 100000010,
+            "email": "shared@company.com",
+            "firstname": "Alice",
+            "lastname": "Jones",
+            "created_at": "2023-03-01 12:00:00",
+            "updated_at": "2023-03-01 12:00:00",
+            "addresses": []
+        },
+        {
+            "id": 100000020,
+            "email": "shared@company.com",
+            "firstname": "Bob",
+            "lastname": "Jones",
+            "created_at": "2023-04-01 12:00:00",
+            "updated_at": "2023-04-01 12:00:00",
+            "addresses": []
+        }
+    ],
+    "total_count": 2
+}

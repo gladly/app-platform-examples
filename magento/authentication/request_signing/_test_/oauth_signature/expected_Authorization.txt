@@ -1,0 +1,1 @@
+/OAuth oauth_consumer_key="test_consumer_key",oauth_nonce="[a-zA-Z0-9]+",oauth_signature="[A-Za-z0-9+/=%]+",oauth_signature_method="HMAC-SHA256",oauth_timestamp="[0-9]+",oauth_token="test_access_token",oauth_version="1.0"/

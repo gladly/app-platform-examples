@@ -1,0 +1,17 @@
+{
+    "order": [
+        {
+            "orderId": "200000001",
+            "items": [
+                {"sku": "WIDGET-BLUE-001"}
+            ]
+        }
+    ],
+    "product": [
+        {
+            "sku": "WIDGET-BLUE-001",
+            "urlKey": "blue-widget",
+            "imageFilePath": "/w/i/widget-blue.jpg"
+        }
+    ]
+}

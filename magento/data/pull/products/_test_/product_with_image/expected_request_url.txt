@@ -1,0 +1,1 @@
+https://magento.example.com/rest/V1/products?searchCriteria[filter_groups][0][filters][0][field]=sku&searchCriteria[filter_groups][0][filters][0][value]=WIDGET-BLUE-001&searchCriteria[filter_groups][0][filters][0][condition_type]=in&searchCriteria[pageSize]=1

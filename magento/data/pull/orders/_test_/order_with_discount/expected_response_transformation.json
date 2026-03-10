@@ -1,0 +1,46 @@
+[
+    {
+        "orderId": "200000002",
+        "incrementId": "000000002",
+        "createdAt": "2024-02-01T09:00:00Z",
+        "updatedAt": "2024-02-01T09:00:00Z",
+        "status": "complete",
+        "grandTotal": "89.99",
+        "discountAmount": "-10.00",
+        "taxAmount": "5.00",
+        "shippingAmount": "5.00",
+        "currencyCode": "USD",
+        "paymentMethod": "stripe",
+        "shippingMethod": "Free Shipping",
+        "customerEmail": "john@example.com",
+        "customerId": "100000001",
+        "orderLink": "https://admin.example.com/sales/order/view/order_id/200000002",
+        "items": [
+            {
+                "itemId": "300000002",
+                "productId": "400000002",
+                "name": "Red Widget",
+                "sku": "WIDGET-RED-001",
+                "status": "fulfilled",
+                "unitPrice": "99.99",
+                "quantity": "1",
+                "currencyCode": "USD",
+                "productType": "simple",
+                "rowTotal": "99.99",
+                "taxAmount": "5.00",
+                "discountAmount": "10.00",
+                "qtyShipped": 1,
+                "qtyInvoiced": 1,
+                "qtyCanceled": 0
+            }
+        ],
+        "billingAddress": {
+            "name": "John Smith",
+            "street1": "123 Main St",
+            "city": "Springfield",
+            "state": "Illinois",
+            "zip": "62701",
+            "country": "US"
+        }
+    }
+]

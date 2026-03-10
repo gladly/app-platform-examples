@@ -1,0 +1,1 @@
+https://magento.example.com/rest/V1/orders?searchCriteria[filter_groups][0][filters][0][field]=customer_id&searchCriteria[filter_groups][0][filters][0][value]=100000001&searchCriteria[filter_groups][0][filters][0][condition_type]=eq&searchCriteria[pageSize]=5&searchCriteria[sortOrders][0][field]=created_at&searchCriteria[sortOrders][0][direction]=DESC

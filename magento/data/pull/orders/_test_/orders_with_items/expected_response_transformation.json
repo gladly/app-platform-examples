@@ -1,0 +1,47 @@
+[
+    {
+        "orderId": "200000001",
+        "incrementId": "000000001",
+        "createdAt": "2024-01-15T10:30:00Z",
+        "updatedAt": "2024-01-15T11:00:00Z",
+        "status": "processing",
+        "grandTotal": "109.99",
+        "discountAmount": "0.00",
+        "taxAmount": "5.00",
+        "shippingAmount": "10.00",
+        "currencyCode": "USD",
+        "paymentMethod": "checkmo",
+        "shippingMethod": "Flat Rate - Fixed",
+        "customerEmail": "john@example.com",
+        "customerId": "100000001",
+        "orderLink": "https://admin.example.com/sales/order/view/order_id/200000001",
+        "items": [
+            {
+                "itemId": "300000001",
+                "productId": "400000001",
+                "name": "Blue Widget",
+                "sku": "WIDGET-BLUE-001",
+                "status": "processing",
+                "unitPrice": "50.00",
+                "quantity": "2",
+                "currencyCode": "USD",
+                "weight": 0.5,
+                "productType": "simple",
+                "rowTotal": "99.99",
+                "taxAmount": "5.00",
+                "qtyShipped": 0,
+                "qtyInvoiced": 2,
+                "qtyCanceled": 0
+            }
+        ],
+        "billingAddress": {
+            "name": "John Smith",
+            "street1": "123 Main St",
+            "city": "Springfield",
+            "state": "Illinois",
+            "zip": "62701",
+            "country": "US",
+            "phone": "555-1234"
+        }
+    }
+]

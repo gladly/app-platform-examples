@@ -1,0 +1,12 @@
+{
+    "configuration": {
+        "host": "brand.com",
+        "magento_deep_link_url": "https://brand.com/admin_11zu69/sales/order/view/order_id"
+    },
+    "secrets": {
+        "consumer_key": "test_consumer_key",
+        "consumer_secret": "test_consumer_secret",
+        "access_token": "test_access_token",
+        "access_token_secret": "test_access_token_secret"
+    }
+}

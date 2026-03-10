@@ -1,0 +1,1 @@
+https://{{$.integration.configuration.host}}/rest/V1/orders/{{urlquery .inputs.orderNumber}}

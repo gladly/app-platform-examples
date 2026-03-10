@@ -1,0 +1,6 @@
+{
+    "id": "gladly-customer-123",
+    "name": "John Smith",
+    "primaryEmailAddress": "john@example.com",
+    "emailAddresses": ["john@example.com"]
+}

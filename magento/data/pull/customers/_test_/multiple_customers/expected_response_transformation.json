@@ -1,0 +1,18 @@
+[
+    {
+        "customerId": "100000010",
+        "email": "shared@company.com",
+        "firstName": "Alice",
+        "lastName": "Jones",
+        "createdAt": "2023-03-01T12:00:00Z",
+        "updatedAt": "2023-03-01T12:00:00Z"
+    },
+    {
+        "customerId": "100000020",
+        "email": "shared@company.com",
+        "firstName": "Bob",
+        "lastName": "Jones",
+        "createdAt": "2023-04-01T12:00:00Z",
+        "updatedAt": "2023-04-01T12:00:00Z"
+    }
+]

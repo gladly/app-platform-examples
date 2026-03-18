@@ -1,0 +1,189 @@
+{
+  "status": {
+    "code": 200,
+    "message": "OK"
+  },
+  "pagination": {
+    "page": 1,
+    "count": 10,
+    "total": 3
+  },
+  "reviews": {
+    "reviews": [
+      {
+        "id": "810786001",
+        "score": 4,
+        "votes_up": 0,
+        "votes_down": 0,
+        "content": "I've been using this board for a month now and it's amazing. Super stable at high speeds but has a ridiculous amount of pop when you're looking for big air.\n\nI actually caught a tiny \u0026quot;battle scar\u0026quot; on the edge after a heavy landing last weekend.",
+        "title": "Best board I've ever owned",
+        "created_at": "2026-02-17T03:46:08Z",
+        "verified_buyer": false,
+        "source_review_id": 0,
+        "custom_fields": {
+          "--122966": {
+            "title": "Feel / Flex",
+            "form_id": 120157,
+            "value": 3,
+            "field_type": "Size"
+          }
+        },
+        "images_data": [
+          {
+            "id": 812772001,
+            "thumb_url": "https://cdn-yotpo-images-production.yotpo.com/Review/810786001/812772001/square.png?1771300049",
+            "original_url": "https://cdn-yotpo-images-production.yotpo.com/Review/810786001/812772001/original.png?1771300049"
+          },
+          {
+            "id": 812772002,
+            "thumb_url": "https://cdn-yotpo-images-production.yotpo.com/Review/810786001/812772002/square.png?1771300056",
+            "original_url": "https://cdn-yotpo-images-production.yotpo.com/Review/810786001/812772002/original.png?1771300056"
+          }
+        ],
+        "user": {
+          "id": 54788001,
+          "display_name": "Alex R.",
+          "social_image": "https://example.com/images/anonymous_user.png",
+          "email": "customer@example.com",
+          "last_email_sent": "2026-02-17T05:02:39Z",
+          "user_type": "User"
+        },
+        "product": {
+          "id": 915371001,
+          "external_product_id": "9825989001",
+          "name": "The Collection Snowboard: Hydrogen",
+          "url": "https://example.com/products/hydrogen-snowboard",
+          "created_at": "2025-10-08T13:43:43Z",
+          "updated_at": "2025-10-08T13:44:46Z",
+          "average_score": 0,
+          "total_reviews": 0,
+          "category": {
+            "id": 1,
+            "name": "Sports"
+          },
+          "description": "",
+          "images": [
+            {
+              "original": "https://example.com/images/product-915371001-original.jpg",
+              "square": "https://example.com/images/product-915371001-square.jpg"
+            }
+          ]
+        },
+        "user_id": 54788001,
+        "user_type": "User",
+        "product_id": 915371001,
+        "comment": {
+          "content": "Great action shot!",
+          "created_at": "2026-02-17T05:02:38Z",
+          "display_name": "",
+          "comments_avatar": ""
+        },
+        "external_product_id": "9825989001",
+        "published": true,
+        "order_id": 0,
+        "external_order_id": "",
+        "is_incentivized": true,
+        "incentive_type": "paid_promotion"
+      },
+      {
+        "id": "805577001",
+        "score": 3,
+        "votes_up": 0,
+        "votes_down": 0,
+        "content": "I wanted to love them but unfortunately they did not fit my helmet. And I do love that helmet.",
+        "title": "I wanted to love them",
+        "created_at": "2026-02-03T18:45:16Z",
+        "verified_buyer": true,
+        "source_review_id": 0,
+        "custom_fields": {},
+        "images_data": [],
+        "user": {
+          "id": 54788001,
+          "display_name": "Alex R.",
+          "social_image": "https://example.com/images/anonymous_user.png",
+          "email": "customer@example.com",
+          "last_email_sent": "2026-02-17T05:02:39Z",
+          "user_type": "User"
+        },
+        "product": {
+          "id": 977632001,
+          "external_product_id": "1008901001",
+          "name": "Snow Goggles Pro",
+          "url": "https://example.com/products/snow-goggles-pro",
+          "created_at": "2026-01-07T16:38:59Z",
+          "updated_at": "2026-01-07T17:08:19Z",
+          "average_score": 3,
+          "total_reviews": 1,
+          "category": {
+            "id": 1,
+            "name": "Sports"
+          },
+          "description": "",
+          "images": [
+            {
+              "original": "https://example.com/images/product-977632001-original.png",
+              "square": "https://example.com/images/product-977632001-square.png"
+            }
+          ]
+        },
+        "user_id": 54788001,
+        "user_type": "User",
+        "product_id": 977632001,
+        "comment": null,
+        "external_product_id": "1008901001",
+        "published": true,
+        "order_id": 0,
+        "external_order_id": "",
+        "is_incentivized": false,
+        "incentive_type": ""
+      },
+      {
+        "id": "768118001",
+        "score": 1,
+        "votes_up": 0,
+        "votes_down": 0,
+        "content": "Not what I expected.",
+        "title": "Disappointed",
+        "created_at": "2025-10-08T16:16:10Z",
+        "verified_buyer": true,
+        "source_review_id": 0,
+        "custom_fields": {},
+        "images_data": [],
+        "user": {
+          "id": 54788001,
+          "display_name": "Alex R.",
+          "social_image": "https://example.com/images/anonymous_user.png",
+          "email": "customer@example.com",
+          "last_email_sent": "2026-02-17T05:02:39Z",
+          "user_type": "User"
+        },
+        "product": {
+          "id": 915370001,
+          "external_product_id": "yotpo_site_reviews",
+          "name": "http://example-store.myshopify.com",
+          "url": "https://example.com/site-reviews",
+          "created_at": "2025-10-08T13:39:01Z",
+          "updated_at": "2025-10-08T13:39:01Z",
+          "average_score": 3,
+          "total_reviews": 2,
+          "category": {
+            "id": 1,
+            "name": "Sports"
+          },
+          "description": "",
+          "images": []
+        },
+        "user_id": 54788001,
+        "user_type": "User",
+        "product_id": 915370001,
+        "comment": null,
+        "external_product_id": "yotpo_site_reviews",
+        "published": true,
+        "order_id": 0,
+        "external_order_id": "",
+        "is_incentivized": false,
+        "incentive_type": ""
+      }
+    ]
+  }
+}

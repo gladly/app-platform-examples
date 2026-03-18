@@ -1,0 +1,93 @@
+[
+  {
+    "comment": null,
+    "content": "I wanted to love them but unfortunately they did not fit my Barbie's Revenge Helmet. And I do love that helmet",
+    "created_at": "2026-02-03T18:45:16Z",
+    "email": "customer@example.com",
+    "external_order_id": "",
+    "external_product_id": "10089017737529",
+    "id": "805577664",
+    "images_data": [],
+    "order_id": 0,
+    "product_id": "977632473",
+    "published": true,
+    "score": 3,
+    "source_review_id": 0,
+    "title": "I wanted to love them",
+    "user": {
+      "id": "54788994",
+      "display_name": "Sarah M.",
+      "social_image": "https://example.com/avatar/anonymous.png",
+      "email": "customer@example.com",
+      "user_type": "User"
+    },
+    "product": {
+      "id": "977632473",
+      "external_product_id": "10089017737529",
+      "name": "Smith Squad Goggles",
+      "url": "https://yotpo.com/go/hpabj1Jn",
+      "created_at": "2026-01-07T16:38:59Z",
+      "updated_at": "2026-01-07T17:08:19Z",
+      "average_score": 3,
+      "total_reviews": 1,
+      "category": {
+        "id": 1,
+        "name": "Electronics"
+      },
+      "description": "",
+      "images": [
+        {
+          "original": "https://cdn-yotpo-images-production.yotpo.com/Product/977632473/800420522/original.png?1767805694",
+          "square": "https://cdn-yotpo-images-production.yotpo.com/Product/977632473/800420522/square.png?1767805694"
+        }
+      ]
+    },
+    "user_id": "54788994",
+    "verified_buyer": true,
+    "votes_down": 0,
+    "votes_up": 0
+  },
+  {
+    "comment": null,
+    "content": "oops",
+    "created_at": "2025-10-08T16:16:10Z",
+    "email": "customer@example.com",
+    "external_order_id": "",
+    "external_product_id": "yotpo_site_reviews",
+    "id": "768118958",
+    "images_data": [],
+    "order_id": 0,
+    "product_id": "915370032",
+    "published": true,
+    "score": 1,
+    "source_review_id": 0,
+    "title": "oops",
+    "user": {
+      "id": "54788994",
+      "display_name": "Sarah M.",
+      "social_image": "https://example.com/avatar/anonymous.png",
+      "email": "customer@example.com",
+      "user_type": "User"
+    },
+    "product": {
+      "id": "915370032",
+      "external_product_id": "yotpo_site_reviews",
+      "name": "http://example-store.myshopify.com",
+      "url": "https://yotpo.com/go/7UFwNyaX",
+      "created_at": "2025-10-08T13:39:01Z",
+      "updated_at": "2025-10-08T13:39:01Z",
+      "average_score": 3,
+      "total_reviews": 2,
+      "category": {
+        "id": 1,
+        "name": "Electronics"
+      },
+      "description": "",
+      "images": []
+    },
+    "user_id": "54788994",
+    "verified_buyer": true,
+    "votes_down": 0,
+    "votes_up": 0
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "accepts_email_marketing": false,
+    "accepts_sms_marketing": null,
+    "account_created_at": "2022-05-13T20:55:55Z",
+    "account_status": "enabled",
+    "account_updated_at": "2025-09-10T15:02:47Z",
+    "channels": {
+      "email": {
+        "marketing": {
+          "consent": "unsubscribed",
+          "suppressions": null,
+          "timestamp": null
+        }
+      },
+      "sms": {
+        "marketing": {
+          "consent": "never_subscribed",
+          "suppressions": null,
+          "timestamp": null
+        }
+      }
+    },
+    "default_currency": "USD",
+    "default_language": null,
+    "email": "customer@example.com",
+    "external_id": "6113212727447",
+    "first_name": "Jane",
+    "gender": null,
+    "gladlyAppConfigId": "test-external-app-id",
+    "gladlyIntegrationId": "test-external-app-id",
+    "last_name": "D",
+    "lists": null,
+    "loyalty": {
+      "birth_day": 4,
+      "birthday_month": 3,
+      "birthday_year": null,
+      "credit_balance": "$0",
+      "credit_balance_in_customer_currency": "$0",
+      "email": "customer@example.com",
+      "first_name": "Jane",
+      "has_store_account": true,
+      "last_name": "D",
+      "last_purchase_at": "2025-08-08T22:15:38Z",
+      "last_seen_at": "2025-08-21T11:27:31Z",
+      "next_points_expire_amount": null,
+      "next_points_expire_on": null,
+      "opt_in": true,
+      "opted_in_at": "2022-05-13Z",
+      "perks_redeemed": 6,
+      "phone_number": null,
+      "points_balance": 299,
+      "points_earned": 299,
+      "points_expire_at": null,
+      "pos_account_id": null,
+      "referral_code": {
+        "amount_cents": 7650,
+        "average_amount_cents": 7650,
+        "code": "nwi9zry",
+        "completed_referral_customers": [],
+        "customer_id": null,
+        "email": "customer@example.com",
+        "email_shares": 0,
+        "emails_sent": 0,
+        "emails_viewed": 0,
+        "expired": false,
+        "expires_at": null,
+        "facebook_shares": 0,
+        "links_clicked_from_email": 0,
+        "links_clicked_from_facebook": 0,
+        "links_clicked_from_twitter": 0,
+        "orders": 1,
+        "shares": 0,
+        "total_clicks": 1,
+        "twitter_shares": 0,
+        "unique_clicks": 1
+      },
+      "referral_link": null,
+      "third_party_id": "6113212727447",
+      "total_purchases": 3,
+      "total_spend_cents": 8910,
+      "vip_tier_actions_completed": {
+        "amount_spent_cents": 0,
+        "campaigns_completed": [],
+        "points_earned": 0,
+        "purchases_made": 0,
+        "referrals_completed": 0
+      },
+      "vip_tier_entry_date": null,
+      "vip_tier_expiration": null,
+      "vip_tier_maintenance_requirements": null,
+      "vip_tier_name": "",
+      "vip_tier_upgrade_requirements": {
+        "amount_cents_needed": 0,
+        "amount_cents_needed_in_customer_currency": 0,
+        "campaigns_needed": [],
+        "points_needed": 0,
+        "purchases_needed": 0,
+        "referrals_needed": 0
+      }
+    },
+    "phone_number": null,
+    "tags": "Active Subscriber,big spender,loyal",
+    "yotpo_ugc": {
+      "avg_product_rating": null,
+      "avg_site_rating": null,
+      "last_review_date": null,
+      "last_sentiment": 0.2759935259819031,
+      "last_star_rating": null,
+      "sentiment_avg_product": 0.16560760140419006,
+      "sentiment_avg_site": null,
+      "top_topics": null,
+      "total_avg_rating": null,
+      "total_avg_sentiment": 0.16560760140419006,
+      "total_reviews": null
+    }
+  }
+]

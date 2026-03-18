@@ -1,0 +1,109 @@
+<?Template languageVersion="1.1" ?>
+<Card title="Loyalty &amp; Referrals">
+  <Drawer initialState="collapsed">
+    <Fixed>
+      <Text><Bold>Yotpo</Bold> customer matching</Text>
+    </Fixed>
+    <Expandable>
+      <Text><Bold>Yotpo</Bold> customers are matched using all email addresses and mobile phone numbers from the Gladly customer profile. Only customers whose Yotpo first or last name matches the Gladly customer name will be displayed.</Text>
+    </Expandable>
+  </Drawer>
+  <Spacer size="small" />
+  <List dataSource="__data" separateItems="true">
+    <Drawer initialState="expandFirst">
+      <Fixed>
+        <!-- Show name if either first or last name exists and is not empty -->
+        <Block when="(first_name is not null and first_name != '') or (last_name is not null and last_name != '')">
+          <Text fontWeight="bold" fontSize="large">{{ first_name }} {{ last_name }}</Text>
+          <Block when="phone_number is not null">
+            <Formula>{{email}} • {{phone_number}}</Formula>
+          </Block>
+          <Block when="phone_number is null">
+            <Formula>{{email}}</Formula>
+          </Block>
+        </Block>
+        <!-- Show email/phone if no name exists -->
+        <Block when="(first_name is null or first_name == '') and (last_name is null or last_name == '') and email is not null and email != ''">
+          <Text fontWeight="bold" fontSize="large">{{email}}</Text>
+          <Block when="phone_number is not null">
+            <Formula>{{phone_number}}</Formula>
+          </Block>
+        </Block>
+        <!-- Show phone only if no name and no email -->
+        <Block when="(first_name is null or first_name == '') and (last_name is null or last_name == '') and (email is null or email == '') and phone_number is not null">
+          <Text fontWeight="bold" fontSize="large">{{phone_number}}</Text>
+        </Block>
+        <Spacer size="medium" />
+
+        <!-- Key Metrics -->
+        <Block when="loyalty is not null">
+          <!-- VIP Tier -->
+          <Block when="loyalty.vip_tier_name is not null and loyalty.vip_tier_name != ''">
+            <Formula label="VIP Tier" valueFontWeight="bold">{{loyalty.vip_tier_name}}</Formula>
+          </Block>
+          <Block when="loyalty.vip_tier_name is null or loyalty.vip_tier_name == ''">
+            <Formula label="VIP Tier">None</Formula>
+          </Block>
+          <!-- Points balance -->
+          <NumericValue
+            dataSource="loyalty.points_balance"
+            label="Points"
+            decimalPlaces="0"
+            />
+          <!-- Average rating -->
+          <Formula when="yotpo_ugc is not null and yotpo_ugc.total_avg_rating is not null" label="Av. Rating">{{yotpo_ugc.total_avg_rating}}★</Formula>
+          <!-- Birthday -->
+          <Block when="loyalty.birthday_month is not null">
+            <Formula label="Birthday">{{ [1990,loyalty.birthday_month,loyalty.birth_day] | join('-') | date ("F j") }}</Formula>
+          </Block>
+          <Block when="loyalty.referral_link is not null and loyalty.referral_link.customer_id is not null">
+            <Link linkText="View customer in Yotpo" linkUrl="https://loyalty-app.yotpo.com/customers/{{loyalty.referral_link.customer_id}}" />
+          </Block>
+        </Block>
+      </Fixed>
+      <Expandable>
+        <Section padding="small" title="Loyalty Eligibility" when="loyalty is not null">
+          <Block when="not loyalty.opt_in">
+            <Text>Not Eligible</Text>
+          </Block>
+          <DateTimeValue when="loyalty.opt_in" dataSource="loyalty.opted_in_at" label="Eligible since" />
+          <DateTimeValue when="loyalty.vip_tier_expiration is not null" dataSource="loyalty.vip_tier_expiration" format="MMM D, YYYY" label="VIP tier expires" />
+        </Section>
+        <Section padding="small" title="Reviews" when="yotpo_ugc is not null">
+          <NumericValue dataSource="yotpo_ugc.total_reviews" label="Total reviews" decimalPlaces="0" />
+          <Formula when="yotpo_ugc.last_star_rating is not null" label="Last review">{{yotpo_ugc.last_star_rating}}★ on {{ yotpo_ugc.last_review_date | date("M j, Y") }}</Formula>
+          <StringValue when="yotpo_ugc.top_topics is not null" dataSource="yotpo_ugc.top_topics" label="Top topics" />
+        </Section>
+        <Section padding="small" title="Points" when="loyalty is not null">
+          <NumericValue dataSource="loyalty.points_earned" label="Total earned" decimalPlaces="0" />
+          <Block when="loyalty.points_expire_at is not null">
+            <Text>Points expire {{ loyalty.points_expire_at | date("M j, Y") }}</Text>
+          </Block>
+          <Block when="loyalty.next_points_expire_on is not null">
+            <Text>{{loyalty.next_points_expire_amount}} points expire {{ loyalty.next_points_expire_on | date("M j, Y") }}</Text>
+          </Block>
+        </Section>
+        <Section padding="small" title="Referral" when="loyalty is not null and (loyalty.referral_link is not null or loyalty.referral_code is not null)">
+          <!-- New format: referral_link -->
+          <Block when="loyalty.referral_link is not null">
+            <StringValue label="Referral code" dataSource="loyalty.referral_link.code" />
+            <Block when="loyalty.referral_link.link is not null">
+              <Link label="Referral link" linkUrl="https://{{loyalty.referral_link.link}}" />
+            </Block>
+          </Block>
+          <!-- Old format: referral_code -->
+          <Block when="loyalty.referral_link is null and loyalty.referral_code is not null">
+            <StringValue label="Referral code" dataSource="loyalty.referral_code.code" />
+            <Link label="Referral link" linkUrl="https://rwrd.io/{{loyalty.referral_code.code}}" />
+            <Block when="loyalty.referral_code.unique_clicks is not null">
+              <NumericValue label="Unique clicks" dataSource="loyalty.referral_code.unique_clicks" decimalPlaces="0" />
+            </Block>
+            <Block when="loyalty.referral_code.orders is not null and loyalty.referral_code.orders > 0">
+              <NumericValue label="Referral orders" dataSource="loyalty.referral_code.orders" decimalPlaces="0" />
+            </Block>
+          </Block>
+        </Section>
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

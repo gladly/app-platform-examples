@@ -1,0 +1,117 @@
+<?Template languageVersion="1.1" ?>
+<Card title="{{ __data | length }} Reviews">
+  <Drawer initialState="collapsed">
+    <Fixed>
+      <Text><Bold>Yotpo</Bold> reviews</Text>
+    </Fixed>
+    <Expandable>
+      <Text>Reviews from customers in Loyalty &amp; Referrals, matched by email. Stats there may be up to 24 hours behind.</Text>
+    </Expandable>
+  </Drawer>
+  <Spacer size="small" />
+  <List dataSource="__data" separateItems="true">
+    <Drawer initialState="expandFirst">
+      <Fixed>
+        <!-- Review Title and Rating -->
+        <ColumnGroup columnSpacing="medium">
+          <Column>
+            <Formula valueFontWeight="bold">{{ score }}/5 ★</Formula>
+          </Column>
+          <Column >
+            <DateTimeValue dataSource="created_at" format="MMM D, YYYY" />
+          </Column>
+          <Column width="stretch" verticalAlignment="top" alignment="right">
+            <Block when="verified_buyer">
+              <Text fontSize="small" fontWeight="bold">Verified Buyer</Text>
+            </Block>
+            <Block when="(user is not null) and (user.user_type == 'AnonymousUser') and (not verified_buyer)">
+              <Text fontSize="small" fontWeight="bold">Anonymous</Text>
+            </Block>
+          </Column>
+        </ColumnGroup>
+        <Section padding="none" when="external_product_id != 'yotpo_site_reviews'">
+          <StringValue label="Order ID" dataSource="external_order_id"/>
+          <Block when="product is not null">
+            <Link linkText="{{product.name}}" linkUrl="{{product.url}}"/>
+          </Block>
+        </Section>
+        <Section padding="none" when="external_product_id == 'yotpo_site_reviews'">
+          <Block when="product is not null">
+            <Link label="Website" linkText="{{product.name}}" linkUrl="{{product.url}}"/>
+          </Block>
+        </Section>
+        <Section padding="none" when="user is not null">
+          <Text>{{user.display_name}} • {{user.email}}</Text>
+          <Link valueAlignment="left"  labelFontSize="small" linkText="View Timeline" linkUrl="https://reviews.yotpo.com/#/timeline?query={{user.email}}" displayStyle="row" />
+        </Section>
+
+      </Fixed>
+      <Expandable>
+        <!-- Customer Review: title, content, images, custom fields -->
+        <Section padding="small">
+          <Text fontWeight="bold" maxLines="3">{{title}}</Text>
+          <Spacer size="small" />
+          <Text maxLines="10">{{ content }}</Text>
+          <!-- Images -->
+          <Block when="images_data is not null and images_data is not empty">
+            <Spacer size="small" />
+            <!-- Single image: full width -->
+            <Block when="images_data[1] is null">
+              <Image dataSource="images_data[0].original_url" size="120px/120px" shape="rectangle" mode="fill" border="true" />
+              <Link linkUrl="{{images_data[0].original_url}}" linkText="View" labelFontSize="small" />
+            </Block>
+            <!-- 2+ images: two columns -->
+            <Block when="images_data[1] is not null">
+              <ColumnGroup columnSpacing="small">
+                <Column>
+                  <Image dataSource="images_data[0].original_url" size="120px/120px" shape="rectangle" mode="fill" border="true" />
+                  <Link linkUrl="{{images_data[0].original_url}}" linkText="View" labelFontSize="small" />
+                </Column>
+                <Column>
+                  <Image dataSource="images_data[1].original_url" size="120px/120px" shape="rectangle" mode="fill" border="true" />
+                  <Link linkUrl="{{images_data[1].original_url}}" linkText="View" labelFontSize="small" />
+                </Column>
+              </ColumnGroup>
+            </Block>
+            <!-- 3rd image: half width row below -->
+            <Block when="images_data[2] is not null">
+              <ColumnGroup columnSpacing="small">
+                <Column>
+                  <Image dataSource="images_data[2].original_url" size="120px/120px" shape="rectangle" mode="fill" border="true" />
+                  <Link linkUrl="{{images_data[2].original_url}}" linkText="View" labelFontSize="small" />
+                </Column>
+                <Column />
+              </ColumnGroup>
+            </Block>
+          </Block>
+          <!-- Custom Fields -->
+          <Block when="custom_fields is not null and custom_fields is not empty">
+            <Spacer size="medium" />
+            <List dataSource="custom_fields">
+              <Text>{{title}}: {{value}}</Text>
+            </List>
+          </Block>
+        </Section>
+        <!-- Comment -->
+        <Drawer when="comment is not null" initialState="collapsed">
+          <Fixed>
+            <Text fontWeight="bold">Store Reply</Text>
+          </Fixed>
+          <Expandable>
+            <StringValue dataSource="comment.content" maxLines="5" multilineStyle="expandable" />
+          </Expandable>
+        </Drawer>
+        <!-- More Info -->
+        <Drawer initialState="collapsed">
+          <Fixed>
+            <Text fontWeight="bold">More Info</Text>
+          </Fixed>
+          <Expandable>
+            <StringValue dataSource="id" label="Review ID"/>
+            <StringValue when="is_incentivized" dataSource="incentive_type" label="Incentive" />
+          </Expandable>
+        </Drawer>
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

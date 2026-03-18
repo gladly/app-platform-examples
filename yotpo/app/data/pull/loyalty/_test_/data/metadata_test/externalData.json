@@ -1,0 +1,69 @@
+{
+  "loyalty": [
+    {
+      "email": "tom.smith@hostname.com",
+      "points_balance": 150,
+      "vip_tier_name": "Gold",
+      "birthday_month": 5,
+      "birth_day": 8,
+      "birthday_year": null,
+      "referral_code": {
+        "code": "uwuj0rb",
+        "shares": 0,
+        "facebook_shares": 0,
+        "twitter_shares": 0,
+        "email_shares": 0,
+        "emails_sent": 0,
+        "emails_viewed": 0,
+        "links_clicked_from_email": 0,
+        "links_clicked_from_twitter": 0,
+        "links_clicked_from_facebook": 0,
+        "orders": 1,
+        "amount_cents": 7650,
+        "average_amount_cents": 7650,
+        "expires_at": null,
+        "expired": false,
+        "completed_referral_customers": [
+          {
+            "email": "bla@email.com",
+            "first_name": "sa",
+            "last_name": "sa",
+            "referral_points_contributed": 100,
+            "last_seen_at": "2025-08-21T11:25:05.000Z"
+          }
+        ],
+        "email": "test.customer@example.com",
+        "unique_clicks": 1,
+        "total_clicks": 1
+      },
+      "referral_link": null
+    },
+    {
+      "email": "jane.doe@example.com",
+      "points_balance": 75,
+      "vip_tier_name": "Silver",
+      "referral_code": {
+        "code": "abc123",
+        "shares": 2,
+        "facebook_shares": 1,
+        "twitter_shares": 1,
+        "email_shares": 0,
+        "emails_sent": 0,
+        "emails_viewed": 0,
+        "links_clicked_from_email": 0,
+        "links_clicked_from_twitter": 0,
+        "links_clicked_from_facebook": 0,
+        "orders": 0,
+        "amount_cents": 0,
+        "average_amount_cents": 0,
+        "expires_at": null,
+        "expired": false,
+        "completed_referral_customers": [],
+        "email": "jane.doe@example.com",
+        "unique_clicks": 0,
+        "total_clicks": 0
+      },
+      "referral_link": null
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "external_id": "test_customer_123",
+    "email": "john.smith@example.com",
+    "phone_number": "+15551234567",
+    "first_name": "John",
+    "last_name": "Smith",
+    "gender": "M",
+    "account_created_at": "2020-01-15T10:30:00Z",
+    "account_updated_at": "2023-12-01T14:20:00Z",
+    "account_status": "enabled",
+    "default_language": "en",
+    "default_currency": "USD",
+    "tags": "premium_customer",
+    "lists": [
+      {
+        "id": "456789",
+        "since": "2020-02-01T09:15:30Z"
+      }
+    ],
+    "accepts_email_marketing": true,
+    "accepts_sms_marketing": false,
+    "channels": {
+      "email": {
+        "marketing": {
+          "consent": "subscribed",
+          "timestamp": "2020-02-01T09:15:30Z"
+        }
+      }
+    },
+    "yotpo_ugc": {
+      "total_reviews": 3,
+      "avg_product_rating": 4.5,
+      "avg_site_rating": 4.8,
+      "total_avg_rating": 4.65,
+      "sentiment_avg_product": 0.85,
+      "sentiment_avg_site": 0.9,
+      "total_avg_sentiment": 0.88,
+      "last_star_rating": 5,
+      "last_review_date": "2023-06-15T16:45:22Z",
+      "last_sentiment": 0.92
+    }
+  }
+]

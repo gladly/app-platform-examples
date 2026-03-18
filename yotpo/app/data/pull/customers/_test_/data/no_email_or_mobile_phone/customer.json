@@ -1,0 +1,16 @@
+{
+  "id": "customer1",
+  "name": "John Smith",
+  "address": "123 Main St",
+  "emailAddresses": [],
+  "phoneNumbers": [
+    {
+      "number": "+15551234567",
+      "type": "HOME"
+    },
+    {
+      "number": "+15551234568",
+      "type": "OFFICE"
+    }
+  ]
+}

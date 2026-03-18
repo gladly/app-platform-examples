@@ -1,0 +1,14 @@
+{
+    "customer": [
+        {
+            "external_id": "customer123",
+            "email": "test@example.com",
+            "account_updated_at": "2023-08-29T16:30:07Z"
+        },
+        {
+            "external_id": "customer456",
+            "email": "test2@example.com",
+            "account_updated_at": "2023-09-15T10:15:30Z"
+        }
+    ]
+}

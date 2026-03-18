@@ -1,0 +1,82 @@
+{
+  "customers": {
+    "email": "test.customer@example.com",
+    "points_balance": 150,
+    "points_earned": 300,
+    "last_seen_at": "2023-08-29T16:30:07Z",
+    "third_party_id": "ext123",
+    "pos_account_id": "pos456",
+    "has_store_account": true,
+    "credit_balance": "$25.00",
+    "credit_balance_in_customer_currency": "$25.00",
+    "opt_in": true,
+    "opted_in_at": "2022-02-01T10:00:00",
+    "points_expire_at": "2024-12-31T23:59:59Z",
+    "total_spend_cents": 5000,
+    "total_purchases": 5,
+    "perks_redeemed": 2,
+    "last_purchase_at": "2023-08-15T14:30:00Z",
+    "first_name": "Test",
+    "last_name": "Customer",
+    "phone_number": "+15551234567",
+    "vip_tier_name": "Gold",
+    "vip_tier_entry_date": "2022-02-01T13:05:57.071+02:00",
+    "vip_tier_expiration": "2024-02-01T13:05:57.071+02:00",
+    "birthday_month": 5,
+    "birth_day": 8,
+    "birthday_year": null,
+    "vip_tier_actions_completed": {
+      "points_earned": 150,
+      "amount_spent_cents": 5000,
+      "purchases_made": 5,
+      "referrals_completed": 1,
+      "campaigns_completed": ["summer_sale", "loyalty_bonus"]
+    },
+    "vip_tier_maintenance_requirements": {
+      "points_needed": 50,
+      "amount_cents_needed": 1000,
+      "amount_cents_needed_in_customer_currency": 1000,
+      "purchases_needed": 2,
+      "referrals_needed": 0,
+      "campaigns_needed": []
+    },
+    "vip_tier_upgrade_requirements": {
+      "points_needed": 500,
+      "amount_cents_needed": 10000,
+      "amount_cents_needed_in_customer_currency": 10000,
+      "purchases_needed": 10,
+      "referrals_needed": 3,
+      "campaigns_needed": ["premium_member"]
+    },
+    "referral_code": {
+      "code": "abc123xyz",
+      "shares": 0,
+      "facebook_shares": 0,
+      "twitter_shares": 0,
+      "email_shares": 0,
+      "emails_sent": 0,
+      "emails_viewed": 0,
+      "links_clicked_from_email": 0,
+      "links_clicked_from_twitter": 0,
+      "links_clicked_from_facebook": 0,
+      "orders": 1,
+      "amount_cents": 7650,
+      "average_amount_cents": 7650,
+      "expires_at": null,
+      "expired": false,
+      "completed_referral_customers": [
+        {
+          "email": "referred.customer@example.com",
+          "first_name": "Referred",
+          "last_name": "Customer",
+          "referral_points_contributed": 100,
+          "last_seen_at": "2025-08-21T11:25:05.000Z"
+        }
+      ],
+      "email": "test.customer@example.com",
+      "unique_clicks": 1,
+      "total_clicks": 1
+    },
+    "referral_link": null
+  }
+}

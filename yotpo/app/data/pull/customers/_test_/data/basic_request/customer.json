@@ -1,0 +1,21 @@
+{
+  "id": "customer1",
+  "name": "John Smith",
+  "address": "123 Main St, NY 10001",
+  "primaryEmailAddress": "john@example.com",
+  "emailAddresses": ["john@example.com", "johnsmith@gmail.com"],
+  "primaryPhoneNumber": {
+    "number": "+15551234567",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15551234567",
+      "type": "MOBILE"
+    },
+    {
+      "number": "+15559876543",
+      "type": "HOME"
+    }
+  ]
+}

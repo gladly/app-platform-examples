@@ -1,0 +1,5 @@
+{
+  "id": "customer_mixed",
+  "name": "Williams",
+  "emailAddresses": ["match@example.com", "fail@example.com"]
+}

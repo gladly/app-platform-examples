@@ -1,0 +1,18 @@
+[
+  {
+    "accepts_email_marketing": null,
+    "accepts_sms_marketing": null,
+    "account_created_at": "2022-01-01T10:00:00Z",
+    "account_status": null,
+    "account_updated_at": "2022-01-02T10:00:00Z",
+    "default_currency": null,
+    "default_language": null,
+    "email": "match@example.com",
+    "external_id": "c1",
+    "first_name": "Anna",
+    "gender": null,
+    "last_name": "Williams",
+    "phone_number": null,
+    "tags": null
+  }
+]

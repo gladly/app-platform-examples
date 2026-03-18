@@ -1,0 +1,56 @@
+[
+  {
+    "id": "12345678",
+    "score": 3,
+    "votes_up": 2,
+    "votes_down": 1,
+    "content": "The product was okay but not great.",
+    "title": "Okay Product",
+    "created_at": "2025-01-15T10:30:00.000Z",
+    "verified_buyer": true,
+    "source_review_id": 0,
+    "images_data": [],
+    "user": {
+      "id": "54923876",
+      "display_name": "Rob S.",
+      "social_image": "https://example.com/rob-avatar.png",
+      "email": "rob@example.com"
+    },
+    "product": {
+      "id": "912345678",
+      "external_product_id": "PROD123",
+      "name": "Test Product",
+      "url": "https://example.com/products/test-product",
+      "created_at": "2025-01-01T00:00:00.000Z",
+      "updated_at": "2025-01-10T12:00:00.000Z",
+      "average_score": 4.2,
+      "total_reviews": 50,
+      "category": {
+        "id": 456,
+        "name": "Test Category"
+      },
+      "description": "A test product for testing purposes",
+      "images": [
+        {
+          "original": "https://example.com/images/test-original.jpg",
+          "square": "https://example.com/images/test-square.jpg"
+        }
+      ]
+    },
+    "user_id": "54923876",
+    "product_id": "912345678",
+    "comment": {
+      "content": "Hello Rob, we're sorry to hear that you didn't enjoy our product. We'll do our best to make it right for you. Please reach out so we can assist you further.",
+      "created_at": "2025-07-25T19:27:37Z",
+      "display_name": "Store Owner",
+      "comments_avatar": ""
+    },
+    "external_product_id": "PROD123",
+    "published": true,
+    "order_id": 10567234,
+    "external_order_id": "ORDER123",
+    "is_incentivized": null,
+    "incentive_type": null,
+    "custom_fields": []
+  }
+]

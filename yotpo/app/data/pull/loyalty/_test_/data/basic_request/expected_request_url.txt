@@ -1,0 +1,1 @@
+https://developers.yotpo.com/loyalty/v3/stores/test_store_123/customers?access_token=test_access_token_xyz

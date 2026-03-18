@@ -1,0 +1,5 @@
+{
+  "id": "customer_multi_fail",
+  "name": "Williams",
+  "emailAddresses": ["fail1@example.com", "fail2@example.com"]
+}

@@ -1,0 +1,7 @@
+{
+  "client_id": "test_kong_client_id_123",
+  "client_secret": "test_client_secret_456",
+  "grant_type": "authorization_code",
+  "code": "test_auth_code_abc",
+  "redirect_uri": "https://us-uat.gladly.qa/api/v1/configured-external-apps-oauth-auth-code"
+}

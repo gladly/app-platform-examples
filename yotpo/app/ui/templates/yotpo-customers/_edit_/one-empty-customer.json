@@ -1,0 +1,121 @@
+[
+  {
+    "tags": "",
+    "email": "customer@example.com",
+    "lists": null,
+    "gender": null,
+    "loyalty": {
+      "email": "customer@example.com",
+      "opt_in": true,
+      "birth_day": null,
+      "last_name": "",
+      "first_name": "",
+      "opted_in_at": "2025-03-24Z",
+      "last_seen_at": "2025-10-08T16:19:33Z",
+      "phone_number": null,
+      "birthday_year": null,
+      "points_earned": 0,
+      "referral_code": null,
+      "referral_link": null,
+      "vip_tier_name": "",
+      "birthday_month": null,
+      "credit_balance": "$0",
+      "perks_redeemed": 0,
+      "points_balance": 0,
+      "pos_account_id": null,
+      "third_party_id": "1234567890123",
+      "total_purchases": 1,
+      "last_purchase_at": "2025-03-24T13:18:29Z",
+      "points_expire_at": null,
+      "next_points_expire_on": null,
+      "next_points_expire_amount": null,
+      "has_store_account": false,
+      "total_spend_cents": 262995,
+      "vip_tier_entry_date": null,
+      "vip_tier_expiration": null,
+      "vip_tier_actions_completed": null,
+      "vip_tier_upgrade_requirements": null,
+      "vip_tier_maintenance_requirements": null,
+      "credit_balance_in_customer_currency": "$0"
+    },
+    "channels": {
+      "sms": {
+        "marketing": {
+          "consent": "never_subscribed",
+          "timestamp": null,
+          "suppressions": null
+        }
+      },
+      "email": {
+        "marketing": {
+          "consent": "never_subscribed",
+          "timestamp": null,
+          "suppressions": null
+        }
+      }
+    },
+    "last_name": null,
+    "yotpo_ugc": {
+      "top_topics": null,
+      "total_reviews": 1,
+      "last_sentiment": 0.3899136781692505,
+      "avg_site_rating": 1,
+      "last_review_date": "2025-10-08T16:16:10Z",
+      "last_star_rating": 1,
+      "total_avg_rating": 1,
+      "avg_product_rating": null,
+      "sentiment_avg_site": 0.3899136781692505,
+      "total_avg_sentiment": 0.3899136781692505,
+      "sentiment_avg_product": null
+    },
+    "first_name": null,
+    "external_id": "1234567890123",
+    "phone_number": null,
+    "account_status": "disabled",
+    "default_currency": "USD",
+    "default_language": null,
+    "gladlyAppConfigId": "test-config-id-123",
+    "account_created_at": "2025-03-24T13:19:30Z",
+    "account_updated_at": "2025-10-09T10:32:13Z",
+    "gladlyIntegrationId": "test-config-id-123",
+    "accepts_sms_marketing": null,
+    "accepts_email_marketing": null
+  },
+  {
+    "tags": "",
+    "email": null,
+    "lists": null,
+    "gender": null,
+    "loyalty": null,
+    "channels": {
+      "sms": {
+        "marketing": {
+          "consent": "never_subscribed",
+          "timestamp": null,
+          "suppressions": null
+        }
+      },
+      "email": {
+        "marketing": {
+          "consent": "never_subscribed",
+          "timestamp": null,
+          "suppressions": null
+        }
+      }
+    },
+    "last_name": "Not Logged In",
+    "yotpo_ugc": null,
+    "first_name": "Guest",
+    "external_id": "9876543210987",
+    "phone_number": "+15555551234",
+    "account_status": "disabled",
+    "default_currency": "USD",
+    "default_language": null,
+    "gladlyAppConfigId": "test-config-id-456",
+    "account_created_at": "2025-03-24T13:36:50Z",
+    "account_updated_at": "2025-10-08T16:22:50Z",
+    "gladlyIntegrationId": "test-config-id-456",
+    "accepts_sms_marketing": null,
+    "accepts_email_marketing": null
+  }
+]

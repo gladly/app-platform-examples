@@ -1,0 +1,56 @@
+[
+  {
+    "id": "99999999",
+    "score": 4,
+    "votes_up": 1,
+    "votes_down": 0,
+    "content": "I wanted to love them but unfortunately they did not fit my Barbie's Revenge Helmet. And I do love that helmet",
+    "title": "Didn't fit",
+    "created_at": "2025-06-10T14:00:00.000Z",
+    "verified_buyer": true,
+    "source_review_id": 0,
+    "images_data": [],
+    "user": {
+      "id": "12345678",
+      "display_name": "Jane D.",
+      "social_image": "https://example.com/jane-avatar.png",
+      "email": "jane@example.com"
+    },
+    "product": {
+      "id": "87654321",
+      "external_product_id": "PROD999",
+      "name": "Test Helmet",
+      "url": "https://example.com/products/test-helmet",
+      "created_at": "2025-01-01T00:00:00.000Z",
+      "updated_at": "2025-06-01T12:00:00.000Z",
+      "average_score": 4.0,
+      "total_reviews": 25,
+      "category": {
+        "id": 789,
+        "name": "Accessories"
+      },
+      "description": "A test helmet product",
+      "images": [
+        {
+          "original": "https://example.com/images/helmet-original.jpg",
+          "square": "https://example.com/images/helmet-square.jpg"
+        }
+      ]
+    },
+    "user_id": "12345678",
+    "product_id": "87654321",
+    "comment": {
+      "content": "We're sorry to hear that! Please reach out & we'll help.",
+      "created_at": "2025-06-11T10:00:00Z",
+      "display_name": "Store Owner",
+      "comments_avatar": ""
+    },
+    "external_product_id": "PROD999",
+    "published": true,
+    "order_id": 55555555,
+    "external_order_id": "ORD999",
+    "is_incentivized": null,
+    "incentive_type": null,
+    "custom_fields": []
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "client_id": "test_kong_client_id_123"
+  },
+  "secrets": {
+    "client_secret": "test_client_secret_456"
+  }
+}

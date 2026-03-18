@@ -1,0 +1,2 @@
+https://developers.yotpo.com/v2/test_store_123/reviews?access_token=test_access_token_xyz&customer_email=george%40example.com&count=10&include_unpublished_reviews=true&include_nested=true&include_site_reviews=true&sort=date&direction=desc
+https://developers.yotpo.com/v2/test_store_123/reviews?access_token=test_access_token_xyz&customer_email=laurie%40example.com&count=10&include_unpublished_reviews=true&include_nested=true&include_site_reviews=true&sort=date&direction=desc

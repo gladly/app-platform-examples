@@ -1,0 +1,51 @@
+[
+  {
+    "id": "87654321",
+    "score": 5,
+    "votes_up": 5,
+    "votes_down": 0,
+    "content": "Excellent product! Highly recommend.",
+    "title": "Amazing Product",
+    "created_at": "2025-01-20T15:45:00.000Z",
+    "verified_buyer": true,
+    "source_review_id": 0,
+    "images_data": [],
+    "user": {
+      "id": "48756123",
+      "display_name": "Jane D.",
+      "social_image": "https://example.com/jane-avatar.png",
+      "email": "jane@example.com"
+    },
+    "product": {
+      "id": "845672341",
+      "external_product_id": "PROD456",
+      "name": "Another Test Product",
+      "url": "https://example.com/products/another-test-product",
+      "created_at": "2025-01-05T00:00:00.000Z",
+      "updated_at": "2025-01-12T10:00:00.000Z",
+      "average_score": 4.8,
+      "total_reviews": 75,
+      "category": {
+        "id": 789,
+        "name": "Another Category"
+      },
+      "description": "Another test product for testing purposes",
+      "images": [
+        {
+          "original": "https://example.com/images/another-original.jpg",
+          "square": "https://example.com/images/another-square.jpg"
+        }
+      ]
+    },
+    "user_id": "48756123",
+    "product_id": "845672341",
+    "comment": null,
+    "external_product_id": "PROD456",
+    "published": true,
+    "order_id": 10893456,
+    "external_order_id": "ORDER456",
+    "is_incentivized": null,
+    "incentive_type": null,
+    "custom_fields": []
+  }
+]

@@ -1,0 +1,109 @@
+[
+  {
+    "accepts_email_marketing": null,
+    "accepts_sms_marketing": null,
+    "account_created_at": "2025-03-24T13:19:30Z",
+    "account_status": "disabled",
+    "account_updated_at": "2026-02-16T16:36:50Z",
+    "channels": {
+      "email": {
+        "marketing": {
+          "consent": "never_subscribed",
+          "suppressions": null,
+          "timestamp": null
+        }
+      },
+      "sms": {
+        "marketing": {
+          "consent": "never_subscribed",
+          "suppressions": null,
+          "timestamp": null
+        }
+      }
+    },
+    "default_currency": "USD",
+    "default_language": null,
+    "email": "customer@example.com",
+    "external_id": "9010685411641",
+    "first_name": null,
+    "gender": null,
+    "gladlyAppConfigId": "test-external-app-id",
+    "gladlyIntegrationId": "test-external-app-id",
+    "last_name": null,
+    "lists": null,
+    "loyalty": {
+      "birth_day": null,
+      "birthday_month": null,
+      "birthday_year": null,
+      "credit_balance": "$0",
+      "credit_balance_in_customer_currency": "$0",
+      "email": "customer@example.com",
+      "first_name": "",
+      "has_store_account": false,
+      "last_name": "",
+      "last_purchase_at": "2026-02-16T16:28:53Z",
+      "last_seen_at": "2026-02-16T16:28:53Z",
+      "next_points_expire_amount": null,
+      "next_points_expire_on": null,
+      "opt_in": true,
+      "opted_in_at": "2025-03-24Z",
+      "perks_redeemed": 36,
+      "phone_number": null,
+      "points_balance": 5414,
+      "points_earned": 5414,
+      "points_expire_at": null,
+      "pos_account_id": null,
+      "referral_code": null,
+      "referral_link": {
+        "code": "7DRYO3W",
+        "customer_id": "3280744094",
+        "expired": false,
+        "link": "rwrd.io/ref_7DRYO3W"
+      },
+      "third_party_id": "9010685411641",
+      "total_purchases": 34,
+      "total_spend_cents": 600990,
+      "vip_tier_actions_completed": {
+        "amount_spent_cents": 600990,
+        "campaigns_completed": [],
+        "points_earned": 5414,
+        "purchases_made": 0,
+        "referrals_completed": 0
+      },
+      "vip_tier_entry_date": "2026-01-07T16:05:03.926507Z",
+      "vip_tier_expiration": "2027-01-07T16:05:03.926507Z",
+      "vip_tier_maintenance_requirements": {
+        "amount_cents_needed": 0,
+        "amount_cents_needed_in_customer_currency": 0,
+        "campaigns_needed": [],
+        "points_needed": 0,
+        "purchases_needed": 0,
+        "referrals_needed": 0
+      },
+      "vip_tier_name": "Gold",
+      "vip_tier_upgrade_requirements": {
+        "amount_cents_needed": 0,
+        "amount_cents_needed_in_customer_currency": 0,
+        "campaigns_needed": [],
+        "points_needed": 0,
+        "purchases_needed": 0,
+        "referrals_needed": 0
+      }
+    },
+    "phone_number": null,
+    "tags": "yotpo-tiers-gold",
+    "yotpo_ugc": {
+      "avg_product_rating": 3,
+      "avg_site_rating": 1,
+      "last_review_date": "2026-02-03T18:45:16Z",
+      "last_sentiment": 0.09395167231559753,
+      "last_star_rating": 3,
+      "sentiment_avg_product": 0.09395167231559753,
+      "sentiment_avg_site": 0.3899136781692505,
+      "top_topics": null,
+      "total_avg_rating": 2,
+      "total_avg_sentiment": 0.241932675242424,
+      "total_reviews": 2
+    }
+  }
+]

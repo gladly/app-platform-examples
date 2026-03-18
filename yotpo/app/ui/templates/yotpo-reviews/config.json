@@ -1,0 +1,5 @@
+{
+  "description": "Displays reviews for which the email matches that of Gladly customer",
+  "graphqlSchema": "data",
+  "graphqlType": "[Review]"
+}

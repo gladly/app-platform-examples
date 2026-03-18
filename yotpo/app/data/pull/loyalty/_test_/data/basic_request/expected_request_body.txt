@@ -1,0 +1,14 @@
+#body
+{
+    "customers": {
+        "customer_email": "tom.smith@hostname.com"
+    },
+    "with_referral_code": true
+}
+#body
+{
+    "customers": {
+        "customer_email": "jane.doe@example.com"
+    },
+    "with_referral_code": true
+}

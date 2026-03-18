@@ -1,0 +1,5 @@
+{
+  "description": "Display Yotpo customer profile data",
+  "graphqlSchema": "data",
+  "graphqlType": "[Customer]"
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "accepts_email_marketing": true,
+    "accepts_sms_marketing": null,
+    "account_created_at": "2022-02-24T20:41:48Z",
+    "account_status": "invited",
+    "account_updated_at": "2025-07-17T13:42:20Z",
+    "channels": {
+      "email": {
+        "marketing": {
+          "consent": "subscribed",
+          "suppressions": null,
+          "timestamp": null
+        }
+      },
+      "sms": {
+        "marketing": {
+          "consent": "never_subscribed",
+          "suppressions": null,
+          "timestamp": null
+        }
+      }
+    },
+    "custom_properties": null,
+    "default_currency": "USD",
+    "default_language": null,
+    "email": "test-yotpo@gladly.com",
+    "external_id": "5999224094871",
+    "first_name": "Robert",
+    "gender": null,
+    "gladlyAppConfigId": "test-external-app-id",
+    "gladlyIntegrationId": "test-external-app-id",
+    "last_name": "Yotpy",
+    "lists": null,
+    "loyalty": {
+      "credit_balance": "$0",
+      "credit_balance_in_customer_currency": "$0",
+      "email": "test-yotpo@gladly.com",
+      "first_name": "Robert",
+      "has_store_account": false,
+      "last_name": "Yotpy",
+      "last_purchase_at": "2024-06-05T20:00:02Z",
+      "last_seen_at": "2024-06-05T20:00:02Z",
+      "opt_in": true,
+      "opted_in_at": "2022-02-24Z",
+      "perks_redeemed": 10,
+      "phone_number": "+16503500666",
+      "points_balance": 2000438,
+      "points_earned": 2000438,
+      "points_expire_at": null,
+      "next_points_expire_on": "2025-11-22T00:00:00Z",
+      "next_points_expire_amount": 900,
+      "pos_account_id": null,
+      "birthday_month": 5,
+      "birth_day": 8,
+      "birthday_year": null,
+      "referral_code": {
+        "amount_cents": 7650,
+        "average_amount_cents": 7650,
+        "code": "uwuj0rb",
+        "completed_referral_customers": [
+          {
+            "email": "bla@email.com",
+            "first_name": "sa",
+            "last_name": "sa",
+            "last_seen_at": "2025-08-21T11:25:05.000Z",
+            "referral_points_contributed": 100
+          }
+        ],
+        "email": "test-yotpo@gladly.com",
+        "email_shares": 0,
+        "emails_sent": 0,
+        "emails_viewed": 0,
+        "expired": false,
+        "expires_at": null,
+        "facebook_shares": 0,
+        "links_clicked_from_email": 0,
+        "links_clicked_from_facebook": 0,
+        "links_clicked_from_twitter": 0,
+        "orders": 1,
+        "shares": 0,
+        "total_clicks": 1,
+        "twitter_shares": 0,
+        "unique_clicks": 1
+      },
+      "referral_link": null,
+
+      "third_party_id": "5999224094871",
+      "total_purchases": 5,
+      "total_spend_cents": 103257,
+      "vip_tier_actions_completed": {
+        "amount_spent_cents": 0,
+        "campaigns_completed": [],
+        "points_earned": 1,
+        "purchases_made": 0,
+        "referrals_completed": 0
+      },
+      "vip_tier_entry_date": null,
+      "vip_tier_expiration": null,
+      "vip_tier_maintenance_requirements": null,
+      "vip_tier_name": null,
+      "vip_tier_upgrade_requirements": {
+        "amount_cents_needed": 0,
+        "amount_cents_needed_in_customer_currency": 0,
+        "campaigns_needed": [],
+        "points_needed": 0,
+        "purchases_needed": 0,
+        "referrals_needed": 0
+      }
+    },
+    "phone_number": "+16503500666",
+    "tags": "big spender,loyal,superstar,vip,holiday promo 2025,early access,repeat buyer,newsletter,free shipping,rewards member,influencer,gift card holder",
+    "yotpo_ugc": {
+      "avg_product_rating": 4.666666666666667,
+      "avg_site_rating": 5,
+      "last_review_date": "2022-03-24T18:07:42Z",
+      "last_sentiment": 0.9591408967971802,
+      "last_star_rating": 5,
+      "sentiment_avg_product": 0.7883630593617758,
+      "sentiment_avg_site": 0.9766761958599091,
+      "top_topics": null,
+      "total_avg_rating": 4.8,
+      "total_avg_sentiment": 0.8636883139610291,
+      "total_reviews": 5
+    }
+  }
+]

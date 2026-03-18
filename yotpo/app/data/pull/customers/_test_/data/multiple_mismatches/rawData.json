@@ -1,0 +1,20 @@
+{
+  "customers": [
+    {
+      "external_id": "c1",
+      "email": "fail1@example.com",
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "account_created_at": "2022-01-01T10:00:00",
+      "account_updated_at": "2022-01-02T10:00:00"
+    },
+    {
+      "external_id": "c2",
+      "email": "fail2@example.com",
+      "first_name": "Bob",
+      "last_name": "Johnson",
+      "account_created_at": "2022-01-03T10:00:00",
+      "account_updated_at": "2022-01-04T10:00:00"
+    }
+  ]
+}

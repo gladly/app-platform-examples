@@ -1,0 +1,486 @@
+type CustomerList {
+  id: String
+  """
+  The timestamp of when the customer was added to the list.
+  """
+  since: DateTime
+}
+
+type CustomerMarketingSuppressions {
+  suppression_reason: String
+  """
+  The timestamp of when the suppression was applied.
+  """
+  timestamp: DateTime
+}
+
+type CustomerMarketingConsent {
+  """
+  The marketing consent status.
+  """
+  consent: String
+  """
+  The timestamp of when the marketing consent was last updated.
+  """
+  timestamp: DateTime
+  suppressions: CustomerMarketingSuppressions
+}
+
+type CustomerChannelMarketing {
+  """
+  The marketing consent details for a specific channel.
+  """
+  marketing: CustomerMarketingConsent
+}
+
+type CustomerChannels {
+  sms: CustomerChannelMarketing
+  email: CustomerChannelMarketing
+}
+
+type CustomProperty {
+  key: String!
+  value: String
+}
+
+type LoyaltyVipTierActionsCompleted {
+  points_earned: Int
+  amount_spent_cents: Int
+  purchases_made: Int
+  referrals_completed: Int
+  campaigns_completed: [String]
+}
+
+type LoyaltyVipTierRequirements {
+  """
+  The number of points needed to maintain the current VIP tier or be upgraded to the next one.
+  """
+  points_needed: Int
+  """
+  The amount in cents needed to be spent to maintain the current VIP tier or be upgraded to the next one.
+  """
+  amount_cents_needed: Int
+  """
+  The amount in the customer's local currency needed to be spent to maintain the current VIP tier or be upgraded to the next one.
+  """
+  amount_cents_needed_in_customer_currency: Int
+  """
+  The number of purchases needed to maintain the current VIP tier or be upgraded to the next one.
+  """
+  purchases_needed: Int
+  """
+  The number of referrals needed to maintain the current VIP tier or be upgraded to the next one.
+  """
+  referrals_needed: Int
+  """
+  A list of campaigns that need to be completed to maintain the current VIP tier or be upgraded to the next one.
+  """
+  campaigns_needed: [String]
+}
+
+type ReferralLink {
+  """
+  The unique referral code.
+  """
+  code: String
+  """
+  The Yotpo internal customer ID. Can be used to construct the Yotpo admin URL: https://loyalty-app.yotpo.com/customers/{customer_id}
+  """
+  customer_id: String
+  """
+  The referral link URL (e.g., rwrd.io/ref_ABC123).
+  """
+  link: String
+  """
+  Whether the referral link has expired.
+  """
+  expired: Boolean
+}
+
+type ReferralCustomer {
+  """
+  The email address of the customer who completed the referral.
+  """
+  email: String
+  """
+  The first name of the customer who completed the referral.
+  """
+  first_name: String
+  """
+  The last name of the customer who completed the referral.
+  """
+  last_name: String
+  """
+  The number of points contributed by this referral.
+  """
+  referral_points_contributed: Int
+  """
+  The timestamp when the customer was last seen.
+  """
+  last_seen_at: DateTime
+}
+
+type ReferralCode {
+  """
+  The unique referral code.
+  """
+  code: String
+  """
+  The Yotpo internal customer ID. Can be used to construct the Yotpo admin URL: https://loyalty-app.yotpo.com/customers/{customer_id}
+  However, this field is not actually returned by the Yotpo API.
+  """
+  customer_id: String
+    @deprecated(reason: "This field is not actually returned by the Yotpo API.")
+  """
+  The total number of shares across all platforms.
+  """
+  shares: Int
+  """
+  The number of shares on Facebook.
+  """
+  facebook_shares: Int
+  """
+  The number of shares on Twitter.
+  """
+  twitter_shares: Int
+  """
+  The number of email shares.
+  """
+  email_shares: Int
+  """
+  The number of emails sent.
+  """
+  emails_sent: Int
+  """
+  The number of emails viewed.
+  """
+  emails_viewed: Int
+  """
+  The number of link clicks from email.
+  """
+  links_clicked_from_email: Int
+  """
+  The number of link clicks from Twitter.
+  """
+  links_clicked_from_twitter: Int
+  """
+  The number of link clicks from Facebook.
+  """
+  links_clicked_from_facebook: Int
+  """
+  The number of orders placed through this referral code.
+  """
+  orders: Int
+  """
+  The total amount in cents from orders placed through this referral code.
+  """
+  amount_cents: Int
+  """
+  The average order amount in cents from this referral code.
+  """
+  average_amount_cents: Int
+  """
+  The timestamp when the referral code expires.
+  """
+  expires_at: DateTime
+  """
+  Whether the referral code has expired.
+  """
+  expired: Boolean
+  """
+  A list of customers who completed referrals using this code.
+  """
+  completed_referral_customers: [ReferralCustomer]
+  """
+  The email address associated with this referral code.
+  """
+  email: String
+  """
+  The number of unique clicks on this referral code.
+  """
+  unique_clicks: Int
+  """
+  The total number of clicks on this referral code.
+  """
+  total_clicks: Int
+}
+
+type ReviewUser {
+  id: ID!
+  display_name: String
+  """
+  The URL of the user's social media profile image.
+  """
+  social_image: String
+  email: String
+  user_type: String
+}
+
+type ReviewComment {
+  """
+  The content of the comment from the store owner.
+  """
+  content: String
+  """
+  The timestamp when the comment was created.
+  """
+  created_at: DateTime
+  """
+  The display name of the comment author (typically "Store Owner").
+  """
+  display_name: String
+  """
+  The URL of the comment author's avatar image.
+  """
+  comments_avatar: String
+}
+
+type ProductCategory {
+  id: Int
+  name: String
+}
+
+type ProductImage {
+  original: String
+  square: String
+}
+
+type Product {
+  id: ID!
+  external_product_id: String
+  name: String
+  url: String
+  created_at: DateTime
+  updated_at: DateTime
+  average_score: Float
+  total_reviews: Int
+  category: ProductCategory
+  description: String
+  images: [ProductImage]
+}
+
+type ReviewImage {
+  """
+  The URL of the thumbnail version of the review image.
+  """
+  thumb_url: String
+  """
+  The URL of the original full-size review image.
+  """
+  original_url: String
+}
+
+type ReviewCustomField {
+  """
+  The display name of the custom question (e.g. "Feel / Flex").
+  """
+  title: String
+  """
+  The reviewer's answer. May be a number or text depending on the question type.
+  """
+  value: String
+  """
+  The type of the custom field (e.g. "Size").
+  """
+  field_type: String
+}
+
+type Review @dataType(name: "review", version: "2.0") {
+  id: ID!
+  """
+  The star rating of the review, from 1 to 5.
+  """
+  score: Int
+  votes_up: Int
+  votes_down: Int
+  content: String
+  title: String
+  created_at: DateTime
+  verified_buyer: Boolean
+  """
+  The ID of the review on the original site, if it was imported.
+  """
+  source_review_id: Int
+  """
+  Images attached to the review, with thumbnail and original URLs.
+  """
+  images_data: [ReviewImage]
+  user: ReviewUser
+  product: Product
+  user_id: ID
+  product_id: ID
+  """
+  A public comment from the store owner on the review.
+  """
+  comment: ReviewComment
+  external_product_id: String
+  published: Boolean
+  order_id: Int
+  external_order_id: String
+  email: String
+  """
+  Whether the reviewer received a reward for submitting the review.
+  """
+  is_incentivized: Boolean
+  """
+  The type of incentive. One of: free_product, coupon, loyalty_points, paid_promotion, employee_review, other.
+  """
+  incentive_type: String
+  """
+  Custom question responses from the review form.
+  """
+  custom_fields: [ReviewCustomField]
+}
+
+type Loyalty @dataType(name: "loyalty", version: "1.1") {
+  """
+  The customer's email address, used as the unique identifier.
+  """
+  email: ID!
+  points_balance: Int
+  points_earned: Int
+  last_seen_at: DateTime
+  """
+  The customer's unique identifier in a third-party system.
+  """
+  third_party_id: String
+  """
+  The customer's unique identifier in a POS system.
+  """
+  pos_account_id: String
+  has_store_account: Boolean
+  credit_balance: String
+  credit_balance_in_customer_currency: String
+  opt_in: Boolean
+  opted_in_at: String
+  points_expire_at: DateTime
+  """
+  The date when the next batch of points will expire (only populated if merchant uses Date Earned expiration).
+  """
+  next_points_expire_on: DateTime
+  """
+  The amount of points expiring on next_points_expire_on (only populated if merchant uses Date Earned expiration).
+  """
+  next_points_expire_amount: Int
+  total_spend_cents: Int
+  total_purchases: Int
+  perks_redeemed: Int
+  last_purchase_at: DateTime
+  first_name: String
+  last_name: String
+  phone_number: String
+  vip_tier_name: String
+  vip_tier_entry_date: DateTime
+  vip_tier_expiration: DateTime
+  """
+  The customer's birth month (1-12).
+  """
+  birthday_month: Int
+  """
+  The customer's birth day (1-31).
+  """
+  birth_day: Int
+  """
+  The customer's birth year.
+  """
+  birthday_year: Int
+  """
+  The actions the customer has completed to achieve their current VIP tier.
+  """
+  vip_tier_actions_completed: LoyaltyVipTierActionsCompleted
+  """
+  The requirements for the customer to maintain their current VIP tier.
+  """
+  vip_tier_maintenance_requirements: LoyaltyVipTierRequirements
+  """
+  The requirements for the customer to be upgraded to the next VIP tier.
+  """
+  vip_tier_upgrade_requirements: LoyaltyVipTierRequirements
+  """
+  The referral link details associated with the customer. Present in stores using the new referral format.
+  """
+  referral_link: ReferralLink
+  """
+  The referral code details associated with the customer. Present in stores using the old referral format.
+  """
+  referral_code: ReferralCode
+}
+
+type YotpoUGC {
+  total_reviews: Int
+  """
+  The average star rating of the customer's product reviews.
+  """
+  avg_product_rating: Float
+  """
+  The average star rating of the customer's site reviews.
+  """
+  avg_site_rating: Float
+  total_avg_rating: Float
+  """
+  The average sentiment score of the customer's product reviews.
+  """
+  sentiment_avg_product: Float
+  """
+  The average sentiment score of the customer's site reviews.
+  """
+  sentiment_avg_site: Float
+  total_avg_sentiment: Float
+  """
+  A comma-separated string of the top topics mentioned in the customer's reviews.
+  """
+  top_topics: String
+  last_star_rating: Int
+  last_review_date: DateTime
+  last_sentiment: Float
+}
+
+type Customer @dataType(name: "customer", version: "1.0") {
+  external_id: ID!
+  email: String
+  phone_number: String
+  first_name: String
+  last_name: String
+  gender: String
+  account_created_at: DateTime
+  account_updated_at: DateTime
+  """
+  The status of the store account.
+  """
+  account_status: String
+  default_language: String
+  default_currency: String
+  """
+  A comma-separated string of tags associated with the customer.
+  """
+  tags: String
+  """
+  A list of mailing lists the customer is subscribed to.
+  """
+  lists: [CustomerList]
+  accepts_email_marketing: Boolean
+  accepts_sms_marketing: Boolean
+  """
+  The customer's marketing consent details for different channels.
+  """
+  channels: CustomerChannels
+  """
+  The customer's loyalty information.
+  """
+  loyalty: Loyalty @parentId(template: "{{.email}}")
+  """
+  The customer's user-generated content statistics.
+  """
+  yotpo_ugc: YotpoUGC
+}
+
+type Query {
+  """
+  Retrieves a list of customers.
+  """
+  customers: [Customer]
+  """
+  Retrieves a list of reviews.
+  """
+  reviews: [Review]
+}

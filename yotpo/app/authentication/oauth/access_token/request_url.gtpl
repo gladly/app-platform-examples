@@ -1,0 +1,1 @@
+https://developers.yotpo.com/v2/oauth2/token

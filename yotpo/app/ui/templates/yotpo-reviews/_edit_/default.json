@@ -1,0 +1,208 @@
+[
+  {
+    "comment": {
+      "content": "Hello Rob, we're sorry to hear that you didn't enjoy our product. We'll do our best to make it right for you. Please reach out so we can assist you further.",
+      "created_at": "2025-07-25T19:27:37Z",
+      "display_name": "Store Owner",
+      "comments_avatar": ""
+    },
+    "content": "Amazing quality product! The material feels premium and the fit is perfect. Highly recommend this to anyone looking for a great addition to their wardrobe.",
+    "created_at": "2024-09-24T16:00:36Z",
+    "email": "customer@example.com",
+    "external_order_id": "1018",
+    "external_product_id": "7469729644695",
+    "id": "294859518",
+    "images_data": [],
+    "order_id": 3125309197,
+    "product_id": 331012220,
+    "published": true,
+    "score": 5,
+    "source_review_id": 501,
+    "title": "Excellent Quality and Fit!",
+    "user": {
+      "id": 58690240,
+      "display_name": "Sarah M.",
+      "social_image": "https://example.com/avatar/sarah-m.jpg",
+      "email": "customer@example.com"
+    },
+    "product": {
+      "id": 331012220,
+      "external_product_id": "7469729644695",
+      "name": "Jeans: Womens Comfort",
+      "url": "https://yotpo.com/go/z5Bu0s2I",
+      "created_at": "2022-03-13T18:00:42Z",
+      "updated_at": "2025-07-14T22:08:10Z",
+      "average_score": 3.6666667,
+      "total_reviews": 3,
+      "category": {
+        "id": 1,
+        "name": "Electronics"
+      },
+      "description": "FOR: Hiking, climbing and exploring-on the trail or off FEEL: Innovative Sculptek™ fiber stretches every way you do then snaps back into place. FAVE: Innovative powermesh pockets provide support.",
+      "images": [
+        {
+          "original": "https://cdn-yotpo-images-production.yotpo.com/Product/331012220/273667876/original.jpg?1647194613",
+          "square": "https://cdn-yotpo-images-production.yotpo.com/Product/331012220/273667876/square.jpg?1647194613"
+        }
+      ]
+    },
+    "user_id": 58690240,
+    "verified_buyer": true,
+    "votes_down": 0,
+    "votes_up": 12,
+    "is_incentivized": true,
+    "incentive_type": "coupon",
+    "custom_fields": [
+      {
+        "title": "Feel / Flex",
+        "value": "3",
+        "field_type": "Size"
+      },
+      {
+        "title": "Comfort Level",
+        "value": "Very Comfortable",
+        "field_type": "Text"
+      }
+    ]
+  },
+  {
+    "comment": null,
+    "content": "Good product overall, but shipping took longer than expected. The item itself is as described and good quality.",
+    "created_at": "2024-09-20T15:59:11Z",
+    "email": "customer@example.com",
+    "external_order_id": "1009",
+    "external_product_id": "7176282308759",
+    "id": "294859399",
+    "images_data": [],
+    "order_id": 3125215348,
+    "product_id": 270230136,
+    "published": true,
+    "score": 4,
+    "source_review_id": 502,
+    "title": "Good Product, Slow Shipping",
+    "user": {
+      "id": 58690240,
+      "display_name": "Sarah M.",
+      "social_image": "https://example.com/avatar/sarah-m.jpg",
+      "email": "customer@example.com"
+    },
+    "product": {
+      "id": 270230136,
+      "external_product_id": "7176282308759",
+      "name": "Jeans-mens",
+      "url": "https://yotpo.com/go/uI4xRdPR",
+      "created_at": "2021-09-23T01:19:01Z",
+      "updated_at": "2025-07-14T22:07:04Z",
+      "average_score": 5,
+      "total_reviews": 1,
+      "category": {
+        "id": 1,
+        "name": "Electronics"
+      },
+      "description": "Jeans that look good on every man!",
+      "images": [
+        {
+          "original": "https://cdn-yotpo-images-production.yotpo.com/Product/270230136/197605815/original.jpg?1645736148",
+          "square": "https://cdn-yotpo-images-production.yotpo.com/Product/270230136/197605815/square.jpg?1645736148"
+        }
+      ]
+    },
+    "user_id": 58690240,
+    "verified_buyer": true,
+    "votes_down": 1,
+    "votes_up": 5
+  },
+  {
+    "content": "The product quality is decent, but sizing runs small. Had to return and order a size up. Customer service was helpful though.",
+    "created_at": "2024-09-15T10:30:22Z",
+    "email": "customer@example.com",
+    "external_order_id": "1018",
+    "external_product_id": "7451895464087",
+    "id": "294859300",
+    "images_data": [],
+    "order_id": 3125309197,
+    "product_id": 327281978,
+    "published": true,
+    "score": 3,
+    "source_review_id": 503,
+    "title": "Good Quality, Check Sizing",
+    "user": {
+      "id": 58690240,
+      "display_name": "Sarah M.",
+      "social_image": "https://example.com/avatar/sarah-m.jpg",
+      "email": "customer@example.com"
+    },
+    "product": {
+      "id": 327281978,
+      "external_product_id": "7451895464087",
+      "name": "Cat Pajamas",
+      "url": "https://yotpo.com/go/vKa0LlyN",
+      "created_at": "2022-02-28T22:53:39Z",
+      "updated_at": "2025-04-04T04:09:17Z",
+      "average_score": 5,
+      "total_reviews": 1,
+      "category": {
+        "id": 1,
+        "name": "Electronics"
+      },
+      "description": "What better than getting a good nights sleep in your kitty pajamas?",
+      "images": [
+        {
+          "original": "https://cdn-yotpo-images-production.yotpo.com/Product/327281978/261747958/original.png?1646088911",
+          "square": "https://cdn-yotpo-images-production.yotpo.com/Product/327281978/261747958/square.png?1646088911"
+        }
+      ]
+    },
+    "user_id": 58690240,
+    "verified_buyer": true,
+    "votes_down": 2,
+    "votes_up": 3
+  },
+  {
+    "comment": null,
+    "content": "Absolutely love this! Best purchase I've made in a while. Fast shipping and exactly as described.",
+    "created_at": "2024-09-12T14:45:00Z",
+    "email": "customer@example.com",
+    "external_order_id": "1014",
+    "external_product_id": "7469728891031",
+    "id": "294859201",
+    "images_data": [],
+    "order_id": 3125287338,
+    "product_id": 331011381,
+    "published": true,
+    "score": 5,
+    "source_review_id": 504,
+    "title": "Perfect Product!",
+    "user": {
+      "id": 58690240,
+      "display_name": "Sarah M.",
+      "social_image": "https://example.com/avatar/sarah-m.jpg",
+      "email": "customer@example.com"
+    },
+    "product": {
+      "id": 331011381,
+      "external_product_id": "7469728891031",
+      "name": "t-shirt (short): Engineers are Magicians",
+      "url": "https://yotpo.com/go/e7OP7Hlo",
+      "created_at": "2022-03-13T17:53:33Z",
+      "updated_at": "2025-07-14T22:03:21Z",
+      "average_score": 4,
+      "total_reviews": 1,
+      "category": {
+        "id": 1,
+        "name": "Electronics"
+      },
+      "description": "Comfortable, casual and loose fitting, our heavyweight dark color t-shirt will quickly become one of your favorites. Made from 100% cotton, it's unisex and wears well on anyone and everyone. We've double-needle stitched the bottom and sleeve hems for extra durability. Select a design from our marketplace or customize it to make it uniquely yours!",
+      "images": [
+        {
+          "original": "https://cdn-yotpo-images-production.yotpo.com/Product/331011381/273664988/original.jpg?1647194072",
+          "square": "https://cdn-yotpo-images-production.yotpo.com/Product/331011381/273664988/square.jpg?1647194072"
+        }
+      ]
+    },
+    "user_id": 58690240,
+    "verified_buyer": true,
+    "votes_down": 0,
+    "votes_up": 18
+  }
+]

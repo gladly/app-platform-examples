@@ -1,0 +1,111 @@
+[
+  {
+    "id": "53697686",
+    "score": 5,
+    "votes_up": 0,
+    "votes_down": 0,
+    "content": "This is the best pillow I have ever used.",
+    "title": "The Best",
+    "created_at": "2018-02-06T12:25:49.000Z",
+    "verified_buyer": true,
+    "source_review_id": 0,
+    "images_data": [],
+    "user": {
+      "id": "16014677",
+      "display_name": "George M.",
+      "social_image": "https://example.com/image.png",
+      "email": "george@example.com"
+    },
+    "product": {
+      "id": "35421776",
+      "external_product_id": "59154867428",
+      "name": "Memory Foam Pillow",
+      "url": "https://example.com/products/memory-foam-pillow",
+      "created_at": "2018-01-15T10:30:00.000Z",
+      "updated_at": "2018-02-01T14:20:00.000Z",
+      "average_score": 4.5,
+      "total_reviews": 125,
+      "category": {
+        "id": 123,
+        "name": "Bedding"
+      },
+      "description": "Premium memory foam pillow for better sleep",
+      "images": [
+        {
+          "original": "https://example.com/images/pillow-original.jpg",
+          "square": "https://example.com/images/pillow-square.jpg"
+        }
+      ]
+    },
+    "user_id": "16014677",
+    "product_id": "35421776",
+    "comment": null,
+    "external_product_id": "59154867428",
+    "published": true,
+    "order_id": 10456345,
+    "external_order_id": "1045",
+    "is_incentivized": true,
+    "incentive_type": "coupon",
+    "custom_fields": [
+      {
+        "title": "Feel / Flex",
+        "value": "3",
+        "field_type": "Size"
+      },
+      {
+        "title": "Comfort Level",
+        "value": "Very Comfortable",
+        "field_type": "Text"
+      }
+    ]
+  },
+  {
+    "id": "59352441",
+    "score": 5,
+    "votes_up": 0,
+    "votes_down": 0,
+    "content": "Great product overall!",
+    "title": "It's Great",
+    "created_at": "2018-02-06T01:58:52.000Z",
+    "verified_buyer": true,
+    "source_review_id": 0,
+    "images_data": [],
+    "user": {
+      "id": "16099362",
+      "display_name": "Laurie H.",
+      "social_image": "https://example.com/image2.png",
+      "email": "laurie@example.com"
+    },
+    "product": {
+      "id": "3247878",
+      "external_product_id": "377712307",
+      "name": "Organic Cotton Sheets",
+      "url": "https://example.com/products/organic-cotton-sheets",
+      "created_at": "2018-01-10T09:15:00.000Z",
+      "updated_at": "2018-01-25T16:45:00.000Z",
+      "average_score": 4.8,
+      "total_reviews": 89,
+      "category": {
+        "id": 124,
+        "name": "Bedding"
+      },
+      "description": "Soft organic cotton sheets for a comfortable sleep",
+      "images": [
+        {
+          "original": "https://example.com/images/sheets-original.jpg",
+          "square": "https://example.com/images/sheets-square.jpg"
+        }
+      ]
+    },
+    "user_id": "16909632",
+    "product_id": "3247878",
+    "comment": null,
+    "external_product_id": "377712307",
+    "published": true,
+    "order_id": 10456980,
+    "external_order_id": "1150",
+    "is_incentivized": null,
+    "incentive_type": null,
+    "custom_fields": []
+  }
+]

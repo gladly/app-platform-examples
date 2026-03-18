@@ -1,0 +1,11 @@
+{
+  "customer": [
+    {
+      "external_id": "customer123",
+      "email": "rob@example.com"
+    }
+  ],
+  "reviews": {
+    "reviews": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "customer": [
+        {
+            "external_id": "customer123",
+            "email": "george@example.com",
+            "first_name": "George",
+            "last_name": "Miller"
+        },
+        {
+            "external_id": "customer456",
+            "email": "laurie@example.com",
+            "first_name": "Laurie",
+            "last_name": "Henderson"
+        }
+    ]
+}

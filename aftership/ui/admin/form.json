@@ -1,0 +1,19 @@
+{
+  "title": "Configure AfterShip",
+  "sections": [
+    {
+      "type": "text",
+      "text": "Enter your AfterShip API credentials below. You can obtain an API key from the AfterShip admin panel under Settings > API Keys."
+    },
+    {
+      "type": "input",
+      "label": "API Key",
+      "attr": "secrets.apiKey",
+      "input": {
+        "type": "text",
+        "placeholder": "Enter your AfterShip API key"
+      },
+      "hint": "Found at https://www.aftership.com/docs/tracking/quickstart/authentication#how-to-get-your-api-key. Ensure the key has permissions to create and read trackings."
+    }
+  ]
+}

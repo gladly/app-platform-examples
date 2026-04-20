@@ -1,0 +1,40 @@
+{
+	"title": "Configure BigCommerce",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your BigCommerce API credentials below."
+		},
+		{
+			"type": "input",
+			"label": "Store Hash",
+			"attr": "configuration.store",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. abc123def"
+			},
+			"hint": "Your BigCommerce store hash, found in your Big Commerce subdomain (e.g. https://store-{store_hash}.mybigcommerce.com/manage/dashboard)"
+		},
+		{
+			"type": "input",
+			"label": "Orders Limit",
+			"attr": "configuration.ordersLimit",
+			"defaultValue": "10",
+			"input": {
+				"type": "text",
+				"placeholder": "10"
+			},
+			"hint": "Maximum number of recent orders to retrieve per customer. Defaults to 10 if not set."
+		},
+		{
+			"type": "input",
+			"label": "Access Token",
+			"attr": "secrets.access_token",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your BigCommerce API access token"
+			},
+			"hint": "The token must have read access to Customers, Orders, and Order Transactions."
+		}
+	]
+}

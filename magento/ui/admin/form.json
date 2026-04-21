@@ -1,0 +1,69 @@
+{
+	"title": "Configure Magento",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Magento API credentials below. You can find your OAuth credentials in the Magento admin panel under System > Extensions > Integrations."
+		},
+		{
+			"type": "input",
+			"label": "Host",
+			"attr": "configuration.host",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. mystore.magento.com"
+			},
+			"hint": "Your Magento instance hostname (without https://)"
+		},
+		{
+			"type": "input",
+			"label": "Admin Deep Link URL",
+			"attr": "configuration.magento_deep_link_url",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. https://admin.mystore.com"
+			},
+			"hint": "Base URL for Magento admin order links (e.g. https://admin.mystore.com)"
+		},
+		{
+			"type": "input",
+			"label": "Consumer Key",
+			"attr": "secrets.consumer_key",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your OAuth consumer key"
+			},
+			"hint": "Found in System > Extensions > Integrations after activating an integration"
+		},
+		{
+			"type": "input",
+			"label": "Consumer Secret",
+			"attr": "secrets.consumer_secret",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your OAuth consumer secret"
+			},
+			"hint": "Found in System > Extensions > Integrations after activating an integration"
+		},
+		{
+			"type": "input",
+			"label": "Access Token",
+			"attr": "secrets.access_token",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your OAuth access token"
+			},
+			"hint": "Found in System > Extensions > Integrations after activating an integration"
+		},
+		{
+			"type": "input",
+			"label": "Access Token Secret",
+			"attr": "secrets.access_token_secret",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your OAuth access token secret"
+			},
+			"hint": "Found in System > Extensions > Integrations after activating an integration"
+		}
+	]
+}

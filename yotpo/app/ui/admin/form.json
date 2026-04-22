@@ -1,0 +1,31 @@
+{
+	"title": "Configure Yotpo",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Yotpo account details below."
+		},
+		{
+			"type": "input",
+			"label": "App Key",
+			"attr": "configuration.store_id",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your Yotpo App Key"
+			},
+			"hint": "Found in Account Settings > General Settings at the bottom of the General Settings section."
+		},
+		{
+			"type": "input",
+			"label": "Review Limit",
+			"attr": "configuration.reviewLimit",
+			"defaultValue": "10",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 10",
+				"optional": true
+			},
+			"hint": "Maximum number of reviews recommended is 50"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+[
+{
+  "id": "HDPH-001",
+  "external_product_id": "HDPH-001",
+  "name": "Premium Headphones",
+  "price": "199.99",
+  "sku": "123456789",
+  "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+  "live": true,
+  "autoship_enabled": true
+}
+]

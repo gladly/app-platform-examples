@@ -1,0 +1,20 @@
+[
+  {
+    "offer": null,
+    "order": "order_edge_case",
+    "subscription": null,
+    "product": "",
+    "components": null,
+    "subscription_component": null,
+    "quantity": 0,
+    "public_id": "item_edge_case_null",
+    "product_attribute": null,
+    "price": null,
+    "extra_cost": null,
+    "total_price": "0.00",
+    "one_time": null,
+    "order_updated": null,
+    "frozen": null,
+    "first_placed": null
+  }
+]

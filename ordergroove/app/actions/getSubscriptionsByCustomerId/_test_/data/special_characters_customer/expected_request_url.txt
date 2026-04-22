@@ -1,0 +1,1 @@
+https://restapi.ordergroove.com/subscriptions/?customer=customer%40example.com

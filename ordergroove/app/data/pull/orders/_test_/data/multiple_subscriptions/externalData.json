@@ -1,0 +1,12 @@
+{
+  "ordergroove_subscription": [
+    {
+      "public_id": "sub_abc123",
+      "customer": "cust_001"
+    },
+    {
+      "public_id": "sub_def456",
+      "customer": "cust_001"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "dataType": {
+    "name": "ordergroove_order",
+    "version": "2.0"
+  },
+  "dependsOnDataTypes": ["ordergroove_subscription"],
+  "httpMethod": "GET"
+}

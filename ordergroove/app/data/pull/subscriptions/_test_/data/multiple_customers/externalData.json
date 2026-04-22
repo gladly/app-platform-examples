@@ -1,0 +1,12 @@
+{
+  "ordergroove_customer": [
+    {
+      "id": "cust_abc123",
+      "email": "user1@example.com"
+    },
+    {
+      "id": "cust_def456",
+      "email": "user2@example.com"
+    }
+  ]
+}

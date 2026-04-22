@@ -1,0 +1,38 @@
+[
+  {
+    "offer": null,
+    "order": "order_abc123def456",
+    "subscription": "874602544b0b11ed9404dad12a24024b",
+    "product": "41799856619671",
+    "components": [],
+    "subscription_component": null,
+    "quantity": 2,
+    "public_id": "item_123abc456def",
+    "product_attribute": null,
+    "price": "55.00",
+    "extra_cost": "0.00",
+    "total_price": "110.00",
+    "one_time": false,
+    "order_updated": "2025-01-15T14:45:00Z",
+    "frozen": false,
+    "first_placed": "2023-01-15T10:30:00Z"
+  },
+  {
+    "offer": "offer_789xyz",
+    "order": "order_abc123def456",
+    "subscription": "874602544b0b11ed9404dad12a24024b",
+    "product": "41799856619672",
+    "components": ["comp_789", "comp_012"],
+    "subscription_component": "comp_456",
+    "quantity": 1,
+    "public_id": "item_789xyz012abc",
+    "product_attribute": "size:large",
+    "price": "25.99",
+    "extra_cost": "2.50",
+    "total_price": "28.49",
+    "one_time": true,
+    "order_updated": "2025-01-15T14:45:00Z",
+    "frozen": true,
+    "first_placed": null
+  }
+]

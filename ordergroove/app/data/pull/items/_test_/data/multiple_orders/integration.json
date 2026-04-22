@@ -1,0 +1,6 @@
+{
+  "configuration": {},
+  "secrets": {
+    "api_key": "test-api-key-12345"
+  }
+}

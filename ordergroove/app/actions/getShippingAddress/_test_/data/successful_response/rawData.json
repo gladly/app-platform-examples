@@ -1,0 +1,21 @@
+{
+  "customer": "00026001",
+  "public_id": "c4cd7f86ccc411e8ada3bc764e101db1",
+  "label": "Home Address",
+  "first_name": "Nathan",
+  "last_name": "Torres",
+  "company_name": "Torres Tower Construction LLC",
+  "address": "75 Broad St Fl 23",
+  "address2": "123 Broadway",
+  "city": "New York",
+  "state_province_code": "NY",
+  "zip_postal_code": "10004-2487",
+  "phone": "3154055372",
+  "fax": "3839191337",
+  "country_code": "US",
+  "live": true,
+  "created": "2018-10-10 14:43:32",
+  "updated": "2025-03-13 04:43:32",
+  "token_id": "tok_123456",
+  "store_public_id": "store_789"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "customer1",
+  "name": "First Last",
+  "address": "123 Street, City, State 12345",
+  "primaryEmailAddress": "john.doe@example.com",
+  "emailAddresses": [
+    "john.doe@example.com",
+    "secondary@email.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15551234567",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15551234567",
+      "type": "MOBILE"
+}
+  ]
+}
+  

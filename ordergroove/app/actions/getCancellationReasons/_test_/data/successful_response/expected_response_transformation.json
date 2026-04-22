@@ -1,0 +1,292 @@
+{
+  "standard_cancellation_reasons": [
+    {
+      "code": "1",
+      "description": "Customer Request"
+    },
+    {
+      "code": "2",
+      "description": "Fraud"
+    },
+    {
+      "code": "3",
+      "description": "Payment Issues"
+    },
+    {
+      "code": "4",
+      "description": "Overstocked"
+    },
+    {
+      "code": "5",
+      "description": "Out of Stock"
+    },
+    {
+      "code": "6",
+      "description": "Quality Issues"
+    },
+    {
+      "code": "7",
+      "description": "Shipping Issues"
+    },
+    {
+      "code": "8",
+      "description": "Duplicate Order"
+    },
+    {
+      "code": "9",
+      "description": "Wrong Product"
+    },
+    {
+      "code": "10",
+      "description": "Other"
+    }
+  ],
+  "all_cancellation_reasons": [
+    {
+      "code": "1",
+      "description": "Customer Request"
+    },
+    {
+      "code": "2",
+      "description": "Fraud"
+    },
+    {
+      "code": "3",
+      "description": "Payment Issues"
+    },
+    {
+      "code": "4",
+      "description": "Overstocked"
+    },
+    {
+      "code": "5",
+      "description": "Out of Stock"
+    },
+    {
+      "code": "6",
+      "description": "Quality Issues"
+    },
+    {
+      "code": "7",
+      "description": "Shipping Issues"
+    },
+    {
+      "code": "8",
+      "description": "Duplicate Order"
+    },
+    {
+      "code": "9",
+      "description": "Wrong Product"
+    },
+    {
+      "code": "10",
+      "description": "Other"
+    },
+    {
+      "code": "11",
+      "description": "Product Discontinued"
+    },
+    {
+      "code": "12",
+      "description": "Seasonal Product"
+    },
+    {
+      "code": "13",
+      "description": "Price Increase"
+    },
+    {
+      "code": "14",
+      "description": "Customer Moved"
+    },
+    {
+      "code": "15",
+      "description": "Customer Deceased"
+    },
+    {
+      "code": "16",
+      "description": "Customer Unhappy"
+    },
+    {
+      "code": "17",
+      "description": "Product Not as Expected"
+    },
+    {
+      "code": "18",
+      "description": "Too Expensive"
+    },
+    {
+      "code": "19",
+      "description": "Found Better Alternative"
+    },
+    {
+      "code": "20",
+      "description": "No Longer Needed"
+    },
+    {
+      "code": "21",
+      "description": "Gift Subscription Ended"
+    },
+    {
+      "code": "22",
+      "description": "Trial Period Ended"
+    },
+    {
+      "code": "23",
+      "description": "Customer Service Issues"
+    },
+    {
+      "code": "24",
+      "description": "Website Issues"
+    },
+    {
+      "code": "25",
+      "description": "Technical Problems"
+    },
+    {
+      "code": "26",
+      "description": "Billing Issues"
+    },
+    {
+      "code": "27",
+      "description": "Credit Card Expired"
+    },
+    {
+      "code": "28",
+      "description": "Insufficient Funds"
+    },
+    {
+      "code": "29",
+      "description": "Bank Declined"
+    },
+    {
+      "code": "30",
+      "description": "Payment Method Changed"
+    },
+    {
+      "code": "31",
+      "description": "Account Closed"
+    },
+    {
+      "code": "32",
+      "description": "Identity Verification Failed"
+    },
+    {
+      "code": "33",
+      "description": "Suspicious Activity"
+    },
+    {
+      "code": "34",
+      "description": "Test Order"
+    },
+    {
+      "code": "35",
+      "description": "Accidental Order"
+    },
+    {
+      "code": "36",
+      "description": "Wrong Address"
+    },
+    {
+      "code": "37",
+      "description": "Address Unverifiable"
+    },
+    {
+      "code": "38",
+      "description": "International Shipping Issues"
+    },
+    {
+      "code": "39",
+      "description": "Shipping Too Expensive"
+    },
+    {
+      "code": "40",
+      "description": "Shipping Too Slow"
+    },
+    {
+      "code": "41",
+      "description": "Damaged in Transit"
+    },
+    {
+      "code": "42",
+      "description": "Lost in Transit"
+    },
+    {
+      "code": "43",
+      "description": "Delivered to Wrong Address"
+    },
+    {
+      "code": "44",
+      "description": "Returned to Sender"
+    },
+    {
+      "code": "45",
+      "description": "Weather Delay"
+    },
+    {
+      "code": "46",
+      "description": "Natural Disaster"
+    },
+    {
+      "code": "47",
+      "description": "Pandemic Related"
+    },
+    {
+      "code": "48",
+      "description": "Supply Chain Issues"
+    },
+    {
+      "code": "49",
+      "description": "Manufacturing Delay"
+    },
+    {
+      "code": "50",
+      "description": "Vendor Issues"
+    },
+    {
+      "code": "51",
+      "description": "Inventory Management Error"
+    },
+    {
+      "code": "52",
+      "description": "System Error"
+    },
+    {
+      "code": "53",
+      "description": "Staff Error"
+    },
+    {
+      "code": "54",
+      "description": "Data Entry Error"
+    },
+    {
+      "code": "55",
+      "description": "Processing Error"
+    },
+    {
+      "code": "56",
+      "description": "Website Error"
+    },
+    {
+      "code": "57",
+      "description": "App Error"
+    },
+    {
+      "code": "58",
+      "description": "Integration Error"
+    },
+    {
+      "code": "59",
+      "description": "API Error"
+    },
+    {
+      "code": "60",
+      "description": "Database Error"
+    }
+  ],
+  "merchant_cancellation_reasons": [
+    {
+      "cancel_reason": 12,
+      "application": "msi"
+    }
+  ]
+}

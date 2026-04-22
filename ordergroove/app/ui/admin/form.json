@@ -1,0 +1,19 @@
+{
+	"title": "Configure Ordergroove",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Ordergroove API credentials below. You can find your API key in the Ordergroove admin panel."
+		},
+		{
+			"type": "input",
+			"label": "API Key",
+			"attr": "secrets.api_key",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your Ordergroove API key"
+			},
+			"hint": "You can find your API key by going to Developers > API Keys."
+		}
+	]
+}

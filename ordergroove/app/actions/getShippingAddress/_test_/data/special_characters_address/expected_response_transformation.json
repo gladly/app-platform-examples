@@ -1,0 +1,21 @@
+{
+  "customer": "special@customer.com",
+  "public_id": "addr@123-test",
+  "label": "Special Characters Address",
+  "first_name": "José",
+  "last_name": "García",
+  "company_name": "Café & Restaurant",
+  "address": "123 Main St, Apt #4",
+  "address2": "Suite B-1 & C",
+  "city": "San José",
+  "state_province_code": "CA",
+  "zip_postal_code": "95123-4567",
+  "phone": "+1-408-555-0123",
+  "fax": null,
+  "country_code": "US",
+  "live": true,
+  "created": "2023-05-15T09:30:45Z",
+  "updated": "2024-12-01T16:20:10Z",
+  "token_id": null,
+  "store_public_id": null
+}

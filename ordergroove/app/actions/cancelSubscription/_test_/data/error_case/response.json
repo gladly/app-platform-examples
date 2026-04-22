@@ -1,0 +1,8 @@
+{
+    "status": "Bad Request",
+    "statusCode": 400,
+    "headers": {
+        "content-type": ["application/json"]
+    },
+    "body": "{\"detail\":\"This subscription is not in a state which it can edited\"}"
+}

@@ -1,0 +1,27 @@
+{
+	"title": "Configure ShipHero",
+	"sections": [
+		{
+			"type": "input",
+			"label": "Orders Limit",
+			"attr": "configuration.ordersLimit",
+			"defaultValue": "40",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 40"
+			},
+			"hint": "Maximum number of orders to retrieve per request (defaults to 40)"
+		},
+		{
+			"type": "input",
+			"label": "Line Items Limit",
+			"attr": "configuration.lineItemsLimit",
+			"defaultValue": "40",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 40"
+			},
+			"hint": "Maximum number of line items to retrieve per order (defaults to 40)"
+		}
+	]
+}

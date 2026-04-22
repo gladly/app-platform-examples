@@ -1,6 +1,6 @@
 {
-  "appName": "",
-  "author": "",
-  "version": "3.1.0",
+  "appName": "SKIO",
+  "author": "gladly.com",
+  "version": "4.0.0",
   "description": "SKIO integration for managing subscriptions and billing"
 }

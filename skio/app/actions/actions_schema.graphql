@@ -79,11 +79,6 @@ type Subscription {
 }
 
 # Cancel Subscription Action Types
-input CancelSubscriptionInput {
-  subscriptionId: String!
-  shouldSendNotif: Boolean
-}
-
 type CancelSubscriptionOutput {
   ok: Boolean
   errors: [SkioError!]
@@ -186,7 +181,8 @@ type Mutation {
   Note: This action will report success (`ok: true`) even if the subscription ID does not exist or the subscription was already cancelled.
   """
   cancelSubscription(
-    input: CancelSubscriptionInput!
+    subscriptionId: String!,
+    shouldSendNotif: Boolean
   ): CancelSubscriptionOutput! @action(name: "cancelSubscription")
 
   """

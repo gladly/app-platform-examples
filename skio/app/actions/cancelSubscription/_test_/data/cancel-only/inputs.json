@@ -1,5 +1,3 @@
 {
-  "input": {
-    "subscriptionId": "test-subscription-id-no-notify"
-  }
+  "subscriptionId": "test-subscription-id-no-notify"
 }

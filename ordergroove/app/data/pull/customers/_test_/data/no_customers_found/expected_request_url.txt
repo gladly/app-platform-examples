@@ -1,0 +1,2 @@
+https://restapi.ordergroove.com/customers/?email=john.doe%40example.com
+https://restapi.ordergroove.com/customers/?email=secondary%40email.com

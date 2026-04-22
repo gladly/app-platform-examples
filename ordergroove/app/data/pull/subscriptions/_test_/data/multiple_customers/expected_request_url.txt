@@ -1,0 +1,2 @@
+https://restapi.ordergroove.com/subscriptions/?customer=cust_abc123
+https://restapi.ordergroove.com/subscriptions/?customer=cust_def456

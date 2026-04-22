@@ -1,0 +1,31 @@
+{
+  "results": [
+    {
+      "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+      "groups": [
+        {"group_type": "category", "name": "electronics"},
+        {"group_type": "brand", "name": "acme"}
+      ],
+      "name": "Premium Headphones",
+      "price": "199.99",
+      "image_url": "https://example.com/images/headphones.jpg",
+      "detail_url": "https://example.com/products/headphones",
+      "external_product_id": "HDPH-001",
+      "sku": "123456789",
+      "autoship_enabled": true,
+      "prepaid_eligible": true,
+      "premier_enabled": 1,
+      "created": "2023-01-15 10:30:00",
+      "last_update": "2023-06-20 14:45:00",
+      "live": true,
+      "discontinued": false,
+      "extra_data": "{\"category\": \"electronics\", \"warranty\": \"2 years\"}",
+      "product_type": "standard",
+      "autoship_by_default": true,
+      "every": 30,
+      "every_period": 1,
+      "offer_profile": "OfferProfile123",
+      "incentive_group": "electronics_group"
+    }
+  ]
+}

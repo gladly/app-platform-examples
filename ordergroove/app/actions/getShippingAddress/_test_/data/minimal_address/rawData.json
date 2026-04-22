@@ -1,0 +1,21 @@
+{
+  "customer": "12345",
+  "public_id": "minimal-addr-123",
+  "label": null,
+  "first_name": "John",
+  "last_name": "Doe",
+  "company_name": null,
+  "address": "123 Main St",
+  "address2": null,
+  "city": "Anytown",
+  "state_province_code": "TX",
+  "zip_postal_code": "12345",
+  "phone": null,
+  "fax": null,
+  "country_code": "US",
+  "live": true,
+  "created": "2024-01-01 00:00:00",
+  "updated": "2024-01-01 00:00:00",
+  "token_id": null,
+  "store_public_id": null
+}

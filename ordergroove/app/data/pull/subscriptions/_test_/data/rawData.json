@@ -1,0 +1,34 @@
+{
+  "results": {
+    "subscriptions": [
+      {
+        "subscription_id": "sub_67890",
+        "customer_id": "cust_12345",
+        "product_id": "prod_abc123",
+        "product_name": "Premium Coffee Beans",
+        "quantity": 2,
+        "frequency": 30,
+        "frequency_type": "days",
+        "next_order_date": "2023-10-15T10:00:00Z",
+        "status": "active",
+        "created_date": "2023-01-15T10:30:00Z",
+        "last_updated": "2023-09-15T14:22:30Z",
+        "price": "29.99"
+      },
+      {
+        "subscription_id": "sub_67891",
+        "customer_id": "cust_12345",
+        "product_id": "prod_def456",
+        "product_name": "Organic Tea Blend",
+        "quantity": 1,
+        "frequency": 60,
+        "frequency_type": "days",
+        "next_order_date": "2023-11-01T10:00:00Z",
+        "status": "active",
+        "created_date": "2023-02-01T09:15:00Z",
+        "last_updated": "2023-09-10T16:45:20Z",
+        "price": "19.99"
+      }
+    ]
+  }
+}

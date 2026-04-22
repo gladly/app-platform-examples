@@ -1,0 +1,1 @@
+https://restapi.ordergroove.com/addresses/minimal-addr-123/

@@ -1,0 +1,30 @@
+{
+  "ordergroove_order": [
+    {
+      "merchant": "bcb18c40b0fd11eca458ea5f9076edce",
+      "customer": "6113212727447",
+      "payment": "7cf37eb24b0b11edad760a9e0687e59c",
+      "shipping_address": "7636642c4b0b11ed9edea273eaef99c4",
+      "public_id": "order_error_test",
+      "currency_code": "USD",
+      "tax_total": "8.99",
+      "shipping_total": "5.99",
+      "discount_total": "11.00",
+      "total": "99.00",
+      "created": "2023-01-15T10:30:00Z",
+      "updated": "2023-01-15T14:45:00Z",
+      "place": "2023-01-15T10:30:00Z",
+      "cancelled": null,
+      "tries": 1,
+      "generic_error_count": 0,
+      "status": 1,
+      "type": 1,
+      "order_merchant_id": null,
+      "rejected_message": null,
+      "extra_data": null,
+      "locked": true,
+      "oos_free_shipping": false,
+      "subscriptionId": "874602544b0b11ed9404dad12a24024b"
+    }
+  ]
+}

@@ -1,0 +1,544 @@
+"""
+Order status enumeration based on Ordergroove order lifecycle states.
+See: https://developer.ordergroove.com/reference/order-status-codes
+"""
+enum OrderStatus {
+  """
+  Future orders that will be attempted to be processed when the Place date arrives
+  """
+  UNSENT
+  """
+  Orders are set to REJECTED after the retry limit has been reached
+  """
+  REJECTED
+  """
+  Orders that were cancelled before they were successfully processed
+  """
+  CANCELLED
+  """
+  Orders that were successfully processed
+  """
+  SUCCESS
+  """
+  Orders set to this state will already have a future order created before the order placement process
+  """
+  SEND_NOW
+  """
+  Not relevant for API based OrderPlacement. Only for Merchants on Legacy File based Batch order Placement
+  """
+  PENDING_BATCH_RESPONSE
+  """
+  Waiting on the confirmation from the Merchant or the Ecom that the Order was successfully processed
+  """
+  PENDING_VERIFICATION
+  """
+  Orders that are in the Ordergroove queue and will be attempted to be processed shortly
+  """
+  PENDING_PLACEMENT
+  """
+  Something broke in the process before the Order could be attempted to be processed
+  """
+  EXCEPTION_DURING_PLACEMENT_PREPARATION
+  """
+  The connection failed during the placement attempt. Order may be retried on next placement. No retry limit.
+  """
+  CONNECTION_ERROR_DURING_PLACEMENT
+  """
+  The batch or http response from the merchant was not understood by our system. This order is not retried.
+  """
+  RESPONSE_PROCESSING_ERROR
+  """
+  A generic error was sent or defaulted by our system. Merchant sets number of times to retry.
+  """
+  GENERIC_ERROR_RESPONSE
+  """
+  This order was merged with another order. Check Order's extra data for 'merged_order_id' field.
+  """
+  MERGED
+  """
+  The order failed with a 140 error code and is going through the credit card retry process
+  """
+  CREDIT_CARD_RETRY
+}
+
+type Product @dataType(name: "ordergroove_product", version: "2.0") {
+  """
+  Ordergroove product ID
+  """
+  id: ID!
+  """
+  Merchant identifier associated with this product
+  """
+  merchant: String
+  """
+  Product group classifications
+  """
+  groups: [String]
+  """
+  Product name
+  """
+  name: String
+  """
+  Product base price
+  """
+  price: String
+  """
+  URL to product image
+  """
+  image_url: String
+  """
+  URL to product detail page
+  """
+  detail_url: String
+  """
+  Product's unique identifier in the eCommerce platform
+  """
+  external_product_id: String
+  """
+  Product SKU
+  """
+  sku: String
+  """
+  Whether product is available for subscription (autoship)
+  """
+  autoship_enabled: Boolean
+  """
+  Whether product is eligible for prepaid subscriptions
+  """
+  prepaid_eligible: Boolean
+  """
+  Timestamp when product was created
+  """
+  created: DateTime
+  """
+  Timestamp when product was last updated
+  """
+  last_update: DateTime
+  """
+  Whether product is active/live
+  """
+  live: Boolean
+  """
+  Whether product has been discontinued
+  """
+  discontinued: Boolean
+  """
+  Additional custom data stored with this product
+  """
+  extra_data: String
+  """
+  Product type (standard, rotating, static price bundle, dynamic price bundle)
+  """
+  product_type: String
+  """
+  Whether subscription is enabled by default for this product
+  """
+  autoship_by_default: Boolean
+  """
+  Incentive group identifier for grouping products with similar offer structures
+  """
+  incentive_group: String
+}
+
+type SubscriptionComponent {
+  """
+  Component public ID
+  """
+  public_id: String
+  """
+  Quantity of this component in the bundle
+  """
+  quantity: Int
+  """
+  Product ID for this component
+  """
+  product: String
+}
+
+type Item @dataType(name: "ordergroove_item", version: "1.0") {
+  """
+  Offer ID associated with this item
+  """
+  offer: String
+  """
+  Order ID that this item belongs to
+  """
+  order: String
+  """
+  Subscription ID associated with this item
+  """
+  subscription: String
+  """
+  Product ID for this item
+  """
+  product: String
+  """
+  Subscription component ID for bundle subscriptions
+  """
+  subscription_component: String
+  """
+  Item quantity
+  """
+  quantity: Int
+  """
+  Item public ID
+  """
+  public_id: ID!
+  """
+  Product variant/attribute details
+  """
+  product_attribute: String
+  """
+  Unit price of the item
+  """
+  price: String
+  """
+  Additional costs applied to this item
+  """
+  extra_cost: String
+  """
+  Total price accounting for quantity and discounts
+  """
+  total_price: String
+  """
+  Indicates if item was added via Impulse Upsell functionality
+  """
+  one_time: Boolean
+  """
+  Timestamp when the order containing this item was last updated
+  """
+  order_updated: DateTime
+  """
+  Indicates if this item is frozen from modifications
+  """
+  frozen: Boolean
+  """
+  Timestamp when this item was first placed in an order
+  """
+  first_placed: DateTime
+  """
+  Detailed product information
+  """
+  product_detail: Product @childIds(template: "{{.product}}")
+}
+
+type Order @dataType(name: "ordergroove_order", version: "2.0") {
+  """
+  Merchant identifier associated with this order
+  """
+  merchant: String
+  """
+  Customer ID who placed this order
+  """
+  customer: String
+  """
+  Payment method ID used for this order
+  """
+  payment: String
+  """
+  Shipping address ID for order delivery
+  """
+  shipping_address: String
+  """
+  Order public ID
+  """
+  public_id: ID!
+  """
+  Currency code for this order (e.g., USD, EUR)
+  """
+  currency_code: String
+  """
+  Total tax amount applied to this order
+  """
+  tax_total: Currency
+  """
+  Total shipping cost for this order
+  """
+  shipping_total: Currency
+  """
+  Total discount amount applied to this order
+  """
+  discount_total: Currency
+  """
+  Final total amount for this order
+  """
+  total: Currency
+  """
+  Timestamp when order was created
+  """
+  created: DateTime
+  """
+  Timestamp when order was last updated
+  """
+  updated: DateTime
+  """
+  Scheduled or actual placement date; future date for unsent orders, past date for placed orders
+  """
+  place: DateTime
+  """
+  Timestamp when order was cancelled, null if not cancelled
+  """
+  cancelled: DateTime
+  """
+  Number of placement attempts made for this order
+  """
+  tries: Int
+  """
+  Count of generic errors encountered while processing this order
+  """
+  generic_error_count: Int
+  """
+  Current status of the order. Common statuses: UNSENT (future orders), SUCCESS (completed), PENDING_PLACEMENT (queued), CANCELLED (cancelled before processing).
+  See: https://developer.ordergroove.com/reference/order-status-codes
+  """
+  status: OrderStatus
+  """
+  Order type classification
+  """
+  type: Int
+  """
+  Merchant's internal order identifier from the eCommerce platform
+  """
+  order_merchant_id: String
+  """
+  Error message if order was rejected
+  """
+  rejected_message: String
+  """
+  Additional custom data stored with this order
+  """
+  extra_data: String
+  """
+  Indicates if order is locked for processing
+  """
+  locked: Boolean
+  """
+  Indicates if out-of-stock items qualify for free shipping
+  """
+  oos_free_shipping: Boolean
+  """
+  Subscription ID that generated this order
+  """
+  subscriptionId: String!
+  """
+  Items included in this order
+  """
+  items: [Item] @parentId(template: "{{.public_id}}")
+}
+
+type Subscription @dataType(name: "ordergroove_subscription", version: "1.0") {
+  """
+  Customer ID who owns this subscription
+  """
+  customer: String
+  """
+  Merchant identifier associated with this subscription
+  """
+  merchant: String
+  """
+  Product ID for the subscribed product
+  """
+  product: String
+  """
+  Payment method ID used for recurring orders
+  """
+  payment: String
+  """
+  Shipping address ID for recurring orders
+  """
+  shipping_address: String
+  """
+  Offer ID linking incentive logic for recurring orders
+  """
+  offer: String
+  """
+  Type of subscription (e.g., standard, bundle, prepaid)
+  """
+  subscription_type: String
+  """
+  Bundle components for bundle subscriptions
+  """
+  components: [SubscriptionComponent]
+  """
+  Additional custom data stored with this subscription
+  """
+  extra_data: String
+  """
+  Subscription public ID
+  """
+  public_id: ID!
+  """
+  Product variant/attribute details
+  """
+  product_attribute: String
+  """
+  Quantity of product per recurring order
+  """
+  quantity: Int
+  """
+  Price per unit for this subscription
+  """
+  price: String
+  """
+  Number of days between each recurring order
+  """
+  frequency_days: Int
+  """
+  Number of days before order placement to send reminder
+  """
+  reminder_days: Int
+  """
+  Numeric value of frequency (used with every_period)
+  """
+  every: Int
+  """
+  Frequency period code. Mapping: 1=days, 2=weeks, 3=months, 4=years
+  """
+  every_period: Int
+  """
+  Date when subscription starts
+  """
+  start_date: DateTime
+  """
+  Timestamp when subscription was cancelled, null if active
+  """
+  cancelled: DateTime
+  """
+  Pipe-delimited cancel reason code and cancel reason details
+  """
+  cancel_reason: String
+  """
+  Cancellation reason code
+  """
+  cancel_reason_code: String
+  """
+  Currency code for this subscription (e.g., USD, EUR)
+  """
+  currency_code: String
+  """
+  Iteration identifier for rotating subscriptions
+  """
+  iteration: String
+  """
+  Sequence identifier for subscription ordering
+  """
+  sequence: String
+  """
+  Session ID associated with subscription creation
+  """
+  session_id: String
+  """
+  Merchant order ID that created this subscription
+  """
+  merchant_order_id: String
+  """
+  Customer service representative who managed this subscription
+  """
+  customer_rep: String
+  """
+  Club identifier for subscription clubs/memberships
+  """
+  club: String
+  """
+  Timestamp when subscription was created
+  """
+  created: DateTime
+  """
+  Timestamp when subscription was last updated
+  """
+  updated: DateTime
+  """
+  Whether subscription is active (live=true) or inactive (live=false)
+  """
+  live: Boolean
+  """
+  Prepaid subscription context data as JSON string
+  """
+  prepaid_subscription_context: String
+  """
+  Orders generated by this subscription
+  """
+  orders: [Order] @parentId(template: "{{.public_id}}")
+  """
+  Detailed product information
+  """
+  product_detail: Product @childIds(template: "{{.product}}")
+}
+
+type Customer @dataType(name: "ordergroove_customer", version: "1.0") {
+  """
+  Ordergroove customer ID
+  """
+  id: ID!
+  """
+  Merchant identifier associated with this customer
+  """
+  merchant: String
+  """
+  Session ID for customer authentication
+  """
+  session_id: String
+  """
+  User token identifier
+  """
+  user_token_id: String
+  """
+  Customer's first name (encrypted in database)
+  """
+  first_name: String
+  """
+  Customer's last name (encrypted in database)
+  """
+  last_name: String
+  """
+  Customer's email address (encrypted in database)
+  """
+  email: String
+  """
+  Customer's phone number
+  """
+  phone_number: String
+  """
+  Customer phone type code. Mapping: 0=Invalid, 1=Landline, 2=Mobile, 3=VoIP
+  """
+  phone_type: Int
+  """
+  Whether customer has active subscriptions (live=true) or no active subscriptions (live=false)
+  """
+  live: Boolean
+  """
+  Timestamp when customer was created
+  """
+  created: DateTime
+  """
+  Timestamp when customer was last updated
+  """
+  last_updated: DateTime
+  """
+  Timestamp of customer's last login
+  """
+  last_login: DateTime
+  """
+  Additional custom data stored with this customer
+  """
+  extra_data: String
+  """
+  Locale identifier for customer's region/language
+  """
+  locale: Int
+  """
+  Price code for customer-specific pricing
+  """
+  price_code: String
+  """
+  Customer's subscriptions
+  """
+  subscriptions: [Subscription] @parentId(template: "{{.id}}")
+}
+
+type Query {
+  customers: [Customer]
+  subscriptions: [Subscription]
+  items: [Item]
+  products: [Product]
+}

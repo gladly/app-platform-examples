@@ -1,0 +1,7 @@
+{
+  "ticket": null,
+  "error": {
+    "error": "Internal Server Error",
+    "description": "HTTP 500: Internal Server Error"
+  }
+}

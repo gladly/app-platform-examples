@@ -1,0 +1,1 @@
+https://test-subdomain.zendesk.com/api/v2/tickets.json

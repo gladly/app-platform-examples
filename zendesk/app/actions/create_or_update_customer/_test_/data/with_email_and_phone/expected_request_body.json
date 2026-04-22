@@ -1,0 +1,9 @@
+{
+  "user": {
+    "external_id": "gladly-full-contact",
+    "name": "Full Contact User",
+    "role": "end-user",
+    "email": "full@example.com",
+    "phone": "+15559999999"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "ticket": {
+    "subject": "Partial fields test ticket",
+    "comment": {
+      "body": "This ticket has some optional fields",
+      "public": true
+    },
+    "requester": {
+      "name": "Partial User",
+      "email": "partial@example.com"
+    },
+    "submitter_id": 67890,
+    "priority": "low",
+    "status": "new",
+    "type": "incident",
+    "tags": ["test"],
+    "assignee_id": 12345,
+    "via": { "channel": "mail" }
+  }
+}

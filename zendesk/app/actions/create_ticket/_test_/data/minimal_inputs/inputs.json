@@ -1,0 +1,11 @@
+{
+  "subject": "Minimal test ticket",
+  "comment": {
+    "body": "This is a minimal test ticket",
+    "public": false
+  },
+  "requester": {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com"
+  }
+}

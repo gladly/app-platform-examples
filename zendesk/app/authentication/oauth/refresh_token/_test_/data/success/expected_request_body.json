@@ -1,0 +1,6 @@
+{
+  "grant_type": "refresh_token",
+  "refresh_token": "test_refresh_token_789",
+  "client_id": "test_client_id_123",
+  "client_secret": "test_client_secret_456"
+}

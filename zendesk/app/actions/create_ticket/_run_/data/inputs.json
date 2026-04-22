@@ -1,0 +1,15 @@
+{
+  "subject": "Run Test - Automated Ticket Creation",
+  "comment": {
+    "body": "This is a test ticket created via appcfg run test to verify the Zendesk integration is working correctly.",
+    "public": false
+  },
+  "requester": {
+    "name": "Test User",
+    "email": "user@example.com"
+  },
+  "priority": "normal",
+  "status": "new",
+  "type": "question",
+  "tags": ["run-test", "automation", "integration-test"]
+}

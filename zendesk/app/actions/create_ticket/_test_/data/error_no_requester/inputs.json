@@ -1,0 +1,7 @@
+{
+  "subject": "Test ticket with no requester",
+  "comment": {
+    "body": "This should fail validation",
+    "public": true
+  }
+}

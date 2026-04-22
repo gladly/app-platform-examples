@@ -1,0 +1,7 @@
+{
+  "ticket": null,
+  "error": {
+    "error": "TooManyRequests",
+    "description": "Rate limit exceeded"
+  }
+}

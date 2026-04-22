@@ -1,0 +1,12 @@
+{
+  "subject": "Test ticket with both requester fields",
+  "comment": {
+    "body": "This should fail validation",
+    "public": true
+  },
+  "requester": {
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+  },
+  "requester_id": "12345678901"
+}

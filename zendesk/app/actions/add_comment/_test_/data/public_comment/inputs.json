@@ -1,0 +1,7 @@
+{
+  "ticket_id": "1001",
+  "comment": {
+    "body": "This is a public reply visible to the customer",
+    "public": true
+  }
+}

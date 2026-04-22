@@ -1,0 +1,11 @@
+{
+  "error": "RecordInvalid",
+  "description": "Record validation errors",
+  "details": {
+    "requester": [
+      {
+        "description": "Requester: Email is not properly formatted"
+      }
+    ]
+  }
+}

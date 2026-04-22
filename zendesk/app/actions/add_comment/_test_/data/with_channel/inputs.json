@@ -1,0 +1,9 @@
+{
+  "ticket_id": "1001",
+  "comment": {
+    "body": "Comment added via phone channel",
+    "public": false
+  },
+  "channel": "phone"
+}
+

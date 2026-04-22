@@ -1,0 +1,8 @@
+{
+  "ticket": null,
+  "error": {
+    "error": "DuplicateValue",
+    "description": "Duplicate ticket detected",
+    "details": "{\"base\":[{\"description\":\"A ticket with this subject and requester already exists\"}]}"
+  }
+}

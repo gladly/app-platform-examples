@@ -1,0 +1,16 @@
+{
+  "ticket": {
+    "subject": "Test ticket with requester_id",
+    "comment": {
+      "body": "This ticket uses requester_id instead of requester object",
+      "public": true
+    },
+    "requester_id": 12345678901,
+    "priority": "high",
+    "status": "open",
+    "type": "question",
+    "tags": ["api-created", "existing-user"],
+    "assignee_id": 987654321,
+    "group_id": 111222333
+  }
+}

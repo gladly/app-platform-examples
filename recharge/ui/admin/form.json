@@ -1,0 +1,19 @@
+{
+	"title": "Configure Recharge",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Recharge API credentials below."
+		},
+		{
+			"type": "input",
+			"label": "Access Token",
+			"attr": "secrets.accessToken",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your Recharge API access token"
+			},
+			"hint": "Found in the Recharge admin under Tools & Apps > API tokens"
+		}
+	]
+}

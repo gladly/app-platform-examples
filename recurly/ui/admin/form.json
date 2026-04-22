@@ -1,0 +1,19 @@
+{
+	"title": "Configure Recurly",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Recurly API credentials below."
+		},
+		{
+			"type": "input",
+			"label": "API Access Token",
+			"attr": "secrets.access_token",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your Recurly API access token"
+			},
+			"hint": "Found in your API Credentials Page at https://app.recurly.com/go/developer/api_keys"
+		}
+	]
+}

@@ -136,84 +136,81 @@ Yotpo finds the right Customer by matching data from their Customer Profile:
 
 ## Installation
 
-If you have a technical resource who can install and run [appcfg CLI](https://github.com/gladly/app-platform-appcfg-cli) and has access to both your Gladly and Yotpo instances, you can follow the steps below. Otherwise, contact Gladly Support to configure this App in your Gladly instance.
+You can configure the Yotpo App directly from the Gladly admin interface.
 
 ### Configure the app
 
-1. **[Technical] Install appcfg**
+1. **Gather Yotpo credentials**
 
-   If you haven't already, install the App Platform CLI tool. Follow instructions at [https://help.gladly.com/developer-tutorials/docs/install-appcfg](https://help.gladly.com/developer-tutorials/docs/install-appcfg)
+   Follow [this Yotpo Guide](https://support.yotpo.com/docs/finding-your-yotpo-app-key-and-secret-key) to obtain your Yotpo App Key.
+   - **App Key** — In Yotpo, select **Account Settings** > **General Settings**. You'll find your App Key at the bottom of the General Settings section.
 
-2. **[Technical] Obtain Gladly API credentials**
+2. **Create a new App Platform Configuration**
 
-   You'll need three pieces of information to authenticate with your Gladly instance:
+   In Gladly, navigate to **Settings** > **App Developer Tools > Apps**. On the **App Platform** tab, click **Create Configuration**.
 
-   - **Gladly Host**: us-1.gladly.com for Production or us-uat.gladly.qa for Sandbox orgs
-   - **Gladly User**: Email address of a Gladly user with Administrator or API User permissions
-   - **Gladly API Token**: A personal API token for the user above
+   ![Apps page — Create Configuration](./apps-create-configuration.png)
 
-   To generate an API token, follow the instructions in [Gladly's API Token documentation](https://help.gladly.com/docs/api-authentication#creating-api-tokens).
+3. **Fill in the configuration form**
+   - **Configuration Name** — Enter a unique name (e.g., "Yotpo Production").
+   - **External App** — Select `gladly.com/yotpo/v2.2.0` from the dropdown.
+   - **App Key** — Enter your Yotpo App Key from step 1.
+   - **Review Limit** — Number of reviews to fetch per Customer (default: 10, maximum recommended: 50).
 
-   Set these as environment variables:
+   ![Add App Platform Configuration form](./admin-ui-form.png)
 
-   ```bash
-   export GLADLY_APP_CFG_HOST="us-1.gladly.com"  # or us-uat.gladly.qa for Sandbox
-   export GLADLY_APP_CFG_USER="your.email@company.com"
-   export GLADLY_APP_CFG_TOKEN="your-api-token-here"
-   ```
+4. **OAuth authorization flow**
 
-3. **[Technical] Gather Yotpo credentials**
+   If you have a technical resource who can install and run [appcfg CLI](https://github.com/gladly/app-platform-appcfg-cli) and has access to both your Gladly and Yotpo instances, you can follow the steps below. Otherwise, contact Gladly Support to complete this step.
+   1. **[Technical] Install appcfg**
 
-   Follow [this Yotpo Guide](https://support.yotpo.com/docs/finding-your-yotpo-app-key-and-secret-key) to obtain your Yotpo app key.
+      Install the [appcfg CLI](https://help.gladly.com/developer-tutorials/docs/install-appcfg) if you haven't already.
 
-   - **App Key (store_id)** — Select **Account Settings** > **General Settings**. You'll find your App Key at the bottom of the General Settings section.
+   2. **[Technical] Obtain Gladly API credentials**
 
-4. **[Technical] Configure the app with your store_id**
+      You'll need three pieces of information to authenticate with your Gladly instance:
+      - **Gladly Host**: us-1.gladly.com for Production or us-uat.gladly.qa for Sandbox orgs
+      - **Gladly User**: Email address of a Gladly user with Administrator or API User permissions
+      - **Gladly API Token**: A personal API token for the user above
 
-   ```bash
-   appcfg apps config create "gladly.com/yotpo/v2.0.0" \
-     --name "Yotpo <store name>" \
-     --config '{"store_id": "<yotpo_store_id>"}' \
-     --secrets '{}'
-   ```
+      To generate an API token, follow the instructions in [Gladly's API Token documentation](https://help.gladly.com/docs/api-authentication#creating-api-tokens).
 
-   - `reviewLimit`: Number of reviews to fetch per Customer (default: 10, maximum recommended: 50)
+      Set these as environment variables:
 
-5. **[Technical] List configurations to get configuration ID**
+      ```bash
+      export GLADLY_APP_CFG_HOST="us-1.gladly.com"  # or us-uat.gladly.qa for Sandbox
+      export GLADLY_APP_CFG_USER="your.email@company.com"
+      export GLADLY_APP_CFG_TOKEN="your-api-token-here"
+      ```
 
-   ```bash
-   appcfg apps config list --identifier "gladly.com/yotpo/v2.0.0"
-   ```
+   3. **[Technical] Get the configuration ID**
 
-   Note the `CONFIG ID` from the output.
+      ```bash
+      appcfg apps config list --identifier "gladly.com/yotpo/v2.2.0"
+      ```
 
-6. **[Technical] Run the OAuth authorization flow**
+      Note the `CONFIG ID` from the output.
 
-   Complete the OAuth authorization:
+   4. **[Technical] Complete OAuth authorization**
 
-   ```bash
-   appcfg apps oauth <config-id>
-   ```
+      ```bash
+      appcfg apps oauth <config-id>
+      ```
 
-   This will:
+      This will:
+      - Open a browser window for Yotpo OAuth authorization
+      - Prompt you to authorize the app with your Yotpo admin account
+      - If successful you will see a blank screen with confirmation text
 
-   - Open a browser window for Yotpo OAuth authorization
-   - Prompt you to authorize the app with your Yotpo admin account
-   - If successful you will see a blank screen with confirmation text
+5. **Activate the configuration**
 
-7. **[Technical] Activate your app**
-
-   When you have completed the OAuth flow, activate your app:
-
-   ```bash
-   appcfg apps config update <config-id> --activate
-   ```
+   Toggle the configuration to active in the **App Platform** tab.
 
    If you have any issues, contact Gladly Support.
 
-8. **Verify installation**
+6. **Verify installation**
 
-   Navigate to **Settings** > **App Actions** in Gladly and verify that Yotpo data loads correctly. Test with a known Customer to confirm data is retrieved.
+   Navigate to **Settings** > **Apps** in Gladly and verify that Yotpo data loads correctly. Test with a known Customer to confirm data is retrieved.
 
 ### Set up Guides
 

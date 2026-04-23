@@ -1,0 +1,19 @@
+{
+	"title": "Configure Loop Returns",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Loop Returns API credentials below. You can find your API token in the Loop Returns admin under Settings > API."
+		},
+		{
+			"type": "input",
+			"label": "API Token",
+			"attr": "secrets.apiToken",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your Loop Returns API token"
+			},
+			"hint": "Found in the Loop Returns admin under Returns Management > Tools & integrations > Developer tools."
+		}
+	]
+}

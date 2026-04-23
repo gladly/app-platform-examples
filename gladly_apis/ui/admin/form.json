@@ -1,0 +1,39 @@
+{
+	"title": "Configure Gladly APIs",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Gladly API credentials below. You can generate an API token in Gladly under Settings > API Tokens."
+		},
+		{
+			"type": "input",
+			"label": "Gladly Host",
+			"attr": "configuration.gladlyHost",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. us-1.gladly.com"
+			},
+			"hint": "Your Gladly instance hostname (e.g. us-1.gladly.com or us-uat.gladly.qa)"
+		},
+		{
+			"type": "input",
+			"label": "Username",
+			"attr": "configuration.username",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. user@company.com"
+			},
+			"hint": "Email address of a Gladly user with API permissions"
+		},
+		{
+			"type": "input",
+			"label": "API Token",
+			"attr": "secrets.apiToken",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your Gladly API token"
+			},
+			"hint": "Found in Settings > API Tokens in Gladly"
+		}
+	]
+}

@@ -54,7 +54,7 @@ type Product {
   productType: String
   vendor: String
   updatedAt: DateTime
-  tags: String
+  tags: [String!]!
   variants: [Variant!]
   options: [ProductOption]
 }
@@ -278,11 +278,11 @@ enum ShopifyOrderCancelReason {
 ## Represents the tracking information for a fulfillment.
 type FulfillmentTrackingInfo {
   ## The name of the tracking company. (Shipping Carriers help page)[https://help.shopify.com/manual/shipping/understanding-shipping/shipping-carriers?shpxid=de34ac44-9F69-4CCB-9F6D-466867094432#integrated-shipping-carriers]
-  company: String!
+  company: String
   ## The tracking number of the fulfillment.
-  number: String!
+  number: String
   ## The URLs to track the fulfillment.
-  url: String!
+  url: String
 }
 
 enum FulfillmentDisplayStatus {

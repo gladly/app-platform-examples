@@ -1,0 +1,5 @@
+{
+  "description": "Display Redo returns",
+  "graphqlSchema": "data",
+  "graphqlType": "[RedoReturn]"
+}

@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "storeId": "store_abc123"
+  },
+  "secrets": {
+    "apiToken": "test_api_token_xyz"
+  }
+}

@@ -1,0 +1,637 @@
+{
+    "orders": [
+        {
+            "customer": {
+                "emailAddress": "johnSmith@email.com",
+                "name": {
+                    "given": "Joe",
+                    "surname": "Johnson"
+                }
+            },
+            "discounts": {
+                "amount": "0.00",
+                "currency": "USD"
+            },
+            "externalId": "5680711598114",
+            "id": "6837552f6d006d8dd8770686",
+            "items": [
+                {
+                    "externalId": "14245152423970",
+                    "id": "6837552f6d006d8dd8770686/1",
+                    "quantity": 10,
+                    "product": {
+                        "externalId": "7918732607522",
+                        "name": "product"
+                    },
+                    "variant": {
+                        "externalId": "43560569339938",
+                        "name": "product - yellow"
+                    },
+                    "price": {
+                        "amount": "12.00",
+                        "currency": "USD"
+                    },
+                    "fulfillmentLocationId": "100104241186"
+                },
+                {
+                    "externalId": "14245152456738",
+                    "id": "6837552f6d006d8dd8770686/2",
+                    "quantity": 10,
+                    "product": {
+                        "externalId": "7918732607522",
+                        "name": "product"
+                    },
+                    "variant": {
+                        "externalId": "43560569307170",
+                        "name": "product - blue"
+                    },
+                    "price": {
+                        "amount": "15.00",
+                        "currency": "USD"
+                    },
+                    "fulfillmentLocationId": "100104241186"
+                },
+                {
+                    "externalId": "14245152489506",
+                    "id": "6837552f6d006d8dd8770686/3",
+                    "quantity": 20,
+                    "product": {
+                        "externalId": "7896779587618",
+                        "name": "BIG ITEM"
+                    },
+                    "variant": {
+                        "externalId": "43444699725858",
+                        "weight": {
+                            "kg": 6.804
+                        },
+                        "name": "BIG ITEM",
+                        "sku": "100"
+                    },
+                    "price": {
+                        "amount": "50.00",
+                        "currency": "USD"
+                    },
+                    "fulfillmentLocationId": "100104241186"
+                }
+            ],
+            "name": "#1024",
+            "lineItemsTotal": {
+                "amount": "1270.00",
+                "currency": "USD"
+            },
+            "shippingCost": {
+                "amount": "0.00",
+                "currency": "USD"
+            },
+            "taxes": {
+                "amount": "0.00",
+                "currency": "USD"
+            },
+            "total": {
+                "amount": "1270.00",
+                "currency": "USD"
+            }
+        },
+        {
+            "customer": {
+                "emailAddress": "johnSmith@email.com",
+                "name": {
+                    "given": "Joe",
+                    "surname": "Johnson"
+                }
+            },
+            "discounts": {
+                "amount": "0.00",
+                "currency": "USD"
+            },
+            "externalId": "5680714317858",
+            "id": "683755f16d006d8dd8771b09",
+            "items": [
+                {
+                    "externalId": "14245157273634",
+                    "id": "683755f16d006d8dd8771b09/1",
+                    "quantity": 1000,
+                    "product": {
+                        "externalId": "7896779587618",
+                        "name": "BIG ITEM"
+                    },
+                    "variant": {
+                        "externalId": "43444699725858",
+                        "weight": {
+                            "kg": 6.804
+                        },
+                        "name": "BIG ITEM",
+                        "sku": "100"
+                    },
+                    "price": {
+                        "amount": "50.00",
+                        "currency": "USD"
+                    },
+                    "fulfillmentLocationId": "100104241186"
+                }
+            ],
+            "name": "#1025",
+            "lineItemsTotal": {
+                "amount": "50000.00",
+                "currency": "USD"
+            },
+            "shippingCost": {
+                "amount": "0.00",
+                "currency": "USD"
+            },
+            "taxes": {
+                "amount": "0.00",
+                "currency": "USD"
+            },
+            "total": {
+                "amount": "50000.00",
+                "currency": "USD"
+            }
+        }
+    ],
+    "returns": [
+        {
+            "id": "68f7ef1a4c71c5a7bd72359f",
+            "createdAt": "2025-10-21T20:37:46.108Z",
+            "updatedAt": "2025-12-10T21:40:19.956Z",
+            "type": "return",
+            "status": "flagged",
+            "compensationMethods": [
+                "store_credit"
+            ],
+            "externalOrderIds": [
+                "5680714317858"
+            ],
+            "shopifyOrderIds": [
+                "5680714317858"
+            ],
+            "order": {
+                "id": "683755f16d006d8dd8771b09"
+            },
+            "destination": {
+                "mailingAddress": {
+                    "city": "Random City 2",
+                    "country": "US",
+                    "line1": "Random Street 2",
+                    "line2": "",
+                    "postalCode": "84003",
+                    "state": "Utah"
+                },
+                "phoneNumber": "3852369539"
+            },
+            "source": {
+                "emailAddress": "johnSmith@email.com",
+                "mailingAddress": {
+                    "city": "Random City",
+                    "country": "US",
+                    "line1": "Random Street",
+                    "line2": "",
+                    "postalCode": "11111",
+                    "state": "Maryland"
+                },
+                "name": {
+                    "given": "Joe",
+                    "surname": "Johnson"
+                },
+                "phoneNumber": ""
+            },
+            "items": [
+                {
+                    "id": "68f7ef1a4c71c5a7bd7235a0",
+                    "orderItem": {
+                        "id": "683755f16d006d8dd8771b09/1",
+                        "line_item_id": "14245157273634"
+                    },
+                    "quantity": 1,
+                    "reason": "store-credit only",
+                    "reasons": [
+                        "store-credit only"
+                    ],
+                    "reasonCode": "",
+                    "reasonCodes": [],
+                    "customerComment": "",
+                    "sku": "100",
+                    "variantId": "43444699725858",
+                    "productId": "7896779587618",
+                    "greenReturn": false,
+                    "refund": {
+                        "amount": {
+                            "currency": "USD",
+                            "amount": "50.00"
+                        },
+                        "type": "store_credit"
+                    },
+                    "status": "open",
+                    "productAdjustment": "0.00",
+                    "multipleChoiceQuestions": [
+                        {
+                            "question": "Why are you returning this item?",
+                            "answer": "store-credit only"
+                        }
+                    ]
+                }
+            ],
+            "internalCreatedByName": "",
+            "giftCards": [],
+            "refunds": [],
+            "totals": {
+                "refund": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "exchange": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "storeCredit": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "50.00"
+                    }
+                },
+                "charge": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "labelCost": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                }
+            },
+            "exchange": {
+                "order": {
+                    "externalId": null
+                },
+                "items": [],
+                "totalTax": {
+                    "amount": "0.00",
+                    "currency": "USD"
+                },
+                "itemCount": 0,
+                "provision": "processed"
+            },
+            "notes": [],
+            "shipment": {
+                "carrier": "UPS",
+                "status": "pre_transit",
+                "tracker": "1ZF206H49027733321",
+                "trackingUrl": "https://example.com/tracking123",
+                "postageLabel": "https://example.com/label123.pdf"
+            },
+            "shipments": [
+                {
+                    "carrier": "UPS",
+                    "status": "pre_transit",
+                    "tracker": "1ZF206H49027733321",
+                    "trackingUrl": "https://example.com/tracking123",
+                    "postageLabel": "https://example.com/label123.pdf"
+                }
+            ]
+        },
+        {
+            "id": "690a622ecd6ebcdd3841a179",
+            "createdAt": "2025-11-04T20:29:34.587Z",
+            "updatedAt": "2025-12-10T21:25:23.298Z",
+            "type": "return",
+            "status": "flagged",
+            "compensationMethods": [
+                "refund"
+            ],
+            "externalOrderIds": [
+                "5680714317858"
+            ],
+            "shopifyOrderIds": [
+                "5680714317858"
+            ],
+            "order": {
+                "id": "683755f16d006d8dd8771b09"
+            },
+            "destination": {
+                "mailingAddress": {
+                    "city": "Random City 2",
+                    "country": "US",
+                    "line1": "Random Street 2",
+                    "line2": "",
+                    "postalCode": "84003",
+                    "state": "Utah"
+                },
+                "phoneNumber": "3852369539"
+            },
+            "source": {
+                "emailAddress": "johnSmith@email.com",
+                "mailingAddress": {
+                    "city": "Random City",
+                    "country": "US",
+                    "line1": "Random Street",
+                    "line2": "",
+                    "postalCode": "11111",
+                    "state": "Maryland"
+                },
+                "name": {
+                    "given": "Joe",
+                    "surname": "Johnson"
+                },
+                "phoneNumber": ""
+            },
+            "items": [
+                {
+                    "id": "690a622ecd6ebcdd3841a17a",
+                    "orderItem": {
+                        "id": "683755f16d006d8dd8771b09/1",
+                        "line_item_id": "14245157273634"
+                    },
+                    "quantity": 1,
+                    "reason": "refund only",
+                    "reasons": [
+                        "refund only"
+                    ],
+                    "reasonCode": "",
+                    "reasonCodes": [],
+                    "customerComment": "",
+                    "sku": "100",
+                    "variantId": "43444699725858",
+                    "productId": "7896779587618",
+                    "greenReturn": false,
+                    "refund": {
+                        "amount": {
+                            "currency": "USD",
+                            "amount": "50.00"
+                        },
+                        "type": "refund"
+                    },
+                    "status": "open",
+                    "productAdjustment": "0.00",
+                    "multipleChoiceQuestions": [
+                        {
+                            "question": "Why are you returning this item?",
+                            "answer": "refund only"
+                        }
+                    ]
+                },
+                {
+                    "id": "690a622ecd6ebcdd3841a17e",
+                    "orderItem": {
+                        "id": "683755f16d006d8dd8771b09/1",
+                        "line_item_id": "14245157273634"
+                    },
+                    "quantity": 1,
+                    "reason": "refund only",
+                    "reasons": [
+                        "refund only"
+                    ],
+                    "reasonCode": "",
+                    "reasonCodes": [],
+                    "customerComment": "",
+                    "sku": "100",
+                    "variantId": "43444699725858",
+                    "productId": "7896779587618",
+                    "greenReturn": false,
+                    "refund": {
+                        "amount": {
+                            "currency": "USD",
+                            "amount": "50.00"
+                        },
+                        "type": "refund"
+                    },
+                    "status": "open",
+                    "productAdjustment": "0.00",
+                    "multipleChoiceQuestions": [
+                        {
+                            "question": "Why are you returning this item?",
+                            "answer": "refund only"
+                        }
+                    ]
+                }
+            ],
+            "internalCreatedByName": "",
+            "giftCards": [],
+            "refunds": [],
+            "totals": {
+                "refund": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "100.00"
+                    }
+                },
+                "exchange": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "storeCredit": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "charge": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "labelCost": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                }
+            },
+            "exchange": {
+                "order": {
+                    "externalId": null
+                },
+                "items": [],
+                "totalTax": {
+                    "amount": "0.00",
+                    "currency": "USD"
+                },
+                "itemCount": 0,
+                "provision": "processed"
+            },
+            "notes": [
+                {
+                    "message": ""
+                },
+                {
+                    "message": ""
+                }
+            ],
+            "shipment": {
+                "carrier": "UPS",
+                "status": "unknown",
+                "tracker": "1ZXXXXXXXXXXXXXXXX",
+                "trackingUrl": "https://example.com/tracking123",
+                "postageLabel": "https://example.com/label123.pdf"
+            },
+            "shipments": [
+                {
+                    "carrier": "UPS",
+                    "status": "unknown",
+                    "tracker": "1ZXXXXXXXXXXXXXXXX",
+                    "trackingUrl": "https://example.com/tracking123",
+                    "postageLabel": "https://example.com/label123.pdf"
+                }
+            ]
+        },
+        {
+            "id": "690942547434379ac2aa1f04",
+            "createdAt": "2025-11-04T00:01:24.482Z",
+            "updatedAt": "2025-12-10T21:25:22.517Z",
+            "type": "return",
+            "status": "flagged",
+            "compensationMethods": [
+                "store_credit"
+            ],
+            "externalOrderIds": [
+                "5680714317858"
+            ],
+            "shopifyOrderIds": [
+                "5680714317858"
+            ],
+            "order": {
+                "id": "683755f16d006d8dd8771b09"
+            },
+            "destination": {
+                "mailingAddress": {
+                    "city": "Random City 2",
+                    "country": "US",
+                    "line1": "Random Street 2",
+                    "line2": "",
+                    "postalCode": "84003",
+                    "state": "Utah"
+                },
+                "phoneNumber": "3852369539"
+            },
+            "source": {
+                "emailAddress": "johnSmith@email.com",
+                "mailingAddress": {
+                    "city": "Random City",
+                    "country": "US",
+                    "line1": "Random Street",
+                    "line2": "",
+                    "postalCode": "11111",
+                    "state": "Maryland"
+                },
+                "name": {
+                    "given": "Joe",
+                    "surname": "Johnson"
+                },
+                "phoneNumber": ""
+            },
+            "items": [
+                {
+                    "id": "690942547434379ac2aa1f05",
+                    "orderItem": {
+                        "id": "683755f16d006d8dd8771b09/1",
+                        "line_item_id": "14245157273634"
+                    },
+                    "quantity": 1,
+                    "reason": "store-credit only",
+                    "reasons": [
+                        "store-credit only"
+                    ],
+                    "reasonCode": "",
+                    "reasonCodes": [],
+                    "customerComment": "",
+                    "sku": "100",
+                    "variantId": "43444699725858",
+                    "productId": "7896779587618",
+                    "greenReturn": false,
+                    "refund": {
+                        "amount": {
+                            "currency": "USD",
+                            "amount": "50.00"
+                        },
+                        "type": "store_credit"
+                    },
+                    "status": "open",
+                    "productAdjustment": "0.00",
+                    "multipleChoiceQuestions": [
+                        {
+                            "question": "Why are you returning this item?",
+                            "answer": "store-credit only"
+                        }
+                    ]
+                }
+            ],
+            "internalCreatedByName": "",
+            "giftCards": [],
+            "refunds": [],
+            "totals": {
+                "refund": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "exchange": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "storeCredit": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "50.00"
+                    }
+                },
+                "charge": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                },
+                "labelCost": {
+                    "amount": {
+                        "currency": "USD",
+                        "amount": "0.00"
+                    }
+                }
+            },
+            "exchange": {
+                "order": {
+                    "externalId": null
+                },
+                "items": [],
+                "totalTax": {
+                    "amount": "0.00",
+                    "currency": "USD"
+                },
+                "itemCount": 0,
+                "provision": "processed"
+            },
+            "notes": [
+                {
+                    "message": ""
+                }
+            ],
+            "shipment": {
+                "carrier": "UPS",
+                "status": "unknown",
+                "tracker": "1ZXXXXXXXXXXXXXXXX",
+                "trackingUrl": "https://example.com/tracking123",
+                "postageLabel": "https://example.com/label123.pdf"
+            },
+            "shipments": [
+                {
+                    "carrier": "UPS",
+                    "status": "unknown",
+                    "tracker": "1ZXXXXXXXXXXXXXXXX",
+                    "trackingUrl": "https://example.com/tracking123",
+                    "postageLabel": "https://example.com/label123.pdf"
+                }
+            ]
+        }
+    ]
+}

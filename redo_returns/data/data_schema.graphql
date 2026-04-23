@@ -1,0 +1,240 @@
+# Money amount with currency
+type RedoMoney {
+  amount: String!
+  currency: String!
+}
+
+# Money with tax information
+type RedoMoneyWithTax {
+  amount: String!
+  currency: String!
+  tax: String
+}
+
+# Customer name
+type RedoName {
+  given: String!
+  surname: String!
+}
+
+# Mailing address
+type RedoMailingAddress {
+  line1: String!
+  line2: String
+  city: String!
+  state: String!
+  postalCode: String!
+  country: String!
+}
+
+# Product information
+type RedoProduct {
+  name: String!
+  externalId: String
+}
+
+# Variant weight
+type RedoWeight {
+  kg: Float
+}
+
+# Product variant information
+type RedoVariant {
+  name: String!
+  externalId: String
+  sku: String
+  weight: RedoWeight
+}
+
+# Order line item
+type RedoOrderItem {
+  id: String!
+  externalId: String
+  fulfillmentLocationId: String
+  price: RedoMoney
+  product: RedoProduct
+  quantity: Int!
+  variant: RedoVariant
+}
+
+# Customer information from order
+type RedoCustomer {
+  name: RedoName
+  emailAddress: String
+  phoneNumber: String
+}
+
+# Gift card issued for return
+type RedoGiftCard {
+  amount: RedoMoney
+  code: String
+  externalId: String
+}
+
+# Return item order reference
+type RedoReturnOrderItem {
+  id: String
+  line_item_id: String
+}
+
+# Assessment user
+type RedoAssessmentUser {
+  id: String
+  email: String
+  firstName: String
+  lastName: String
+  name: String
+}
+
+# Assessment response
+type RedoAssessmentResponse {
+  type: String
+  value: String
+}
+
+# Return item assessment
+type RedoAssessment {
+  assignedUser: RedoAssessmentUser
+  responses: [RedoAssessmentResponse!]
+}
+
+# Multiple choice question and answer
+type RedoMultipleChoiceQuestion {
+  question: String
+  answer: String
+}
+
+# Return item refund information
+type RedoRefund {
+  amount: RedoMoney
+  type: String
+}
+
+# Exchange item in a return
+type RedoExchangeItem {
+  product: RedoProduct
+  quantity: Int
+  variant: RedoVariant
+}
+
+# Return line item
+type RedoReturnItem {
+  id: String!
+  productName: String
+  orderItem: RedoReturnOrderItem
+  quantity: Int
+  reason: String
+  assessments: [RedoAssessment!]
+  customerComment: String
+  exchangeItem: RedoExchangeItem
+  greenReturn: Boolean
+  multipleChoiceQuestions: [RedoMultipleChoiceQuestion!]
+  productAdjustment: String
+  productId: String
+  reasonCode: String
+  reasonCodes: [String!]
+  reasons: [String!]
+  refund: RedoRefund
+  sku: String
+  status: String
+  variantId: String
+}
+
+# Source/customer information
+type RedoSource {
+  name: RedoName
+  emailAddress: String
+  phoneNumber: String
+  mailingAddress: RedoMailingAddress
+}
+
+# Destination information
+type RedoDestination {
+  mailingAddress: RedoMailingAddress
+  phoneNumber: String
+}
+
+# Return note
+type RedoNote {
+  message: String
+  image: String
+}
+
+# Shipment information
+type RedoShipment {
+  carrier: String
+  postageLabel: String
+  status: String
+  tracker: String
+  trackingUrl: String
+}
+
+# Exchange order reference
+type RedoExchangeOrder {
+  externalId: String
+}
+
+# Exchange item with pricing
+type RedoExchangeOrderItem {
+  id: String
+  quantity: Int
+  variant: RedoVariant
+  originalPrice: RedoMoney
+  price: RedoMoneyWithTax
+  product: RedoProduct
+}
+
+# Exchange information
+type RedoExchange {
+  items: [RedoExchangeOrderItem!]
+  provision: String
+  itemCount: Int
+  order: RedoExchangeOrder
+  totalTax: RedoMoney
+}
+
+# Total amount wrapper
+type RedoTotalAmount {
+  amount: RedoMoney
+}
+
+# Return totals
+type RedoTotals {
+  charge: RedoTotalAmount
+  exchange: RedoTotalAmount
+  refund: RedoTotalAmount
+  storeCredit: RedoTotalAmount
+}
+
+# Order reference in a return
+type RedoOrderReference {
+  id: String
+}
+
+# A return from Redo Returns
+type RedoReturn @dataType(name: "redo_returns_return", version: "1.0") {
+  id: ID!
+  orderName: String
+  createdAt: DateTime!
+  updatedAt: DateTime
+  status: String!
+  type: String
+  source: RedoSource
+  destination: RedoDestination
+  order: RedoOrderReference
+  items: [RedoReturnItem!]
+  giftCards: [RedoGiftCard!]
+  compensationMethods: [String!]
+  exchange: RedoExchange
+  externalOrderIds: [String!]
+  shopifyOrderIds: [String!]
+  internalCreatedByName: String
+  notes: [RedoNote!]
+  shipment: RedoShipment
+  shipments: [RedoShipment!]
+  totals: RedoTotals
+}
+
+type Query {
+  returns: [RedoReturn]
+}

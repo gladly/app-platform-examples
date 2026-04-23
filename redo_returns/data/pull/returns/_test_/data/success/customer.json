@@ -1,0 +1,17 @@
+{
+  "id": "cust_123",
+  "primaryEmailAddress": "johnSmith@email.com",
+  "emailAddresses": [
+    "johnSmith@email.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15551234567",
+    "type": "mobile"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15551234567",
+      "type": "mobile"
+    }
+  ]
+}

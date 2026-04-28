@@ -1,0 +1,19 @@
+{
+	"title": "Configure Skio",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Skio API credentials below. You can find your API token in the Skio admin under Settings > API."
+		},
+		{
+			"type": "input",
+			"label": "API Token",
+			"attr": "secrets.apiToken",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your Skio API token"
+			},
+			"hint": "Found in the Skio dashboard under API & Integrations > API Keys."
+		}
+	]
+}

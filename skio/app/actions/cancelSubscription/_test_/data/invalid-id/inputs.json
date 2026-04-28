@@ -1,6 +1,4 @@
 {
-  "input": {
-    "subscriptionId": "invalid-id",
-    "shouldSendNotif": true
-  }
+  "subscriptionId": "invalid-id",
+  "shouldSendNotif": true
 }

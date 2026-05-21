@@ -1,0 +1,16 @@
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+      "name": "Present Product",
+      "price": "10.00",
+      "external_product_id": "PROD-PRESENT-001",
+      "sku": "PRESENT-SKU",
+      "autoship_enabled": true,
+      "live": true
+    }
+  ]
+}

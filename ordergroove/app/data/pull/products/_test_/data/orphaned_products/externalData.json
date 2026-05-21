@@ -1,0 +1,22 @@
+{
+  "ordergroove_item": [
+    {
+      "public_id": "item1",
+      "product": "PROD-PRESENT-001",
+      "quantity": 1,
+      "order": "order1"
+    },
+    {
+      "public_id": "item2",
+      "product": "PROD-ORPHAN-ITEM-001",
+      "quantity": 1,
+      "order": "order2"
+    }
+  ],
+  "ordergroove_subscription": [
+    {
+      "public_id": "sub1",
+      "product": "PROD-ORPHAN-SUB-001"
+    }
+  ]
+}

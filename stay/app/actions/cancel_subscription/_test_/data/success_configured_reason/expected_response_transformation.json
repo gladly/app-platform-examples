@@ -1,0 +1,9 @@
+{
+  "error": null,
+  "subscription": {
+    "id": "1001",
+    "status": "CANCELLED",
+    "pausedUntil": null,
+    "nextBillingDate": null
+  }
+}

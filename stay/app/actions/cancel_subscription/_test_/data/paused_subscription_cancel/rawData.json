@@ -1,0 +1,8 @@
+{
+  "id": 1002,
+  "status": {
+    "status": "CANCELLED",
+    "pausedUntil": null
+  },
+  "nextBillingDate": null
+}

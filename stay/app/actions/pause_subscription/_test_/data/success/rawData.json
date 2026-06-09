@@ -1,0 +1,8 @@
+{
+  "id": 1001,
+  "status": {
+    "status": "PAUSED",
+    "pausedUntil": "2026-08-01T00:00:00Z"
+  },
+  "nextBillingDate": "2026-08-01T00:00:00Z"
+}

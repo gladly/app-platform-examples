@@ -1,0 +1,9 @@
+{
+  "error": null,
+  "subscription": {
+    "id": "1001",
+    "status": "ACTIVE",
+    "pausedUntil": null,
+    "nextBillingDate": "2026-08-12T00:00:00Z"
+  }
+}

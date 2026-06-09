@@ -1,0 +1,83 @@
+"""
+Error details returned when Stay.ai rejects an action, e.g. because the
+subscription's state changed since the card was last refreshed.
+"""
+type StayActionError {
+  "HTTP status code returned by Stay.ai"
+  httpStatus: Int!
+  "Human-readable explanation of why the action was rejected"
+  message: String
+}
+
+"""
+The subscription's state after a successful action, so the conversation
+timeline records what the subscription became.
+"""
+type StaySubscriptionState {
+  "Stay.ai subscription ID"
+  id: ID
+  "Subscription status after the action: ACTIVE, PAUSED, or CANCELLED"
+  status: String
+  "Date the subscription automatically resumes, when paused"
+  pausedUntil: String
+  "Date the customer will next be charged"
+  nextBillingDate: String
+}
+
+"""
+Result envelope for subscription write actions: exactly one of error or
+subscription is set.
+"""
+type StayActionResult {
+  error: StayActionError
+  subscription: StaySubscriptionState
+}
+
+"""
+Result of generating a customer portal link: exactly one of error or url is set.
+"""
+type PortalLinkResult {
+  error: StayActionError
+  "Authenticated Stay.ai customer portal link to share with the customer"
+  url: String
+}
+
+type Mutation {
+  """
+  Pause a subscription until a required resume date. Billing stops until the
+  pausedUntil date, when the subscription automatically resumes.
+  Valid only for ACTIVE subscriptions.
+  """
+  pauseSubscription(subscriptionId: ID!, pausedUntil: String!): StayActionResult!
+    @action(name: "pause_subscription")
+
+  """
+  Resume a paused subscription immediately. Valid only for PAUSED subscriptions.
+  """
+  unpauseSubscription(subscriptionId: ID!): StayActionResult!
+    @action(name: "unpause_subscription")
+
+  """
+  Skip the subscription's next order. The next billing date moves forward by
+  one billing interval. Valid only for ACTIVE subscriptions.
+  """
+  skipOrder(subscriptionId: ID!): StayActionResult!
+    @action(name: "skip_order")
+
+  """
+  Cancel a subscription with a required cancellation reason. The reason must
+  come from the merchant's configured reason list when one is set. Recorded
+  with initiator MERCHANT because the agent acts on the merchant's behalf.
+  Valid for ACTIVE and PAUSED subscriptions.
+  """
+  cancelSubscription(subscriptionId: ID!, reason: String!): StayActionResult!
+    @action(name: "cancel_subscription")
+
+  """
+  Generate an authenticated Stay.ai customer portal link for self-service
+  operations like product swaps, payment updates, and address changes.
+  Send the link to the customer; treat it as sensitive.
+  """
+  generatePortalLink(subscriptionId: ID!): PortalLinkResult!
+    @action(name: "generate_portal_link")
+}

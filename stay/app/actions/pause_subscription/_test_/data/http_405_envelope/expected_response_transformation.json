@@ -1,0 +1,7 @@
+{
+  "error": {
+    "httpStatus": 405,
+    "message": "405 METHOD NOT ALLOWED"
+  },
+  "subscription": null
+}

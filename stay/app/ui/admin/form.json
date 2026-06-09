@@ -1,0 +1,29 @@
+{
+  "title": "Configure Stay.ai",
+  "sections": [
+    {
+      "type": "text",
+      "text": "Enter your Stay.ai API credentials below."
+    },
+    {
+      "type": "input",
+      "label": "API Key",
+      "attr": "secrets.apiKey",
+      "input": {
+        "type": "text",
+        "placeholder": "Enter your Stay.ai API key"
+      },
+      "hint": "Found in the Stay.ai Merchant Portal under Settings > API Keys"
+    },
+    {
+      "type": "input",
+      "label": "Cancellation Reasons",
+      "attr": "configuration.cancellationReasons",
+      "input": {
+        "type": "text",
+        "placeholder": "Too expensive, Too much product, Moving, Quality issues, Other"
+      },
+      "hint": "Optional comma-separated list of allowed cancellation reasons. When set, agents must use one of these reasons when cancelling a subscription. Leave blank to allow any reason."
+    }
+  ]
+}

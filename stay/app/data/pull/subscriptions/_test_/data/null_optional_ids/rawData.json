@@ -1,0 +1,33 @@
+{
+  "total": 1,
+  "data": [
+    {
+      "id": 1005,
+      "subscriptionId": null,
+      "status": "ACTIVE",
+      "createdAt": "2026-01-01T00:00:00Z",
+      "updatedAt": null,
+      "nextBillingDate": "2026-06-20T00:00:00Z",
+      "pausedUntil": null,
+      "orderNotes": null,
+      "price": 10,
+      "deliveryPrice": 0,
+      "currency": "USD",
+      "churnedAt": null,
+      "cancelledAt": null,
+      "cancellationReason": null,
+      "orderIntervalFrequency": 1,
+      "orderIntervalUnit": "MONTH",
+      "lineItems": [
+        {
+          "lineId": null,
+          "shopifyProductId": null,
+          "shopifyVariantId": null,
+          "quantity": 1,
+          "unitPrice": 10,
+          "subtotalPrice": 10
+        }
+      ]
+    }
+  ]
+}

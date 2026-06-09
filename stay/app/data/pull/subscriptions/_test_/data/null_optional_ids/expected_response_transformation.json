@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1005",
+    "status": "ACTIVE",
+    "createdAt": "2026-01-01T00:00:00Z",
+    "updatedAt": "2026-01-01T00:00:00Z",
+    "nextBillingDate": "2026-06-20T00:00:00Z",
+    "pausedUntil": null,
+    "orderNotes": null,
+    "price": 10,
+    "deliveryPrice": 0,
+    "currency": "USD",
+    "churnedAt": null,
+    "cancelledAt": null,
+    "cancellationReason": null,
+    "orderIntervalFrequency": 1,
+    "orderIntervalUnit": "MONTH",
+    "billingCadence": "Every month",
+    "lineItems": [
+      {
+        "quantity": 1,
+        "unitPrice": 10,
+        "subtotalPrice": 10
+      }
+    ]
+  }
+]

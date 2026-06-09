@@ -1,0 +1,10 @@
+{
+  "id": 1001,
+  "status": {
+    "status": "ACTIVE",
+    "pausedUntil": null
+  },
+  "lineCount": 0,
+  "scheduledBillingDate": null,
+  "lines": []
+}

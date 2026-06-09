@@ -1,0 +1,16 @@
+{
+  "id": "1004",
+  "updatedAt": "2026-04-01T00:00:00Z",
+  "status": "ACTIVE",
+  "pausedUntil": null,
+  "lineCount": 1,
+  "scheduledBillingDate": "2026-06-15T00:00:00Z",
+  "lines": [
+    {
+      "id": "5005",
+      "title": "Sample Pack",
+      "variantTitle": null,
+      "quantity": 1
+    }
+  ]
+}

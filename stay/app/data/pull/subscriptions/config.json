@@ -1,0 +1,7 @@
+{
+  "dataType": {
+    "name": "stay_subscription",
+    "version": "1.0"
+  },
+  "httpMethod": "GET"
+}

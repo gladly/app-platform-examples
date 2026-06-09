@@ -1,0 +1,45 @@
+{
+  "id": "1002",
+  "updatedAt": "2026-05-20T11:45:00Z",
+  "status": "PAUSED",
+  "pausedUntil": "2026-07-01T00:00:00Z",
+  "lineCount": 2,
+  "scheduledBillingDate": "2026-06-12T00:00:00Z",
+  "billingPolicy": {
+    "interval": "MONTH",
+    "intervalCount": 2
+  },
+  "deliveryAddress": {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "address1": "123 Street",
+    "address2": "Apt 4",
+    "city": "Springfield",
+    "province": "Illinois",
+    "provinceCode": "IL",
+    "country": "United States",
+    "countryCode": "US",
+    "zip": "62704",
+    "phone": "+15551234567"
+  },
+  "lines": [
+    {
+      "id": "5001",
+      "title": "Morning Blend Coffee",
+      "variantTitle": "12 oz",
+      "quantity": 1,
+      "price": 28,
+      "discountedPrice": 25.2,
+      "variantImageSrc": "https://cdn.example.com/img/coffee-12oz.jpg"
+    },
+    {
+      "id": "5002",
+      "title": "Ceramic Mug",
+      "variantTitle": "White",
+      "quantity": 2,
+      "price": 7,
+      "discountedPrice": 7,
+      "variantImageSrc": "https://cdn.example.com/img/mug-white.jpg"
+    }
+  ]
+}

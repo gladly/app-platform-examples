@@ -1,0 +1,3 @@
+https://api.retextion.com/api/v2/subscriptions/1001
+https://api.retextion.com/api/v2/subscriptions/1002
+https://api.retextion.com/api/v2/subscriptions/1003

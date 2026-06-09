@@ -1,0 +1,6 @@
+{
+  "error": {
+    "code": "STATE_CONFLICT",
+    "detail": "already cancelled"
+  }
+}

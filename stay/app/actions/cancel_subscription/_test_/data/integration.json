@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "cancellationReasons": "Too expensive, Too much product, Moving, Quality issues, Other"
+  },
+  "secrets": {
+    "apiKey": "stay_test_api_key"
+  }
+}

@@ -1,0 +1,145 @@
+"""
+A product line item as returned by the Stay.ai subscriptions list endpoint.
+Carries Shopify identifiers and pricing, but not the product title or image -
+those live on StayDetailLine, which is enriched from the per-subscription
+detail endpoint.
+"""
+type StayLineItem {
+  "Stay.ai line identifier"
+  lineId: String
+  "Shopify product ID for this line"
+  shopifyProductId: String
+  "Shopify variant ID for this line"
+  shopifyVariantId: String
+  "Number of units of this product in each order"
+  quantity: Int
+  "Price of a single unit before discounts"
+  unitPrice: Float
+  "Subtotal for this line (quantity x unit price) before discounts"
+  subtotalPrice: Float
+}
+
+"""
+A fully-described product line from the subscription detail endpoint,
+including the product title and image the agent shows or reads to the customer.
+"""
+type StayDetailLine {
+  "Stay.ai line identifier"
+  id: ID!
+  "Product title as the customer would recognize it"
+  title: String
+  "Variant title (size, flavor, color) when the product has variants"
+  variantTitle: String
+  "Number of units of this product in each order"
+  quantity: Int
+  "Current price of a single unit before discounts"
+  price: Float
+  "Price of a single unit after subscription discounts are applied"
+  discountedPrice: Float
+  "URL of the product variant image"
+  variantImageSrc: String
+}
+
+"""
+The address each subscription order ships to.
+"""
+type StayDeliveryAddress {
+  firstName: String
+  lastName: String
+  address1: String
+  address2: String
+  city: String
+  province: String
+  provinceCode: String
+  country: String
+  countryCode: String
+  zip: String
+  phone: String
+}
+
+"""
+How often the customer is billed: interval is the unit (e.g. WEEK, MONTH)
+and intervalCount is how many of that unit pass between charges.
+"""
+type StayBillingPolicy {
+  interval: String
+  intervalCount: Int
+}
+
+"""
+Enrichment data for one subscription, fetched from the per-subscription
+detail endpoint. These fields are not available on the list endpoint; when
+this object is missing the subscription still renders from list data.
+"""
+type StaySubscriptionDetail
+  @dataType(name: "stay_subscription_detail", version: "1.0") {
+  "Stay.ai subscription ID this detail belongs to"
+  id: ID!
+  "Date the subscription was last changed"
+  updatedAt: String
+  "Subscription status: ACTIVE, PAUSED, or CANCELLED (flattened from the detail endpoint's nested status object)"
+  status: String
+  "Date the subscription automatically resumes, when paused"
+  pausedUntil: String
+  "Number of product lines in the subscription"
+  lineCount: Int
+  "Date the next order is scheduled to be billed"
+  scheduledBillingDate: String
+  "Billing cadence: interval unit and count between charges"
+  billingPolicy: StayBillingPolicy
+  "Address the subscription orders ship to"
+  deliveryAddress: StayDeliveryAddress
+  "Product lines with titles, prices, discounted prices, and images"
+  lines: [StayDetailLine]
+}
+
+"""
+A Stay.ai subscription belonging to the customer being viewed.
+Sourced from the Stay.ai subscriptions list endpoint, matched by the
+customer's email address.
+"""
+type StaySubscription @dataType(name: "stay_subscription", version: "1.0") {
+  "Stay.ai internal subscription ID"
+  id: ID!
+  "Shopify subscription contract ID"
+  subscriptionId: String
+  "Subscription status: ACTIVE (billing normally), PAUSED (temporarily not billing), or CANCELLED (ended)"
+  status: String
+  "Date the subscription was created"
+  createdAt: String
+  "Date the subscription was last changed"
+  updatedAt: String
+  "The date the customer will next be charged and their next order will be created"
+  nextBillingDate: String
+  "Date the subscription automatically resumes, when paused"
+  pausedUntil: String
+  "Notes attached to the subscription's orders (read-only)"
+  orderNotes: String
+  "Total recurring price the customer pays per order, excluding delivery"
+  price: Float
+  "Delivery price the customer pays per order"
+  deliveryPrice: Float
+  "ISO currency code for all prices on this subscription"
+  currency: String
+  "Date the customer churned, when the subscription ended"
+  churnedAt: String
+  "Date the subscription was cancelled, when cancelled"
+  cancelledAt: String
+  "Reason the customer or merchant gave for cancelling"
+  cancellationReason: String
+  "How many interval units pass between orders (e.g. 2 with unit MONTH means every 2 months)"
+  orderIntervalFrequency: Int
+  "The interval unit for billing frequency (e.g. DAY, WEEK, MONTH)"
+  orderIntervalUnit: String
+  "Human-readable billing cadence, e.g. 'Every 2 months' - safe to read to the customer verbatim"
+  billingCadence: String
+  "Product lines from the list endpoint (IDs and prices only; see details for titles and images)"
+  lineItems: [StayLineItem]
+  "Enrichment from the detail endpoint: titles, images, delivery address, billing policy. Zero or one element; empty when the detail pull has not completed or failed"
+  details: [StaySubscriptionDetail] @parentId(template: "{{.id}}")
+}
+
+type Query {
+  "All Stay.ai subscriptions for the customer being viewed, across ACTIVE, PAUSED, and CANCELLED statuses"
+  subscriptions: [StaySubscription]
+}

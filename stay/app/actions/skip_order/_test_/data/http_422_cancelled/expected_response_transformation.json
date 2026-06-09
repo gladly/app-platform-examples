@@ -1,0 +1,7 @@
+{
+  "error": {
+    "httpStatus": 422,
+    "message": "Cannot skip a cancelled subscription"
+  },
+  "subscription": null
+}

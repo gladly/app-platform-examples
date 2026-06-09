@@ -1,0 +1,7 @@
+{
+  "error": {
+    "httpStatus": 409,
+    "message": "Subscription is not paused"
+  },
+  "subscription": null
+}

@@ -1,0 +1,7 @@
+{
+  "id": "customer3",
+  "name": "Fallback",
+  "emailAddresses": [
+    "fallback+stay@example.com"
+  ]
+}

@@ -1,0 +1,1 @@
+https://api.retextion.com/api/v2/subscriptions/1001/cancel

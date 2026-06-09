@@ -1,0 +1,39 @@
+{
+  "id": 1003,
+  "updatedAt": "2026-03-05T14:00:00Z",
+  "status": {
+    "status": "CANCELLED",
+    "pausedUntil": null
+  },
+  "scheduledBillingDate": null,
+  "billingPolicy": {
+    "interval": "WEEK",
+    "intervalCount": 4
+  },
+  "deliveryMethod": {
+    "address": {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "address1": "123 Street",
+      "address2": null,
+      "city": "Springfield",
+      "province": "Illinois",
+      "provinceCode": "IL",
+      "country": "United States",
+      "countryCode": "US",
+      "zip": "62704",
+      "phone": null
+    }
+  },
+  "lines": [
+    {
+      "id": 5004,
+      "title": "Discontinued Tea",
+      "variantTitle": null,
+      "quantity": 1,
+      "currentPrice": {
+        "amount": 35
+      }
+    }
+  ]
+}

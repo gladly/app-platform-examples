@@ -1,0 +1,7 @@
+{
+  "error": {
+    "httpStatus": 404,
+    "message": "Subscription not found"
+  },
+  "subscription": null
+}

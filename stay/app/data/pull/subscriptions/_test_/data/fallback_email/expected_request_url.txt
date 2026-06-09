@@ -1,0 +1,1 @@
+https://api.retextion.com/api/v2/subscriptions/?email=fallback%2Bstay%40example.com&pageSize=100&sortBy=updatedAt&sortDirection=DESC

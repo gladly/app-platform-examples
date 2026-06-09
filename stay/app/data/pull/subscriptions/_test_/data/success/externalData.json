@@ -1,0 +1,90 @@
+{
+  "stay_subscription": [
+    {
+      "id": "1001",
+      "subscriptionId": "gid://shopify/SubscriptionContract/9001",
+      "status": "ACTIVE",
+      "createdAt": "2025-11-02T10:00:00Z",
+      "updatedAt": "2026-05-30T08:15:00Z",
+      "nextBillingDate": "2026-06-12T00:00:00Z",
+      "pausedUntil": null,
+      "orderNotes": "Leave at the front door",
+      "price": 42,
+      "deliveryPrice": 4.99,
+      "currency": "USD",
+      "churnedAt": null,
+      "cancelledAt": null,
+      "cancellationReason": null,
+      "orderIntervalFrequency": 2,
+      "orderIntervalUnit": "MONTH",
+      "billingCadence": "Every 2 months",
+      "lineItems": [
+        {
+          "lineId": "5001",
+          "shopifyProductId": "7001",
+          "shopifyVariantId": "8001",
+          "quantity": 1,
+          "unitPrice": 28,
+          "subtotalPrice": 28
+        },
+        {
+          "lineId": "5002",
+          "shopifyProductId": "7002",
+          "shopifyVariantId": "8002",
+          "quantity": 2,
+          "unitPrice": 7,
+          "subtotalPrice": 14
+        }
+      ]
+    },
+    {
+      "id": "1002",
+      "subscriptionId": "gid://shopify/SubscriptionContract/9002",
+      "status": "PAUSED",
+      "createdAt": "2025-08-14T09:30:00Z",
+      "updatedAt": "2026-05-20T11:45:00Z",
+      "nextBillingDate": "2026-07-01T00:00:00Z",
+      "pausedUntil": "2026-07-01T00:00:00Z",
+      "orderNotes": null,
+      "price": 19.5,
+      "deliveryPrice": 0,
+      "currency": "USD",
+      "churnedAt": null,
+      "cancelledAt": null,
+      "cancellationReason": null,
+      "orderIntervalFrequency": 1,
+      "orderIntervalUnit": "WEEK",
+      "billingCadence": "Every week",
+      "lineItems": [
+        {
+          "lineId": "5003",
+          "shopifyProductId": "7003",
+          "shopifyVariantId": "8003",
+          "quantity": 1,
+          "unitPrice": 19.5,
+          "subtotalPrice": 19.5
+        }
+      ]
+    },
+    {
+      "id": "1003",
+      "subscriptionId": "gid://shopify/SubscriptionContract/9003",
+      "status": "CANCELLED",
+      "createdAt": "2024-12-01T16:20:00Z",
+      "updatedAt": "2026-03-05T14:00:00Z",
+      "nextBillingDate": null,
+      "pausedUntil": null,
+      "orderNotes": null,
+      "price": 35,
+      "deliveryPrice": 4.99,
+      "currency": "USD",
+      "churnedAt": "2026-03-05T14:00:00Z",
+      "cancelledAt": "2026-03-05T14:00:00Z",
+      "cancellationReason": "Too expensive",
+      "orderIntervalFrequency": 4,
+      "orderIntervalUnit": "WEEK",
+      "billingCadence": "Every 4 weeks",
+      "lineItems": []
+    }
+  ]
+}

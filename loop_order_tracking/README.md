@@ -66,7 +66,7 @@ You will need:
 ### Installation
 
 1. **Obtain API Token**
-   - Request a Loop Order Tracking API access token from the Loop team
+   - Request a Loop Order Tracking API access token from the Loop team - austinhutchison@loopreturns.com
 
 2. **Build the App**
    - Use the `appcfg` CLI tool to validate and build the app:

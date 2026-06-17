@@ -1,1 +1,0 @@
-{{.integration.secrets.apiKey}}

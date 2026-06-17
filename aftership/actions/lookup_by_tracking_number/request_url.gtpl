@@ -1,1 +1,0 @@
-https://api.aftership.com/tracking/2025-01/trackings?tracking_numbers={{.inputs.trackingNumber}}

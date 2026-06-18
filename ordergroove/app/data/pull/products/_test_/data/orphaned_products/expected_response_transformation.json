@@ -1,0 +1,22 @@
+[
+{
+  "id": "PROD-PRESENT-001",
+  "external_product_id": "PROD-PRESENT-001",
+  "name": "Present Product",
+  "price": "10.00",
+  "sku": "PRESENT-SKU",
+  "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+  "live": true,
+  "autoship_enabled": true
+},
+{
+  "id": "PROD-ORPHAN-ITEM-001",
+  "external_product_id": "PROD-ORPHAN-ITEM-001",
+  "discontinued": true
+},
+{
+  "id": "PROD-ORPHAN-SUB-001",
+  "external_product_id": "PROD-ORPHAN-SUB-001",
+  "discontinued": true
+}
+]

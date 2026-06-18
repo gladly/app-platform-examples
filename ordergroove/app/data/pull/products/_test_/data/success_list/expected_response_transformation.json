@@ -18,5 +18,15 @@
   "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
   "live": true,
   "autoship_enabled": true
+},
+{
+  "id": "HDPH-002",
+  "external_product_id": "HDPH-002",
+  "name": "Wireless Earbuds",
+  "price": "129.99",
+  "sku": "555666777",
+  "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+  "live": true,
+  "autoship_enabled": true
 }
 ]

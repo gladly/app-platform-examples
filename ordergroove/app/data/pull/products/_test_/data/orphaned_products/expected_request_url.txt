@@ -1,0 +1,1 @@
+https://restapi.ordergroove.com/products/?external_product_ids[]=PROD-PRESENT-001&external_product_ids[]=PROD-ORPHAN-ITEM-001&external_product_ids[]=PROD-ORPHAN-SUB-001

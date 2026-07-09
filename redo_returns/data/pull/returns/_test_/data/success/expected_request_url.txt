@@ -1,0 +1,1 @@
+https://api.getredo.com/v2.2/stores/store_abc123/returns?email=johnSmith%40email.com

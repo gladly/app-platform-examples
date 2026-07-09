@@ -1,0 +1,160 @@
+<?Template languageVersion="1.1" ?>
+<Card title="{{ __data.length }} Return{{- __data.length > 1 ? 's' : '' }}" cardType="expandable">
+  <List dataSource="__data" separateItems="true">
+    <Drawer initialState="expandFirst">
+      <Fixed>
+        <Text fontSize="medium" fontWeight="semiBold">Order {{ orderName }}</Text>
+        <DateTimeValue dataSource="createdAt" label="Created on" valueFontWeight="medium" />
+        <Formula>{{ status | capitalize }}</Formula>
+      </Fixed>
+      <Expandable>
+        <!-- Return details -->
+        <Formula label="Type" valueFontWeight="medium">{{ type | capitalize }}</Formula>
+        <DateTimeValue dataSource="updatedAt" label="Last updated" valueFontWeight="medium" />
+        <Formula label="Status" valueFontWeight="medium">{{ status | capitalize }}</Formula>
+
+        <!-- Compensation Methods -->
+        <Section title="Compensation" padding="none" titleFontSize="medium" when="compensationMethods is not empty">
+          <Formula>{{ compensationMethods | join(", ") | replace("_", " ") | capitalize }}</Formula>
+        </Section>
+
+        <Divider spacing="medium"/>
+
+        <!-- Customer Information -->
+        <Section title="Customer" padding="none" titleFontSize="medium" when="source is not empty">
+          <Formula label="Name" valueFontWeight="medium">{{ source.name.given }} {{ source.name.surname }}</Formula>
+          <StringValue dataSource="source.emailAddress" label="Email" valueFontWeight="medium" />
+          <StringValue dataSource="source.phoneNumber" label="Phone" valueFontWeight="medium" />
+          <Spacer size="small"/>
+          <Section padding="none" when="source.mailingAddress is not empty">
+            <Text fontWeight="semiBold">Address</Text>
+            <Formula>{{ source.mailingAddress.line1 }}</Formula>
+            <Formula>{{ source.mailingAddress.line2 }}</Formula>
+            <Formula>{{ source.mailingAddress.city }}, {{ source.mailingAddress.state }} {{ source.mailingAddress.postalCode }}</Formula>
+            <Formula>{{ source.mailingAddress.country }}</Formula>
+          </Section>
+        </Section>
+
+        <Divider spacing="medium"/>
+
+        <!-- Returned Items -->
+        <Section title="Returned Item{{- (items | length) > 1 ? 's' : '' }}" padding="none" titleFontSize="medium" when="items | length > 0">
+          <List dataSource="items">
+            <Text fontWeight="semiBold">{{ productName }}</Text>
+            <StringValue dataSource="sku" label="SKU" valueAlignment="right" />
+            <Formula label="Quantity" valueAlignment="right">{{ quantity }}</Formula>
+            <StringValue dataSource="reasonCode" label="Reason Code" valueAlignment="right" />
+            <StringValue dataSource="customerComment" label="Customer Comment" maxLines="3" multilineStyle="expandable" />
+            <Formula label="Green Return" valueAlignment="right">{{ greenReturn ? 'Yes' : 'No' }}</Formula>
+            <Section padding="none" when="refund is not empty">
+              <StringValue dataSource="refund.type" label="Compensation" valueAlignment="right" />
+              <Formula label="Amount" valueAlignment="right">{{ refund.amount.amount }} {{ refund.amount.currency }}</Formula>
+            </Section>
+            <!-- Exchange item -->
+            <Section padding="none" when="exchangeItem is not empty">
+              <Text fontWeight="semiBold">Exchange For:</Text>
+              <Formula>{{ exchangeItem.product.name }}</Formula>
+              <Formula>Variant: {{ exchangeItem.variant.name }}</Formula>
+              <Formula label="Quantity">{{ exchangeItem.quantity }}</Formula>
+            </Section>
+            <Spacer size="small"/>
+          </List>
+        </Section>
+
+        <!-- Exchange Order -->
+        <Divider spacing="medium" when="exchange.itemCount > 0"/>
+        <Section title="Exchange Order" padding="none" titleFontSize="medium" when="exchange.itemCount > 0">
+          <Formula label="Item Count" valueAlignment="right">{{ exchange.itemCount }}</Formula>
+          <StringValue dataSource="exchange.provision" label="Provision" valueAlignment="right" />
+          <StringValue dataSource="exchange.order.externalId" label="Order ID" valueAlignment="right" />
+          <Formula label="Total Tax" valueAlignment="right">{{ exchange.totalTax.amount }} {{ exchange.totalTax.currency }}</Formula>
+          <Spacer size="small"/>
+          <Section padding="none" when="exchange.items | length > 0">
+            <List dataSource="exchange.items">
+              <Text fontWeight="semiBold">{{ product.name }}</Text>
+              <StringValue dataSource="variant.name" label="Variant" valueAlignment="right" />
+              <StringValue dataSource="variant.sku" label="SKU" valueAlignment="right" />
+              <Formula label="Quantity">{{ quantity }}</Formula>
+              <Formula label="Original Price" valueAlignment="right">{{ originalPrice.amount }} {{ originalPrice.currency }}</Formula>
+              <Formula label="Price" valueAlignment="right">{{ price.amount }} {{ price.currency }}</Formula>
+              <Spacer size="small"/>
+            </List>
+          </Section>
+        </Section>
+
+        <!-- Totals -->
+        <Divider spacing="medium" when="totals is not empty"/>
+        <Section title="Totals" padding="none" titleFontSize="medium" when="totals is not empty">
+          <Section padding="none" when="totals.refund.amount.amount is not empty">
+            <Formula label="Refund" valueAlignment="right" valueFontWeight="semiBold">{{ totals.refund.amount.amount }} {{ totals.refund.amount.currency }}</Formula>
+          </Section>
+          <Section padding="none" when="totals.storeCredit.amount.amount is not empty">
+            <Formula label="Store Credit" valueAlignment="right" valueFontWeight="semiBold">{{ totals.storeCredit.amount.amount }} {{ totals.storeCredit.amount.currency }}</Formula>
+          </Section>
+          <Section padding="none" when="totals.exchange.amount.amount is not empty">
+            <Formula label="Exchange" valueAlignment="right" valueFontWeight="semiBold">{{ totals.exchange.amount.amount }} {{ totals.exchange.amount.currency }}</Formula>
+          </Section>
+          <Section padding="none" when="totals.charge.amount.amount is not empty">
+            <Formula label="Charge" valueAlignment="right" valueFontWeight="semiBold">{{ totals.charge.amount.amount }} {{ totals.charge.amount.currency }}</Formula>
+          </Section>
+        </Section>
+
+        <!-- Gift Cards -->
+        <Divider spacing="medium" when="giftCards | length > 0"/>
+        <Section title="Gift Cards" padding="none" titleFontSize="medium" when="giftCards | length > 0">
+          <List dataSource="giftCards">
+            <StringValue dataSource="code" label="Code" valueFontWeight="medium" />
+            <Formula label="Amount" valueAlignment="right">{{ amount.amount }} {{ amount.currency }}</Formula>
+            <Spacer size="small"/>
+          </List>
+        </Section>
+
+        <!-- Shipping -->
+        <Divider spacing="medium" when="shipment is not empty"/>
+        <Section title="Shipping" expandable="true" padding="none" titleFontSize="medium" when="shipment is not empty">
+          <StringValue dataSource="shipment.carrier" label="Carrier" valueFontWeight="medium" />
+          <StringValue dataSource="shipment.status" label="Status" valueFontWeight="medium" />
+          <StringValue dataSource="shipment.tracker" label="Tracking Number" valueFontWeight="medium" />
+          <Link dataSource="shipment.trackingUrl" linkText="Track shipment" valueFontWeight="medium" />
+          <Spacer size="small"/>
+        </Section>
+
+        <!-- Multiple Shipments -->
+        <Section title="All Shipments" expandable="true" padding="none" titleFontSize="medium" when="shipments | length > 1">
+          <List dataSource="shipments">
+            <StringValue dataSource="carrier" label="Carrier" valueFontWeight="medium" />
+            <StringValue dataSource="status" label="Status" valueFontWeight="medium" />
+            <StringValue dataSource="tracker" label="Tracking Number" valueFontWeight="medium" />
+            <Link dataSource="trackingUrl" linkText="Track shipment" valueFontWeight="medium" />
+            <Spacer size="medium"/>
+          </List>
+        </Section>
+
+        <!-- Notes -->
+        <Section title="Notes" expandable="true" padding="none" titleFontSize="medium" when="notes | length > 0">
+          <List dataSource="notes">
+            <StringValue dataSource="message" maxLines="3" multilineStyle="expandable" />
+            <Link dataSource="image" linkText="View image" />
+            <Spacer size="medium"/>
+          </List>
+        </Section>
+
+        <!-- Destination -->
+        <Divider spacing="medium" when="destination is not empty"/>
+        <Section title="Return Destination" expandable="true" padding="none" titleFontSize="medium" when="destination is not empty">
+          <StringValue dataSource="destination.phoneNumber" label="Phone" valueFontWeight="medium" />
+          <Section padding="none" when="destination.mailingAddress is not empty">
+            <Text fontWeight="semiBold">Address</Text>
+            <Formula>{{ destination.mailingAddress.line1 }}</Formula>
+            <Formula>{{ destination.mailingAddress.line2 }}</Formula>
+            <Formula>{{ destination.mailingAddress.city }}, {{ destination.mailingAddress.state }} {{ destination.mailingAddress.postalCode }}</Formula>
+            <Formula>{{ destination.mailingAddress.country }}</Formula>
+          </Section>
+        </Section>
+
+        <!-- Final spacer -->
+        <Spacer size="medium"/>
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

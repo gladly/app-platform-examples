@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "storeId": "test-store-id"
+  },
+  "secrets": {
+    "apiToken": "some-access-token"
+  }
+}

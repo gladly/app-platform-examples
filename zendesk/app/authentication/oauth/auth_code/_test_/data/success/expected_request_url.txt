@@ -1,0 +1,1 @@
+https://test-company.zendesk.com/oauth/authorizations/new?response_type=code&client_id=test_client_id_123&redirect_uri=https%3A%2F%2Fexample.com%2Fzendesk_callback&scope=tickets:read%20tickets:write%20users:read%20users:write%20hc:read&state=test_correlation_id_789

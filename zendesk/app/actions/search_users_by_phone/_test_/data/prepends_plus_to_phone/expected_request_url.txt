@@ -1,0 +1,1 @@
+https://test-subdomain.zendesk.com/api/v2/users/search?query=phone%3A%2B15551234567%20is_suspended%3Afalse

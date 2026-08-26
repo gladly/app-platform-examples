@@ -1,0 +1,9 @@
+{
+  "ticket_id": "1001",
+  "comment": {
+    "body": "Comment on behalf of another user",
+    "public": false,
+    "author_id": "98765432100"
+  }
+}
+

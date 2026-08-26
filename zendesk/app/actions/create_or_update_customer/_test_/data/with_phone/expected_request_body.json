@@ -1,0 +1,8 @@
+{
+  "user": {
+    "external_id": "gladly-phone-user",
+    "name": "Phone User",
+    "role": "end-user",
+    "phone": "+15551234567"
+  }
+}

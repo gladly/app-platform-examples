@@ -1,0 +1,7 @@
+{
+  "ticket_id": "1002",
+  "comment": {
+    "body": "Cannot add comment to closed ticket",
+    "public": false
+  }
+}

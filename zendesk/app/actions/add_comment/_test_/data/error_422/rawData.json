@@ -1,0 +1,11 @@
+{
+  "error": "RecordInvalid",
+  "description": "Record validation errors",
+  "details": {
+    "status": [
+      {
+        "description": "closed prevents ticket update"
+      }
+    ]
+  }
+}

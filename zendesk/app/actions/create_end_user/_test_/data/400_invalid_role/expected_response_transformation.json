@@ -1,0 +1,6 @@
+{
+  "error": {
+    "error": "Invalid attribute",
+    "description": "You passed an invalid value for the user.role attribute. Invalid parameter: user.role must be one of these: end-user, agent, admin, and legacy agent from api/v2/users/create"
+  }
+}

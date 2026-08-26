@@ -1,0 +1,10 @@
+/{
+  "ticket": {
+    "comment": {
+      "html_body": "<p>This is a <strong>formatted</strong> comment with basic styling.</p>",
+      "public": false
+    },
+    "safe_update": true,
+    "updated_stamp": "\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z"
+  }
+}/

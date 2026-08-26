@@ -1,0 +1,6 @@
+{
+  "configuration": {
+    "subdomain": "your-subdomain",
+    "username": "user@example.com"
+  }
+}

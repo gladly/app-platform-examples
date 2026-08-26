@@ -1,0 +1,8 @@
+{
+  "user": {
+    "external_id": "gladly-customer-12345",
+    "name": "John Doe",
+    "role": "end-user",
+    "email": "john@example.com"
+  }
+}

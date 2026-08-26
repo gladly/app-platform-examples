@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "subdomain": "my-company"
+  },
+  "secrets": {
+    "access_token": "mycompany_access_token"
+  }
+}

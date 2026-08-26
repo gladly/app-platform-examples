@@ -1,0 +1,18 @@
+{
+  "user": {
+    "id": 11111111111,
+    "name": "John Updated",
+    "email": "john.existing@example.com",
+    "phone": "+15559876543",
+    "shared_phone_number": false,
+    "role": "end-user",
+    "verified": true,
+    "active": true,
+    "suspended": false,
+    "created_at": "2023-06-01T08:00:00Z",
+    "updated_at": "2024-01-17T09:30:00Z",
+    "last_login_at": "2024-01-10T12:00:00Z",
+    "external_id": "gladly-customer-existing",
+    "url": "https://test-subdomain.zendesk.com/api/v2/users/11111111111.json"
+  }
+}

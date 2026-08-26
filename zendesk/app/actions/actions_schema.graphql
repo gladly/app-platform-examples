@@ -1,0 +1,271 @@
+"""
+Input for creating a new Zendesk user
+"""
+input UserInput {
+  "Gladly customer ID (used as external_id in Zendesk for matching)"
+  customerId: String!
+  "The user's name"
+  name: String!
+  "The user's email address"
+  email: String
+  "The user's phone number (E.164 format recommended, e.g., +15551234567)"
+  phone: String
+}
+
+"""
+Input for specifying ticket requester information
+"""
+input RequesterInput {
+  "The full name of the person requesting the ticket"
+  name: String!
+  "The email address of the person requesting the ticket"
+  email: String!
+}
+
+"""
+Input for adding comments to tickets
+"""
+input CommentInput {
+  """
+  The content of the comment as plaintext. Supports Markdown formatting for agents only.
+  Use 'html_body' instead for HTML content.
+  """
+  body: String
+  """
+  The content of the comment as HTML.
+  Use this instead of 'body' when you need HTML formatting, links, or preserved spacing.
+  """
+  html_body: String
+  "Whether the comment should be visible to end users (default: true)"
+  public: Boolean = true
+  "User ID to display as the comment author (defaults to the authenticated API user)"
+  author_id: String
+}
+
+"""
+Error information returned when API operations fail
+"""
+type Error {
+  "Short error code or type"
+  error: String!
+  "Human-readable description of what went wrong"
+  description: String!
+  "Detailed breakdown of errors as a JSON string"
+  details: String
+}
+
+"""
+A Zendesk user (customer or agent)
+"""
+type User {
+  "Unique numeric identifier for the user"
+  id: String!
+  name: String
+  """
+  The user's primary email address. Can be used as identifier.
+  Note: Writeable on create only. On update, a secondary email is added.
+  """
+  email: String
+  "The user's primary phone number"
+  phone: String
+  """
+  If true, the phone is shared with other users and cannot be used for SMS routing.
+  If false, the phone is a direct line and can receive SMS via Zendesk Text.
+  """
+  shared_phone_number: Boolean
+  "User's role in Zendesk (e.g., 'end-user', 'agent', 'admin')"
+  role: String
+  "Whether the user's email has been verified (e.g., via email confirmation)"
+  verified: Boolean
+  "Whether the user account is active. Deleted users will be false."
+  active: Boolean
+  "Whether the user has been suspended. Suspended users cannot sign in."
+  suspended: Boolean
+  "ISO 8601 timestamp when the user was created"
+  created_at: String
+  "ISO 8601 timestamp when the user was last updated"
+  updated_at: String
+  "ISO 8601 timestamp when the user last signed in"
+  last_login_at: String
+  "Custom external identifier, can be used to store Gladly customer ID for cross-system linking"
+  external_id: String
+  "API URL to fetch this user's full details"
+  url: String
+}
+
+"""
+Result returned from user creation operations
+"""
+type UserResult {
+  "The successfully created user, if the operation succeeded"
+  user: User
+  "Error information if the user creation failed"
+  error: Error
+}
+
+"""
+Result from user search operations
+"""
+type UserSearchResult {
+  "Number of users found"
+  count: Int!
+  "List of matching users"
+  users: [User!]!
+  "Error information if the search failed"
+  error: Error
+}
+
+"""
+A Zendesk support ticket representing a customer inquiry or issue
+"""
+type Ticket {
+  "Unique numeric identifier for the ticket"
+  id: String!
+  "Direct URL to view this ticket in Zendesk"
+  url: String!
+  "The subject line or title of the ticket"
+  subject: String!
+  "Current status of the ticket (e.g., 'new', 'open', 'pending', 'solved')"
+  status: String!
+  "Priority level (e.g., 'low', 'normal', 'high', 'urgent')"
+  priority: String
+  "Type of ticket (e.g., 'problem', 'incident', 'question', 'task')"
+  type: String
+  "List of tags associated with the ticket for categorization"
+  tags: [String!]
+  "ISO 8601 timestamp when the ticket was created"
+  created_at: String!
+  "ISO 8601 timestamp when the ticket was last updated"
+  updated_at: String!
+  "User ID of the person who submitted the ticket"
+  requester_id: String
+  "Group ID that the ticket is assigned to"
+  group_id: String
+  "ISO 8601 timestamp when the ticket is due (for SLA tracking)"
+  due_at: String
+  "ID of the ticket form used to create this ticket"
+  ticket_form_id: String
+}
+
+"""
+Result returned from ticket operations
+"""
+type TicketResult {
+  "The successfully created or updated ticket, if the operation succeeded"
+  ticket: Ticket
+  "Error information if the ticket creation or update failed"
+  error: Error
+}
+
+type Mutation {
+  """
+  Create a new support ticket in Zendesk with the specified details.
+  You must provide either 'requester' (to create a new requester) or 'requester_id' (to use an existing user), but not both.
+  """
+  createTicket(
+    "The subject line or title for the new ticket"
+    subject: String!
+    "The initial comment or description for the ticket (provide either body or html_body)"
+    comment: CommentInput!
+    """
+    Information about the person requesting support (the customer).
+    The requester is the person asking for help through this ticket.
+    Use this to create a new requester or associate the ticket with an existing user by email.
+    Provide either 'requester' or 'requester_id', but not both.
+    """
+    requester: RequesterInput
+    """
+    User ID of an existing Zendesk user to set as the requester.
+    Use this when the requester already exists in Zendesk.
+    Provide either 'requester_id' or 'requester', but not both.
+    """
+    requester_id: String
+    """
+    User ID of the person who created the ticket in Zendesk.
+    If not specified, the requester becomes the submitter and the ticket appears as if created directly by the customer.
+    If specified with an agent's user ID, the ticket shows as created by the agent 'on behalf of' the customer,
+    and the agent becomes the author of the first comment.
+    """
+    submitter_id: String
+    """
+    Priority level for the ticket (default: 'normal')
+    Allowed values are 'urgent', 'high', 'normal', or 'low'.
+    """
+    priority: String = "normal"
+    """
+    Initial status for the ticket (default: 'new')
+    Valid statuses: 'new', 'open', 'pending', 'hold', 'solved', 'closed'
+    """
+    status: String = "new"
+    """
+    Type of ticket being created (default: 'incident')
+    Valid types: 'problem', 'incident', 'question', 'task'.
+    """
+    type: String = "incident"
+    "List of tags to apply to the ticket for categorization"
+    tags: [String!]
+    "User ID of the agent to assign the ticket to"
+    assignee_id: String
+    "Group ID to assign the ticket to"
+    group_id: String
+    "Ticket form ID to use for the ticket structure"
+    ticket_form_id: String
+    """
+    Channel through which the ticket is being created (e.g., 'api', 'mail', 'chat', 'phone', 'twitter', 'facebook').
+    See https://developer.zendesk.com/documentation/ticketing/reference-guides/via-types/ for complete list of valid channels.
+    """
+    channel: String
+  ): TicketResult! @action(name: "create_ticket")
+
+  """
+  Create a new Zendesk end-user. If user with matching email exists error will be returned.
+  If user with matching phone exists, a new user will be created with a shared phone number.
+  """
+  createEndUser(
+    "User details - name is required, email and phone are optional"
+    user: UserInput!
+  ): UserResult! @action(name: "create_end_user")
+
+  """
+  Add a comment to an existing Zendesk ticket
+  """
+  addComment(
+    "The unique ID of the ticket to add a comment to"
+    ticket_id: String!
+    "The comment content and visibility settings"
+    comment: CommentInput!
+    """
+    Channel through which the comment is being added (e.g., 'api', 'mail', 'chat', 'phone').
+    See https://developer.zendesk.com/documentation/ticketing/reference-guides/via-types/ for complete list.
+    """
+    channel: String
+  ): TicketResult! @action(name: "add_comment")
+
+  """
+  Create or update a Zendesk customer using Gladly customer ID as external_id.
+  Uses Zendesk's create_or_update API for idempotent user resolution:
+  - If a user with matching external_id exists: updates and returns the existing user
+  - If no match found: creates a new user with external_id set to the Gladly customer ID
+
+  This enables a linear workflow for ticket creation without conditional branching:
+  the same action handles both new and returning customers.
+  """
+  createOrUpdateCustomer(
+    "User details - use customerId for matching existing users"
+    user: UserInput!
+  ): UserResult! @action(name: "create_or_update_customer")
+}
+
+type Query {
+  """
+  Search for Zendesk users by phone number.
+  Returns all active and non-suspended users with matching primary phone number.
+  """
+  searchUsersByPhone(
+    """
+    Phone number to search for. Must match exactly how the number is stored in Zendesk (only exact matches are returned).
+    Zendesk does not validate phone format, so use the same format as in your Zendesk instance.
+    """
+    phone: String!
+  ): UserSearchResult! @action(name: "search_users_by_phone")
+}

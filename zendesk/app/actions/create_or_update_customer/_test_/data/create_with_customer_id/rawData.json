@@ -1,0 +1,18 @@
+{
+  "user": {
+    "id": 98765432101,
+    "name": "Jane Smith",
+    "email": null,
+    "phone": null,
+    "shared_phone_number": null,
+    "role": "end-user",
+    "verified": false,
+    "active": true,
+    "suspended": false,
+    "created_at": "2024-01-16T14:00:00Z",
+    "updated_at": "2024-01-16T14:00:00Z",
+    "last_login_at": null,
+    "external_id": "gladly-customer-abc123",
+    "url": "https://test-subdomain.zendesk.com/api/v2/users/98765432101.json"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "ticket": {
+    "url": "https://acme-support.zendesk.com/api/v2/tickets/1001.json",
+    "id": 1001,
+    "external_id": null,
+    "via": {
+      "channel": "api",
+      "source": {
+        "from": {},
+        "to": {},
+        "rel": null
+      }
+    },
+    "created_at": "2024-03-15T14:30:00Z",
+    "updated_at": "2025-11-25T22:38:28Z",
+    "type": null,
+    "subject": "Order inquiry #12345",
+    "raw_subject": "Order inquiry #12345",
+    "priority": null,
+    "status": "open",
+    "recipient": null,
+    "requester_id": 98765432100,
+    "submitter_id": 98765432100,
+    "assignee_id": null,
+    "organization_id": 12345678900,
+    "group_id": 36305747,
+    "collaborator_ids": [],
+    "follower_ids": [],
+    "email_cc_ids": [],
+    "forum_topic_id": null,
+    "problem_id": null,
+    "has_incidents": false,
+    "is_public": false,
+    "due_at": null,
+    "tags": [],
+    "custom_fields": [
+      {"id": 360018605233, "value": null},
+      {"id": 5078932860823, "value": null}
+    ],
+    "satisfaction_rating": null,
+    "sharing_agreement_ids": [],
+    "ticket_form_id": 360000064226,
+    "brand_id": 360000034746,
+    "allow_channelback": false,
+    "allow_attachments": true,
+    "from_messaging_channel": false
+  },
+  "audit": {
+    "id": 153844788580503,
+    "ticket_id": 1001,
+    "created_at": "2025-11-25T22:38:28Z",
+    "author_id": 360403044346,
+    "events": [
+      {
+        "id": 153844788580631,
+        "type": "Comment",
+        "author_id": 360403044346,
+        "body": "This is an internal note",
+        "html_body": "<div class=\"zd-comment\" dir=\"auto\"><p dir=\"auto\">This is an internal note</p></div>",
+        "plain_body": "This is an internal note",
+        "public": false,
+        "attachments": [],
+        "audit_id": 153844788580503
+      }
+    ]
+  }
+}

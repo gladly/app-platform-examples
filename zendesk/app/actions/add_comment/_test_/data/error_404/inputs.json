@@ -1,0 +1,7 @@
+{
+  "ticket_id": "999999999",
+  "comment": {
+    "body": "Comment for non-existent ticket",
+    "public": false
+  }
+}

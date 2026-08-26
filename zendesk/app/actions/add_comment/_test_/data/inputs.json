@@ -1,0 +1,7 @@
+{
+  "ticket_id": "1001",
+  "comment": {
+    "body": "This is an internal note",
+    "public": false
+  }
+}

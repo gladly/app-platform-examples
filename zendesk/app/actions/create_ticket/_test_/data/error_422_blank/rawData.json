@@ -1,0 +1,15 @@
+{
+  "error": "RecordInvalid",
+  "description": "Record validation errors",
+  "details": {
+    "base": [
+      {
+        "description": "Description: cannot be blank",
+        "error": "BlankValue",
+        "ticket_field_id": 53874907,
+        "ticket_field_type": "FieldDescription"
+      }
+    ]
+  }
+}
+

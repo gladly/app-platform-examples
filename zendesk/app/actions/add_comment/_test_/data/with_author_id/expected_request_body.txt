@@ -1,0 +1,12 @@
+/{
+  "ticket": {
+    "comment": {
+      "body": "Comment on behalf of another user",
+      "public": false,
+      "author_id": 98765432100
+    },
+    "safe_update": true,
+    "updated_stamp": "\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z"
+  }
+}/
+

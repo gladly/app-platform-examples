@@ -1,0 +1,16 @@
+{
+  "ticket": {
+    "subject": "Test with empty arrays",
+    "comment": {
+      "body": "This ticket has empty arrays",
+      "public": true
+    },
+    "requester": {
+      "name": "Test User",
+      "email": "test@example.com"
+    },
+    "priority": "normal",
+    "status": "new",
+    "type": "incident"
+  }
+}

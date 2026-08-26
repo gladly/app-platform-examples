@@ -1,0 +1,12 @@
+{
+  "request": {
+    "url": "https://example.com/zendesk_callback?code=test_auth_code_abc&state=test_correlation_id_789",
+    "method": "GET",
+    "headers": {
+      "Content-Type": ["application/x-www-form-urlencoded"]
+    }
+  },
+  "code": "test_auth_code_abc",
+  "state": "test_correlation_id_789",
+  "redirect_uri": "https://example.com/zendesk_callback"
+}

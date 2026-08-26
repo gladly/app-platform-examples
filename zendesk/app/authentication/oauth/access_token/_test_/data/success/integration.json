@@ -1,0 +1,9 @@
+{
+  "configuration": {
+    "subdomain": "test-company",
+    "client_id": "test_client_id_123"
+  },
+  "secrets": {
+    "client_secret": "test_client_secret_456"
+  }
+}

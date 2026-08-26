@@ -1,0 +1,8 @@
+{
+  "status": "Bad Request",
+  "statusCode": 400,
+  "headers": {
+    "content-type": ["application/json; charset=utf-8"]
+  },
+  "body": "{\"error\":{\"title\":\"Invalid attribute\",\"message\":\"You passed an invalid value for the id attribute. Invalid parameter: id must be an integer from api/v2/tickets/update\"}}"
+}

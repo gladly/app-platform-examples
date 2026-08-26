@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "subdomain": "acme-support"
+  },
+  "secrets": {
+    "access_token": "acme_access_token"
+  }
+}

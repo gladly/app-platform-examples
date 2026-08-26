@@ -1,0 +1,11 @@
+/{
+  "ticket": {
+    "comment": {
+      "body": "This is a public reply visible to the customer",
+      "public": true
+    },
+    "safe_update": true,
+    "updated_stamp": "\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z"
+  }
+}/
+

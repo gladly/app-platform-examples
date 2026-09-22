@@ -1,0 +1,12 @@
+{
+  "name": "Frankie Avalon",
+  "emails": [
+    {
+      "original": "existing@francisavallone.com"
+    },
+    {
+      "original": "new@frankieavalon.com",
+      "primary": true
+    }
+  ]
+}

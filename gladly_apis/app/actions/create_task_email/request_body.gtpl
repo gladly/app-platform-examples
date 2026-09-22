@@ -6,7 +6,7 @@
         {{end -}}
     },
     "body": "{{.inputs.task}}",
-    "dueAt": "{{date "2006-01-02T15:04:05Z07:00" .inputs.dueAt}}",
+    "dueAt": {{.inputs.dueAt | toJson}},
     "customer": {
         "emailAddress": "{{.inputs.emailAddress}}"
     }

@@ -1,0 +1,26 @@
+{
+  "name": "Martha J Williams",
+  "image": "https://www.gladly.com/your-image.jpg",
+  "address": "563 Rigoberto Station Apt. 197",
+  "emails": [
+    {
+      "original": "Martha.Williams@gmail.com",
+      "normalized": "martha.williams@gmail.com",
+      "primary": true
+    }
+  ],
+  "phones": [
+    {
+      "original": "7244895501",
+      "normalized": "+17244895501",
+      "extension": "123",
+      "regionCode": "US",
+      "primary": true,
+      "smsPreference": "ON",
+      "type": "MOBILE"
+    },
+    {
+      "original": "+442071838750"
+    }
+  ]
+}

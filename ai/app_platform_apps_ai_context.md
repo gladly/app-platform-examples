@@ -21,7 +21,7 @@ Template context data fields that are referenced within a range action and are n
 
 e.g.
 
-``` go template
+```go template
 {{ range $i, $customer := .customers}}
 Customer {{ $i }} of {{ len $.customers }}
 Name: {{ $customer.firstName }} {{ $customer.lastName }}
@@ -100,12 +100,14 @@ Request signing header go text templates have access to the following context da
         // The HTTP method used for the request as specified in the config.json file
         "method": "",
         // The HTTP headers as specified by the various go text template header files
-        // in the "authentication/headers" directory */
+        // in the "authentication/headers" directory
         "headers": {
             // The field name is the name of the header and the corresponding array
-            // contains one or more header values */
+            // contains one or more header values
             "header_name": []
-        }
+        },
+        // The HTTP request body when the request includes a body
+        "body": ""
     }
 }
 ```
@@ -184,7 +186,7 @@ The `config.json` file has the following format:
 {
     // The HTTP method used for making the request
     "httpMethod": "GET|POST",
-    // The mime type of the request body when the httpMethod is POST. The 
+    // The mime type of the request body when the httpMethod is POST. The
     // contentType is omitted when the httpMethod is GET.
     "contentType": "",
 }
@@ -213,6 +215,7 @@ The `request_url.gtpl` and `request_body.gtpl` go text templates have access to 
                 "header-name": ["header value"]
             }
         },
+        "redirect_uri": "The URI to which the authorization code request is redirected",
         "code": "authorization code from redirect URI query parameters",
         "state": "state from redirect URI query parameters; must be the same as correlationId value"
     }
@@ -233,7 +236,7 @@ The `config.json` file has the following format:
 {
     // The HTTP method used for making the request
     "httpMethod": "GET|POST",
-    // The mime type of the request body when the httpMethod is POST. The 
+    // The mime type of the request body when the httpMethod is POST. The
     // contentType is omitted when the httpMethod is GET.
     "contentType": "",
 }
@@ -270,7 +273,7 @@ The `config.json` file has the following format:
 {
     // The HTTP method used for making the request
     "httpMethod": "GET|POST",
-    // The mime type of the request body when the httpMethod is POST. The 
+    // The mime type of the request body when the httpMethod is POST. The
     // contentType is omitted when the httpMethod is GET.
     "contentType": "",
 }
@@ -305,7 +308,7 @@ The `config.json` file has the following format:
 {
     // The HTTP method used for making the request
     "httpMethod": "GET|POST",
-    // The mime type of the request body when the httpMethod is POST. The 
+    // The mime type of the request body when the httpMethod is POST. The
     // contentType is omitted when the httpMethod is GET.
     "contentType": "",
 }
@@ -358,7 +361,7 @@ The `config.json` file has the following format:
 {
     // The HTTP method used for making the request
     "httpMethod": "GET|POST|PUT|PATCH|DELETE",
-    // The mime type of the request body when the httpMethod is one of POST, PUT, 
+    // The mime type of the request body when the httpMethod is one of POST, PUT,
     // PATCH. The contentType is omitted when the httpMethod is GET.
     "contentType": "application/json|application/xml|etc",
     // Set `rawResponse` to true when the response `Content-Type` is not `application/json`,
@@ -408,10 +411,10 @@ Response data received via the REST call for a given action is not always in JSO
         // The HTTP method used for the request as specified in the config.json file
         "method": "",
         // The HTTP headers as specified by the various go text template header files
-        // in the "authentication/headers" directory */
+        // in the "authentication/headers" directory
         "headers": {
             // The field name is the name of the header and the corresponding array
-            // contains one or more header values */
+            // contains one or more header values
             "header_name": []
         },
         // The raw bytes of the request body
@@ -463,7 +466,6 @@ All fields whose name is not self-explanatory in the `data_schema.graphql` file 
 
 Custom scalars such as `DateTime` and `Currency` do not need to be defined within your app's `data_schema.graphql` file. You only need to reference them as types for relevant fields. Their definitions are provided by the App Platform runtime.
 
-
 #### Defining relationships between data types
 
 Relationships between objects are either established by the parent referencing the child by the child's unique ID or by the child referencing the parent by the parent's unique ID. The parent object will contain a field that references one or more child IDs or the child object will have a field that references one parent ID.
@@ -506,10 +508,9 @@ type Customer @dataType(name: "customer", version: "1.0") {
 
 A parent/child relationship that is established by a parent ID on the child will use the `@parentId` directive on the child field in the parent type definition. The `@parentId` directive has a `template` parameter which specifies the go text template used for extracting the parent ID from the parent object. The ID of the parent is used to associate all children that have that same parent ID with that parent.
 
-
 Any data pull that retrieves such child data must also have an `external_parent_id.gtpl` file for extracting the parent ID from the child object.
 
-``` JSONC
+```JSONC
 // customer data
 {
     "id": "customer1",
@@ -544,7 +545,7 @@ type Query {
 
 order data `external_parent_id.gtpl`
 
-``` go template
+```go template
 {{- .customerId -}}
 ```
 
@@ -570,7 +571,7 @@ The config.json file has the following format:
     "dependsOnDataTypes": ["name_of_a_dependent_data_type"],
     // The HTTP method used for making the request
     "httpMethod": "GET|POST|PUT|PATCH|DELETE",
-    // The mime type of the request body when the httpMethod is one of POST, PUT, 
+    // The mime type of the request body when the httpMethod is one of POST, PUT,
     // PATCH. The contentType is omitted when the httpMethod is GET.
     "contentType": "application/json|application/xml|etc",
     // Set `rawResponse` to `true` when the response `Content-Type` is not `application/json`,
@@ -595,7 +596,7 @@ The request_url.gtpl and request_body.gtpl go text templates have access to the 
     // All customer fields are optional. Templates that use this data must
     // check for presence before referencing any of these fields. The most
     // common response to non-present data is to call the template stop function.
-    "customer": { 
+    "customer": {
         "id": "some unique Gladly customer profile ID",
         "name": "John Smith",
         "address": "123 Somewhere Street, CA, USA",
@@ -610,7 +611,10 @@ The request_url.gtpl and request_body.gtpl go text templates have access to the 
                 "number": "+15551234567", // in E.164 format
                 "type": "HOME|MOBILE|OFFICE|OTHER"
             }
-        ]
+        ],
+        "customAttributes": { // additional custom defined customer attributes needed in order to retrieve the customer's data
+            "someAttribute": "some value"
+        }
     },
     // externalData contains the data that was retrieved by data pulls that
     // this data pull depends on. The data type names will match those specified
@@ -628,19 +632,17 @@ A URL template can create multiple requests by outputting each URL on a new line
 
 e.g. multiple request URL template
 
-
-``` go text template
+```go text template
 {{- range .customer.emailAddresses -}}
 https://api.loopreturns.com/api/v2/returns?customer_email={{urlquery .}}
 {{ end -}}
 ```
 
-It is also possible to create multiple requests by outputting multiple bodies via the response body template `response_body.gtpl`. This approach would be used for example when data is requested via a POST. The start of each body is specified in the template by adding a `#body` marker on the line that immediately precedes the start of the body content. The marker can appear anywhere on the line making it possible to place it just above the actual body content for clarity. For simplicity, it is not necessary to add a `#body` marker to templates that only generate one body. For requests where only the request body changes, the URL template should just generate one URL that will be used with each request body. This will be the most common case for a POST. It is however possible to have a unique URL for each request body by generating as many URLs as there are request bodies.
+It is also possible to create multiple requests by outputting multiple bodies via the request body template `request_body.gtpl`. This approach would be used for example when data is requested via a POST. The start of each body is specified in the template by adding a `#body` marker on the line that immediately precedes the start of the body content. The marker can appear anywhere on the line making it possible to place it just above the actual body content for clarity. For simplicity, it is not necessary to add a `#body` marker to templates that only generate one body. For requests where only the request body changes, the URL template should just generate one URL that will be used with each request body. This will be the most common case for a POST. It is however possible to have a unique URL for each request body by generating as many URLs as there are request bodies.
 
 e.g. multiple request body template
 
-
-``` go text template
+```go text template
 {{- range .customer.emailAddresses -}}
 #body
 {
@@ -679,7 +681,11 @@ Response data received via the REST call for a given data pull is not always in 
                 "number": "+15551234567", // in E.164 format
                 "type": "HOME|MOBILE|OFFICE|OTHER"
             }
-        ]
+        ],
+        "customAttributes": { 
+            "someAttribute": "some value"
+        }
+
     },
     // externalData contains the data that was retrieved by data pulls that
     // this data pull depends on. The data type names will match those specified
@@ -694,10 +700,10 @@ Response data received via the REST call for a given data pull is not always in 
         // The HTTP method used for the request as specified in the config.json file
         "method": "",
         // The HTTP headers as specified by the various go text template header files
-        // in the authentication/headers directory */
+        // in the authentication/headers directory
         "headers": {
             // The field name is the name of the header and the corresponding array
-            // contains one or more header values */
+            // contains one or more header values
             "header_name": []
         },
         // The raw bytes of the request body
@@ -767,6 +773,16 @@ The output of each template is compared to the expected output given the specifi
 | external_updated_at.gtpl     | expected_external_updated_at.txt      | Text                                                                                                                        |
 | external_parent_id.gtpl      | expected_external_parent_id.txt       | Text                                                                                                                        |
 
+### Focused testing based on template context data
+
+Each template only has access to specific context data fields as documented in the Action and Data sections. A test dataset only needs to provide the context data fields that the template being tested will use. The test framework will only execute a template test when the corresponding expected output file is present in the dataset.
+
+Request URL and body templates are executed during request generation and only have access to request-related context data (e.g., `integration`, `inputs` for actions, `customer` and `externalData` for data pulls). Response transformation templates are executed after the HTTP response is received and additionally have access to response-related context data (e.g., `rawData`, `response`).
+
+This means test datasets can be focused on what they are testing. For example, a test dataset that only verifies response transformation behavior (e.g., error handling for various HTTP status codes) only needs to provide response-related context data and the corresponding expected response transformation output. Request URL and body expected output files are not required when the test is focused on response handling.
+
+### Test Datasets
+
 Test input data and expected output files are organized in to datasets where each test dataset is comprised of test input data files and their corresponding expected output files. Each test dataset is located in a subdirectory of the `_test_` directory. The dataset directory name should reflect what is being tested.
 
 The goal is to test all code paths and edge cases in the various template files. Testing conditional logic in templates will require creating test a dataset for each conditional code path.
@@ -831,3 +847,43 @@ data pull `config.json`
 order1
 order2
 ```
+
+### Testing action request URL and body templates
+
+Action `request_url.gtpl` and `request_body.gtpl` templates have access to the `inputs` context data field (in addition to `integration`). When testing these templates, the test data for the `inputs` field is specified in an `inputs.json` file in the test dataset (or inherited from the parent `_test_` directory). The structure of the `inputs.json` file corresponds to the input values for the GraphQL field associated with the action, as defined in `actions/actions_schema.graphql`.
+
+#### How input values are converted to Go types
+
+The `inputs` JSON values are not passed to the template as raw JSON values. Instead, each value is converted to the Go representation of its corresponding GraphQL type before the template is executed. This conversion has implications for how the test input data must be written so that it accurately reflects what the template will receive at runtime:
+
+- A JSON number (parsed as a Go `float64`) with a **zero** fractional part is converted to an `int`. This includes whole numbers written with a trailing `.0` (e.g. both `9` and `9.0` are converted to an `int`); only a **non-zero** fractional part (e.g. `9.5`) is kept as a float.
+- A JSON string in ISO8601 format is converted to a Go `time.Time`.
+
+Because of this conversion, the way values are written in `inputs.json` matters and must match the GraphQL type of the corresponding input field:
+
+- Input fields whose GraphQL type is `Float` **must** be written with a **non-zero** fractional part in `inputs.json` (e.g. `9.5`, not `9` or `9.0`). A value with a zero fractional part — including one written as `9.0` — is converted to an `int`, and the template would receive (and format) an integer rather than a float. This means a whole-number float value cannot be exercised as a float in `inputs.json`; pick a test value with a non-zero fractional part.
+- Input fields whose GraphQL type is `Int` **must not** include a non-zero fractional part in `inputs.json` (e.g. `9`, not `9.5`).
+- Input fields whose GraphQL type is `DateTime` **must** be represented as an ISO8601 formatted date string (e.g. `"2003-12-10T20:15:00Z"`) so that the value is converted to a Go `time.Time`.
+
+This ensures the test exercises the template with the same Go types it will receive in production, so that the generated request URL or body matches the expected output.
+
+e.g. given an action with the following GraphQL field
+
+```GraphQL
+type Mutation {
+    createReturn(orderId: ID!, quantity: Int!, refundAmount: Float!, requestedAt: DateTime): ReturnResult @action(name: "create_return")
+}
+```
+
+a corresponding `inputs.json` test input data file
+
+```JSON
+{
+    "orderId": "order1",
+    "quantity": 2,
+    "refundAmount": 19.5,
+    "requestedAt": "2003-12-10T20:15:00Z"
+}
+```
+
+Here `quantity` (an `Int`) has no fractional part, `refundAmount` (a `Float`) has a non-zero fractional part so it is not converted to an `int` (note that `19.0` would have been converted to an `int`), and `requestedAt` (a `DateTime`) is an ISO8601 formatted date string that is converted to a `time.Time`.

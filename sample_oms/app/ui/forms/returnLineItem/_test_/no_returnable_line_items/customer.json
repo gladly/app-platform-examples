@@ -1,0 +1,19 @@
+{
+  "id": "customer3",
+  "name": "Carol Smith",
+  "address": "789 Elm St, Austin, TX 78701",
+  "primaryEmailAddress": "carol.smith@example.com",
+  "emailAddresses": [
+    "carol.smith@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15553334444",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15553334444",
+      "type": "MOBILE"
+    }
+  ]
+}

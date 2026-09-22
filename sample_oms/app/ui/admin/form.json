@@ -1,0 +1,19 @@
+{
+	"title": "Configure Sample OMS",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Sample OMS API credentials below."
+		},
+		{
+			"type": "input",
+			"label": "API Token",
+			"attr": "secrets.apiToken",
+			"input": {
+				"type": "text",
+				"placeholder": "Enter your API token"
+			},
+			"hint": "Enter any text as your API key. This serves as a seed to generate consistent data and allow you to test and experiment with app platform functionality."
+		}
+	]
+}

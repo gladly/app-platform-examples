@@ -1,0 +1,19 @@
+{
+  "id": "customer2",
+  "name": "Sarah Johnson",
+  "address": "456 Oak Ave, Portland, OR 97201",
+  "primaryEmailAddress": "sarah.j@example.com",
+  "emailAddresses": [
+    "sarah.j@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15552223333",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15552223333",
+      "type": "MOBILE"
+    }
+  ]
+}

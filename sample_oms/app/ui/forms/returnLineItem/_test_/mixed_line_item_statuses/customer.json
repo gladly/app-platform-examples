@@ -1,0 +1,19 @@
+{
+  "id": "customer8",
+  "name": "Henry Davis",
+  "address": "135 Spruce Blvd, Miami, FL 33101",
+  "primaryEmailAddress": "henry.davis@example.com",
+  "emailAddresses": [
+    "henry.davis@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15559990000",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15559990000",
+      "type": "MOBILE"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "customer9",
+  "name": "Iris Taylor",
+  "address": "753 Ash St, Chicago, IL 60601",
+  "primaryEmailAddress": "iris.taylor@example.com",
+  "emailAddresses": [
+    "iris.taylor@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15551112222",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15551112222",
+      "type": "MOBILE"
+    }
+  ]
+}

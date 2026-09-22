@@ -1,0 +1,19 @@
+{
+  "id": "customer1",
+  "name": "Alice Johnson",
+  "address": "123 Oak Street, Portland, OR 97201",
+  "primaryEmailAddress": "alice.johnson@example.com",
+  "emailAddresses": [
+    "alice.johnson@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15551234567",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15551234567",
+      "type": "MOBILE"
+    }
+  ]
+}

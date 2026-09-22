@@ -1,0 +1,19 @@
+{
+  "id": "customer5",
+  "name": "Charlie Brown",
+  "address": "555 Elm Street, Boston, MA 02101",
+  "primaryEmailAddress": "charlie.brown@example.com",
+  "emailAddresses": [
+    "charlie.brown@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15556667777",
+    "type": "WORK"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15556667777",
+      "type": "WORK"
+    }
+  ]
+}

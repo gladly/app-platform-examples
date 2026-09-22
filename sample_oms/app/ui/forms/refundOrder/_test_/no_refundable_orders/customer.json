@@ -1,0 +1,20 @@
+{
+  "id": "customer3",
+  "name": "Michael Chen",
+  "address": "789 Pine Rd, Austin, TX 78701",
+  "primaryEmailAddress": "m.chen@example.com",
+  "emailAddresses": [
+    "m.chen@example.com",
+    "michael.chen@work.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15553334444",
+    "type": "WORK"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15553334444",
+      "type": "WORK"
+    }
+  ]
+}

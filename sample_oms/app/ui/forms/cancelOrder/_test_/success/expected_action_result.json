@@ -1,0 +1,4 @@
+{
+  "message": "Order cancelled successfully.",
+  "detail": "Order with ID order-001 has been successfully cancelled."
+}

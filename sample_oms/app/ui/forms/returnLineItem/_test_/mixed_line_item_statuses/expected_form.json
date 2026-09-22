@@ -1,0 +1,23 @@
+{
+  "title": "Return line item",
+  "submitButton": "Return Line Item",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Line Item",
+      "attr": "lineItemSelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a line item to return",
+        "options": [
+          {
+            "text": "Order #ORD-60001 Gaming Mouse",
+            "value": "{\"lineItemIds\":[\"line-item-601\"],\"orderId\":\"order-601\",\"orderNumber\":\"ORD-60001\",\"productName\":\"Gaming Mouse\"}"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

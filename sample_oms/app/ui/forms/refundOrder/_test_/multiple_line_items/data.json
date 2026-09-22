@@ -1,0 +1,83 @@
+{
+  "orders": [
+    {
+      "id": "order-501",
+      "orderNumber": "ORD-50001",
+      "status": "delivered",
+      "orderDate": "2026-03-05T15:20:00Z",
+      "customerId": "customer7",
+      "shippingAddress": "159 Birch Ave, Miami, FL 33101",
+      "billingAddress": "159 Birch Ave, Miami, FL 33101",
+      "shippingSpeed": "express",
+      "totalPrice": "599.95",
+      "shippingAndHandling": "30.00",
+      "lineItems": [
+        {
+          "id": "line-item-501",
+          "quantity": 2,
+          "price": "149.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-501",
+            "name": "Bluetooth Speaker",
+            "sku": "SPK-BT-500",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/speaker.jpg"
+          }
+        },
+        {
+          "id": "line-item-502",
+          "quantity": 1,
+          "price": "79.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-502",
+            "name": "Phone Stand",
+            "sku": "STAND-ADJ-ALU",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/stand.jpg"
+          }
+        },
+        {
+          "id": "line-item-503",
+          "quantity": 3,
+          "price": "24.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-503",
+            "name": "Screen Protector",
+            "sku": "PROT-GLASS-6IN",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/protector.jpg"
+          }
+        },
+        {
+          "id": "line-item-504",
+          "quantity": 1,
+          "price": "199.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-504",
+            "name": "Wireless Charger",
+            "sku": "CHRG-WIRELESS-15W",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/charger.jpg"
+          }
+        },
+        {
+          "id": "line-item-505",
+          "quantity": 2,
+          "price": "19.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-505",
+            "name": "Cable Organizer",
+            "sku": "ORG-CABLE-5PK",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/organizer.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "orders": [
+    {
+      "id": "order-401",
+      "orderNumber": "ORD-40001",
+      "status": "shipping",
+      "orderDate": "2026-03-16T09:30:00Z",
+      "customerId": "customer6",
+      "shippingAddress": "987 Cedar Ln, Seattle, WA 98101",
+      "billingAddress": "987 Cedar Ln, Seattle, WA 98101",
+      "shippingSpeed": "express",
+      "totalPrice": "349.99",
+      "shippingAndHandling": "25.00",
+      "lineItems": [
+        {
+          "id": "line-item-401",
+          "quantity": 1,
+          "price": "349.99",
+          "status": "shipping",
+          "product": {
+            "id": "prod-401",
+            "name": "Tablet",
+            "sku": "TAB-10IN-128GB",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/tablet.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

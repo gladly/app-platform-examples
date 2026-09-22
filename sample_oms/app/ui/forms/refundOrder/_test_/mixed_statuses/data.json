@@ -1,0 +1,166 @@
+{
+  "orders": [
+    {
+      "id": "order-601",
+      "orderNumber": "ORD-60001",
+      "status": "pending",
+      "orderDate": "2026-03-18T12:00:00Z",
+      "customerId": "customer8",
+      "shippingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "billingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "shippingSpeed": "standard",
+      "totalPrice": "45.99",
+      "shippingAndHandling": "5.99",
+      "lineItems": [
+        {
+          "id": "line-item-601",
+          "quantity": 1,
+          "price": "45.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-601",
+            "name": "Water Bottle",
+            "sku": "BOTTLE-32OZ",
+            "productType": "Lifestyle",
+            "imageUrl": "https://example.com/bottle.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-602",
+      "orderNumber": "ORD-60002",
+      "status": "delivered",
+      "orderDate": "2026-03-10T08:30:00Z",
+      "customerId": "customer8",
+      "shippingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "billingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "shippingSpeed": "express",
+      "totalPrice": "119.99",
+      "shippingAndHandling": "10.00",
+      "lineItems": [
+        {
+          "id": "line-item-602",
+          "quantity": 1,
+          "price": "119.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-602",
+            "name": "Fitness Tracker",
+            "sku": "FIT-TRACK-PRO",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/tracker.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-603",
+      "orderNumber": "ORD-60003",
+      "status": "shipping",
+      "orderDate": "2026-03-14T16:45:00Z",
+      "customerId": "customer8",
+      "shippingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "billingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "shippingSpeed": "standard",
+      "totalPrice": "69.99",
+      "shippingAndHandling": "7.99",
+      "lineItems": [
+        {
+          "id": "line-item-603",
+          "quantity": 1,
+          "price": "69.99",
+          "status": "shipping",
+          "product": {
+            "id": "prod-603",
+            "name": "Yoga Mat",
+            "sku": "YOGA-MAT-6MM",
+            "productType": "Fitness",
+            "imageUrl": "https://example.com/yogamat.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-604",
+      "orderNumber": "ORD-60004",
+      "status": "cancelled",
+      "orderDate": "2026-03-07T11:15:00Z",
+      "customerId": "customer8",
+      "shippingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "billingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "shippingSpeed": "express",
+      "totalPrice": "89.99",
+      "shippingAndHandling": "8.99",
+      "lineItems": [
+        {
+          "id": "line-item-604",
+          "quantity": 1,
+          "price": "89.99",
+          "status": "cancelled",
+          "product": {
+            "id": "prod-604",
+            "name": "Dumbbells Set",
+            "sku": "DUMB-10LB-PAIR",
+            "productType": "Fitness",
+            "imageUrl": "https://example.com/dumbbells.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-605",
+      "orderNumber": "ORD-60005",
+      "status": "returned",
+      "orderDate": "2026-03-03T09:00:00Z",
+      "customerId": "customer8",
+      "shippingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "billingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "shippingSpeed": "standard",
+      "totalPrice": "35.99",
+      "shippingAndHandling": "4.99",
+      "lineItems": [
+        {
+          "id": "line-item-605",
+          "quantity": 1,
+          "price": "35.99",
+          "status": "returned",
+          "product": {
+            "id": "prod-605",
+            "name": "Resistance Bands",
+            "sku": "BAND-RESIST-SET",
+            "productType": "Fitness",
+            "imageUrl": "https://example.com/bands.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-606",
+      "orderNumber": "ORD-60006",
+      "status": "processing",
+      "orderDate": "2026-03-17T14:30:00Z",
+      "customerId": "customer8",
+      "shippingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "billingAddress": "753 Spruce St, Phoenix, AZ 85001",
+      "shippingSpeed": "standard",
+      "totalPrice": "54.99",
+      "shippingAndHandling": "6.99",
+      "lineItems": [
+        {
+          "id": "line-item-606",
+          "quantity": 2,
+          "price": "27.49",
+          "status": "processing",
+          "product": {
+            "id": "prod-606",
+            "name": "Protein Shaker",
+            "sku": "SHAKE-28OZ",
+            "productType": "Lifestyle",
+            "imageUrl": "https://example.com/shaker.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

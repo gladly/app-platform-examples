@@ -1,0 +1,70 @@
+{
+  "orders": [
+    {
+      "id": "order-401",
+      "orderNumber": "ORD-40001",
+      "status": "delivered",
+      "orderDate": "2026-03-08T09:30:00Z",
+      "customerId": "customer6",
+      "shippingAddress": "987 Birch Dr, San Diego, CA 92101",
+      "billingAddress": "987 Birch Dr, San Diego, CA 92101",
+      "shippingSpeed": "express",
+      "totalPrice": "399.96",
+      "shippingAndHandling": "20.00",
+      "lineItems": [
+        {
+          "id": "line-item-401",
+          "quantity": 2,
+          "price": "99.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-401",
+            "name": "Bluetooth Speaker",
+            "sku": "SPK-BT-PORT",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/speaker.jpg"
+          }
+        },
+        {
+          "id": "line-item-402",
+          "quantity": 1,
+          "price": "49.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-402",
+            "name": "Phone Case",
+            "sku": "CASE-PHONE-SIL",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/case.jpg"
+          }
+        },
+        {
+          "id": "line-item-403",
+          "quantity": 1,
+          "price": "89.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-403",
+            "name": "Screen Protector Kit",
+            "sku": "PROT-SCREEN-KIT",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/protector.jpg"
+          }
+        },
+        {
+          "id": "line-item-404",
+          "quantity": 3,
+          "price": "19.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-404",
+            "name": "USB-C Cable",
+            "sku": "CABLE-USBC-6FT",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/cable.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

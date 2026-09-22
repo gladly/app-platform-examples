@@ -1,0 +1,57 @@
+{
+  "orders": [
+    {
+      "id": "order-601",
+      "orderNumber": "ORD-60001",
+      "status": "delivered",
+      "orderDate": "2026-03-06T14:20:00Z",
+      "customerId": "customer8",
+      "shippingAddress": "135 Spruce Blvd, Miami, FL 33101",
+      "billingAddress": "135 Spruce Blvd, Miami, FL 33101",
+      "shippingSpeed": "standard",
+      "totalPrice": "209.97",
+      "shippingAndHandling": "12.00",
+      "lineItems": [
+        {
+          "id": "line-item-601",
+          "quantity": 1,
+          "price": "89.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-601",
+            "name": "Gaming Mouse",
+            "sku": "MOUSE-GAME-RGB",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/gaming-mouse.jpg"
+          }
+        },
+        {
+          "id": "line-item-602",
+          "quantity": 1,
+          "price": "59.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-602",
+            "name": "Mousepad XL",
+            "sku": "PAD-MOUSE-XL",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/mousepad.jpg"
+          }
+        },
+        {
+          "id": "line-item-603",
+          "quantity": 1,
+          "price": "59.99",
+          "status": "cancelled",
+          "product": {
+            "id": "prod-603",
+            "name": "Wrist Rest",
+            "sku": "REST-WRIST-GEL",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/wrist-rest.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

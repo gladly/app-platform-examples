@@ -1,0 +1,83 @@
+{
+  "orders": [
+    {
+      "id": "order-500",
+      "orderNumber": "ORD-MULTI-001",
+      "status": "pending",
+      "orderDate": "2026-03-18T09:30:00Z",
+      "customerId": "customer7",
+      "shippingAddress": "999 Broadway Ave, New York, NY 10001",
+      "billingAddress": "999 Broadway Ave, New York, NY 10001",
+      "shippingSpeed": "express",
+      "totalPrice": "899.95",
+      "shippingAndHandling": "19.99",
+      "lineItems": [
+        {
+          "id": "line-item-500",
+          "quantity": 2,
+          "price": "99.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-500",
+            "name": "Wireless Headphones",
+            "sku": "HEAD-WIRE-BLK",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/headphones.jpg"
+          }
+        },
+        {
+          "id": "line-item-501",
+          "quantity": 1,
+          "price": "199.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-501",
+            "name": "Smart Watch",
+            "sku": "WATCH-SMART-01",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/smartwatch.jpg"
+          }
+        },
+        {
+          "id": "line-item-502",
+          "quantity": 3,
+          "price": "49.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-502",
+            "name": "Phone Case",
+            "sku": "CASE-PHONE-BLU",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/phone-case.jpg"
+          }
+        },
+        {
+          "id": "line-item-503",
+          "quantity": 1,
+          "price": "299.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-503",
+            "name": "Portable Speaker",
+            "sku": "SPEAK-PORT-01",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/speaker.jpg"
+          }
+        },
+        {
+          "id": "line-item-504",
+          "quantity": 2,
+          "price": "29.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-504",
+            "name": "USB Cable",
+            "sku": "CABLE-USB-C",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/usb-cable.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

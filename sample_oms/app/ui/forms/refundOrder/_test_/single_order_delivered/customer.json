@@ -1,0 +1,20 @@
+{
+  "id": "customer5",
+  "name": "David Martinez",
+  "address": "654 Maple Dr, Denver, CO 80201",
+  "primaryEmailAddress": "d.martinez@example.com",
+  "emailAddresses": [
+    "d.martinez@example.com",
+    "david@gmail.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15556667788",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15556667788",
+      "type": "MOBILE"
+    }
+  ]
+}

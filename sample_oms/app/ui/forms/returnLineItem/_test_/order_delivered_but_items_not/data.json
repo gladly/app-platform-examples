@@ -1,0 +1,44 @@
+{
+  "orders": [
+    {
+      "id": "order-701",
+      "orderNumber": "ORD-70001",
+      "status": "delivered",
+      "orderDate": "2026-03-07T11:00:00Z",
+      "customerId": "customer9",
+      "shippingAddress": "753 Ash St, Chicago, IL 60601",
+      "billingAddress": "753 Ash St, Chicago, IL 60601",
+      "shippingSpeed": "express",
+      "totalPrice": "179.98",
+      "shippingAndHandling": "15.00",
+      "lineItems": [
+        {
+          "id": "line-item-701",
+          "quantity": 1,
+          "price": "89.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-701",
+            "name": "Tablet Stand",
+            "sku": "STAND-TAB-ADJ",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/tablet-stand.jpg"
+          }
+        },
+        {
+          "id": "line-item-702",
+          "quantity": 1,
+          "price": "89.99",
+          "status": "cancelled",
+          "product": {
+            "id": "prod-702",
+            "name": "Stylus Pen",
+            "sku": "PEN-STYLUS-PRO",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/stylus.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

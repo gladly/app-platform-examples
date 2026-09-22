@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "orderId",
+      "detail": "Order cannot be cancelled because it has already been shipped"
+    }
+  ]
+}

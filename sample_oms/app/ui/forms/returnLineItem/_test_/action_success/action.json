@@ -1,0 +1,12 @@
+{
+  "inputs": {
+    "orderId": "order-1001",
+    "lineItemIds": [
+      "line-item-1001"
+    ]
+  },
+  "result": {
+    "status": "success",
+    "message": "Line items returned successfully"
+  }
+}

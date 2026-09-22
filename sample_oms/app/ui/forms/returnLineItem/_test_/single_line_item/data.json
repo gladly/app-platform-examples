@@ -1,0 +1,31 @@
+{
+  "orders": [
+    {
+      "id": "order-301",
+      "orderNumber": "ORD-30001",
+      "status": "delivered",
+      "orderDate": "2026-03-14T11:15:00Z",
+      "customerId": "customer5",
+      "shippingAddress": "654 Cedar Ln, Phoenix, AZ 85001",
+      "billingAddress": "654 Cedar Ln, Phoenix, AZ 85001",
+      "shippingSpeed": "standard",
+      "totalPrice": "129.99",
+      "shippingAndHandling": "8.99",
+      "lineItems": [
+        {
+          "id": "line-item-301",
+          "quantity": 1,
+          "price": "129.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-301",
+            "name": "Wireless Headphones",
+            "sku": "HP-WL-NC-BLK",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/headphones.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

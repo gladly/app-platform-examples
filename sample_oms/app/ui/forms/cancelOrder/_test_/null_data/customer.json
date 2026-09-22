@@ -1,0 +1,19 @@
+{
+  "id": "customer8",
+  "name": "Fiona Green",
+  "address": "111 Ocean Drive, Miami, FL 33101",
+  "primaryEmailAddress": "fiona.green@example.com",
+  "emailAddresses": [
+    "fiona.green@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15553334444",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15553334444",
+      "type": "MOBILE"
+    }
+  ]
+}

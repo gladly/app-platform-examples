@@ -1,0 +1,19 @@
+{
+  "id": "customer10",
+  "name": "Maria Garcia",
+  "address": "135 Palm Blvd, Los Angeles, CA 90001",
+  "primaryEmailAddress": "maria.garcia@example.com",
+  "emailAddresses": [
+    "maria.garcia@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15553334455",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15553334455",
+      "type": "MOBILE"
+    }
+  ]
+}

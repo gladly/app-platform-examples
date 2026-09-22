@@ -1,0 +1,35 @@
+{
+  "title": "Return line item",
+  "submitButton": "Return Line Item",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Line Item",
+      "attr": "lineItemSelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a line item to return",
+        "options": [
+          {
+            "text": "Order #ORD-50001 Smart Watch",
+            "value": "{\"lineItemIds\":[\"line-item-501\"],\"orderId\":\"order-501\",\"orderNumber\":\"ORD-50001\",\"productName\":\"Smart Watch\"}"
+          },
+          {
+            "text": "Order #ORD-50002 Fitness Tracker",
+            "value": "{\"lineItemIds\":[\"line-item-502\"],\"orderId\":\"order-502\",\"orderNumber\":\"ORD-50002\",\"productName\":\"Fitness Tracker\"}"
+          },
+          {
+            "text": "Order #ORD-50002 Sports Armband",
+            "value": "{\"lineItemIds\":[\"line-item-503\"],\"orderId\":\"order-502\",\"orderNumber\":\"ORD-50002\",\"productName\":\"Sports Armband\"}"
+          },
+          {
+            "text": "Order #ORD-50003 Water Bottle",
+            "value": "{\"lineItemIds\":[\"line-item-504\"],\"orderId\":\"order-503\",\"orderNumber\":\"ORD-50003\",\"productName\":\"Water Bottle\"}"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

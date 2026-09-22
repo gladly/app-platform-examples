@@ -1,0 +1,71 @@
+{
+  "orders": [
+    {
+      "id": "order-201",
+      "orderNumber": "ORD-20001",
+      "status": "pending",
+      "orderDate": "2026-03-18T10:00:00Z",
+      "customerId": "customer3",
+      "shippingAddress": "789 Elm St, Austin, TX 78701",
+      "billingAddress": "789 Elm St, Austin, TX 78701",
+      "shippingSpeed": "standard",
+      "totalPrice": "119.98",
+      "shippingAndHandling": "9.99",
+      "lineItems": [
+        {
+          "id": "line-item-201",
+          "quantity": 1,
+          "price": "59.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-201",
+            "name": "Webcam",
+            "sku": "CAM-WEB-1080P",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/webcam.jpg"
+          }
+        },
+        {
+          "id": "line-item-202",
+          "quantity": 1,
+          "price": "59.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-202",
+            "name": "Microphone",
+            "sku": "MIC-USB-COND",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/mic.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-202",
+      "orderNumber": "ORD-20002",
+      "status": "cancelled",
+      "orderDate": "2026-03-15T14:30:00Z",
+      "customerId": "customer3",
+      "shippingAddress": "789 Elm St, Austin, TX 78701",
+      "billingAddress": "789 Elm St, Austin, TX 78701",
+      "shippingSpeed": "express",
+      "totalPrice": "89.99",
+      "shippingAndHandling": "10.00",
+      "lineItems": [
+        {
+          "id": "line-item-203",
+          "quantity": 1,
+          "price": "89.99",
+          "status": "cancelled",
+          "product": {
+            "id": "prod-203",
+            "name": "Monitor Arm",
+            "sku": "ARM-MON-DUAL",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/arm.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

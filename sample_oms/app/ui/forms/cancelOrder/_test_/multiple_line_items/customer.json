@@ -1,0 +1,19 @@
+{
+  "id": "customer7",
+  "name": "Edward Norton",
+  "address": "999 Broadway Ave, New York, NY 10001",
+  "primaryEmailAddress": "edward.norton@example.com",
+  "emailAddresses": [
+    "edward.norton@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15551112222",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15551112222",
+      "type": "MOBILE"
+    }
+  ]
+}

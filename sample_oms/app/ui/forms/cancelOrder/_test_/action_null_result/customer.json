@@ -1,0 +1,19 @@
+{
+  "id": "customer6",
+  "name": "Diana Prince",
+  "address": "777 Wonder Way, Paradise Island, HI 96795",
+  "primaryEmailAddress": "diana.prince@example.com",
+  "emailAddresses": [
+    "diana.prince@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15558889999",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15558889999",
+      "type": "MOBILE"
+    }
+  ]
+}

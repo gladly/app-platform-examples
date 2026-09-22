@@ -1,10 +1,35 @@
+enum CancellationReason {
+    customer_request
+    out_of_stock
+    broken
+    not_delivered
+}
+
+enum RefundReason {
+  customer_request
+  out_of_stock
+  broken
+  not_delivered
+  late_delivery
+  compensation
+}
+
 type Result {
     status: String!
     message: String
 }
 
 type Mutation {
-    cancelOrder(orderId: String!, reason: String!): Result @action(name: "cancel_order")
-    refundOrder(orderId: String!, reason: String!): Result @action(name: "refund_order")
+    """
+    IMPORTANT: only orders with a pending status can be cancelled.
+    """
+    cancelOrder(orderId: String!, reason: CancellationReason!): Result @action(name: "cancel_order")
+    """
+    IMPORTANT: only orders with a delivered or shipping status can be refunded.
+    """
+    refundOrder(orderId: String!, reason: RefundReason!): Result @action(name: "refund_order")
+    """
+    IMPORTANT: only line items with a delivered status can be returned.
+    """
     returnLineItems(orderId: String!, lineItemIds: [String!]!): Result @action(name: "return_line_items")
 }

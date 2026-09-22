@@ -1,0 +1,20 @@
+{
+  "id": "customer1",
+  "name": "John Smith",
+  "address": "123 Main Street, Springfield, IL 62701",
+  "primaryEmailAddress": "john.smith@example.com",
+  "emailAddresses": [
+    "john.smith@example.com",
+    "jsmith@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15551234567",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15551234567",
+      "type": "MOBILE"
+    }
+  ]
+}

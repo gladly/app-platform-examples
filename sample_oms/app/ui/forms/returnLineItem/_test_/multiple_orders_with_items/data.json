@@ -1,0 +1,98 @@
+{
+  "orders": [
+    {
+      "id": "order-501",
+      "orderNumber": "ORD-50001",
+      "status": "delivered",
+      "orderDate": "2026-03-05T13:00:00Z",
+      "customerId": "customer7",
+      "shippingAddress": "246 Willow Way, Boston, MA 02101",
+      "billingAddress": "246 Willow Way, Boston, MA 02101",
+      "shippingSpeed": "standard",
+      "totalPrice": "159.99",
+      "shippingAndHandling": "10.00",
+      "lineItems": [
+        {
+          "id": "line-item-501",
+          "quantity": 1,
+          "price": "159.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-501",
+            "name": "Smart Watch",
+            "sku": "WATCH-SMART-BLK",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/watch.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-502",
+      "orderNumber": "ORD-50002",
+      "status": "delivered",
+      "orderDate": "2026-03-11T16:45:00Z",
+      "customerId": "customer7",
+      "shippingAddress": "246 Willow Way, Boston, MA 02101",
+      "billingAddress": "246 Willow Way, Boston, MA 02101",
+      "shippingSpeed": "express",
+      "totalPrice": "189.98",
+      "shippingAndHandling": "15.00",
+      "lineItems": [
+        {
+          "id": "line-item-502",
+          "quantity": 1,
+          "price": "89.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-502",
+            "name": "Fitness Tracker",
+            "sku": "FIT-TRACK-BAND",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/tracker.jpg"
+          }
+        },
+        {
+          "id": "line-item-503",
+          "quantity": 2,
+          "price": "99.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-503",
+            "name": "Sports Armband",
+            "sku": "ARM-SPORT-ADJ",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/armband.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-503",
+      "orderNumber": "ORD-50003",
+      "status": "delivered",
+      "orderDate": "2026-03-13T10:30:00Z",
+      "customerId": "customer7",
+      "shippingAddress": "246 Willow Way, Boston, MA 02101",
+      "billingAddress": "246 Willow Way, Boston, MA 02101",
+      "shippingSpeed": "standard",
+      "totalPrice": "69.99",
+      "shippingAndHandling": "7.99",
+      "lineItems": [
+        {
+          "id": "line-item-504",
+          "quantity": 1,
+          "price": "69.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-504",
+            "name": "Water Bottle",
+            "sku": "BOTTLE-32OZ-INSUL",
+            "productType": "Lifestyle",
+            "imageUrl": "https://example.com/bottle.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "title": "Cancel order",
+  "submitButton": "Cancel Order",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Order",
+      "attr": "orderId",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select an Order",
+        "options": [
+          {
+            "text": "Order #ORD-12345 - Blue T-Shirt (2), Red Hat (1)",
+            "value": "order-001"
+          },
+          {
+            "text": "Order #ORD-12346 - Leather Jacket (1)",
+            "value": "order-002"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "attr": "reason",
+      "label": "Reason",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a reason for the cancellation",
+        "options": [
+          {
+            "text": "Customer Request",
+            "value": "customer_request"
+          },
+          {
+            "text": "Out of Stock",
+            "value": "out_of_stock"
+          },
+          {
+            "text": "Broken",
+            "value": "broken"
+          },
+          {
+            "text": "Not Delivered",
+            "value": "not_delivered"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

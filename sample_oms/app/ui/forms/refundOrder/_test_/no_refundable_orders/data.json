@@ -1,0 +1,85 @@
+{
+  "orders": [
+    {
+      "id": "order-201",
+      "orderNumber": "ORD-20001",
+      "status": "pending",
+      "orderDate": "2026-03-18T08:00:00Z",
+      "customerId": "customer3",
+      "shippingAddress": "789 Pine Rd, Austin, TX 78701",
+      "billingAddress": "789 Pine Rd, Austin, TX 78701",
+      "shippingSpeed": "standard",
+      "totalPrice": "59.99",
+      "shippingAndHandling": "6.99",
+      "lineItems": [
+        {
+          "id": "line-item-201",
+          "quantity": 1,
+          "price": "59.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-201",
+            "name": "Laptop Bag",
+            "sku": "BAG-LAPTOP-BLK",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/bag.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-202",
+      "orderNumber": "ORD-20002",
+      "status": "cancelled",
+      "orderDate": "2026-03-12T14:30:00Z",
+      "customerId": "customer3",
+      "shippingAddress": "789 Pine Rd, Austin, TX 78701",
+      "billingAddress": "789 Pine Rd, Austin, TX 78701",
+      "shippingSpeed": "express",
+      "totalPrice": "129.99",
+      "shippingAndHandling": "12.99",
+      "lineItems": [
+        {
+          "id": "line-item-202",
+          "quantity": 1,
+          "price": "129.99",
+          "status": "cancelled",
+          "product": {
+            "id": "prod-202",
+            "name": "Keyboard",
+            "sku": "KB-MECH-RGB",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/keyboard.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-203",
+      "orderNumber": "ORD-20003",
+      "status": "returned",
+      "orderDate": "2026-03-05T10:15:00Z",
+      "customerId": "customer3",
+      "shippingAddress": "789 Pine Rd, Austin, TX 78701",
+      "billingAddress": "789 Pine Rd, Austin, TX 78701",
+      "shippingSpeed": "standard",
+      "totalPrice": "39.99",
+      "shippingAndHandling": "4.99",
+      "lineItems": [
+        {
+          "id": "line-item-203",
+          "quantity": 2,
+          "price": "19.99",
+          "status": "returned",
+          "product": {
+            "id": "prod-203",
+            "name": "Mouse Pad",
+            "sku": "MP-XXL-BLK",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/mousepad.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

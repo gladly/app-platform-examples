@@ -1,0 +1,67 @@
+{
+  "title": "Refund order",
+  "submitButton": "Refund Order",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Order",
+      "attr": "orderId",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select an Order",
+        "options": [
+          {
+            "text": "Order #ORD-10001 (delivered) - Wireless Headphones (2)",
+            "value": "order-101"
+          },
+          {
+            "text": "Order #ORD-10002 (shipping) - Phone Case (1)",
+            "value": "order-102"
+          },
+          {
+            "text": "Order #ORD-10003 (delivered) - Smart Watch (1)",
+            "value": "order-103"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "attr": "reason",
+      "label": "Reason",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a reason for the refund",
+        "options": [
+          {
+            "text": "Customer Request",
+            "value": "customer_request"
+          },
+          {
+            "text": "Out of Stock",
+            "value": "out_of_stock"
+          },
+          {
+            "text": "Broken",
+            "value": "broken"
+          },
+          {
+            "text": "Not Delivered",
+            "value": "not_delivered"
+          },
+          {
+            "text": "Late Delivery",
+            "value": "late_delivery"
+          },
+          {
+            "text": "Compensation",
+            "value": "compensation"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

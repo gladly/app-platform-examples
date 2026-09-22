@@ -1,0 +1,10 @@
+{
+  "title": "Return line item",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "The customer does not have any line items that can be returned."
+    }
+  ]
+}

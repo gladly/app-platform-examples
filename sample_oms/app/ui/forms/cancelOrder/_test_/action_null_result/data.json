@@ -1,0 +1,31 @@
+{
+  "orders": [
+    {
+      "id": "order-400",
+      "orderNumber": "ORD-88888",
+      "status": "pending",
+      "orderDate": "2026-03-18T13:00:00Z",
+      "customerId": "customer6",
+      "shippingAddress": "777 Wonder Way, Paradise Island, HI 96795",
+      "billingAddress": "777 Wonder Way, Paradise Island, HI 96795",
+      "shippingSpeed": "standard",
+      "totalPrice": "59.99",
+      "shippingAndHandling": "9.99",
+      "lineItems": [
+        {
+          "id": "line-item-400",
+          "quantity": 1,
+          "price": "59.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-400",
+            "name": "Water Bottle",
+            "sku": "BOTTLE-H2O-01",
+            "productType": "Sports & Outdoors",
+            "imageUrl": "https://example.com/water-bottle.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

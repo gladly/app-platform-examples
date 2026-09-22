@@ -1,0 +1,31 @@
+{
+  "orders": [
+    {
+      "id": "order-801",
+      "orderNumber": "ORD-80001",
+      "status": "delivered",
+      "orderDate": "2026-03-11T10:00:00Z",
+      "customerId": "customer10",
+      "shippingAddress": "135 Palm Blvd, Los Angeles, CA 90001",
+      "billingAddress": "135 Palm Blvd, Los Angeles, CA 90001",
+      "shippingSpeed": "standard",
+      "totalPrice": "75.00",
+      "shippingAndHandling": "8.00",
+      "lineItems": [
+        {
+          "id": "line-item-801",
+          "quantity": 1,
+          "price": "75.00",
+          "status": "delivered",
+          "product": {
+            "id": "prod-801",
+            "name": "Backpack",
+            "sku": "BAG-BACK-30L",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/backpack.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

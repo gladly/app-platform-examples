@@ -5,12 +5,12 @@ The platform for managing subscriptions, automating billing, and optimizing recu
 
 ## Benefits
 
-Used with Gladly Sidekick, the Recurly app enables your customers to manage their subscription-related queries, such as viewing their latest billing details, checking payment status, updating account information, or managing their subscription plans and renewals.
+Used with Gladly AI, the Recurly app enables your customers to manage their subscription-related queries, such as viewing their latest billing details, checking payment status, updating account information, or managing their subscription plans and renewals.
 
 ## Features
 
-- View a customer's Recurly subscriptions directly in Sidekick — plan, status, renewal and lifecycle dates, and a charge breakdown (add-ons, discounts, pending changes).
-- Manage subscriptions from Sidekick: cancel, pause, resume, reactivate, and terminate.
+- View a customer's Recurly subscriptions directly in Gladly AI — plan, status, renewal and lifecycle dates, and a charge breakdown (add-ons, discounts, pending changes).
+- Manage subscriptions from Gladly AI: cancel, pause, resume, reactivate, and terminate.
 - Look up a subscription's details by ID.
 
 # Recurly App Toolkit
@@ -21,7 +21,7 @@ The Recurly integration is built and maintained by Gladly.
 
 ## Basic scope
 
-This app provides methods of reading Account and Subscription data from Recurly, actions to manage a customer's subscriptions, and an agent-facing card that displays a customer's subscriptions in Sidekick. These can be used in Sidekick to directly answer and act on customer questions.
+This app provides methods of reading Account and Subscription data from Recurly, actions to manage a customer's subscriptions, and an agent-facing card that displays a customer's subscriptions in Gladly AI. These can be used in Gladly AI to directly answer and act on customer questions.
 
 
 ## Configuration
@@ -70,9 +70,9 @@ All actions operate on a subscription and return the updated `Subscription` (or 
 
 **Display card**
 
-- **`recurly-subscriptions`** — A card shown in Sidekick that lists a customer's subscriptions, each with plan, status, renewal/lifecycle dates, and a charge breakdown (add-ons, discounts, pending changes).
+- **`recurly-subscriptions`** — A card shown in Gladly AI that lists a customer's subscriptions, each with plan, status, renewal/lifecycle dates, and a charge breakdown (add-ons, discounts, pending changes).
 
-**Forms** (available to agents via the Sidekick "+" menu)
+**Forms** (available to agents via the Gladly AI "+" menu)
 
 Each form presents a dropdown filtered to only the subscriptions eligible for that operation, so an agent can't apply an action to an ineligible subscription.
 

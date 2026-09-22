@@ -1,0 +1,6 @@
+{
+  "query": "mutation subscriptionEditInterval($input: SubscriptionEditIntervalInput!) { subscriptionEditInterval(input: $input) { subscriptionId } }",
+  "variables": {
+    "input": {"billingInterval":"WEEK","billingIntervalCount":4,"debugCaller":"Gladly","subscriptionId":"11111111-1111-1111-1111-111111111111"}
+  }
+}

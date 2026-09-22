@@ -1,0 +1,6 @@
+{
+  "query": "mutation updateNextBillingDate($input: UpdateNextBillingDateInput!) { updateNextBillingDate(input: $input) { message ok } }",
+  "variables": {
+    "input": {"date":"2026-12-01","debugCaller":"Gladly","subscriptionId":"8b753087-391a-44c8-a7f3-9adf2e6dfebe"}
+  }
+}

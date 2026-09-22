@@ -1,0 +1,19 @@
+{
+  "inputs": {
+    "email": "sam.boonba@example.com",
+    "returnToPath": "/subscriptions"
+  },
+  "result": {
+    "ok": false,
+    "errorMessage": "Skio has no such subscription on this store. Check the id - this is not a permissions problem.",
+    "errors": [
+      {
+        "message": "Lambda policy revoked",
+        "extensions": {
+          "code": "Lambda policy revoked",
+          "detail": "Lambda policy revoked, tried to access unauthorized user or subscription"
+        }
+      }
+    ]
+  }
+}

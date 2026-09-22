@@ -1,0 +1,1 @@
+"Changing the prepaid delivery cadence needs both the prepaid delivery interval and its interval count. Enter both - MONTH with 1 for a delivery every month - or leave both blank to keep the current cadence."

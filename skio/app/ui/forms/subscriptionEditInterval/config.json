@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "subscriptionEditInterval"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "subscriptions"
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "id": "9843ae37-021c-423e-bfe0-36367ceddf82",
+    "status": "ACTIVE",
+    "statusDisplay": "Active",
+    "createdAt": "2025-04-23T13:30:03.189513+00:00",
+    "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+    "platformId": "gid://shopify/SubscriptionContract/44",
+    "updatedAt": "2025-04-23T13:30:03.189513+00:00",
+    "nextBillingDate": "2026-10-01",
+    "currencyCode": "USD",
+    "lastBillingAttemptAt": "2026-09-01T04:12:00+00:00",
+    "cyclesCompleted": 6,
+    "streakCount": 6,
+    "maxStreakCount": 6,
+    "deliveryPrice": 0.0,
+    "isPickup": false,
+    "BillingPolicy": {
+      "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    },
+    "DeliveryPolicy": {
+      "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    },
+    "ShippingAddress": {
+      "id": "aa11bb22-cc33-4d44-8e55-ff6677889900",
+      "platformId": "gid://shopify/MailingAddress/998877",
+      "firstName": "Sam",
+      "lastName": "Boonba",
+      "company": null,
+      "address1": "12 Bayview Ave",
+      "address2": null,
+      "city": "Toronto",
+      "province": "ON",
+      "country": "CA",
+      "zip": "M5A 1A1",
+      "phoneNumber": "+14165550123",
+      "doorCode": null
+    },
+    "shipsToLine": "12 Bayview Ave, Toronto ON M5A 1A1",
+    "SubscriptionLines": [
+      {
+        "id": "3f2a1c9d-7e64-4b21-9a08-5c1d2e3f4a5b",
+        "priceWithoutDiscount": 89.0,
+        "ProductVariant": {
+          "id": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+          "title": "12 lb",
+          "platformId": "gid://shopify/ProductVariant/44551122",
+          "sku": "NC-CHK-12",
+          "price": 89.0,
+          "compareAtPrice": null,
+          "outOfStockAt": null,
+          "Product": {
+            "title": "Fresh Dog Food"
+          }
+        },
+        "platformId": "gid://shopify/SubscriptionLine/1",
+        "sellingPlanId": "gid://shopify/SellingPlan/77",
+        "productVariantId": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+        "quantity": 1,
+        "isPrepaid": true,
+        "ordersRemaining": 0
+      }
+    ],
+    "remainingCyclesUntilRenewal": 0,
+    "nextRenewalDate": "2026-10-01",
+    "PrepaidDeliveryPolicy": {
+      "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    }
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "description": "Displays a customer's Skio subscriptions with status, cadence, and products",
+  "graphqlSchema": "data",
+  "graphqlType": "SkioStorefrontUser"
+}

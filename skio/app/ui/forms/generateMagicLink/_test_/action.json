@@ -1,0 +1,12 @@
+{
+  "inputs": {
+    "email": "sam.boonba@example.com",
+    "returnToPath": "/subscriptions"
+  },
+  "result": {
+    "ok": true,
+    "magicLinkUrl": "https://shop.example.com/a/account/subscriptions?token=abc123",
+    "expiresAt": "2026-09-07T18:00:00.000Z",
+    "error": null
+  }
+}

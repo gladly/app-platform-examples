@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "isTemporaryPause",
+      "detail": "Skio could not read that id. Check it is a complete subscription id copied from the Skio card."
+    }
+  ]
+}

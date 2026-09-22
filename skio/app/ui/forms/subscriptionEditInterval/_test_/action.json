@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "billingInterval": "MONTH",
+    "billingIntervalCount": 2,
+    "caller": "cnv-88f21a",
+    "prepaidDeliveryIntervalCount": 1,
+    "subscriptionId": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+  },
+  "result": {
+    "ok": true,
+    "subscriptionId": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+  }
+}

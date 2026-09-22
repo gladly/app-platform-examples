@@ -1,0 +1,1 @@
+"Pause window length 1.5 is not valid. Enter a whole number of 1 or more, and use a smaller unit instead of a fraction - DAY is the finest unit Skio offers, so pause for 10 with unit DAY rather than 1.5 with unit WEEK. Leave the unit and the length blank for an open-ended pause."

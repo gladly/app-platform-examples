@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "isTemporaryPause",
+      "detail": "Skio has no such subscription on this store. Check the id - this is not a permissions problem."
+    }
+  ]
+}

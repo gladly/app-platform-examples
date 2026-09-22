@@ -1,0 +1,10 @@
+{
+  "title": "Change shipping address",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no active Skio subscriptions."
+    }
+  ]
+}

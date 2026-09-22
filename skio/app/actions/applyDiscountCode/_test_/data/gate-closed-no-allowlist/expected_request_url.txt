@@ -1,0 +1,1 @@
+"No discount codes are allowed for this app. An admin must list them in \"Discount codes agents may apply\" in the Skio app configuration before agents can apply one."

@@ -1,0 +1,10 @@
+{
+  "title": "Send account portal link",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has a Skio account, but it has no email address on it. Skio sends the portal link to that address, so no link can be created until an email address is added to the account in Skio."
+    }
+  ]
+}

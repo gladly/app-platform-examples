@@ -1,0 +1,4 @@
+{
+  "message": "Shipping address changed.",
+  "detail": "The subscription now ships to an address the customer already had on file."
+}

@@ -1,11 +1,12 @@
 {
+  "errorMessage": "invalid input syntax for type uuid: \"sub111\"",
   "errors": [
     {
-      "message": "invalid input syntax for type uuid: \"sub111\"",
       "extensions": {
-        "path": "$",
-        "code": "data-exception"
-      }
+        "code": "data-exception",
+        "path": "$"
+      },
+      "message": "invalid input syntax for type uuid: \"sub111\""
     }
   ]
 }

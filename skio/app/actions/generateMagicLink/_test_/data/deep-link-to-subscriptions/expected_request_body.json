@@ -1,0 +1,6 @@
+{
+  "query": "mutation generateMagicLink($input: GenerateMagicLinkInput!) { generateMagicLink(input: $input) { ok magicLinkUrl expiresAt error } }",
+  "variables": {
+    "input": {"email":"skio-customer@example.com","returnToPath":"/subscriptions"}
+  }
+}

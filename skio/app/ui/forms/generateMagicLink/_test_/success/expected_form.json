@@ -1,0 +1,52 @@
+{
+  "title": "Send account portal link",
+  "submitButton": "Create link",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Customer",
+      "attr": "email",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select the customer",
+        "options": [
+          {
+            "text": "Sam Boonba - sam.boonba@example.com",
+            "value": "sam.boonba@example.com"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Land on",
+      "attr": "returnToPath",
+      "input": {
+        "type": "select",
+        "placeholder": "Account home",
+        "options": [
+          {
+            "text": "Subscriptions",
+            "value": "/subscriptions"
+          },
+          {
+            "text": "Payment methods",
+            "value": "/payment-methods"
+          },
+          {
+            "text": "Order history",
+            "value": "/orders"
+          },
+          {
+            "text": "Addresses",
+            "value": "/addresses"
+          }
+        ],
+        "optional": true
+      },
+      "hint": "Deep-link the customer straight to the page they need."
+    }
+  ]
+}

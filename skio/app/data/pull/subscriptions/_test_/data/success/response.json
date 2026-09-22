@@ -1,8 +1,1 @@
-{
-    "status": "",
-    "statusCode": 200,
-    "headers": {
-        "response_header_name": []
-    },
-    "body": ""
-}
+../../../../../../../fixtures/response-2.json

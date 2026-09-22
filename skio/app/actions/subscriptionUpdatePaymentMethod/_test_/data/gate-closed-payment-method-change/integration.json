@@ -1,0 +1,11 @@
+{
+  "configuration": {
+    "allowedDiscountCodes": "WELCOME10, SAVE20, WINBACK15",
+    "enablePriceOverride": "true",
+    "enableDeliveryPriceOverride": "true",
+    "enableCommitmentOffer": "true",
+    "enablePermanentCancel": "true",
+    "enableShipNow": "true"
+  },
+  "secrets": {}
+}

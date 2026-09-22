@@ -1,19 +1,160 @@
 {
-	"title": "Configure Skio",
-	"sections": [
-		{
-			"type": "text",
-			"text": "Enter your Skio API credentials below. You can find your API token in the Skio admin under Settings > API."
-		},
-		{
-			"type": "input",
-			"label": "API Token",
-			"attr": "secrets.apiToken",
-			"input": {
-				"type": "text",
-				"placeholder": "Enter your Skio API token"
-			},
-			"hint": "Found in the Skio dashboard under API & Integrations > API Keys."
-		}
-	]
+  "title": "Configure Skio",
+  "sections": [
+    {
+      "type": "text",
+      "text": "Enter your Skio API credentials below. You can find your API token in the Skio admin under Settings > API."
+    },
+    {
+      "type": "input",
+      "label": "API Token",
+      "attr": "secrets.apiToken",
+      "input": {
+        "type": "text",
+        "placeholder": "Enter your Skio API token"
+      },
+      "hint": "Found in the Skio dashboard under API & Integrations > API Keys."
+    },
+    {
+      "type": "text",
+      "text": "The settings below decide which money-moving actions your agents may take. Each one is off until you turn it on, and an agent who tries a blocked action is told which setting an admin needs to change. Agents also have to tick a confirmation box for any of these, and every change an agent makes is stamped into Skio's audit trail as coming from Gladly."
+    },
+    {
+      "type": "input",
+      "label": "Discount codes agents may apply",
+      "attr": "configuration.allowedDiscountCodes",
+      "input": {
+        "type": "text",
+        "placeholder": "WELCOME10, SAVE20, WINBACK15",
+        "optional": true
+      },
+      "hint": "Comma-separated Skio discount codes. Agents can apply only these; anything else is refused. Leave blank to stop agents applying discounts at all."
+    },
+    {
+      "type": "input",
+      "label": "Allow agents to override prices",
+      "attr": "configuration.enablePriceOverride",
+      "defaultValue": "false",
+      "input": {
+        "type": "select",
+        "placeholder": "Select yes or no",
+        "options": [
+          {
+            "text": "No",
+            "value": "false"
+          },
+          {
+            "text": "Yes",
+            "value": "true"
+          }
+        ]
+      },
+      "hint": "Covers a custom price when adding a product, changing a line, or swapping a variant. With this off, agents can still make those changes at your catalogue prices."
+    },
+    {
+      "type": "input",
+      "label": "Allow agents to override shipping price",
+      "attr": "configuration.enableDeliveryPriceOverride",
+      "defaultValue": "false",
+      "input": {
+        "type": "select",
+        "placeholder": "Select yes or no",
+        "options": [
+          {
+            "text": "No",
+            "value": "false"
+          },
+          {
+            "text": "Yes",
+            "value": "true"
+          }
+        ]
+      },
+      "hint": "Lets an agent waive or reduce shipping on a subscription as goodwill. Skio flags the override so a catalogue resync will not undo it."
+    },
+    {
+      "type": "input",
+      "label": "Allow agents to set commitment offers",
+      "attr": "configuration.enableCommitmentOffer",
+      "defaultValue": "false",
+      "input": {
+        "type": "select",
+        "placeholder": "Select yes or no",
+        "options": [
+          {
+            "text": "No",
+            "value": "false"
+          },
+          {
+            "text": "Yes",
+            "value": "true"
+          }
+        ]
+      },
+      "hint": "Turns a cancellation into added required cycles. It restricts when the customer may cancel, so leave it off unless your retention playbook uses it."
+    },
+    {
+      "type": "input",
+      "label": "Allow agents to change the payment method",
+      "attr": "configuration.enablePaymentMethodChange",
+      "defaultValue": "false",
+      "input": {
+        "type": "select",
+        "placeholder": "Select yes or no",
+        "options": [
+          {
+            "text": "No",
+            "value": "false"
+          },
+          {
+            "text": "Yes",
+            "value": "true"
+          }
+        ]
+      },
+      "hint": "Lets an agent move a subscription onto a card the customer has already saved in your store - the usual fix for a declined card. Agents never see or enter card details."
+    },
+    {
+      "type": "input",
+      "label": "Allow agents to permanently cancel",
+      "attr": "configuration.enablePermanentCancel",
+      "defaultValue": "false",
+      "input": {
+        "type": "select",
+        "placeholder": "Select yes or no",
+        "options": [
+          {
+            "text": "No",
+            "value": "false"
+          },
+          {
+            "text": "Yes",
+            "value": "true"
+          }
+        ]
+      },
+      "hint": "A permanent cancellation can never be reactivated. Ordinary cancellation is always available and is reversible, so most merchants leave this off."
+    },
+    {
+      "type": "input",
+      "label": "Allow AI and agents to ship the next order now",
+      "attr": "configuration.enableShipNow",
+      "defaultValue": "false",
+      "input": {
+        "type": "select",
+        "placeholder": "Select yes or no",
+        "options": [
+          {
+            "text": "No",
+            "value": "false"
+          },
+          {
+            "text": "Yes",
+            "value": "true"
+          }
+        ]
+      },
+      "hint": "Ship-now creates an unscheduled order and charges the payment method on file straight away. Leave this off unless you want AI and agents to be able to bill a customer ahead of their normal schedule."
+    }
+  ]
 }

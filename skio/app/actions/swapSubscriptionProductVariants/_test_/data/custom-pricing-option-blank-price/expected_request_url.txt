@@ -1,0 +1,1 @@
+"Pricing option CUSTOM needs a custom price. Use SAME to keep the subscriber's locked price, or NEW_VARIANT_PRICE for the new variant's list price."

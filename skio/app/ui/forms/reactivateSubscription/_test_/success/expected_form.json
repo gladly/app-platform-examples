@@ -1,0 +1,34 @@
+{
+  "title": "Reactivate subscription",
+  "submitButton": "Reactivate subscription",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a subscription",
+        "options": [
+          {
+            "text": "Subscription - CANCELLED",
+            "value": "9843ae37-021c-423e-bfe0-36367ceddf82"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Next billing date",
+      "attr": "newBillingDate",
+      "input": {
+        "type": "text",
+        "placeholder": "2026-10-15",
+        "optional": false
+      },
+      "hint": "Skio requires a date for a reactivated subscription. Agree it with the customer first."
+    }
+  ]
+}

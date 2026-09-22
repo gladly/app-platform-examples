@@ -1,0 +1,10 @@
+{
+  "title": "Send account portal link",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no Skio account, so no portal link can be created."
+    }
+  ]
+}

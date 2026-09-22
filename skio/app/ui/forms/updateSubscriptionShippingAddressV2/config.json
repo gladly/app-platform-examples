@@ -1,0 +1,15 @@
+{
+    "action": {
+        "graphqlField": "updateSubscriptionShippingAddressV2"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "storefront_user"
+        },
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "subscriptions"
+        }
+    ]
+}

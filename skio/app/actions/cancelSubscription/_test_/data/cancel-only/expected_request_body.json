@@ -1,8 +1,6 @@
 {
   "query": "mutation cancelSubscription($input: CancelSubscriptionInput!) { cancelSubscription(input: $input) { ok } }",
   "variables": {
-    "input": {
-      "subscriptionId": "test-subscription-id-no-notify"
-    }
+    "input": {"subscriptionId":"1e671650-4876-4e80-a0b7-130f355281ac"}
   }
 }

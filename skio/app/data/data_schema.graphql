@@ -1,11 +1,24 @@
+# =============================================================================
+#  Skio read surface
+#
+#  One data type renders one card: skio_storefront_user - the customer and
+#  their subscriptions.
+#
+#  Timestamps stay String rather than DateTime: Skio returns timestamptz, but
+#  appcfg test cannot prove DateTime coercion offline and several of these
+#  columns are nullable or undocumented. jsonb columns are stringified in the
+#  response transformation, because GraphQL has no arbitrary-JSON scalar here.
+# =============================================================================
+
 """
 A product represents an item that can be sold in your store.
 """
 type Product {
   """
-  The name of the product as it appears in your store
+  The name of the product as it appears in your store. Nullable: the pull passes
+  Skio's product object through as it arrives.
   """
-  title: String!
+  title: String
 }
 
 """
@@ -13,13 +26,67 @@ A specific version of a product, like different sizes or colors
 """
 type ProductVariant {
   """
-  The name of this specific variant (e.g., "Large", "Blue")
+  Skio's variant id. This is what the swap, add-product and backup-variant
+  actions expect.
   """
-  title: String!
+  id: String
   """
-  The parent product this variant belongs to
+  The name of this specific variant (e.g., "Large", "Blue"). Nullable: the pull
+  passes Skio's variant object through as it arrives.
   """
-  Product: Product!
+  title: String
+  """
+  The Shopify variant id.
+  """
+  platformId: String
+  sku: String
+  """
+  The variant's current catalogue price.
+  """
+  price: Float
+  compareAtPrice: Float
+  """
+  Set when the variant is out of stock. A value here means the next order will
+  fail unless a backup variant is set.
+  """
+  outOfStockAt: String
+  """
+  The parent product this variant belongs to. Nullable: the pull passes Skio's
+  variant object through as it arrives, so a variant whose product row is gone
+  carries a null here.
+  """
+  Product: Product
+}
+
+"""
+A discount applied to a subscription or one of its lines. Worth reading before
+promising a code: an exhausted one will not apply again.
+"""
+type SkioDiscount {
+  id: String
+  """
+  The code the customer redeemed.
+  """
+  redeemCode: String
+  title: String
+  type: String
+  percentage: Float
+  fixedValue: Float
+  timesUsed: Int
+  maxTimesUsed: Int
+  appliesOnEachItem: Boolean
+  """
+  The currency fixedValue is denominated in, copied from the subscription so the card can
+  render the amount through the same CurrencyValue component it uses for the price.
+  """
+  currencyCode: String
+  """
+  Ready-to-render twin, e.g. "WELCOME10 — 10% off". Built in the pull because Skio returns
+  percentage as a fraction (0.1 for 10%) and the card cannot safely format it. A fixed-value
+  discount carries only its redeem code here; its amount is rendered from fixedValue and
+  currencyCode so it is formatted as money, not as a bare number.
+  """
+  label: String
 }
 
 """
@@ -31,13 +98,28 @@ type SubscriptionLine {
   """
   id: String!
   """
+  The Shopify line id.
+  """
+  platformId: String
+  """
   The price of the product before any discounts are applied
   """
   priceWithoutDiscount: Float!
   """
-  The specific product variant being subscribed to
+  The specific product variant being subscribed to. Nullable: a line whose
+  Shopify product was deleted comes back with no variant, and the pull omits the
+  key rather than emit a null - a null in a non-null field nulls the enclosing
+  object and blanks the card. The card falls back to titleOverride.
   """
-  ProductVariant: ProductVariant!
+  ProductVariant: ProductVariant
+  """
+  The variant id on its own, for actions that take it directly.
+  """
+  productVariantId: String
+  """
+  The product name the customer actually sees, when the merchant has overridden it.
+  """
+  titleOverride: String
   """
   The quantity of this product in the subscription
   """
@@ -54,6 +136,15 @@ type SubscriptionLine {
   The ID of the selling plan associated with this line
   """
   sellingPlanId: String
+  """
+  The line's custom attributes, as a JSON string.
+  """
+  customAttributes: String
+  """
+  Code discounts attach to the LINE, not the subscription — Skio sets subscriptionLineId and
+  leaves subscriptionId null, so Subscription.Discounts never shows them.
+  """
+  Discounts: [SkioDiscount]
 }
 
 """
@@ -95,6 +186,29 @@ type Policy {
 }
 
 """
+A postal address held on the customer's Skio account.
+"""
+type SkioAddress {
+  id: String
+  """
+  The Shopify address id. This is the value updateSubscriptionShippingAddressV2
+  takes as newShippingAddressPlatformId to point a subscription at this address.
+  """
+  platformId: String
+  firstName: String
+  lastName: String
+  company: String
+  address1: String
+  address2: String
+  city: String
+  province: String
+  country: String
+  zip: String
+  phoneNumber: String
+  doorCode: String
+}
+
+"""
 A subscription represents a customer's recurring order
 """
 type SkioSubscription @dataType(name: "skio_subscription", version: "2.0") {
@@ -106,6 +220,20 @@ type SkioSubscription @dataType(name: "skio_subscription", version: "2.0") {
   Current status of the subscription (e.g., ACTIVE, CANCELLED)
   """
   status: String!
+  """
+  Distinguishes a lapsed subscription from a permanently closed one, e.g.
+  CHURNED or PERMANENTLY_CANCELLED. A permanently cancelled subscription cannot
+  be reactivated.
+  """
+  statusContext: String
+  """
+  statusContext humanised for display - "Permanently Cancelled" rather than Skio's
+  PERMANENTLY_CANCELLED. Built in the pull because the card's expression language has
+  `title` but no `replace`, so the raw value renders with its underscore.
+  """
+  statusLabel: String
+  statusDisplay: String
+  shipsToLine: String
   """
   When the subscription was first created
   """
@@ -143,6 +271,73 @@ type SkioSubscription @dataType(name: "skio_subscription", version: "2.0") {
   """
   updatedAt: String
   """
+  The merchant's internal note on this subscription.
+  """
+  note: String
+  """
+  Skio's churn-risk score for this subscription. Available to Gladly Rules, so a
+  high score can route the conversation to a retention queue before an agent
+  ever opens the profile.
+  """
+  churnScore: Float
+  """
+  churnScore rendered for a human, as a whole-number percentage ("22%"). Built in the pull
+  because the card would otherwise print the raw probability in full and truncate it
+  mid-digit. No risk banding: Skio does not publish its thresholds.
+  """
+  churnScoreDisplay: String
+  """
+  The reasons behind the churn score.
+  """
+  churnRiskReasons: [String]
+  """
+  The same reasons as one readable line, for the card. No shipped Gladly card renders a list
+  of bare strings, so the card reads this while Rules and Gladly AI read the list above.
+  """
+  churnRiskSummary: String
+  """
+  When the churn score was last computed.
+  """
+  churnPredictedAt: String
+  """
+  What the customer currently pays for shipping.
+  """
+  deliveryPrice: Float
+  """
+  Set when an agent or admin has pinned the shipping price so a catalogue
+  resync will not undo it.
+  """
+  deliveryPriceOverride: Int
+  """
+  True when this subscription is collected rather than shipped.
+  """
+  isPickup: Boolean
+  """
+  Prepaid subscriptions: deliveries left before the term renews.
+  """
+  remainingCyclesUntilRenewal: Int
+  """
+  Prepaid subscriptions: when the prepaid term renews. This is the date that
+  matters to a prepaid customer, not nextBillingDate.
+  """
+  nextRenewalDate: String
+  """
+  When Skio last tried to charge this subscription.
+  """
+  lastBillingAttemptAt: String
+  """
+  How many consecutive cycles the customer has kept this subscription.
+  """
+  streakCount: Int
+  """
+  Their best-ever streak.
+  """
+  maxStreakCount: Int
+  """
+  When the current streak lapses.
+  """
+  streakExpiresAt: String
+  """
   The billing policy for this subscription
   """
   BillingPolicy: Policy
@@ -150,6 +345,22 @@ type SkioSubscription @dataType(name: "skio_subscription", version: "2.0") {
   The delivery policy for this subscription
   """
   DeliveryPolicy: Policy
+  """
+  Prepaid subscriptions: the cadence of deliveries inside the prepaid term.
+  """
+  PrepaidDeliveryPolicy: Policy
+  """
+  Where this subscription currently ships.
+  """
+  ShippingAddress: SkioAddress
+  """
+  Discounts currently on this subscription.
+  """
+  Discounts: [SkioDiscount]
+  """
+  The subscription's custom attributes, as a JSON string.
+  """
+  customAttributes: String
 }
 
 """
@@ -190,6 +401,20 @@ type SkioStorefrontUser
   """
   updatedAt: String!
   """
+  Set when the customer has been redacted for GDPR. Render the profile as
+  redacted rather than as blank.
+  """
+  redactedAt: String
+  """
+  Whether the customer has opted in to transactional SMS.
+  """
+  smsTransactionalOptIn: Boolean
+  """
+  Every address on the customer's Skio account, so a subscription can be pointed
+  at one they already have instead of retyping it.
+  """
+  ShippingAddresses: [SkioAddress]
+  """
   All active subscriptions for this customer
   """
   Subscriptions: [SkioSubscription] @parentId(template: "{{.id}}")
@@ -205,20 +430,25 @@ type Query {
   - Primary phone number
   - Mobile phone numbers from the customer profile
 
+  Email matching uses Skio's emailLower column, so a casing difference between
+  the Gladly profile and Skio does not silently fail to find the customer.
+
   The query will:
   - Return a single customer if exactly one match is found
   - Return an error if no customer is found
   - Return an error if multiple customers are found
 
   For the matching customer, this query returns:
-  - Customer details (name, email, contact information)
+  - Customer details (name, email, contact information, GDPR redaction state)
+  - Every address on their Skio account
   - All subscriptions for the customer (regardless of status)
   - For each subscription:
-    - Subscription status and next billing date
-    - Products included in the subscription
-    - Pricing information for each product
-    - Subscription policies and settings
-    - Billing and delivery information
+    - Status, status context, next billing date and prepaid renewal date
+    - Products included, with variant ids and out-of-stock state
+    - Pricing, discounts and shipping price
+    - Billing, delivery and prepaid delivery policies
+    - Skio's churn score and the reasons behind it
+    - Loyalty streak
   """
   storefront_user: SkioStorefrontUser
   subscriptions: [SkioSubscription]

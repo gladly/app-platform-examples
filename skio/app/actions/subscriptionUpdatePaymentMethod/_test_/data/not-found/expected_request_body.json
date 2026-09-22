@@ -1,0 +1,6 @@
+{
+  "query": "mutation subscriptionUpdatePaymentMethod($input: SubscriptionUpdatePaymentMethodInput!) { subscriptionUpdatePaymentMethod(input: $input) { subscriptionId } }",
+  "variables": {
+    "input": {"paymentMethodPlatformId":"gid://shopify/CustomerPaymentMethod/5566","subscriptionId":"11111111-1111-1111-1111-111111111111"}
+  }
+}

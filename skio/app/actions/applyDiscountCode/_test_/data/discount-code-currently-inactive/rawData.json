@@ -1,0 +1,11 @@
+{
+  "errors": [
+    {
+      "message": "Apply discount code failed",
+      "extensions": {
+        "code": "unexpected",
+        "detail": "CURRENTLY_INACTIVE"
+      }
+    }
+  ]
+}

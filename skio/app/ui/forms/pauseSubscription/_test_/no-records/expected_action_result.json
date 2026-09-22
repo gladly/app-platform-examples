@@ -1,0 +1,4 @@
+{
+  "message": "Subscription paused.",
+  "detail": "The subscription is paused and will not be billed or shipped until it is resumed."
+}

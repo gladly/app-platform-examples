@@ -1,0 +1,6 @@
+{
+  "query": "mutation updateSubscriptionShippingAddressV2($input: UpdateSubscriptionShippingAddressV2Input!) { updateSubscriptionShippingAddressV2(input: $input) { ok message } }",
+  "variables": {
+    "input": {"subscriptionId":"11111111-1111-1111-1111-111111111111","updatedShippingAddress":{"city":"Toronto"}}
+  }
+}

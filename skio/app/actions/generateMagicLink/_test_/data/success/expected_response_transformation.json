@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "magicLinkUrl": "https://shop.example.com/a/account?token=abc123",
+  "expiresAt": "2026-09-07T18:00:00.000Z",
+  "error": null
+}

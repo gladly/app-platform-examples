@@ -1,0 +1,13 @@
+{
+  "query": "mutation changeSubscriptionDeliveryMethod($input: ChangeSubscriptionDeliveryMethodInput!) { changeSubscriptionDeliveryMethod(input: $input) { subscriptionId } }",
+  "variables": {
+    "input": {
+      "deliveryMethodType": "local_delivery",
+      "deliveryPrice": 0,
+      "localDeliveryInstructions": "Leave at side gate",
+      "localDeliveryPhone": "+14165550123",
+      "setOverride": true,
+      "subscriptionId": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+    }
+  }
+}

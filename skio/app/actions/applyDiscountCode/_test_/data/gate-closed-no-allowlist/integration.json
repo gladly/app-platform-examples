@@ -1,0 +1,11 @@
+{
+  "configuration": {
+    "enablePriceOverride": "true",
+    "enableDeliveryPriceOverride": "true",
+    "enableCommitmentOffer": "true",
+    "enablePermanentCancel": "true",
+    "enablePaymentMethodChange": "true",
+    "enableShipNow": "true"
+  },
+  "secrets": {}
+}

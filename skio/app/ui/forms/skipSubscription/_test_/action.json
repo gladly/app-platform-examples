@@ -1,0 +1,12 @@
+{
+  "inputs": {
+    "caller": "cnv-88f21a",
+    "skipUnit": "WEEK",
+    "subscriptionId": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+  },
+  "result": {
+    "message": "Skipped",
+    "nextBillingDate": "2026-11-01",
+    "ok": true
+  }
+}

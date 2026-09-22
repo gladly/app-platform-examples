@@ -1,0 +1,6 @@
+{
+  "query": "mutation updateDynamicBoxSubscription($input: UpdateDynamicBoxSubscriptionInput!) { updateDynamicBoxSubscription(input: $input) { ok } }",
+  "variables": {
+    "input": {"dynamicBox":{"boxId":"box-1","boxIndex":"0"},"subscriptionId":"8b753087-391a-44c8-a7f3-9adf2e6dfebe","updated":[{"quantity":2,"variantId":"b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f"},{"quantity":1,"variantId":"c2d3e4f5-a6b7-4829-93a0-1b2c3d4e5f60"}]}
+  }
+}

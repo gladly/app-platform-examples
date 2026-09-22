@@ -1,0 +1,20 @@
+{
+  "inputs": {
+    "code": "WELCOME10",
+    "confirmed": true,
+    "subscriptionId": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+  },
+  "result": {
+    "ok": false,
+    "errorMessage": "Skio could not find that. If this was a discount code, the merchant's allowlist has it but Skio does not - it may have been deleted or expired in Skio.",
+    "errors": [
+      {
+        "message": "Apply discount code failed",
+        "extensions": {
+          "code": "Apply discount code failed",
+          "detail": "NOT_FOUND"
+        }
+      }
+    ]
+  }
+}

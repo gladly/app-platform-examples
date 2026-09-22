@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "updateSubscriptionNote"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "subscriptions"
+        }
+    ]
+}

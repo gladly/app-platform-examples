@@ -1,0 +1,18 @@
+{
+  "inputs": {
+    "email": "sam.boonba@example.com",
+    "returnToPath": "/subscriptions"
+  },
+  "result": {
+    "ok": false,
+    "errorMessage": "Skio could not read that id. Check it is a complete subscription id copied from the Skio card.",
+    "errors": [
+      {
+        "message": "internal error",
+        "extensions": {
+          "code": "internal error"
+        }
+      }
+    ]
+  }
+}

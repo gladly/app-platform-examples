@@ -1,0 +1,1 @@
+"Shipping the next order immediately is not enabled for this app. An admin must set \"Allow AI and agents to ship the next order now\" to true in the Skio app configuration first."

@@ -1,0 +1,12 @@
+{
+  "storefront_user": {
+    "id": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+    "firstName": "Sam",
+    "lastName": "Boonba",
+    "phoneNumber": "+14165550123",
+    "platformId": "gid://shopify/Customer/7827118522567",
+    "createdAt": "2025-04-02T11:03:06.720361+00:00",
+    "updatedAt": "2026-09-01T17:18:02.398227+00:00"
+  },
+  "subscriptions": []
+}

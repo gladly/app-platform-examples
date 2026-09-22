@@ -1,0 +1,1 @@
+"Setting a commitment offer is not enabled for this app. An admin must set \"Allow agents to set commitment offers\" to true in the Skio app configuration first."

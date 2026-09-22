@@ -1,3 +1,17 @@
+# =============================================================================
+#  Skio action surface
+#
+#  Every field below is callable identically by a human agent (through its
+#  ui/forms/ entry) and by Gladly AI / Team Assist. No action is card-only and
+#  no action is AI-only.
+#
+#  Shapes were taken from live introspection of Skio's GraphQL API, not from the
+#  docs render (which documents 26 of 35 mutations). Skio input columns typed
+#  `uuid` are declared `String` here and coerced by GraphQL on the way out;
+#  every date field stays `String` because agents supply date-only values that
+#  would fail DateTime coercion in the runtime.
+# =============================================================================
+
 """
 Additional details and context about the error.
 """
@@ -78,13 +92,72 @@ type Subscription {
   DeliveryPolicy: Policy
 }
 
-# Cancel Subscription Action Types
-type CancelSubscriptionOutput {
+# -----------------------------------------------------------------------------
+#  Shared result shapes
+# -----------------------------------------------------------------------------
+
+"""
+The result of a Skio write that reports only success or failure.
+"""
+type SkioWriteResult {
+  """
+  Whether Skio accepted the change.
+  """
   ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
   errors: [SkioError!]
 }
 
-# Pause Subscription Action Types
+"""
+The result of a Skio write that returns a human-readable message alongside the
+success flag. Skio's message is worth showing the agent verbatim - it names the
+actor and the timestamp.
+"""
+type SkioMessageResult {
+  message: String
+  ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
+  errors: [SkioError!]
+}
+
+# -----------------------------------------------------------------------------
+#  Per-action result shapes
+# -----------------------------------------------------------------------------
+
+# Cancel Subscription Action Types
+type CancelSubscriptionOutput {
+  ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
+  errors: [SkioError!]
+}
+
 """
 Output for the pauseSubscription action.
 """
@@ -97,10 +170,19 @@ type PauseSubscriptionOutput {
   Indicates if the operation was successful. Note: Skio returns `true` even if the subscription was already paused.
   """
   ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
   errors: [SkioError!]
 }
 
-# Ship Now Action Types
 """
 Output for the shipNow action.
 """
@@ -113,6 +195,172 @@ type ShipNowOutput {
   Indicates if the operation was successful.
   """
   ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
+  errors: [SkioError!]
+}
+
+"""
+Output for the skipSubscription action. `nextBillingDate` is the date the
+subscription lands on after the skip - read it back to the customer.
+"""
+type SkipSubscriptionOutput {
+  message: String
+  nextBillingDate: String
+  ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
+  errors: [SkioError!]
+}
+
+"""
+Output for the updateSubscriptionNote action. `note` echoes the stored note.
+"""
+type UpdateSubscriptionNoteOutput {
+  note: String
+  ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
+  errors: [SkioError!]
+}
+
+"""
+Output for actions that return only the subscription they changed.
+"""
+type SubscriptionIdOutput {
+  subscriptionId: String
+  ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
+  errors: [SkioError!]
+}
+
+"""
+Output for the setCommitmentOffer action. The three cycle numbers are what the
+customer is now committed to - quote them back before ending the conversation.
+"""
+type SetCommitmentOfferOutput {
+  """
+  How many cycles the commitment runs for.
+  """
+  commitmentLength: Int
+  """
+  The cycle the commitment starts on.
+  """
+  commitmentStartCycle: Int
+  """
+  The earliest cycle at which the customer may cancel.
+  """
+  minimumCancelCycle: Int
+  subscriptionId: String
+  """
+  Whether Skio accepted the commitment. False when the call failed; see
+  errorMessage.
+  """
+  ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
+  errors: [SkioError!]
+}
+
+"""
+Output for the addAddressForStorefrontUser action. Confirmed by live introspection
+2026-09-08: Skio returns the new address's own id plus its Shopify platform id.
+"""
+type AddAddressOutput {
+  """
+  Skio's id for the address it just created.
+  """
+  id: String
+  """
+  The Shopify address id, e.g. gid://shopify/MailingAddress/10610841026700. Pass this
+  straight to Change shipping address as the saved-address value - no re-read needed.
+  """
+  platformId: String
+  ok: Boolean
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
+  errors: [SkioError!]
+}
+
+"""
+Output for the generateMagicLink action.
+"""
+type GenerateMagicLinkOutput {
+  """
+  Whether Skio minted a link.
+  """
+  ok: Boolean
+  """
+  The one-time passwordless URL into the customer's Skio account portal.
+  """
+  magicLinkUrl: String
+  """
+  When the link stops working. Tell the customer - do not send an expired link.
+  """
+  expiresAt: String
+  """
+  Skio's own error string (for example when no storefront user matches the email).
+  """
+  error: String
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
   errors: [SkioError!]
 }
 
@@ -120,10 +368,40 @@ type ShipNowOutput {
 Output for the getSubscriptionById query.
 """
 type GetSubscriptionByIdOutput {
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
   errors: [SkioError!]
   subscription: Subscription
 }
 
+"""
+One subscription as it appears in a customer lookup. Every field here is really selected by
+the request, verified live 2026-09-08 - the previous shape promised line items, currency,
+platform id and cycle counts that the query never asked Skio for, so they were always null.
+"""
+type CustomerSubscriptionSummary {
+  id: String
+  status: String
+  statusContext: String
+  storefrontUserId: String
+  currencyCode: String
+  nextBillingDate: String
+  platformId: String
+  cyclesCompleted: Int
+  cancelledAt: String
+  createdAt: String
+  updatedAt: String
+  BillingPolicy: Policy
+  DeliveryPolicy: Policy
+}
 """
 A customer with their subscriptions.
 """
@@ -136,18 +414,123 @@ type CustomerWithSubscriptionsOutput {
   platformId: String
   createdAt: String
   updatedAt: String
-  Subscriptions: [Subscription]
+  """
+  A summary per subscription, enough to identify one and act on it. Line items are
+  deliberately NOT here - this is a lookup, and asking for them at five customers by ten
+  subscriptions by their lines runs at Skio's response cap. Use getSubscriptionById, or the
+  subscriptions data pull that feeds the card, for line detail.
+  """
+  Subscriptions: [CustomerSubscriptionSummary]
 }
+
 
 """
 Output for the getCustomers action.
 """
 type GetCustomersOutput {
   customers: [CustomerWithSubscriptionsOutput]
+  """
+  The agent-facing translation of a Skio failure. Set whenever the call failed -
+  either Skio returned an errors array or its own `ok: false` - and null on
+  success. Four Skio errors misdirect the caller (they read as permissions or
+  outage problems when the real cause is a wrong id or an inactive discount
+  code), so those four are rewritten into what they actually mean; every other
+  Skio message is passed through verbatim. Read this to the customer or act on
+  it; `errors` carries the untranslated original.
+  """
+  errorMessage: String
   errors: [SkioError!]
 }
 
-# Queries
+"""
+A product variant from the merchant's Skio catalogue, returned by the
+getProductVariants search. `id` is what every variant-keyed action wants.
+"""
+type SkioProductVariantSearchResult {
+  """
+  Skio's variant id. This is the value to pass as variantId, newProductVariantId
+  or backupVariantId.
+  """
+  id: String
+  """
+  The variant's name, for example "12 lb".
+  """
+  title: String
+  sku: String
+  """
+  The Shopify variant id.
+  """
+  platformId: String
+  price: Float
+  compareAtPrice: Float
+  """
+  Set when the variant is out of stock. A non-null value here is the signal to
+  offer setSubscriptionLineBackupVariant before the next order fails.
+  """
+  outOfStockAt: String
+  Product: Product
+}
+
+# -----------------------------------------------------------------------------
+#  Input shapes for the bulk and bundle actions
+# -----------------------------------------------------------------------------
+
+"""
+One product to add to a subscription. Used by addSubscriptionLineBulk.
+"""
+input SkioAddLineInput {
+  """
+  Skio product-variant id. Find one with getProductVariants.
+  """
+  variantId: String!
+  quantity: Int
+  """
+  A custom price. Leave blank to use the catalogue price with the matching
+  selling-plan discount. Setting it requires the merchant to have enabled price
+  overrides, plus an explicit confirmation.
+  """
+  price: Float
+  """
+  Mark the line as an upsell so the merchant can attribute the revenue to
+  support. Skio stores this natively.
+  """
+  upsell: Boolean
+}
+
+"""
+One subscription line to change. Used by updateSubscriptionLineBulk. A line is
+keyed by subscriptionLineId (or prepaidSubscriptionLineId) - NOT by subscription id.
+"""
+input SkioUpdateLineInput {
+  subscriptionLineId: String
+  prepaidSubscriptionLineId: String
+  quantity: Int
+  """
+  Swap the line onto a different product variant.
+  """
+  productVariantId: String
+  """
+  A custom price. Merchant-gated; see SkioAddLineInput.price.
+  """
+  currentPrice: Float
+  """
+  Override the product name the customer sees on this line.
+  """
+  titleOverride: String
+}
+
+"""
+One item inside a Build-a-Box (dynamic box) subscription.
+"""
+input SkioBoxItemInput {
+  variantId: String!
+  quantity: Int!
+}
+
+# =============================================================================
+#  Queries
+# =============================================================================
+
 type Query {
   """
   Fetches details of a specific subscription by its ID.
@@ -171,30 +554,648 @@ type Query {
   """
   getCustomers(email: String, phone: String): [CustomerWithSubscriptionsOutput]
     @action(name: "getCustomers")
+
+  """
+  Searches the merchant's Skio catalogue by product-variant title or SKU and
+  returns the variant ids the write actions need.
+
+  Use this first whenever a customer names a product rather than an id - to add
+  a product, swap a variant, or set an out-of-stock backup. The result includes
+  `outOfStockAt`, so an out-of-stock variant is visible before it is offered.
+
+  Results are capped at 50 (Skio returns at most 100 nodes per request).
+  """
+  getProductVariants(
+    """
+    Part of a variant title or SKU. Matched case-insensitively as a substring.
+    """
+    search: String!
+    """
+    How many variants to return. Defaults to 25, capped at 50.
+    """
+    limit: Int
+  ): [SkioProductVariantSearchResult] @action(name: "getProductVariants")
 }
 
-# Mutations
+# =============================================================================
+#  Mutations
+# =============================================================================
+
 type Mutation {
+  # ---------------------------------------------------------------- lifecycle
+
   """
   Cancels a customer's subscription in Skio.
-  This marks the subscription as cancelled and handles prepaid subscriptions appropriately.
-  Note: This action will report success (`ok: true`) even if the subscription ID does not exist or the subscription was already cancelled.
+
+  A normal cancellation is reversible - reactivateSubscription brings it back -
+  so it needs no approval. Setting `permanentlyCancel` is NOT reversible and is
+  gated on the merchant enabling it plus an explicit confirmation.
+
+  Note: Skio reports success (`ok: true`) even if the subscription id does not
+  exist or the subscription was already cancelled. Confirm the status afterwards
+  with getSubscriptionById if it matters.
   """
   cancelSubscription(
-    subscriptionId: String!,
+    subscriptionId: String!
+    """
+    Send Skio's cancellation email/SMS to the customer.
+    """
     shouldSendNotif: Boolean
+    """
+    Permanently cancel. The subscription can never be reactivated. Requires the
+    merchant to have enabled permanent cancellation, and `confirmed`.
+    """
+    permanentlyCancel: Boolean
+    """
+    Run the merchant's Skio cancellation journeys (win-back flows). Defaults to
+    Skio's own behaviour when omitted.
+    """
+    invokeSubscriptionCancelJourneys: Boolean
+    """
+    The id of the cancel-flow session this cancellation belongs to, so Skio's
+    retention reporting attributes it correctly.
+    """
+    cancelSessionId: String
+    """
+    GUARDED: set true to confirm a permanent cancellation. Defaults to OFF -- an omitted
+    or false value is refused before Skio is called. Only read when permanentlyCancel is
+    set; an ordinary reversible cancellation needs no confirmation.
+    """
+    confirmed: Boolean
   ): CancelSubscriptionOutput! @action(name: "cancelSubscription")
 
   """
-  Triggers an immediate, unscheduled shipment for a specified subscription.
+  Pauses a customer's subscription in Skio, so it is neither billed nor shipped.
+
+  Leave the skip window blank for an open-ended pause (resume it with
+  unpauseSubscription). Supply both skipUnit and skipValue to pause for a
+  defined window instead.
+
+  Note: Skio reports success (`ok: true`) even if the subscription id does not
+  exist or the subscription was already paused.
   """
-  shipNow(subscriptionId: String!): ShipNowOutput @action(name: "shipNow")
+  pauseSubscription(
+    subscriptionId: String!
+    """
+    The unit of the pause window (advanced). Must be supplied with skipValue.
+    """
+    skipUnit: String
+    """
+    How many units to pause for (advanced). Must be supplied with skipUnit.
+    """
+    skipValue: Float
+    """
+    The Gladly conversation this change came from. Stamped into Skio's audit
+    trail so the merchant can attribute the change to a support conversation.
+    """
+    caller: String
+  ): PauseSubscriptionOutput! @action(name: "pauseSubscription")
 
   """
-  Pauses a customer's subscription in Skio.
-  This temporarily stops the subscription from being billed and shipped.
-  Note: This action will report success (`ok: true`) even if the subscription ID does not exist or the subscription was already paused.
+  Resumes a paused subscription so it bills and ships again.
   """
-  pauseSubscription(subscriptionId: String!): PauseSubscriptionOutput!
-    @action(name: "pauseSubscription")
+  unpauseSubscription(
+    subscriptionId: String!
+    """
+    Set when the pause being lifted was a fixed-window ("temporary") pause.
+    """
+    isTemporaryPause: Boolean
+  ): SkioMessageResult @action(name: "unpauseSubscription")
+
+  """
+  Skips the customer's next order and moves the subscription on to the following
+  billing date, which is returned so it can be read back to the customer.
+
+  This is the lightest-touch retention save: the customer keeps the subscription
+  and simply does not get charged this cycle.
+  """
+  skipSubscription(
+    subscriptionId: String!
+    """
+    The unit of the skip window (advanced). Must be supplied with skipValue.
+    Leave both blank to skip exactly one cycle.
+    """
+    skipUnit: String
+    """
+    How many units to skip (advanced). Must be supplied with skipUnit.
+    """
+    skipValue: Float
+    """
+    The Gladly conversation this change came from, stamped into Skio's audit trail.
+    """
+    caller: String
+  ): SkipSubscriptionOutput @action(name: "skipSubscription")
+
+  """
+  Reactivates a cancelled subscription.
+
+  Skio requires the new billing date - a reactivated subscription has to land
+  somewhere - so always agree a date with the customer first.
+  """
+  reactivateSubscription(
+    subscriptionId: String!
+    """
+    The date the reactivated subscription should next bill, for example 2026-10-15.
+    """
+    newBillingDate: String!
+  ): SkioWriteResult @action(name: "reactivateSubscription")
+
+  """
+  Triggers an immediate, unscheduled shipment for a specified subscription.
+  Use it when a customer needs their order early or a delivery went missing.
+  """
+  shipNow(
+    subscriptionId: String!
+    """
+    The Gladly conversation this change came from, stamped into Skio's audit trail.
+    """
+    caller: String
+  ): ShipNowOutput @action(name: "shipNow")
+
+  # ------------------------------------------------------------ dates, cadence
+
+  """
+  Moves the subscription's next billing date without changing its cadence.
+  Use this for a one-off shift ("can you push my next box to the 20th?").
+  """
+  updateNextBillingDate(
+    subscriptionId: String!
+    """
+    The new next billing date, for example 2026-12-01.
+    """
+    date: String!
+    """
+    The Gladly conversation this change came from, stamped into Skio's audit trail.
+    """
+    caller: String
+  ): SkioMessageResult @action(name: "updateNextBillingDate")
+
+  """
+  Changes how often the subscription bills or delivers - the permanent cadence
+  change, as opposed to updateNextBillingDate's one-off shift.
+
+  "Every 2 months" is billingInterval MONTH with billingIntervalCount 2. For a
+  prepaid subscription, the delivery cadence inside the prepaid term is set
+  separately with the prepaid fields.
+  """
+  subscriptionEditInterval(
+    subscriptionId: String!
+    """
+    DAY, WEEK, MONTH or YEAR.
+    """
+    billingInterval: String
+    """
+    How many intervals between charges. "Every 6 weeks" is WEEK with 6.
+    """
+    billingIntervalCount: Int
+    """
+    Optionally also move the next billing date in the same call.
+    """
+    nextBillingDate: String
+    """
+    Prepaid subscriptions only: DAY, WEEK, MONTH or YEAR for the delivery cadence.
+    """
+    prepaidDeliveryInterval: String
+    """
+    Prepaid subscriptions only: how many delivery intervals apart.
+    """
+    prepaidDeliveryIntervalCount: Int
+    """
+    The Gladly conversation this change came from, stamped into Skio's audit trail.
+    """
+    caller: String
+  ): SubscriptionIdOutput @action(name: "subscriptionEditInterval")
+
+  # ----------------------------------------------------------------- products
+
+  """
+  Swaps one product variant for another on a subscription - chicken to beef,
+  small to large.
+
+  pricingOption decides what the customer then pays:
+    SAME               keep the price the customer is locked into today
+    NEW_VARIANT_PRICE  charge the new variant's current list price
+    CUSTOM             charge newCustomPrice (merchant-gated)
+
+  SAME is the right answer for a long-standing subscriber on a legacy price who
+  simply wants a different flavour.
+  """
+  swapSubscriptionProductVariants(
+    subscriptionId: String!
+    """
+    The variant being swapped away from. Take it from the customer's card.
+    """
+    oldProductVariantId: String!
+    """
+    The variant being swapped to. Find it with getProductVariants.
+    """
+    newProductVariantId: String!
+    """
+    SAME, NEW_VARIANT_PRICE or CUSTOM.
+    """
+    pricingOption: String
+    """
+    The price to charge when pricingOption is CUSTOM.
+    """
+    newCustomPrice: String
+    """
+    Treat the swap as a gift swap.
+    """
+    isGiftSwap: Boolean
+    """
+    Restrict the swap to specific subscription lines. Omit to swap every line
+    on that variant.
+    """
+    subscriptionLinesToSwapFrom: [String!]
+    """
+    GUARDED: set true to confirm a CUSTOM price. Defaults to OFF -- an omitted or false
+    value is refused before Skio is called. Only read when newCustomPrice is supplied.
+    """
+    confirmed: Boolean
+  ): SkioWriteResult @action(name: "swapSubscriptionProductVariants")
+
+  """
+  Adds a product to an existing subscription, either as a recurring line or as a
+  one-time addition to the next order.
+  """
+  addSubscriptionLine(
+    subscriptionId: String!
+    """
+    Skio product-variant id. Find one with getProductVariants.
+    """
+    variantId: String!
+    quantity: Int
+    """
+    A custom price. Leave blank to use the catalogue price with the matching
+    selling-plan discount. Merchant-gated, and needs `confirmed`.
+    """
+    price: Float
+    """
+    Mark the line as an upsell so the merchant can attribute the revenue to
+    support rather than to marketing.
+    """
+    upsell: Boolean
+    """
+    GUARDED: set true to confirm the custom price. Defaults to OFF -- an omitted or false
+    value is refused before Skio is called. Only read when price is supplied.
+    """
+    confirmed: Boolean
+  ): SkioWriteResult @action(name: "addSubscriptionLine")
+
+  """
+  Changes one line already on a subscription - its quantity, its variant, its
+  price, or the name the customer sees.
+
+  This action is keyed by the subscription LINE, not the subscription. Take
+  subscriptionLineId from the customer's subscription card.
+  """
+  updateSubscriptionLine(
+    """
+    The line to change.
+    """
+    subscriptionLineId: String
+    """
+    Use instead of subscriptionLineId when the line belongs to a prepaid term.
+    """
+    prepaidSubscriptionLineId: String
+    quantity: Int
+    """
+    Swap this line onto a different product variant.
+    """
+    productVariantId: String
+    """
+    A custom price for this line. Merchant-gated, and needs `confirmed`.
+    """
+    currentPrice: Float
+    """
+    Override the product name the customer sees on this line.
+    """
+    titleOverride: String
+    """
+    GUARDED: set true to confirm the custom price. Defaults to OFF -- an omitted or false
+    value is refused before Skio is called. Only read when currentPrice is supplied.
+    """
+    confirmed: Boolean
+  ): SkioWriteResult @action(name: "updateSubscriptionLine")
+
+  """
+  Adds several products to a subscription in one atomic call. Prefer this over
+  repeating addSubscriptionLine: Skio applies the whole set or none of it, and
+  the customer gets one confirmation instead of several.
+  """
+  addSubscriptionLineBulk(
+    subscriptionId: String!
+    """
+    The products to add.
+    """
+    items: [SkioAddLineInput!]!
+    """
+    GUARDED: set true to confirm when any item carries a custom price. Defaults to OFF --
+    an omitted or false value is refused before Skio is called. Only read when at least
+    one item supplies a price.
+    """
+    confirmed: Boolean
+  ): SkioWriteResult @action(name: "addSubscriptionLineBulk")
+
+  """
+  Changes several subscription lines in one atomic call.
+  """
+  updateSubscriptionLineBulk(
+    """
+    The lines to change.
+    """
+    items: [SkioUpdateLineInput!]!
+    """
+    GUARDED: set true to confirm when any item carries a custom price. Defaults to OFF --
+    an omitted or false value is refused before Skio is called. Only read when at least
+    one item supplies a price.
+    """
+    confirmed: Boolean
+  ): SkioWriteResult @action(name: "updateSubscriptionLineBulk")
+
+  """
+  Rewrites the contents of a Build-a-Box (dynamic box) subscription.
+
+  Pass the box's new full contents in `updated`. This is the only way to edit a
+  bundle from a helpdesk.
+  """
+  updateDynamicBoxSubscription(
+    subscriptionId: String!
+    """
+    The dynamic box being edited.
+    """
+    boxId: String!
+    """
+    Which box on the subscription, when a subscription has more than one.
+    """
+    boxIndex: String!
+    """
+    The section within the box, for multi-section boxes.
+    """
+    boxSectionId: String
+    """
+    The box's contents before the edit. Optional; Skio uses it to diff.
+    """
+    original: [SkioBoxItemInput!]
+    """
+    The box's full contents after the edit.
+    """
+    updated: [SkioBoxItemInput!]!
+  ): SkioWriteResult @action(name: "updateDynamicBoxSubscription")
+
+  """
+  Sets the fallback variant Skio should ship if a subscription line's product is
+  out of stock when the next order is generated.
+
+  This prevents the out-of-stock ticket rather than handling it. Pair it with
+  getProductVariants, whose `outOfStockAt` tells you which lines need one.
+  """
+  setSubscriptionLineBackupVariant(
+    subscriptionId: String!
+    """
+    The line that needs a backup.
+    """
+    subscriptionLineId: String!
+    """
+    The variant to ship instead. Find it with getProductVariants.
+    """
+    backupVariantId: String!
+  ): SkioWriteResult @action(name: "setSubscriptionLineBackupVariant")
+
+  # ---------------------------------------------------- retention and goodwill
+
+  """
+  Applies a discount code to a subscription.
+
+  Only codes the merchant has explicitly allowed can be applied, and an explicit
+  confirmation is required. Anything else has to be done in Skio by a manager.
+  """
+  applyDiscountCode(
+    subscriptionId: String!
+    """
+    The discount code. Must be one the merchant has allowed for agents.
+    """
+    code: String!
+    """
+    GUARDED: set true to confirm applying the discount. Defaults to OFF -- an omitted or
+    false value is refused before Skio is called.
+    """
+    confirmed: Boolean
+  ): SkioMessageResult @action(name: "applyDiscountCode")
+
+  """
+  Converts a cancellation into a commitment: adds required cycles to the
+  subscription in exchange for whatever the agent has offered.
+
+  The result states the commitment length, its start cycle and the earliest
+  cycle the customer may cancel - quote all three back to the customer.
+  Merchant-gated and requires an explicit confirmation, because it restricts the
+  customer's ability to cancel.
+  """
+  setCommitmentOffer(
+    subscriptionId: String!
+    """
+    How many additional cycles the customer is committing to.
+    """
+    additionalCycles: Int!
+    """
+    GUARDED: set true to confirm adding required cycles. Defaults to OFF -- an omitted or
+    false value is refused before Skio is called.
+    """
+    confirmed: Boolean
+  ): SetCommitmentOfferOutput @action(name: "setCommitmentOffer")
+
+  """
+  Overrides the shipping price on a subscription - typically waiving it as
+  goodwill by setting it to 0.
+
+  Skio flags the override so a catalogue resync will not silently undo it.
+  Omit deliveryPrice to remove an existing override and go back to the
+  merchant's normal shipping rate. Merchant-gated, and requires an explicit
+  confirmation.
+  """
+  setDeliveryPriceOverride(
+    subscriptionId: String!
+    """
+    The shipping price to charge from now on. 0 waives shipping. Omit to remove
+    an existing override.
+    """
+    deliveryPrice: Float
+    """
+    GUARDED: set true to confirm the shipping price change. Defaults to OFF -- an omitted
+    or false value is refused before Skio is called.
+    """
+    confirmed: Boolean
+  ): SubscriptionIdOutput @action(name: "setDeliveryPriceOverride")
+
+  """
+  Points a subscription at a different payment method the customer has already
+  saved. The usual fix after a declined card: the customer adds a new card, and
+  this moves the subscription onto it so billing resumes. It cannot create or
+  read card details - only select one Shopify has already vaulted.
+  """
+  subscriptionUpdatePaymentMethod(
+    subscriptionId: String!
+    """
+    The Shopify customer-payment-method id to bill from, e.g.
+    gid://shopify/CustomerPaymentMethod/abc123.
+    """
+    paymentMethodPlatformId: String!
+    """
+    GUARDED: set true to confirm the payment method change. Defaults to OFF -- an omitted
+    or false value is refused before Skio is called.
+    """
+    confirmed: Boolean
+  ): SubscriptionIdOutput @action(name: "subscriptionUpdatePaymentMethod")
+
+  """
+  Replaces the merchant's internal note on a subscription.
+
+  Skio stores one note per subscription, so this overwrites whatever was there -
+  read the current note off the subscriptions card first if it should be kept.
+
+  Omitting `note` leaves the existing note unchanged. Sending `note` as an empty
+  value clears the note. Only send `note` when the note is meant to change.
+  """
+  updateSubscriptionNote(
+    subscriptionId: String!
+    """
+    The new note. An empty value clears the existing note. Omit this field
+    entirely to leave the existing note unchanged.
+    """
+    note: String
+  ): UpdateSubscriptionNoteOutput @action(name: "updateSubscriptionNote")
+
+  """
+  Sends the customer a passwordless magic link into their Skio account portal,
+  optionally deep-linked to a specific page.
+
+  Use it when the customer would rather self-serve, or when they cannot get into
+  their account. Respect `expiresAt` - never send a link that has already expired.
+
+  Note: this is keyed by email, not by subscription id.
+  """
+  generateMagicLink(
+    """
+    The customer's email address as Skio holds it.
+    """
+    email: String!
+    """
+    A path under /a/account to land on, for example "/subscriptions".
+    """
+    returnToPath: String
+  ): GenerateMagicLinkOutput @action(name: "generateMagicLink")
+
+  # ------------------------------------------------- addresses and fulfilment
+
+  """
+  Changes where a subscription ships.
+
+  Two modes: point at an address already on the customer's Skio account with
+  newShippingAddressPlatformId ("use my work address"), or supply the address
+  fields to write a new one. Supplying any address field replaces the whole
+  address, so include every field that should remain set.
+  """
+  updateSubscriptionShippingAddressV2(
+    subscriptionId: String!
+    """
+    The platform (Shopify) id of an address already on the customer's account.
+    When set, the address fields below are ignored.
+    """
+    newShippingAddressPlatformId: String
+    firstName: String
+    lastName: String
+    company: String
+    address1: String
+    address2: String
+    city: String
+    province: String
+    country: String
+    zip: String
+    """
+    A door or buzzer code for the courier.
+    """
+    doorCode: String
+    phone: String
+  ): SkioWriteResult @action(name: "updateSubscriptionShippingAddressV2")
+
+  """
+  Adds a new address to the customer's Skio account without changing any
+  subscription. Use it to save an address now and point subscriptions at it
+  later with updateSubscriptionShippingAddressV2.
+  """
+  addAddressForStorefrontUser(
+    """
+    The customer's Skio storefront-user id.
+    """
+    storefrontUserId: String!
+    firstName: String
+    lastName: String
+    company: String
+    address1: String
+    address2: String
+    city: String
+    province: String
+    country: String
+    zip: String
+    doorCode: String
+    phoneNumber: String
+  ): AddAddressOutput @action(name: "addAddressForStorefrontUser")
+
+  """
+  Switches a subscription between shipping, local pickup and local delivery,
+  optionally setting the price for the new method at the same time.
+
+  Changing only the method needs no approval. Changing the price alongside it is
+  merchant-gated and requires an explicit confirmation, exactly like
+  setDeliveryPriceOverride.
+  """
+  changeSubscriptionDeliveryMethod(
+    subscriptionId: String!
+    """
+    The delivery method to switch to. Exactly one of `shipping`, `pickup` or
+    `local_delivery`, lowercase. Any other value - including the uppercase
+    spellings - is rejected.
+    """
+    deliveryMethodType: String!
+    """
+    The internal title for the delivery method.
+    """
+    title: String
+    """
+    The title the customer sees.
+    """
+    presentmentTitle: String
+    """
+    The merchant's code for the shipping rate.
+    """
+    code: String
+    description: String
+    """
+    The price for the new delivery method. 0 makes it free.
+    """
+    deliveryPrice: Float
+    """
+    Flag the price so a resync will not undo it.
+    """
+    setOverride: Boolean
+    """
+    For `pickup`: the pickup location. Required for `pickup`.
+    """
+    pickupLocationId: String
+    """
+    For `local_delivery`: instructions for the driver.
+    """
+    localDeliveryInstructions: String
+    """
+    For `local_delivery`: a contact number for the driver. Required for `local_delivery`.
+    """
+    localDeliveryPhone: String
+    """
+    GUARDED: set true to confirm a delivery price change. Defaults to OFF -- an omitted or
+    false value is refused before Skio is called. Only read when deliveryPrice or
+    setOverride is supplied.
+    """
+    confirmed: Boolean
+  ): SkioWriteResult @action(name: "changeSubscriptionDeliveryMethod")
 }

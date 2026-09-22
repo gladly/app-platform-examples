@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "confirmed",
+      "detail": "Discount WELCOME10 is already on this subscription"
+    }
+  ]
+}

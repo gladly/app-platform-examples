@@ -1,0 +1,52 @@
+{
+  "title": "Apply discount code",
+  "submitButton": "Apply discount",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "Only discount codes your admin has allowed can be applied. Anything else is refused and has to be applied in Skio by a manager."
+    },
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a subscription",
+        "options": [
+          {
+            "text": "Fresh Dog Food 12 lb +1 more - ACTIVE - next 2026-10-01",
+            "value": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+          },
+          {
+            "text": "Fresh Dog Food 6 lb - PAUSED",
+            "value": "1e671650-4876-4e80-a0b7-130f355281ac"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Discount code",
+      "attr": "code",
+      "input": {
+        "type": "text",
+        "placeholder": "WELCOME10",
+        "optional": false
+      },
+      "hint": "Must be one of the codes your admin has allowed for agents."
+    },
+    {
+      "type": "input",
+      "label": "Confirmation",
+      "attr": "confirmed",
+      "input": {
+        "type": "checkbox",
+        "text": "I confirm the customer asked for this discount and I have verified their identity"
+      },
+      "hint": "The checkbox starts unchecked and must be selected for every discount request."
+    }
+  ]
+}

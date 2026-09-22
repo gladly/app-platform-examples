@@ -1,0 +1,39 @@
+{
+  "data": {
+    "Subscriptions": [
+      {
+        "id": "9843ae37-021c-423e-bfe0-36367ceddf82",
+        "platformId": "gid://shopify/SubscriptionContract/44",
+        "status": "CANCELLED",
+        "statusContext": "PERMANENTLY_CANCELLED",
+        "createdAt": "2025-04-23T13:30:03.189513+00:00",
+        "updatedAt": "2025-04-23T13:30:03.189513+00:00",
+        "nextBillingDate": null,
+        "cancelledAt": "2026-08-20T09:00:00+00:00",
+        "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+        "cyclesCompleted": 6,
+        "currencyCode": "USD",
+        "note": null,
+        "customAttributes": null,
+        "churnScore": null,
+        "churnRiskReasons": null,
+        "churnPredictedAt": null,
+        "deliveryPrice": 0.0,
+        "deliveryPriceOverride": null,
+        "isPickup": false,
+        "remainingCyclesUntilRenewal": null,
+        "nextRenewalDate": null,
+        "lastBillingAttemptAt": "2026-09-01T04:12:00+00:00",
+        "streakCount": 6,
+        "maxStreakCount": 6,
+        "streakExpiresAt": null,
+        "BillingPolicy": null,
+        "DeliveryPolicy": null,
+        "PrepaidDeliveryPolicy": null,
+        "ShippingAddress": null,
+        "Discounts": [],
+        "SubscriptionLines": []
+      }
+    ]
+  }
+}

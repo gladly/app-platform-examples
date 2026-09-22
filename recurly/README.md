@@ -46,7 +46,7 @@ Recurly `Subscription` documentation and all available fields (of which some wil
 
 **Data available by default in Gladly**
 
-https://github.com/sagansystems/ps-app-platform/blob/68ab6ef3a528cd41a276e2ae9736d427c94a7be6/recurly/data/data_schema.graphql#L1-L365
+See [`app/data/data_schema.graphql`](app/data/data_schema.graphql).
 
 
 
@@ -85,4 +85,4 @@ Each form presents a dropdown filtered to only the subscriptions eligible for th
 
 [Recurly doc](https://recurly.com/developers/api/v2021-02-25/#section/Authentication)
 
-- get or create private token -> https://gladly.recurly.com/integrations/api_keys
+- Get or create a private API key in your Recurly site under **Integrations > API Credentials**

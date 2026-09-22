@@ -1,5 +1,8 @@
 {
   "data": {
-    "shipNow": { "message": "Error: No next billing date found", "ok": false }
+    "shipNow": {
+      "message": "Cannot ship now for a cancelled subscription",
+      "ok": false
+    }
   }
 }

@@ -1,0 +1,97 @@
+<?Template languageVersion="1.2" ?>
+<Card title="Skio &#8212; {{ Subscriptions | length }} subscription{{- (Subscriptions | length) == 1 ? '' : 's' }}">
+  <Block when="(Subscriptions | length) == 0">
+    <Text>No Skio subscriptions found for this customer.</Text>
+  </Block>
+  <Block when="redactedAt is not null and redactedAt != ''">
+    <Text>This customer has been redacted in Skio for privacy. Their subscription details are no longer available.</Text>
+  </Block>
+  <!-- The Skio customer id is a raw uuid. It is worth showing because several actions take a
+       storefrontUserId, but only when there is something to act on - on a customer with no
+       subscriptions it is pure noise, which is exactly how T4.2 read on the desktop. -->
+  <StringValue when="id is not null and id != '' and (Subscriptions | length) > 0" dataSource="id" label="Skio customer ID" maxLines="1" multilineStyle="expandable" />
+  <!-- Label budget: the label column clips somewhere between 13 and 15 characters, and the exact
+       point moves by block - "Billing caden...", "Cycles com...", "Deliveries le..." were all cut
+       on the desktop 2026-09-09 while "Skio customer ID" (16) survived. Keep every label at or
+       under about 12 characters, and prefer a plain short word to an abbreviation an agent would
+       have to decode. Where a label loses a qualifier, the VALUE has to carry it: "Billing" is
+       only readable because its value reads "Every 1 Month". -->
+  <List dataSource="Subscriptions" separateItems="true">
+    <Drawer initialState="collapsed">
+      <Fixed>
+        <!-- Two Formulas rather than one with a concatenation: `+` in this template language is
+             NUMERIC, so ' (' + statusLabel + ')' evaluates to NaN and the agent saw
+             "CancelledNaN" live on 2026-09-08. No other shipped card uses `+` on strings. -->
+        <Formula label="Status" valueFontWeight="semiBold">{{ statusDisplay }}</Formula>
+        <DateTimeValue when="status == 'ACTIVE' and nextBillingDate is not null and nextBillingDate != ''" dataSource="nextBillingDate" label="Next bill" format="MM/DD/YYYY" valueAlignment="right" />
+        <!-- A prepaid subscriber cares about the renewal date, not the next billing date. -->
+        <DateTimeValue when="nextRenewalDate is not null and nextRenewalDate != ''" dataSource="nextRenewalDate" label="Term renews" format="MM/DD/YYYY" valueAlignment="right" />
+        <!-- Churn risk first: what the agent should know before they speak. Rendered from the
+             joined summary because no shipped card renders a list of bare strings.
+             churnScoreDisplay, not churnScore: the raw score is a probability float and this
+             row printed "0.2209806144237..." truncated mid-digit. The pull renders it as a
+             percentage; the raw number stays in the pull output for Rules and Gladly AI. -->
+        <Formula when="churnScoreDisplay is not null and churnScoreDisplay != ''" label="Churn risk" valueFontWeight="semiBold">{{ churnScoreDisplay }}</Formula>
+        <StringValue when="churnRiskSummary is not null and churnRiskSummary != ''" dataSource="churnRiskSummary" label="Churn reasons" maxLines="3" multilineStyle="expandable" />
+        <Formula when="BillingPolicy.interval is not null and BillingPolicy.intervalCount is not null" label="Billing" valueFontWeight="medium">Every {{ BillingPolicy.intervalCount }} {{ BillingPolicy.interval | title }}</Formula>
+        <Formula when="DeliveryPolicy.interval is not null and DeliveryPolicy.intervalCount is not null and (DeliveryPolicy.interval != BillingPolicy.interval or DeliveryPolicy.intervalCount != BillingPolicy.intervalCount)" label="Delivery" valueFontWeight="medium">Every {{ DeliveryPolicy.intervalCount }} {{ DeliveryPolicy.interval | title }}</Formula>
+        <!-- Whole numbers render through Formula, not NumericValue: NumericValue forces two
+             decimal places, so a cycle count reads as "6.00". -->
+        <Formula when="cyclesCompleted is not null" label="Cycles done" valueFontWeight="medium">{{ cyclesCompleted }}</Formula>
+        <Formula when="remainingCyclesUntilRenewal is not null" label="Prepaid left" valueFontWeight="medium">{{ remainingCyclesUntilRenewal }}</Formula>
+        <Formula when="streakCount is not null and streakCount != 0 and (maxStreakCount is null or maxStreakCount == streakCount)" label="Streak" valueFontWeight="medium">{{ streakCount }} cycles</Formula>
+        <Formula when="streakCount is not null and streakCount != 0 and maxStreakCount is not null and maxStreakCount != streakCount" label="Streak" valueFontWeight="medium">{{ streakCount }} cycles (best {{ maxStreakCount }})</Formula>
+        <DateTimeValue when="status == 'CANCELLED' and cancelledAt is not null" dataSource="cancelledAt" label="Cancelled" format="MM/DD/YYYY" valueAlignment="right" />
+      </Fixed>
+      <Expandable>
+        <List dataSource="SubscriptionLines" separateItems="true">
+          <!-- titleOverride is the name the customer actually sees, so it wins. -->
+          <Formula when="titleOverride is not null and titleOverride != ''" label="Product" valueFontWeight="medium">{{ titleOverride }}</Formula>
+          <Formula when="(titleOverride is null or titleOverride == '') and ProductVariant.Product.title is not null and (ProductVariant.title is null or ProductVariant.title == '' or ProductVariant.title == ProductVariant.Product.title)" label="Product" valueFontWeight="medium">{{ ProductVariant.Product.title }}</Formula>
+          <Formula when="(titleOverride is null or titleOverride == '') and ProductVariant.Product.title is not null and ProductVariant.title is not null and ProductVariant.title != '' and ProductVariant.title != ProductVariant.Product.title" label="Product" valueFontWeight="medium">{{ ProductVariant.Product.title }} &#8212; {{ ProductVariant.title }}</Formula>
+          <Formula when="ProductVariant.outOfStockAt is not null and ProductVariant.outOfStockAt != ''" label="Stock" valueFontWeight="semiBold">Out of stock — set a backup product before the next order</Formula>
+          <Formula when="quantity is not null" label="Quantity" valueFontWeight="medium">{{ quantity }}</Formula>
+          <!-- Code discounts live on the LINE (subscriptionLineId set, subscriptionId null),
+               so they never appeared under the subscription. Proven live 2026-09-08. -->
+          <List dataSource="Discounts" separateItems="false">
+            <!-- The pull falls back to the discount's title when it has no redeem code, so this
+                 row is present for every discount that Skio names at all. Without it three
+                 codeless fixed-amount discounts rendered as three identical "$186.29" rows with
+                 nothing above them - seen live 2026-09-09. -->
+            <Formula when="label is not null and label != ''" label="Discount" valueFontWeight="medium">{{ label }}</Formula>
+            <!-- A fixed-value discount goes through CurrencyValue, exactly like the price row
+                 below it: the label used to read "186.29 off" beside a price of "$186.29". The
+                 pull copies the subscription's currencyCode onto the discount so this component
+                 has one to format with; with no currency it keeps the amount in the label. -->
+            <CurrencyValue when="fixedValue is not null and currencyCode is not null and currencyCode != ''" dataSource="fixedValue" currencyCodeSource="currencyCode" label="Savings" valueAlignment="right" />
+          </List>
+          <CurrencyValue when="priceWithoutDiscount is not null" dataSource="priceWithoutDiscount" label="Price" valueAlignment="right" />
+          <Formula when="isPrepaid == true and ordersRemaining is not null" label="Orders left" valueFontWeight="medium">{{ ordersRemaining }}</Formula>
+          <StringValue when="ProductVariant.sku is not null and ProductVariant.sku != ''" dataSource="ProductVariant.sku" label="SKU" maxLines="1" />
+          <StringValue dataSource="id" label="Line ID" maxLines="1" multilineStyle="expandable" />
+        </List>
+        <Divider spacing="medium" />
+        <!-- Discounts on the subscription: stops an agent promising a code that is spent. -->
+        <List dataSource="Discounts" separateItems="true">
+          <Formula when="label is not null and label != ''" label="Discount" valueFontWeight="medium">{{ label }}</Formula>
+          <CurrencyValue when="fixedValue is not null and currencyCode is not null and currencyCode != ''" dataSource="fixedValue" currencyCodeSource="currencyCode" label="Savings" valueAlignment="right" />
+          <Formula when="timesUsed is not null and maxTimesUsed is not null" label="Uses" valueFontWeight="medium">{{ timesUsed }} of {{ maxTimesUsed }}</Formula>
+        </List>
+        <Block when="ShippingAddress.address1 is not null and ShippingAddress.address1 != ''">
+          <Divider spacing="medium" />
+          <Formula when="shipsToLine is not null and shipsToLine != ''" label="Ships to" valueFontWeight="medium">{{ shipsToLine }}</Formula>
+        </Block>
+        <Formula when="isPickup == true" label="Fulfilment" valueFontWeight="medium">Collected, not shipped</Formula>
+        <CurrencyValue when="deliveryPrice is not null" dataSource="deliveryPrice" label="Shipping" valueAlignment="right" />
+        <!-- deliveryPriceOverride is a FLAG, not a price: Skio's own setDeliveryPriceOverride doc says it
+             "set[s] flag (deliveryPriceOverride) so that the sub delivery price would not be affected by
+             other resync actions". It is typed Int while deliveryPrice is numeric, so 0 means "not
+             overridden" and a `is not null` guard would claim every untouched subscription was edited. -->
+        <Formula when="deliveryPriceOverride is not null and deliveryPriceOverride > 0" label="Ship price" valueFontWeight="medium">Overridden in Skio — a catalogue resync will not undo it</Formula>
+        <Divider spacing="medium" />
+        <StringValue when="note is not null and note != ''" dataSource="note" label="Merchant note" maxLines="4" multilineStyle="expandable" />
+        <StringValue dataSource="id" label="Subscription ID" maxLines="1" multilineStyle="expandable" />
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

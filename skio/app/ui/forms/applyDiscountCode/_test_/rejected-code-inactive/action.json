@@ -1,0 +1,20 @@
+{
+  "inputs": {
+    "code": "WELCOME10",
+    "confirmed": true,
+    "subscriptionId": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+  },
+  "result": {
+    "ok": false,
+    "errorMessage": "That discount code exists but is not active right now - its start date has not arrived, or it has already ended. Nothing is wrong with the subscription. The merchant can change the schedule in Shopify.",
+    "errors": [
+      {
+        "message": "Apply discount code failed",
+        "extensions": {
+          "code": "Apply discount code failed",
+          "detail": "CURRENTLY_INACTIVE"
+        }
+      }
+    ]
+  }
+}

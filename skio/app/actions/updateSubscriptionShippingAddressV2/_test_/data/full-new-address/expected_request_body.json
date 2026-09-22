@@ -1,0 +1,6 @@
+{
+  "query": "mutation updateSubscriptionShippingAddressV2($input: UpdateSubscriptionShippingAddressV2Input!) { updateSubscriptionShippingAddressV2(input: $input) { ok message } }",
+  "variables": {
+    "input": {"subscriptionId":"8b753087-391a-44c8-a7f3-9adf2e6dfebe","updatedShippingAddress":{"address1":"12 Bayview Ave","address2":"Unit 4","city":"Toronto","company":"Analytical Engines","country":"CA","doorCode":"1984","firstName":"Ada","lastName":"Lovelace","phone":"+14165550123","province":"ON","zip":"M5A 1A1"}}
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "message": "Not authorized to access StorefrontUsers"
+    }
+  ],
+  "data": null
+}

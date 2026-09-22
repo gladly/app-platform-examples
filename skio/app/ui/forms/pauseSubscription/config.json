@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "pauseSubscription"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "subscriptions"
+        }
+    ]
+}

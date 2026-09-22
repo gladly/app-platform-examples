@@ -1,10 +1,28 @@
 {
   "id": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
   "email": "primary@email.com",
+  "platformId": "gid://shopify/Customer/7827118522567",
+  "createdAt": "2025-04-02T11:03:06.720361+00:00",
+  "updatedAt": "2025-04-02T17:18:02.398227+00:00",
   "firstName": "Sam",
   "lastName": "Boonba",
   "phoneNumber": "+1234567890",
-  "platformId": "gid://shopify/Customer/7827118522567",
-  "createdAt": "2025-04-02T11:03:06.720361+00:00",
-  "updatedAt": "2025-04-02T17:18:02.398227+00:00"
+  "smsTransactionalOptIn": true,
+  "ShippingAddresses": [
+    {
+      "id": "aa11bb22-cc33-4d44-8e55-ff6677889900",
+      "platformId": "gid://shopify/MailingAddress/998877",
+      "firstName": "Sam",
+      "lastName": "Boonba",
+      "company": null,
+      "address1": "12 Bayview Ave",
+      "address2": null,
+      "city": "Toronto",
+      "province": "ON",
+      "country": "CA",
+      "zip": "M5A 1A1",
+      "phoneNumber": "+14165550123",
+      "doorCode": null
+    }
+  ]
 }

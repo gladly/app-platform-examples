@@ -1,0 +1,10 @@
+{
+  "title": "Cancel subscription",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no Skio subscriptions that can be cancelled."
+    }
+  ]
+}

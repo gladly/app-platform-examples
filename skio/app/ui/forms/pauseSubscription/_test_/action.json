@@ -1,0 +1,11 @@
+{
+  "inputs": {
+    "caller": "cnv-88f21a",
+    "skipUnit": "WEEK",
+    "subscriptionId": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+  },
+  "result": {
+    "message": "Subscription 8b753087-391a-44c8-a7f3-9adf2e6dfebe paused by PublicAPI user",
+    "ok": true
+  }
+}

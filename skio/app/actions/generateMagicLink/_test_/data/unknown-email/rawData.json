@@ -1,0 +1,10 @@
+{
+  "data": {
+    "generateMagicLink": {
+      "ok": false,
+      "magicLinkUrl": null,
+      "expiresAt": null,
+      "error": "No storefront user found for that email"
+    }
+  }
+}

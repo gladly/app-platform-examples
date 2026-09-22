@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "generateMagicLink"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "storefront_user"
+        }
+    ]
+}

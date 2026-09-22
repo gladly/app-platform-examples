@@ -1,0 +1,1 @@
+"Permanent cancellation is not enabled for this app. An admin must set \"Allow agents to permanently cancel\" to true in the Skio app configuration. A normal cancellation is reversible and needs no approval."

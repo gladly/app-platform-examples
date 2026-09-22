@@ -1,0 +1,10 @@
+{
+  "errors": [
+    {
+      "message": "internal error",
+      "extensions": {
+        "code": "unexpected"
+      }
+    }
+  ]
+}

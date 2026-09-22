@@ -1,1 +1,1 @@
-https://graphql.skio.com/v1/graphql 
+https://graphql.skio.com/v1/graphql

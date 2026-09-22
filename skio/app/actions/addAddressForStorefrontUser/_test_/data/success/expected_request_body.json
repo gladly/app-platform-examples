@@ -1,0 +1,6 @@
+{
+  "query": "mutation addAddressForStorefrontUser($input: CreateAddressForStorefrontUserInput!) { addAddressForStorefrontUser(input: $input) { id platformId } }",
+  "variables": {
+    "input": {"address1":"12 Bayview Ave","city":"Toronto","country":"CA","firstName":"Ada","lastName":"Lovelace","phoneNumber":"+14165550123","province":"ON","storefrontUserId":"7a6b5c4d-3e2f-4109-8877-665544332211","zip":"M5A 1A1"}
+  }
+}

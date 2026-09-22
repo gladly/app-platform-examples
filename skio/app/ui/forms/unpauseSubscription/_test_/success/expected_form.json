@@ -1,0 +1,32 @@
+{
+  "title": "Resume subscription",
+  "submitButton": "Resume subscription",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a subscription",
+        "options": [
+          {
+            "text": "Fresh Dog Food 6 lb - PAUSED",
+            "value": "1e671650-4876-4e80-a0b7-130f355281ac"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Pause type",
+      "attr": "isTemporaryPause",
+      "input": {
+        "type": "checkbox",
+        "text": "The pause being lifted was for a fixed window"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "errors": [
+    {
+      "message": "Not authorized to access Subscriptions"
+    },
+    {
+      "message": "query depth limit exceeded"
+    }
+  ],
+  "data": null
+}

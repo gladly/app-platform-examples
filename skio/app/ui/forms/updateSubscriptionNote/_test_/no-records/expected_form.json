@@ -1,0 +1,10 @@
+{
+  "title": "Update subscription note",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no Skio subscriptions."
+    }
+  ]
+}

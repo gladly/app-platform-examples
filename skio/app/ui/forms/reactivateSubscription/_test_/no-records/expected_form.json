@@ -1,0 +1,10 @@
+{
+  "title": "Reactivate subscription",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no cancelled Skio subscriptions that can be reactivated. A subscription shown as PERMANENTLY_CANCELLED cannot be brought back."
+    }
+  ]
+}

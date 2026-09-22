@@ -1,0 +1,1 @@
+"Overriding the shipping price is not enabled for this app. An admin must set \"Allow agents to override shipping price\" to true in the Skio app configuration first."

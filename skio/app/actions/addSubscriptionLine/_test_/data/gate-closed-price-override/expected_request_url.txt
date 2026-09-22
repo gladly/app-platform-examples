@@ -1,0 +1,1 @@
+"Setting a custom price is not enabled for this app. An admin must set \"Allow agents to override prices\" to true in the Skio app configuration, or leave the price blank to use the catalog price."

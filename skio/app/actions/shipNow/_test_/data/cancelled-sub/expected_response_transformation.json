@@ -1,4 +1,5 @@
 {
-  "message": "Error: No next billing date found",
+  "errorMessage": "Cannot ship now for a cancelled subscription",
+  "message": "Cannot ship now for a cancelled subscription",
   "ok": false
 }

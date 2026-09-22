@@ -1,0 +1,201 @@
+{
+  "id": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+  "email": "sam.boonba@example.com",
+  "firstName": "Sam",
+  "lastName": "Boonba",
+  "phoneNumber": "+14165550123",
+  "platformId": "gid://shopify/Customer/7827118522567",
+  "createdAt": "2025-04-02T11:03:06.720361+00:00",
+  "updatedAt": "2026-09-01T17:18:02.398227+00:00",
+  "smsTransactionalOptIn": true,
+  "ShippingAddresses": [
+    {
+      "id": "aa11bb22-cc33-4d44-8e55-ff6677889900",
+      "platformId": "gid://shopify/MailingAddress/998877",
+      "firstName": "Sam",
+      "lastName": "Boonba",
+      "address1": "12 Bayview Ave",
+      "city": "Toronto",
+      "province": "ON",
+      "country": "CA",
+      "zip": "M5A 1A1",
+      "phoneNumber": "+14165550123"
+    }
+  ],
+  "Subscriptions": [
+    {
+      "id": "9843ae37-021c-423e-bfe0-36367ceddf82",
+      "platformId": "gid://shopify/SubscriptionContract/44",
+      "status": "ACTIVE",
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "updatedAt": "2026-09-01T00:00:00+00:00",
+      "nextBillingDate": "2026-10-01",
+      "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+      "cyclesCompleted": 6,
+      "currencyCode": "USD",
+      "note": "Called about a delivery delay on 3 Sep.",
+      "churnScore": 0.87,
+      "churnRiskReasons": [
+        "Two failed payments",
+        "Skipped last two orders"
+      ],
+      "churnRiskSummary": "Two failed payments, Skipped last two orders",
+      "churnPredictedAt": "2026-09-06T02:00:00+00:00",
+      "deliveryPrice": 0.0,
+      "deliveryPriceOverride": 1,
+      "isPickup": false,
+      "lastBillingAttemptAt": "2026-09-01T04:12:00+00:00",
+      "streakCount": 6,
+      "maxStreakCount": 9,
+      "BillingPolicy": {
+        "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+        "interval": "MONTH",
+        "intervalCount": 1,
+        "isMaxCycleV2": true,
+        "maxCycles": 12,
+        "minCycles": 4,
+        "createdAt": "2025-04-23T13:30:03.189513+00:00",
+        "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+      },
+      "DeliveryPolicy": {
+        "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+        "interval": "MONTH",
+        "intervalCount": 1,
+        "isMaxCycleV2": true,
+        "maxCycles": 12,
+        "minCycles": 4,
+        "createdAt": "2025-04-23T13:30:03.189513+00:00",
+        "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+      },
+      "ShippingAddress": {
+        "id": "aa11bb22-cc33-4d44-8e55-ff6677889900",
+        "platformId": "gid://shopify/MailingAddress/998877",
+        "firstName": "Sam",
+        "lastName": "Boonba",
+        "address1": "12 Bayview Ave",
+        "city": "Toronto",
+        "province": "ON",
+        "country": "CA",
+        "zip": "M5A 1A1",
+        "phoneNumber": "+14165550123"
+      },
+      "Discounts": [
+        {
+          "id": "dc11",
+          "redeemCode": "WELCOME10",
+          "title": "Welcome 10%",
+          "type": "PERCENTAGE",
+          "percentage": 10,
+          "timesUsed": 3,
+          "maxTimesUsed": 3,
+          "appliesOnEachItem": false
+        }
+      ],
+      "SubscriptionLines": [
+        {
+          "id": "3f2a1c9d-7e64-4b21-9a08-5c1d2e3f4a5b",
+          "platformId": "gid://shopify/SubscriptionLine/1",
+          "priceWithoutDiscount": 89.0,
+          "quantity": 1,
+          "isPrepaid": false,
+          "productVariantId": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+          "sellingPlanId": "gid://shopify/SellingPlan/77",
+          "ProductVariant": {
+            "id": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+            "title": "12 lb",
+            "platformId": "gid://shopify/ProductVariant/1",
+            "sku": "NC-CHK-12",
+            "price": 89.0,
+            "outOfStockAt": null,
+            "Product": {
+              "title": "Fresh Dog Food"
+            }
+          }
+        },
+        {
+          "id": "4a3b2c1d-8f75-4c32-ab19-6d2e3f4a5b6c",
+          "platformId": "gid://shopify/SubscriptionLine/2",
+          "priceWithoutDiscount": 24.0,
+          "quantity": 2,
+          "isPrepaid": false,
+          "titleOverride": "Salmon treats (small)",
+          "productVariantId": "c2d3e4f5-a6b7-4829-93a0-1b2c3d4e5f60",
+          "ProductVariant": {
+            "id": "c2d3e4f5-a6b7-4829-93a0-1b2c3d4e5f60",
+            "title": "6 oz",
+            "platformId": "gid://shopify/ProductVariant/1",
+            "sku": "NC-TRT-06",
+            "price": 24.0,
+            "outOfStockAt": "2026-09-01T00:00:00+00:00",
+            "Product": {
+              "title": "Fresh Dog Food"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "1e671650-4876-4e80-a0b7-130f355281ac",
+      "platformId": "gid://shopify/SubscriptionContract/45",
+      "status": "ACTIVE",
+      "createdAt": "2025-08-01T09:00:00+00:00",
+      "updatedAt": "2026-08-01T09:00:00+00:00",
+      "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+      "cyclesCompleted": 2,
+      "currencyCode": "USD",
+      "nextRenewalDate": "2026-12-01",
+      "remainingCyclesUntilRenewal": 0,
+      "BillingPolicy": {
+        "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+        "interval": "MONTH",
+        "intervalCount": 1,
+        "isMaxCycleV2": true,
+        "maxCycles": 12,
+        "minCycles": 4,
+        "createdAt": "2025-04-23T13:30:03.189513+00:00",
+        "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+      },
+      "DeliveryPolicy": {
+        "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+        "interval": "MONTH",
+        "intervalCount": 1,
+        "isMaxCycleV2": true,
+        "maxCycles": 12,
+        "minCycles": 4,
+        "createdAt": "2025-04-23T13:30:03.189513+00:00",
+        "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+      },
+      "PrepaidDeliveryPolicy": {
+        "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+        "interval": "MONTH",
+        "intervalCount": 1,
+        "isMaxCycleV2": true,
+        "maxCycles": 12,
+        "minCycles": 4,
+        "createdAt": "2025-04-23T13:30:03.189513+00:00",
+        "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+      },
+      "SubscriptionLines": [
+        {
+          "id": "5b4c3d2e-9086-4d43-bc20-7e3f4a5b6c7d",
+          "priceWithoutDiscount": 45.0,
+          "quantity": 1,
+          "isPrepaid": true,
+          "ordersRemaining": 0,
+          "productVariantId": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+          "ProductVariant": {
+            "id": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+            "title": "6 lb",
+            "platformId": "gid://shopify/ProductVariant/1",
+            "sku": "NC-CHK-06",
+            "price": 45.0,
+            "outOfStockAt": null,
+            "Product": {
+              "title": "Fresh Dog Food"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

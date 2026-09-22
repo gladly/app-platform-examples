@@ -1,0 +1,75 @@
+{
+  "title": "Cancel subscription",
+  "submitButton": "Cancel subscription",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a subscription",
+        "options": [
+          {
+            "text": "Fresh Dog Food 12 lb +1 more - ACTIVE - next 2026-10-01",
+            "value": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+          },
+          {
+            "text": "Fresh Dog Food 6 lb - PAUSED",
+            "value": "1e671650-4876-4e80-a0b7-130f355281ac"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Customer notification",
+      "attr": "shouldSendNotif",
+      "input": {
+        "type": "checkbox",
+        "text": "Send Skio's cancellation email or SMS"
+      }
+    },
+    {
+      "type": "input",
+      "label": "Win-back journeys",
+      "attr": "invokeSubscriptionCancelJourneys",
+      "input": {
+        "type": "checkbox",
+        "text": "Run the merchant's Skio cancellation journeys"
+      }
+    },
+    {
+      "type": "input",
+      "label": "Cancel-flow session",
+      "attr": "cancelSessionId",
+      "input": {
+        "type": "text",
+        "placeholder": "Cancel-flow session id",
+        "optional": true
+      },
+      "hint": "Fill this in when the customer already went through Skio's cancel flow, so Skio's retention reporting attributes this cancellation to it."
+    },
+    {
+      "type": "input",
+      "label": "Permanent",
+      "attr": "permanentlyCancel",
+      "input": {
+        "type": "checkbox",
+        "text": "Permanently cancel - this can NEVER be reactivated"
+      }
+    },
+    {
+      "type": "input",
+      "label": "Confirmation",
+      "attr": "confirmed",
+      "input": {
+        "type": "checkbox",
+        "text": "I confirm this subscription should be permanently cancelled and can never be reactivated."
+      },
+      "hint": "Only needed when Permanent is checked above - that cancellation is refused without it. An ordinary cancellation is reversible and needs no confirmation."
+    }
+  ]
+}

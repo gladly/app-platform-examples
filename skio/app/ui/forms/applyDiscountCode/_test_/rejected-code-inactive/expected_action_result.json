@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "confirmed",
+      "detail": "That discount code exists but is not active right now - its start date has not arrived, or it has already ended. Nothing is wrong with the subscription. The merchant can change the schedule in Shopify."
+    }
+  ]
+}

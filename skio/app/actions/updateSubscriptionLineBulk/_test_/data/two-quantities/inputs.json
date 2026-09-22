@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "subscriptionLineId": "3f2a1c9d-7e64-4b21-9a08-5c1d2e3f4a5b",
+      "quantity": 2
+    },
+    {
+      "subscriptionLineId": "4a3b2c1d-8f75-4c32-ab19-6d2e3f4a5b6c",
+      "quantity": 1
+    }
+  ]
+}

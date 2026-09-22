@@ -1,0 +1,13 @@
+{
+  "ok": false,
+  "errorMessage": "Skio could not find that. If this was a discount code, the merchant's allowlist has it but Skio does not - it may have been deleted or expired in Skio.",
+  "errors": [
+    {
+      "extensions": {
+        "code": "unexpected",
+        "detail": "NOT_FOUND"
+      },
+      "message": "Apply discount code failed"
+    }
+  ]
+}

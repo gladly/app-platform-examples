@@ -1,0 +1,6 @@
+{
+  "query": "mutation addSubscriptionLine($input: AddSubscriptionLineInput!) { addSubscriptionLine(input: $input) { ok } }",
+  "variables": {
+    "input": {"quantity":1,"subscriptionId":"8b753087-391a-44c8-a7f3-9adf2e6dfebe","variantId":"b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f"}
+  }
+}

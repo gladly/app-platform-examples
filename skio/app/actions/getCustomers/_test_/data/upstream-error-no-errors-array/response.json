@@ -1,0 +1,8 @@
+{
+  "status": "500 Internal Server Error",
+  "statusCode": 500,
+  "headers": {
+    "Content-Type": ["application/json"]
+  },
+  "body": ""
+}

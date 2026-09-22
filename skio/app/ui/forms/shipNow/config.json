@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "shipNow"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "subscriptions"
+        }
+    ]
+}

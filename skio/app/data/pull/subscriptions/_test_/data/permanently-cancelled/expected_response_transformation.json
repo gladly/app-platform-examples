@@ -1,0 +1,22 @@
+[
+  {
+    "id": "9843ae37-021c-423e-bfe0-36367ceddf82",
+    "status": "CANCELLED",
+    "statusContext": "PERMANENTLY_CANCELLED",
+    "statusLabel": "Permanently Cancelled",
+    "statusDisplay": "Permanently Cancelled",
+    "createdAt": "2025-04-23T13:30:03.189513+00:00",
+    "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+    "platformId": "gid://shopify/SubscriptionContract/44",
+    "updatedAt": "2025-04-23T13:30:03.189513+00:00",
+    "cancelledAt": "2026-08-20T09:00:00+00:00",
+    "currencyCode": "USD",
+    "lastBillingAttemptAt": "2026-09-01T04:12:00+00:00",
+    "cyclesCompleted": 6,
+    "streakCount": 6,
+    "maxStreakCount": 6,
+    "deliveryPrice": 0.0,
+    "isPickup": false,
+    "SubscriptionLines": []
+  }
+]

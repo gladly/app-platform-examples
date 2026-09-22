@@ -1,0 +1,6 @@
+{
+  "query": "mutation updateSubscriptionNote($input: UpdateSubscriptionNoteInput!) { updateSubscriptionNote(input: $input) { note ok } }",
+  "variables": {
+    "input": {"note":"Customer prefers Friday delivery.","subscriptionId":"8b753087-391a-44c8-a7f3-9adf2e6dfebe"}
+  }
+}

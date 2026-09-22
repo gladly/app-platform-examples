@@ -1,0 +1,1 @@
+"Changing the payment method on a subscription is not enabled for this app. An admin must set \"Allow agents to change the payment method\" to true in the Skio app configuration first."

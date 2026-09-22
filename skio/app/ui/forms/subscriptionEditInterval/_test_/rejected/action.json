@@ -1,0 +1,22 @@
+{
+  "inputs": {
+    "billingInterval": "MONTH",
+    "billingIntervalCount": 2,
+    "caller": "cnv-88f21a",
+    "prepaidDeliveryIntervalCount": 1,
+    "subscriptionId": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+  },
+  "result": {
+    "ok": false,
+    "errorMessage": "Skio has no such subscription on this store. Check the id - this is not a permissions problem.",
+    "errors": [
+      {
+        "message": "Lambda policy revoked",
+        "extensions": {
+          "code": "Lambda policy revoked",
+          "detail": "Lambda policy revoked, tried to access unauthorized user or subscription"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+"Check the confirmation box to change this subscription's payment method."

@@ -1,0 +1,6 @@
+{
+  "query": "mutation cancelSubscription($input: CancelSubscriptionInput!) { cancelSubscription(input: $input) { ok } }",
+  "variables": {
+    "input": {"cancelSessionId":"5d4c3b2a-1908-4f7e-9d6c-5b4a39281706","subscriptionId":"1e671650-4876-4e80-a0b7-130f355281ac"}
+  }
+}

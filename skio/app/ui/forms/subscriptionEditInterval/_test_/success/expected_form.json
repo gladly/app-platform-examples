@@ -1,0 +1,125 @@
+{
+  "title": "Change subscription frequency",
+  "submitButton": "Change frequency",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a subscription",
+        "options": [
+          {
+            "text": "Fresh Dog Food 12 lb +1 more - ACTIVE - next 2026-10-01",
+            "value": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Billing interval",
+      "attr": "billingInterval",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select an interval",
+        "options": [
+          {
+            "text": "Day",
+            "value": "DAY"
+          },
+          {
+            "text": "Week",
+            "value": "WEEK"
+          },
+          {
+            "text": "Month",
+            "value": "MONTH"
+          },
+          {
+            "text": "Year",
+            "value": "YEAR"
+          }
+        ],
+        "optional": true
+      },
+      "hint": "Leave blank to keep the current interval."
+    },
+    {
+      "type": "input",
+      "label": "Every",
+      "attr": "billingIntervalCount",
+      "input": {
+        "type": "text",
+        "placeholder": "2",
+        "optional": true
+      },
+      "hint": "How many intervals between charges. Month + 2 is every two months."
+    },
+    {
+      "type": "input",
+      "label": "Next billing date",
+      "attr": "nextBillingDate",
+      "input": {
+        "type": "text",
+        "placeholder": "2026-12-01",
+        "optional": true
+      },
+      "hint": "Optionally move the next date in the same change."
+    },
+    {
+      "type": "input",
+      "label": "Prepaid delivery interval",
+      "attr": "prepaidDeliveryInterval",
+      "input": {
+        "type": "select",
+        "placeholder": "Prepaid subscriptions only",
+        "options": [
+          {
+            "text": "Day",
+            "value": "DAY"
+          },
+          {
+            "text": "Week",
+            "value": "WEEK"
+          },
+          {
+            "text": "Month",
+            "value": "MONTH"
+          },
+          {
+            "text": "Year",
+            "value": "YEAR"
+          }
+        ],
+        "optional": true
+      },
+      "hint": "Prepaid subscriptions only: how often deliveries go out inside the prepaid term."
+    },
+    {
+      "type": "input",
+      "label": "Prepaid delivery every",
+      "attr": "prepaidDeliveryIntervalCount",
+      "input": {
+        "type": "text",
+        "placeholder": "1",
+        "optional": true
+      },
+      "hint": "Prepaid subscriptions only."
+    },
+    {
+      "type": "input",
+      "label": "Conversation reference",
+      "attr": "caller",
+      "input": {
+        "type": "text",
+        "placeholder": "Conversation or ticket reference",
+        "optional": true
+      },
+      "hint": "Stamped into Skio's audit trail so this change is attributable to this conversation."
+    }
+  ]
+}

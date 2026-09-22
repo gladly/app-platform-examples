@@ -1,0 +1,1 @@
+"Billing interval count 0 is not valid. Enter a whole number of 1 or more - MONTH with 2 bills every 2 months - or leave the count blank to keep the current frequency."

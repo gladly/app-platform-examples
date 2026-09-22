@@ -1,0 +1,74 @@
+{
+  "title": "Skip next order",
+  "submitButton": "Skip next order",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a subscription",
+        "options": [
+          {
+            "text": "Fresh Dog Food 12 lb +1 more - ACTIVE - next 2026-10-01",
+            "value": "8b753087-391a-44c8-a7f3-9adf2e6dfebe"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Skip window unit",
+      "attr": "skipUnit",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a unit",
+        "options": [
+          {
+            "text": "Day",
+            "value": "DAY"
+          },
+          {
+            "text": "Week",
+            "value": "WEEK"
+          },
+          {
+            "text": "Month",
+            "value": "MONTH"
+          },
+          {
+            "text": "Year",
+            "value": "YEAR"
+          }
+        ],
+        "optional": true
+      },
+      "hint": "Advanced. Leave both blank to skip exactly one cycle."
+    },
+    {
+      "type": "input",
+      "label": "Skip window length",
+      "attr": "skipValue",
+      "input": {
+        "type": "text",
+        "placeholder": "2",
+        "optional": true
+      },
+      "hint": "Advanced. Must be filled in together with the unit."
+    },
+    {
+      "type": "input",
+      "label": "Conversation reference",
+      "attr": "caller",
+      "input": {
+        "type": "text",
+        "placeholder": "Conversation or ticket reference",
+        "optional": true
+      },
+      "hint": "Stamped into Skio's audit trail so this change is attributable to this conversation."
+    }
+  ]
+}

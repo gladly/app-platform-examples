@@ -1,0 +1,9 @@
+{
+  "primaryEmailAddress": "Eve\"}}, {emailLower: {_eq: \"victim@example.com",
+  "phoneNumbers": [
+    {
+      "number": "+1415555\\\"0000",
+      "type": "MOBILE"
+    }
+  ]
+}

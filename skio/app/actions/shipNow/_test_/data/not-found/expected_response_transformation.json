@@ -1,12 +1,1 @@
-{
-  "ok": false,
-  "errors": [
-    {
-      "message": "Lambda policy revoked",
-      "extensions": {
-        "code": "Lambda policy revoked",
-        "detail": "Lambda policy revoked, tried to access unauthorized user or subscription"
-      }
-    }
-  ]
-}
+../../../../../../fixtures/expected_response_transformation-2.json

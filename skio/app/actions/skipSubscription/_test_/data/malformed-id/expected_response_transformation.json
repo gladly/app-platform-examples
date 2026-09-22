@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "errorMessage": "Skio could not read that id. Check it is a complete subscription id copied from the Skio card.",
+  "errors": [
+    {
+      "extensions": {
+        "code": "unexpected"
+      },
+      "message": "internal error"
+    }
+  ]
+}

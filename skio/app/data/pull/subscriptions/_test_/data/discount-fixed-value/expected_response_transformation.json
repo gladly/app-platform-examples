@@ -1,0 +1,211 @@
+[
+  {
+    "BillingPolicy": {
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    },
+    "DeliveryPolicy": {
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    },
+    "Discounts": [
+      {
+        "appliesOnEachItem": false,
+        "currencyCode": "CAD",
+        "fixedValue": 186.29,
+        "id": "fd110001-0000-4000-8000-000000000011",
+        "label": "TAKE18629",
+        "maxTimesUsed": 2,
+        "percentage": null,
+        "redeemCode": "TAKE18629",
+        "timesUsed": 1,
+        "title": "Loyalty credit",
+        "type": "FIXED"
+      }
+    ],
+    "ShippingAddress": {
+      "address1": "12 Bayview Ave",
+      "address2": null,
+      "city": "Toronto",
+      "company": null,
+      "country": "CA",
+      "doorCode": null,
+      "firstName": "Sam",
+      "id": "aa11bb22-cc33-4d44-8e55-ff6677889900",
+      "lastName": "Boonba",
+      "phoneNumber": "+14165550123",
+      "platformId": "gid://shopify/MailingAddress/998877",
+      "province": "ON",
+      "zip": "M5A 1A1"
+    },
+    "SubscriptionLines": [
+      {
+        "Discounts": [
+          {
+            "currencyCode": "CAD",
+            "fixedValue": 5,
+            "id": "fd220001-0000-4000-8000-000000000022",
+            "label": "FIVEOFF",
+            "redeemCode": "FIVEOFF",
+            "timesUsed": 1,
+            "title": "Five off",
+            "type": "FIXED"
+          },
+          {
+            "currencyCode": "CAD",
+            "fixedValue": 12,
+            "id": "fd330001-0000-4000-8000-000000000033",
+            "title": "Automatic 12 off",
+            "type": "FIXED",
+            "label": "Automatic 12 off"
+          }
+        ],
+        "ProductVariant": {
+          "Product": {
+            "title": "Fresh Dog Food"
+          },
+          "compareAtPrice": null,
+          "id": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+          "outOfStockAt": null,
+          "platformId": "gid://shopify/ProductVariant/44551122",
+          "price": 89,
+          "sku": "NC-CHK-12",
+          "title": "12 lb"
+        },
+        "id": "fdl00000-0000-4000-8000-00000000000a",
+        "isPrepaid": false,
+        "platformId": "gid://shopify/SubscriptionLine/1",
+        "priceWithoutDiscount": 89,
+        "productVariantId": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+        "quantity": 1,
+        "sellingPlanId": "gid://shopify/SellingPlan/77"
+      }
+    ],
+    "createdAt": "2025-04-23T13:30:03.189513+00:00",
+    "currencyCode": "CAD",
+    "cyclesCompleted": 6,
+    "deliveryPrice": 0,
+    "id": "fd000000-0000-4000-8000-000000000001",
+    "isPickup": false,
+    "lastBillingAttemptAt": "2026-09-01T04:12:00+00:00",
+    "maxStreakCount": 6,
+    "nextBillingDate": "2026-10-01",
+    "platformId": "gid://shopify/SubscriptionContract/201",
+    "shipsToLine": "12 Bayview Ave, Toronto ON M5A 1A1",
+    "status": "ACTIVE",
+    "statusDisplay": "Active",
+    "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+    "streakCount": 6,
+    "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+  },
+  {
+    "BillingPolicy": {
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    },
+    "DeliveryPolicy": {
+      "createdAt": "2025-04-23T13:30:03.189513+00:00",
+      "id": "e135ec11-a484-41a3-a265-ddc3c01863e5",
+      "interval": "MONTH",
+      "intervalCount": 1,
+      "isMaxCycleV2": true,
+      "maxCycles": 12,
+      "minCycles": 4,
+      "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+    },
+    "Discounts": [
+      {
+        "appliesOnEachItem": false,
+        "fixedValue": 15,
+        "id": "fd440001-0000-4000-8000-000000000044",
+        "label": "NOCUR15 — 15 off",
+        "maxTimesUsed": null,
+        "percentage": null,
+        "redeemCode": "NOCUR15",
+        "timesUsed": null,
+        "title": "Fifteen off",
+        "type": "FIXED"
+      }
+    ],
+    "ShippingAddress": {
+      "address1": "12 Bayview Ave",
+      "address2": null,
+      "city": "Toronto",
+      "company": null,
+      "country": "CA",
+      "doorCode": null,
+      "firstName": "Sam",
+      "id": "aa11bb22-cc33-4d44-8e55-ff6677889900",
+      "lastName": "Boonba",
+      "phoneNumber": "+14165550123",
+      "platformId": "gid://shopify/MailingAddress/998877",
+      "province": "ON",
+      "zip": "M5A 1A1"
+    },
+    "SubscriptionLines": [
+      {
+        "Discounts": [
+          {
+            "fixedValue": 15,
+            "id": "fd550001-0000-4000-8000-000000000055",
+            "label": "15 off",
+            "title": "Fifteen off",
+            "type": "FIXED"
+          }
+        ],
+        "ProductVariant": {
+          "Product": {
+            "title": "Fresh Dog Food"
+          },
+          "compareAtPrice": null,
+          "id": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+          "outOfStockAt": null,
+          "platformId": "gid://shopify/ProductVariant/44551122",
+          "price": 89,
+          "sku": "NC-CHK-12",
+          "title": "12 lb"
+        },
+        "id": "fdl00000-0000-4000-8000-00000000000b",
+        "isPrepaid": false,
+        "platformId": "gid://shopify/SubscriptionLine/1",
+        "priceWithoutDiscount": 89,
+        "productVariantId": "b1c2d3e4-f5a6-4718-8293-0a1b2c3d4e5f",
+        "quantity": 1,
+        "sellingPlanId": "gid://shopify/SellingPlan/77"
+      }
+    ],
+    "createdAt": "2025-04-23T13:30:03.189513+00:00",
+    "cyclesCompleted": 6,
+    "deliveryPrice": 0,
+    "id": "fd000000-0000-4000-8000-000000000002",
+    "isPickup": false,
+    "lastBillingAttemptAt": "2026-09-01T04:12:00+00:00",
+    "maxStreakCount": 6,
+    "nextBillingDate": "2026-10-01",
+    "platformId": "gid://shopify/SubscriptionContract/202",
+    "shipsToLine": "12 Bayview Ave, Toronto ON M5A 1A1",
+    "status": "ACTIVE",
+    "statusDisplay": "Active",
+    "storefrontUserId": "18038b73-a9db-4809-a5c9-054db8c9ee1f",
+    "streakCount": 6,
+    "updatedAt": "2025-04-23T13:30:03.189513+00:00"
+  }
+]

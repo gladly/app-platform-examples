@@ -1,0 +1,10 @@
+{
+  "title": "Pause subscription",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no active Skio subscriptions to pause."
+    }
+  ]
+}

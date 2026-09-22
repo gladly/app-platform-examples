@@ -12,4 +12,4 @@ When you’re building a Gladly App Platform app, you can start from scratch or 
 Learn more about App Platform in the docs - create an app: https://connect.gladly.com/docs/developer-tutorials/article/app-platform-overview/
 
 ## AI-powered development
-The `ai` directory contains context documents designed to be used for AI-assisted development of App Platform Apps. These documents provide good, concise overviews of how to build and document an App Platform App. By providing these as context for your AI editor or Agent of choice, you can quickly build an App from scratch or augment an existing App with new features.
+The `ai` directory contains context documents designed to be used for AI-assisted development of App Platform Apps. These documents provide good, concise overviews of how to build and document an App Platform App, including the agent-facing UI forms surfaced in the agent desktop composition menu and the admin UI form used to configure an app's integration settings. By providing these as context for your AI editor or Agent of choice, you can quickly build an App from scratch or augment an existing App with new features.

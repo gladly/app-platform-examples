@@ -1,0 +1,1 @@
+"store_id and access_token cannot be empty"

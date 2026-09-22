@@ -1,0 +1,8 @@
+{
+    "configuration": {
+        "store_id": ""
+    },
+    "secrets": {
+        "access_token": "test_access_token_xyz"
+    }
+}

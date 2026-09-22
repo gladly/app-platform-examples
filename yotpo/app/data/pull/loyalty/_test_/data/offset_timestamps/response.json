@@ -1,0 +1,6 @@
+{
+    "status": "200",
+    "statusCode": 200,
+    "headers": {},
+    "body": "{\"customers\":{\"email\":\"offset.customer@example.com\",\"points_balance\":200,\"points_earned\":400,\"third_party_id\":\"ext999\",\"has_store_account\":true,\"opt_in\":true,\"opted_in_at\":\"2025-01-15T10:00:00.000+00:00\",\"points_expire_at\":\"2027-05-12T00:00:00.000+00:00\",\"next_points_expire_on\":\"2025-11-22\",\"next_points_expire_amount\":500,\"total_spend_cents\":10000,\"total_purchases\":8,\"perks_redeemed\":3,\"first_name\":\"Offset\",\"last_name\":\"Customer\",\"vip_tier_name\":\"Platinum\",\"vip_tier_entry_date\":\"2024-06-01T00:00:00.000-05:00\",\"vip_tier_expiration\":\"2026-06-01T00:00:00.000+00:00\"}}"
+}

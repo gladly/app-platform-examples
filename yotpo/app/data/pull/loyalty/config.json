@@ -5,5 +5,6 @@
   },
   "dependsOnDataTypes": ["customer"],
   "httpMethod": "POST",
-  "contentType": "application/json"
+  "contentType": "application/json",
+  "rawResponse": true
 }

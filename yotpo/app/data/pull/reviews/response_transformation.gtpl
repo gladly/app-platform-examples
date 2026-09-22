@@ -11,7 +11,7 @@
 {{- template "decodeHtml" (dict "target" $transformedReview "field" "content" "value" .content) -}}
 {{- template "decodeHtml" (dict "target" $transformedReview "field" "title" "value" .title) -}}
 {{- if .created_at -}}
-{{- $_ := set $transformedReview "created_at" (printf "%sZ" (trimSuffix "Z" .created_at)) -}}
+{{- template "normalizeDate" (dict "target" $transformedReview "field" "created_at" "value" .created_at) -}}
 {{- end -}}
 {{- $_ := set $transformedReview "verified_buyer" .verified_buyer -}}
 {{- $_ := set $transformedReview "source_review_id" .source_review_id -}}
@@ -61,6 +61,16 @@
 {{- end -}}
 {{- end -}}
 {{- toJson $result -}}
+{{- define "normalizeDate" -}}
+{{- $hasZone := or (hasSuffix "Z" .value) (regexMatch "[+-][0-9]{2}:[0-9]{2}$" .value) -}}
+{{- $parsed := toDate "2006-01-02T15:04:05Z07:00" .value -}}
+{{- if $parsed.IsZero -}}{{- $parsed = toDate "2006-01-02T15:04:05" .value -}}{{- end -}}
+{{- if $parsed.IsZero -}}{{- $parsed = toDate "2006-01-02" .value -}}{{- end -}}
+{{- if $parsed.IsZero -}}{{- $_ := set .target .field nil -}}
+{{- else if $hasZone -}}{{- $_ := set .target .field (dateInZone "2006-01-02T15:04:05Z" $parsed "UTC") -}}
+{{- else -}}{{- $_ := set .target .field (printf "%sZ" (date "2006-01-02T15:04:05" $parsed)) -}}
+{{- end -}}
+{{- end -}}
 {{- define "decodeHtml" -}}
 {{- if .value -}}
 {{- $_ := set .target .field (.value | replace "&#x27;" "'" | replace "&#39;" "'" | replace "&quot;" "\"" | replace "&amp;" "&" | replace "&lt;" "<" | replace "&gt;" ">") -}}

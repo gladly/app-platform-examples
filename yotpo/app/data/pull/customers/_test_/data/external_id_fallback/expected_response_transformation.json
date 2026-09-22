@@ -1,0 +1,16 @@
+[
+  {
+    "external_id": "customer@example.com",
+    "email": "customer@example.com",
+    "phone_number": "+15555550123",
+    "first_name": "Alex",
+    "last_name": "Rivera",
+    "gender": null,
+    "account_status": null,
+    "default_language": null,
+    "default_currency": null,
+    "tags": null,
+    "accepts_email_marketing": null,
+    "accepts_sms_marketing": null
+  }
+]

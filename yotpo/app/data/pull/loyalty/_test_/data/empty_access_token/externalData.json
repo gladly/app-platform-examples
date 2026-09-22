@@ -1,0 +1,10 @@
+{
+    "customer": [
+        {
+            "external_id": "customer123",
+            "email": "tom.smith@hostname.com",
+            "first_name": "Tom",
+            "last_name": "Smith"
+        }
+    ]
+}

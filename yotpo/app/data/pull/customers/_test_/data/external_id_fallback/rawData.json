@@ -1,0 +1,11 @@
+{
+  "customers": [
+    {
+      "external_id": null,
+      "email": "customer@example.com",
+      "phone_number": "+15555550123",
+      "first_name": "Alex",
+      "last_name": "Rivera"
+    }
+  ]
+}

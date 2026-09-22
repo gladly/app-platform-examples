@@ -1,3 +1,6 @@
+{{- if or (not .integration.configuration.store_id) (not .integration.secrets.access_token) -}}
+{{- stop "store_id and access_token cannot be empty" -}}
+{{- end -}}
 {{- $reviewLimit := (default 10 (index .integration.configuration "reviewLimit")) -}}
 {{- range .externalData.customer -}}
 {{- if .email -}}

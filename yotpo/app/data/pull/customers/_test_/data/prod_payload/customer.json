@@ -1,0 +1,5 @@
+{
+  "id": "customer-prod",
+  "name": "Real Customer",
+  "emailAddresses": ["real.customer@example.com"]
+}

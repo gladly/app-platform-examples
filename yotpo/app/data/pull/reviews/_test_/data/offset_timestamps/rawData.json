@@ -1,0 +1,83 @@
+{
+  "status": {
+    "code": 200,
+    "message": "OK"
+  },
+  "pagination": {
+    "page": 1,
+    "count": 2,
+    "total": 2
+  },
+  "reviews": {
+    "reviews": [
+      {
+        "id": "70000001",
+        "score": 5,
+        "votes_up": 0,
+        "votes_down": 0,
+        "content": "Loved it, exactly as described.",
+        "title": "Five stars",
+        "created_at": "2025-03-15T08:00:00.000+02:00",
+        "verified_buyer": true,
+        "source_review_id": 0,
+        "images_data": [],
+        "user": {
+          "id": 90000001,
+          "display_name": "Offset O.",
+          "social_image": "https://example.com/offset.png",
+          "email": "offset.reviewer@example.com"
+        },
+        "product": {
+          "id": 50000001,
+          "external_product_id": "P-OFFSET-1",
+          "name": "Offset Pillow",
+          "url": "https://example.com/products/offset-pillow"
+        },
+        "user_id": 90000001,
+        "product_id": 50000001,
+        "comment": null,
+        "external_product_id": "P-OFFSET-1",
+        "published": true,
+        "order_id": 1234567,
+        "external_order_id": "OFFSET-1234",
+        "is_incentivized": false,
+        "incentive_type": null,
+        "custom_fields": {}
+      },
+      {
+        "id": "70000002",
+        "score": 4,
+        "votes_up": 0,
+        "votes_down": 0,
+        "content": "Decent for the price.",
+        "title": "Four stars",
+        "created_at": "2024-11-30T23:59:59.000-08:00",
+        "verified_buyer": true,
+        "source_review_id": 0,
+        "images_data": [],
+        "user": {
+          "id": 90000002,
+          "display_name": "West O.",
+          "social_image": "https://example.com/west.png",
+          "email": "west.reviewer@example.com"
+        },
+        "product": {
+          "id": 50000002,
+          "external_product_id": "P-OFFSET-2",
+          "name": "Offset Sheets",
+          "url": "https://example.com/products/offset-sheets"
+        },
+        "user_id": 90000002,
+        "product_id": 50000002,
+        "comment": null,
+        "external_product_id": "P-OFFSET-2",
+        "published": true,
+        "order_id": 1234568,
+        "external_order_id": "OFFSET-1235",
+        "is_incentivized": false,
+        "incentive_type": null,
+        "custom_fields": {}
+      }
+    ]
+  }
+}

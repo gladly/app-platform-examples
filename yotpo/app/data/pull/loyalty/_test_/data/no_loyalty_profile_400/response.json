@@ -1,0 +1,6 @@
+{
+    "status": "400",
+    "statusCode": 400,
+    "headers": {},
+    "body": "{\"error\":\"Customer does not exist\"}"
+}

@@ -1,0 +1,5 @@
+{
+  "id": "customer1",
+  "name": "John Smith",
+  "emailAddresses": ["john@example.com"]
+}

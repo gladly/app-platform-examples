@@ -1,0 +1,6 @@
+{
+    "status": "404",
+    "statusCode": 404,
+    "headers": {},
+    "body": "{\"errors\":[{\"message\":{\"customer\":\"Could not find customer\"}}]}"
+}

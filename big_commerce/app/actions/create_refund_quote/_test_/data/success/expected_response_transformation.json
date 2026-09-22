@@ -1,0 +1,46 @@
+{
+  "input_order_id": "138",
+  "success": true,
+  "http_status": 200,
+  "error_message": null,
+  "quote": {
+    "adjustment": 0,
+    "is_tax_included": false,
+    "order_level_refund_amount": 679.89,
+    "refund_methods": [
+      [
+        {
+          "amount": 679.89,
+          "offline": true,
+          "offline_provider": false,
+          "offline_reason": "Thisproviderdoesnotsupportrefund.",
+          "provider_description": "TestPaymentProvider",
+          "provider_id": "bigpaypay"
+        }
+      ],
+      [
+        {
+          "amount": 679.89,
+          "offline": false,
+          "offline_provider": false,
+          "offline_reason": "",
+          "provider_description": "StoreCredit",
+          "provider_id": "storecredit"
+        }
+      ],
+      [
+        {
+          "amount": 679.89,
+          "offline": true,
+          "offline_provider": true,
+          "offline_reason": "Thisisanofflinepaymentprovider.",
+          "provider_description": "Custom",
+          "provider_id": "custom"
+        }
+      ]
+    ],
+    "rounding": 0,
+    "total_refund_amount": 679.89,
+    "total_refund_tax_amount": 0
+  }
+}

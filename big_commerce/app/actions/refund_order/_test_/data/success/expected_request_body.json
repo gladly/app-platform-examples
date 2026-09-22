@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "quantity": 1,
+      "item_type": "ORDER",
+      "reason": "Sidekick Refund",
+      "amount": 76.99,
+      "item_id": 161
+    }
+  ],
+  "payments": [
+    {
+      "offline": false,
+      "amount": 76.99,
+      "provider_id": "storecredit"
+    }
+  ]
+}

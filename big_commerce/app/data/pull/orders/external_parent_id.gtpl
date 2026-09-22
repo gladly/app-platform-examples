@@ -1,1 +1,1 @@
-{{int .customer_id -}}
+{{- .customer_id -}}

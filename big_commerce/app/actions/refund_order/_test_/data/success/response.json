@@ -1,0 +1,8 @@
+{
+  "status": "",
+  "statusCode": 200,
+  "headers": {
+    "response_header_name": []
+  },
+  "body": "{\"data\":{\"id\":28,\"order_id\":161,\"user_id\":0,\"created\":\"2025-01-20T13:20:26+00:00\",\"reason\":\"\",\"total_amount\":76.99,\"total_tax\":0,\"uses_merchant_override_values\":false,\"payments\":[{\"id\":null,\"provider_id\":\"storecredit\",\"amount\":76.99,\"offline\":false,\"is_declined\":false,\"declined_message\":\"\",\"transaction_id\":null}],\"items\":[{\"item_type\":\"ORDER\",\"item_id\":161,\"quantity\":null,\"requested_amount\":76.99,\"reason\":\"Sidekick Refund\",\"adjustments\":[]}]},\"meta\":{}}"
+}

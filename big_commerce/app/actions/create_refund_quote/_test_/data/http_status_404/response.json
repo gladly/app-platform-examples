@@ -1,0 +1,8 @@
+{
+  "status": "404 Not found",
+  "statusCode": 404,
+  "headers": {
+    "response_header_name": []
+  },
+  "body": "{\n  \"status\": 404,\n  \"title\": \"Order with ID 1384 does not exist.\",\n  \"type\": \"https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes\"\n}"
+}

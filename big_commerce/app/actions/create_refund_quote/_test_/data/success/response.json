@@ -1,0 +1,8 @@
+{
+  "status": "",
+  "statusCode": 200,
+  "headers": {
+    "response_header_name": []
+  },
+  "body": "{\"data\":{\"total_refund_amount\":679.89,\"total_refund_tax_amount\":0,\"rounding\":0,\"adjustment\":0,\"is_tax_included\":false,\"order_level_refund_amount\":679.89,\"refund_methods\":[[{\"provider_id\":\"bigpaypay\",\"provider_description\":\"TestPaymentProvider\",\"amount\":679.89,\"offline\":true,\"offline_provider\":false,\"offline_reason\":\"Thisproviderdoesnotsupportrefund.\"}],[{\"provider_id\":\"storecredit\",\"provider_description\":\"StoreCredit\",\"amount\":679.89,\"offline\":false,\"offline_provider\":false,\"offline_reason\":\"\"}],[{\"provider_id\":\"custom\",\"provider_description\":\"Custom\",\"amount\":679.89,\"offline\":true,\"offline_provider\":true,\"offline_reason\":\"Thisisanofflinepaymentprovider.\"}]]},\"meta\":{}}"
+}

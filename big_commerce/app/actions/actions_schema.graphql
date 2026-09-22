@@ -1,0 +1,125 @@
+scalar Currency
+
+enum RefundItemType {
+  PRODUCT
+  GIFT_WRAPPING
+  SHIPPING
+  HANDLING
+  ORDER
+}
+
+# Represents a payment made by the customer, which may be refunded.
+type Payment {
+  amount: Currency
+  declined_message: String
+  is_declined: Boolean
+  offline: Boolean
+  provider_id: String # The identifier for the payment provider (e.g., "checkout_paypalexpress")
+}
+
+# Represents an item within a refund, detailing what is being refunded.
+type RefundItem {
+  item_id: ID
+  item_type: RefundItemType
+  quantity: Int
+  reason: String
+  requested_amount: Currency
+}
+
+# Represents a refund that is being issued, containing information about the items being refunded and the payments involved.
+type Refund {
+  items: [RefundItem]
+  order_id: ID
+  payments: [Payment]
+  reason: String
+  total_amount: Currency
+  total_tax: Currency
+  uses_merchant_override_values: Boolean
+}
+
+# RefundedOrder represents the data output from the refundOrder action.
+#
+# This action is executed using this endpoint:
+# https://api.bigcommerce.com/stores/{store_hash}/v3/orders/{order_id}/payment_actions/refunds
+#
+# More info can be found here:
+# https://developer.bigcommerce.com/docs/rest-management/transactions/payment-actions#create-a-refund
+
+type RefundedOrder {
+  input_order_id: ID!
+  http_status: Int!
+  success: Boolean!
+  error_message: String
+  refund: Refund
+}
+
+# CanceledOrder represents the data output from the action of updating an order status to "canceled".
+#
+# This action is executed using this endpoint:
+# https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}
+#
+# The CanceledOrder API allows updating various fields of an order, including setting its status to "canceled."
+# It's important to note that after an order is updated using this API, all discounts and promotions applied to the
+# order are cleared. Therefore, careful consideration should be taken when performing updates.
+#
+# More info can be found here:
+# https://developer.bigcommerce.com/docs/rest-management/orders#update-an-order
+
+type CanceledOrder {
+  input_order_id: ID!
+  http_status: Int!
+  success: Boolean!
+  error_message: String
+}
+
+type RefundMethod {
+  amount: Float!
+  offline: Boolean!
+  offline_provider: Boolean!
+  provider_id: ID! # The identifier for the payment provider (e.g., "checkout_paypalexpress")
+  offline_reason: String
+  provider_description: String
+}
+
+type Quote {
+  # order_id: Int  # This field is documented in the API but not returned in the actual response.
+  adjustment: Float
+  is_tax_included: Boolean
+  order_level_refund_amount: Float
+  refund_methods: [[RefundMethod]]!
+  rounding: Int
+  total_refund_amount: Float
+  total_refund_tax_amount: Float
+}
+
+# RefundQuote represents the data output from the refund quote calculation action.
+#
+# This action is executed using this endpoint:
+# https://api.bigcommerce.com/stores/{store_hash}/v3/orders/{order_id}/payment_actions/refund_quotes
+#
+# The RefundQuote API allows calculating the tax amount, total refund amount, and retrieving available payment options
+# for an order refund by providing items and costs or quantities to refund. This helps in avoiding a 422 error by ensuring
+# the refund amount is correct before performing the refund request.
+#
+# More info can be found here:
+# https://developer.bigcommerce.com/docs/rest-management/transactions/payment-actions#create-a-refund-quote
+
+type RefundQuote {
+  input_order_id: ID!
+  http_status: Int!
+  success: Boolean!
+  error_message: String
+  quote: Quote
+}
+
+type Mutation {
+  createRefundQuote(orderId: ID!, amount: Float!): RefundQuote!
+    @action(name: "create_refund_quote")
+  cancelOrder(orderId: ID!, reason: String): CanceledOrder!
+    @action(name: "cancel_order")
+  refundOrder(
+    orderId: ID!
+    amount: Float!
+    provider_id: String!
+  ): RefundedOrder! @action(name: "refund_order")
+}

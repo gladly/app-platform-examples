@@ -1,8 +1,6 @@
 scalar DateTime
 scalar Currency
 
-# These data types are used as inputs to actions. Updates to this type must also
-# be reflected in the actions_schema.graphql file for compatibility.
 type AddressV2 {
   city: String
   country: String
@@ -18,16 +16,24 @@ type AddressV2 {
   zip: String!
 }
 
-# These data types are used as inputs to actions. Updates to this type must also
-# be reflected in the actions_schema.graphql file for compatibility.
-type BigCommerceOrderProduct @dataType(name: "big_commerce_order_product", version:"1.0"){
-  id: Int
+# BigCommerceOrderProduct represents the details of a product within an order.
+# This type includes information such as the product pricing, quantity, and related attributes.
+#
+# The products data on an order is retrieved from the endpoint:
+# https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}/products
+#
+# More info can be found here:
+# https://developer.bigcommerce.com/docs/rest-management/orders/order-products#list-order-products
+
+type BigCommerceOrderProduct
+  @dataType(name: "big_commerce_order_product", version: "2.0") {
+  id: ID!
   is_refunded: Boolean
   name: String
-  order_address_id: Int
-  order_id: Int
+  order_address_id: String
+  order_id: String
   price_inc_tax: Currency
-  product_id: Int
+  product_id: String
   quantity: Int!
   quantity_refunded: Int
   quantity_shipped: Int
@@ -37,8 +43,6 @@ type BigCommerceOrderProduct @dataType(name: "big_commerce_order_product", versi
   wrapping_cost_inc_tax: Currency
 }
 
-# These enum types are part of data types that are used as inputs to actions. Updates to this type must also
-# be reflected in the actions_schema.graphql file for compatibility. 
 enum TransactionEvent {
   purchase
   authorization
@@ -49,41 +53,58 @@ enum TransactionEvent {
   settled
 }
 
-# These enum types are part of data types that are used as inputs to actions. Updates to this type must also
-# be reflected in the actions_schema.graphql file for compatibility.
 enum TransactionStatus {
   ok
   error
 }
 
-# These data types are used as inputs to actions. Updates to this type must also
-# be reflected in the actions_schema.graphql file for compatibility.
-type BigCommerceTransaction @dataType(name: "big_commerce_transaction", version:"1.0") {
+# BigCommerceTransaction represents the details of a transaction associated with an order.
+# This type includes information about the payment event, method, and status.
+#
+# This data is retrieved from the endpoint:
+# https://api.bigcommerce.com/stores/{store_hash}/v3/orders/{order_id}/transactions
+#
+# More info can be found here:
+# https://developer.bigcommerce.com/docs/rest-management/transactions#get-transactions
+#
+# Usage Notes:
+# Depending on the payment method, different information will be available.
+# Not all payment gateways return full card or fraud detail.
+
+type BigCommerceTransaction
+  @dataType(name: "big_commerce_transaction", version: "2.0") {
+  id: ID!
   amount: Float!
   currency: String!
   date_created: DateTime
   event: TransactionEvent!
   gateway: String!
-  id: Int
   order_id: String
   status: TransactionStatus
 }
 
-# These data types are used as inputs to actions. Updates to this type must also
-# be reflected in the actions_schema.graphql file for compatibility.
 type OrderItem {
-  order_product: BigCommerceOrderProduct @childIds(template: "{{.order_product_id}}")
+  order_product: BigCommerceOrderProduct
+    @childIds(template: "{{.order_product_id}}")
 }
 
-# These data types are used as inputs to actions. Updates to this type must also
-# be reflected in the actions_schema.graphql file for compatibility.
-type BigCommerceOrderShipment @dataType(name: "big_commerce_order_shipment", version:"1.0") {
-  customer_id: Int
+# BigCommerceOrderShipment represents the details of a shipment within an order.
+# This type includes information about the shipment, such as its ID, tracking details, and shipping address.
+#
+# This data is retrieved from the endpoint:
+# https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}/shipments
+#
+# More info can be found here:
+# https://developer.bigcommerce.com/docs/rest-management/orders/order-shipments#get-order-shipments
+
+type BigCommerceOrderShipment
+  @dataType(name: "big_commerce_order_shipment", version: "2.0") {
+  id: ID!
+  customer_id: String
   date_created: DateTime
   generated_tracking_link: String
-  id: Int
   items: [OrderItem]
-  order_id: Int
+  order_id: String
   shipping_address: AddressV2
   shipping_method: String
   shipping_provider: String
@@ -92,37 +113,63 @@ type BigCommerceOrderShipment @dataType(name: "big_commerce_order_shipment", ver
   tracking_number: String
 }
 
-# These data types are used as inputs to actions. Updates to this type must also
-# be reflected in the actions_schema.graphql file for compatibility.
-type BigCommerceOrder @dataType(name: "big_commerce_order", version:"1.0"){
+# BigCommerceOrder represents the details of an order.
+#
+# This data is retrieved from the endpoint:
+# https://api.bigcommerce.com/stores/{store_hash}/v2/orders/{order_id}
+#
+# The BigCommerce Order API allows you to fetch detailed information about a specific order by providing the order ID.
+# This is a read-only endpoint, meaning it cannot be used to modify the order.
+#
+# Note: The `products`, `shipments`, and `transactions` fields are not included directly in the response from the
+# order retrieval endpoint. Instead, they are populated through separate API requests. These additional API calls ensure
+# that all relevant details about the order's contents, delivery, and financial transactions are available within the
+# BigCommerceOrder type for both informational and action purposes.
+#
+# More info can be found here:
+# https://developer.bigcommerce.com/docs/rest-management/orders#get-an-order
+
+type BigCommerceOrder @dataType(name: "big_commerce_order", version: "2.0") {
+  id: ID!
   base_handling_cost: Currency
   base_shipping_cost: Currency
   billing_address: AddressV2
   currency_code: String
-  customer_id: Int
+  customer_id: String
   date_created: DateTime
   date_modified: DateTime
   date_shipped: DateTime
   external_order_id: String
   geoip_country: String
-  id: Int!
   payment_status: String
   products: [BigCommerceOrderProduct] @parentId(template: "{{.id}}")
   refunded_amount: Currency
   shipments: [BigCommerceOrderShipment] @parentId(template: "{{.id}}")
   staff_notes: String
   status: String
-  status_id: Int
+  status_id: String
   total_inc_tax: Currency
   transactions: [BigCommerceTransaction] @parentId(template: "{{.id}}")
 }
 
-type BigCommerceCustomer @dataType(name: "big_commerce_customer", version:"1.0") {
+# BigCommerceCustomer represents the details of a customer.
+#
+# This data is retrieved from the endpoint:
+# https://api.bigcommerce.com/stores/{{store_hash}}/v3/customers?email:in={{urlquery $email}}
+#
+# The BigCommerce Customer API allows you to fetch detailed information about a specific customer
+# by providing the email address. This is a read-only endpoint, meaning it cannot be used to modify the order.
+#
+# More info can be found here:
+# https://developer.bigcommerce.com/docs/rest-management/customers#get-all-customers
+
+type BigCommerceCustomer
+  @dataType(name: "big_commerce_customer", version: "2.0") {
+  id: ID!
   company: String
-  customer_group_id: Int
+  customer_group_id: String
   date_created: DateTime
   date_modified: DateTime
-  id: Int
   email: String
   first_name: String
   last_name: String

@@ -1,1 +1,1 @@
-{{.date_modified -}}
+{{- .date_modified -}}

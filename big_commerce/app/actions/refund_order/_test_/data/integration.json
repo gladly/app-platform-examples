@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "store": "store_hash"
+  },
+  "secrets": {
+    "access_token": "access_token"
+  }
+}

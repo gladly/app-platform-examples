@@ -1,0 +1,22 @@
+{
+  "error_message": null,
+  "http_status": 200,
+  "input_order_id": "161",
+  "refund": {
+    "items": [
+      {
+        "item_id": "161",
+        "item_type": "ORDER",
+        "quantity": null,
+        "reason": "Sidekick Refund",
+        "requested_amount": 76.99
+      }
+    ],
+    "order_id": "161",
+    "reason": "",
+    "total_amount": 76.99,
+    "total_tax": 0,
+    "uses_merchant_override_values": false
+  },
+  "success": true
+}

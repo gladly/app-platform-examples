@@ -29,25 +29,10 @@
         {{/* Set currency type. */}}
         {{- $_ := set . "currency" (default "USD" .currency) }}
 
-        {{/*
-            Remove key value pairs from the data because they are not needed.
-            - This step cleans up unnecessary data before further processing.
-        */}}
-        {{- $_ := unset . "custom_provider_field_result" }}
-        {{- $_ := unset . "payment_instrument_token" }}
-        {{- $_ := unset . "offline" }}
-        {{- $_ := unset . "custom" }}
-        {{- $_ := unset . "payment_method_id" }}
-        {{- $_ := unset . "avs_result" }}
-        {{- $_ := unset . "cvv_result" }}
-        {{- $_ := unset . "credit_card" }}
-        {{- $_ := unset . "gift_certificate" }}
-        {{- $_ := unset . "method" }}
-        {{- $_ := unset . "gateway_transaction_id" }}
-        {{- $_ := unset . "test" }}
-        {{- $_ := unset . "reference_transaction_id" }}
-        {{- $_ := unset . "fraud_review" }}
-        {{- $_ := unset . "store_credit" }}
+        {{/* Handle conversions of ids to string correctly */}}
+        {{- $_ := set . "id" (.id | int64 | toString) -}}
+        {{- $_ := set . "order_id" (.order_id | int64 | toString) -}}
+
     {{- end -}}
     {{- toJson .rawData.data -}}
 {{- end -}}

@@ -1,0 +1,123 @@
+{
+  "order": {
+    "cancelReason": null,
+    "confirmationNumber": "AY0DPMFFJ",
+    "createdAt": "2026-08-08T11:30:48Z",
+    "currentSubtotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "1727.1",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "100.8",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "presentmentMoney": {
+        "amount": "90.9",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "5.3",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "2249.1",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "131.26",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "customer": {
+      "displayName": "Money Probe",
+      "id": "gid://shopify/Customer/10750323851577"
+    },
+    "email": "money-probe-mx@example.com",
+    "financialStatus": "PAID",
+    "fulfillmentStatus": "UNFULFILLED",
+    "id": "gid://shopify/Order/7576391582009",
+    "lineItems": [
+      {
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628261908793",
+        "name": "Smith Squad Goggles - Blue",
+        "price": {
+          "amount": "43.42",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/10089017737529",
+          "title": "Smith Squad Goggles"
+        },
+        "quantity": 2,
+        "sku": null,
+        "totalDiscount": "0.0",
+        "variant": {
+          "id": "gid://shopify/ProductVariant/51736134549817",
+          "title": "Blue"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628261941561",
+        "name": "Selling Plans Ski Wax - Sample Selling Plans Ski Wax",
+        "price": {
+          "amount": "9.63",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/9825989755193",
+          "title": "Selling Plans Ski Wax"
+        },
+        "quantity": 2,
+        "sku": null,
+        "totalDiscount": "0.0",
+        "variant": {
+          "id": "gid://shopify/ProductVariant/50591798395193",
+          "title": "Sample Selling Plans Ski Wax"
+        },
+        "vendor": "partner-ela"
+      }
+    ],
+    "name": "#1083",
+    "note": "M5 multi-currency shopMoney vs presentmentMoney",
+    "orderNumber": "#1083",
+    "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+    "shippingAddress": {
+      "address1": "Paseo de la Reforma 222",
+      "address2": null,
+      "city": "Mexico City",
+      "country": "Mexico",
+      "countryCodeV2": "MX",
+      "province": null,
+      "provinceCode": null,
+      "zip": "06600"
+    },
+    "shippingLines": [
+      {
+        "title": "International"
+      }
+    ],
+    "tags": [
+      "M5",
+      "money-field-probe"
+    ],
+    "updatedAt": "2026-08-08T11:30:50Z"
+  }
+}

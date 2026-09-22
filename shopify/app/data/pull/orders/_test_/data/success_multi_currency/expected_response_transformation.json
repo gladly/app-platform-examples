@@ -1,0 +1,193 @@
+[
+  {
+    "app": {
+      "name": "Shopify CLI Connector App"
+    },
+    "cancelReason": null,
+    "confirmationNumber": "AY0DPMFFJ",
+    "createdAt": "2026-08-08T11:30:48Z",
+    "currentShippingPriceSet": {
+      "presentmentMoney": {
+        "amount": "522.0",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "30.46",
+        "currencyCode": "USD"
+      }
+    },
+    "currentSubtotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "1727.1",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "100.8",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "presentmentMoney": {
+        "amount": "90.9",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "5.3",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDutiesSet": null,
+    "currentTotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "2249.1",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "131.26",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "customer": {
+      "displayName": "Money Probe",
+      "id": "gid://shopify/Customer/10750323851577"
+    },
+    "customerId": "gid://shopify/Customer/10750323851577",
+    "email": "money-probe-mx@example.com",
+    "financialStatus": "PAID",
+    "fulfillmentStatus": "UNFULFILLED",
+    "hasMoreMetafields": false,
+    "id": "gid://shopify/Order/7576391582009",
+    "lineItems": [
+      {
+        "currentQuantity": 2,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628261908793",
+        "name": "Smith Squad Goggles - Blue",
+        "price": {
+          "amount": "43.42",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/10089017737529",
+          "title": "Smith Squad Goggles"
+        },
+        "quantity": 2,
+        "sellingPlan": null,
+        "sku": null,
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 2,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/51736134549817",
+          "title": "Blue"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "currentQuantity": 2,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628261941561",
+        "name": "Selling Plans Ski Wax - Sample Selling Plans Ski Wax",
+        "price": {
+          "amount": "9.63",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/9825989755193",
+          "title": "Selling Plans Ski Wax"
+        },
+        "quantity": 2,
+        "sellingPlan": null,
+        "sku": null,
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 2,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/50591798395193",
+          "title": "Sample Selling Plans Ski Wax"
+        },
+        "vendor": "partner-ela"
+      }
+    ],
+    "name": "#1083",
+    "note": "M5 multi-currency shopMoney vs presentmentMoney",
+    "orderNumber": "#1083",
+    "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+    "refundable": true,
+    "returnStatus": "NO_RETURN",
+    "shippingAddress": {
+      "address1": "Paseo de la Reforma 222",
+      "address2": null,
+      "city": "Mexico City",
+      "company": null,
+      "coordinatesValidated": true,
+      "country": "Mexico",
+      "countryCodeV2": "MX",
+      "firstName": "Money",
+      "formatted": [
+        "Money Probe",
+        "Paseo de la Reforma 222",
+        "06600 Mexico City",
+        "Mexico"
+      ],
+      "lastName": "Probe",
+      "latitude": 19.4286725,
+      "longitude": -99.1616682,
+      "phone": null,
+      "province": null,
+      "provinceCode": null,
+      "validationResultSummary": "ERROR",
+      "zip": "06600"
+    },
+    "shippingLines": [
+      {
+        "title": "International"
+      }
+    ],
+    "sourceName": "341303132161",
+    "tags": [
+      "M5",
+      "money-field-probe"
+    ],
+    "taxesIncluded": false,
+    "totalOutstandingSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalReceivedSet": {
+      "presentmentMoney": {
+        "amount": "2249.1",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "131.25",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefundedSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "MXN"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "updatedAt": "2026-08-08T11:30:50Z"
+  }
+]

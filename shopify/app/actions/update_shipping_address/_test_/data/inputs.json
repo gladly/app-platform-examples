@@ -1,0 +1,13 @@
+{
+  "orderId": "gid://shopify/Order/4459956043927",
+  "phone": "+34600600601",
+  "firstName": "John",
+  "lastName": "A",
+  "company": "Test Company",
+  "countryCode": "ES",
+  "address1": "address1",
+  "address2": "address2",
+  "zip": "28806",
+  "provinceCode": "M",
+  "city": "City"
+}

@@ -1,0 +1,464 @@
+{
+  "data": {
+    "orderByIdentifier": {
+      "id": "gid://shopify/Order/7576394072377",
+      "name": "#1086",
+      "confirmationNumber": "ET89KITAJ",
+      "displayFinancialStatus": "PARTIALLY_PAID",
+      "displayFulfillmentStatus": "UNFULFILLED",
+      "createdAt": "2026-08-08T11:32:07Z",
+      "processedAt": "2026-08-08T11:32:06Z",
+      "email": "money-probe@example.com",
+      "note": "M9 base order",
+      "tags": [
+        "M9",
+        "money-field-probe"
+      ],
+      "cancelReason": null,
+      "cancelledAt": null,
+      "originalTotalPriceSet": {
+        "shopMoney": {
+          "amount": "123.06",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "123.06",
+          "currencyCode": "USD"
+        }
+      },
+      "originalTotalDutiesSet": null,
+      "subtotalPriceSet": {
+        "shopMoney": {
+          "amount": "300.9",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "300.9",
+          "currencyCode": "USD"
+        }
+      },
+      "totalShippingPriceSet": {
+        "shopMoney": {
+          "amount": "12.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "12.0",
+          "currencyCode": "USD"
+        }
+      },
+      "totalTaxSet": {
+        "shopMoney": {
+          "amount": "27.91",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "27.91",
+          "currencyCode": "USD"
+        }
+      },
+      "totalPriceSet": {
+        "shopMoney": {
+          "amount": "340.81",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "340.81",
+          "currencyCode": "USD"
+        }
+      },
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "300.9",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "300.9",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "9.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "9.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentCartDiscountAmountSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentShippingPriceSet": {
+        "shopMoney": {
+          "amount": "12.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "12.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "27.91",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "27.91",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDutiesSet": null,
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "340.81",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "340.81",
+          "currencyCode": "USD"
+        }
+      },
+      "totalReceivedSet": {
+        "shopMoney": {
+          "amount": "123.06",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "123.06",
+          "currencyCode": "USD"
+        }
+      },
+      "totalRefundedSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "totalRefundedShippingSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "totalOutstandingSet": {
+        "shopMoney": {
+          "amount": "217.75",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "217.75",
+          "currencyCode": "USD"
+        }
+      },
+      "refundDiscrepancySet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "totalCapturableSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": {
+        "address1": "500 5th Ave",
+        "address2": null,
+        "city": "New York",
+        "company": null,
+        "country": "United States",
+        "countryCodeV2": "US",
+        "firstName": "Money",
+        "lastName": "Probe",
+        "name": "Money Probe",
+        "phone": null,
+        "province": "New York",
+        "provinceCode": "NY",
+        "zip": "10110",
+        "formatted": [
+          "500 5th Ave",
+          "New York NY 10110",
+          "United States"
+        ]
+      },
+      "billingAddress": null,
+      "channelInformation": null,
+      "app": {
+        "name": "Shopify CLI Connector App"
+      },
+      "shippingLines": {
+        "nodes": [
+          {
+            "title": "Standard"
+          }
+        ]
+      },
+      "purchasingEntity": {
+        "__typename": "Customer",
+        "id": "gid://shopify/Customer/10750260085049",
+        "displayName": "Money Probe",
+        "defaultEmailAddress": {
+          "emailAddress": "money-probe@example.com"
+        },
+        "defaultPhoneNumber": null,
+        "defaultAddress": {
+          "formatted": [
+            "500 5th Ave",
+            "New York NY 10110",
+            "United States"
+          ]
+        }
+      },
+      "lineItems": {
+        "pageInfo": {
+          "hasNextPage": false
+        },
+        "nodes": [
+          {
+            "id": "gid://shopify/LineItem/17628268331321",
+            "name": "Smith Squad Goggles - Blue",
+            "title": "Smith Squad Goggles",
+            "sku": null,
+            "vendor": "partner-ela",
+            "isGiftCard": false,
+            "currentQuantity": 2,
+            "quantity": 2,
+            "unfulfilledQuantity": 2,
+            "customAttributes": [],
+            "originalUnitPriceSet": {
+              "shopMoney": {
+                "amount": "45.0",
+                "currencyCode": "USD"
+              }
+            },
+            "totalDiscountSet": {
+              "shopMoney": {
+                "amount": "9.0",
+                "currencyCode": "USD"
+              }
+            },
+            "variant": {
+              "id": "gid://shopify/ProductVariant/51736134549817",
+              "title": "Blue",
+              "selectedOptions": [
+                {
+                  "name": "Eyewear frame color",
+                  "value": "Blue"
+                }
+              ]
+            },
+            "product": {
+              "id": "gid://shopify/Product/10089017737529",
+              "title": "Smith Squad Goggles",
+              "vendor": "partner-ela",
+              "productType": "",
+              "collections": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/Collection/527381561657",
+                    "title": "The Under $50 Stash"
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": false
+                }
+              }
+            }
+          },
+          {
+            "id": "gid://shopify/LineItem/17628268364089",
+            "name": "Selling Plans Ski Wax - Sample Selling Plans Ski Wax",
+            "title": "Selling Plans Ski Wax",
+            "sku": null,
+            "vendor": "partner-ela",
+            "isGiftCard": false,
+            "currentQuantity": 2,
+            "quantity": 2,
+            "unfulfilledQuantity": 2,
+            "customAttributes": [],
+            "originalUnitPriceSet": {
+              "shopMoney": {
+                "amount": "9.95",
+                "currencyCode": "USD"
+              }
+            },
+            "totalDiscountSet": {
+              "shopMoney": {
+                "amount": "0.0",
+                "currencyCode": "USD"
+              }
+            },
+            "variant": {
+              "id": "gid://shopify/ProductVariant/50591798395193",
+              "title": "Sample Selling Plans Ski Wax",
+              "selectedOptions": [
+                {
+                  "name": "Title",
+                  "value": "Sample Selling Plans Ski Wax"
+                }
+              ]
+            },
+            "product": {
+              "id": "gid://shopify/Product/9825989755193",
+              "title": "Selling Plans Ski Wax",
+              "vendor": "partner-ela",
+              "productType": "accessories",
+              "collections": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/Collection/527381561657",
+                    "title": "The Under $50 Stash"
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": false
+                }
+              }
+            }
+          },
+          {
+            "id": "gid://shopify/LineItem/17628274426169",
+            "name": "Apex Carve Helmet - Past Season - Matte Mystic / Gold Dust / YM",
+            "title": "Apex Carve Helmet - Past Season",
+            "sku": "ELA-HLMT-009",
+            "vendor": "Apex Outdoor",
+            "isGiftCard": false,
+            "currentQuantity": 1,
+            "quantity": 1,
+            "unfulfilledQuantity": 1,
+            "customAttributes": [],
+            "originalUnitPriceSet": {
+              "shopMoney": {
+                "amount": "200.0",
+                "currencyCode": "USD"
+              }
+            },
+            "totalDiscountSet": {
+              "shopMoney": {
+                "amount": "0.0",
+                "currencyCode": "USD"
+              }
+            },
+            "variant": {
+              "id": "gid://shopify/ProductVariant/53338379059513",
+              "title": "Matte Mystic / Gold Dust / YM",
+              "selectedOptions": [
+                {
+                  "name": "Color",
+                  "value": "Matte Mystic / Gold Dust"
+                },
+                {
+                  "name": "Size",
+                  "value": "YM"
+                }
+              ]
+            },
+            "product": {
+              "id": "gid://shopify/Product/10218180739385",
+              "title": "Apex Carve Helmet - Past Season",
+              "vendor": "Apex Outdoor",
+              "productType": "Helmet",
+              "collections": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/Collection/498237604153",
+                    "title": "Automated Collection"
+                  },
+                  {
+                    "id": "gid://shopify/Collection/527984263481",
+                    "title": "Youth snow helmets"
+                  },
+                  {
+                    "id": "gid://shopify/Collection/528674423097",
+                    "title": "Past Season"
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": false
+                }
+              }
+            }
+          }
+        ]
+      },
+      "fulfillments": [],
+      "fulfillmentOrders": {
+        "pageInfo": {
+          "hasNextPage": false
+        },
+        "nodes": [
+          {
+            "id": "gid://shopify/FulfillmentOrder/8194703458617",
+            "status": "OPEN",
+            "assignedLocation": {
+              "name": "Shop location"
+            },
+            "fulfillmentHolds": [],
+            "lineItems": {
+              "nodes": [
+                {
+                  "remainingQuantity": 2,
+                  "lineItem": {
+                    "id": "gid://shopify/LineItem/17628268331321"
+                  }
+                },
+                {
+                  "remainingQuantity": 2,
+                  "lineItem": {
+                    "id": "gid://shopify/LineItem/17628268364089"
+                  }
+                },
+                {
+                  "remainingQuantity": 1,
+                  "lineItem": {
+                    "id": "gid://shopify/LineItem/17628274426169"
+                  }
+                }
+              ]
+            },
+            "deliveryMethod": {
+              "methodType": "SHIPPING",
+              "minDeliveryDateTime": null,
+              "maxDeliveryDateTime": null
+            }
+          }
+        ]
+      },
+      "returns": {
+        "pageInfo": {
+          "hasNextPage": false
+        },
+        "nodes": []
+      },
+      "refunds": [],
+      "additionalFees": []
+    }
+  }
+}

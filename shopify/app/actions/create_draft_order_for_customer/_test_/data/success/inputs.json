@@ -1,0 +1,37 @@
+{
+  "customerId": "gid://shopify/Customer/9010685411641",
+  "productLineItems": [
+    {
+      "variantId": "gid://shopify/ProductVariant/51737009357113",
+      "quantity": 1,
+      "appliedDiscount": {
+        "valueType": "PERCENTAGE",
+        "value": 100,
+        "description": "Damaged on arrival"
+      }
+    }
+  ],
+  "customLineItems": [
+    {
+      "title": "Goodwill credit",
+      "quantity": 1,
+      "originalUnitPrice": {
+        "amount": "0.00",
+        "currencyCode": "USD"
+      },
+      "requiresShipping": false,
+      "taxable": false
+    }
+  ],
+  "appliedDiscount": {
+    "valueType": "FIXED_AMOUNT",
+    "value": 5,
+    "description": "Loyalty"
+  },
+  "taxExempt": true,
+  "note": "Replacement for damaged order #1059",
+  "tags": [
+    "replacement",
+    "gladly"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "data": {
+    "discountCodeBasicCreate": {
+      "codeDiscountNode": {
+        "id": "gid://shopify/DiscountCodeNode/123456789",
+        "codeDiscount": {
+          "title": "Shoes one-time discount",
+          "status": "ACTIVE",
+          "startsAt": "2026-06-01T00:00:00Z",
+          "endsAt": "2026-09-01T00:00:00Z",
+          "usageLimit": 1,
+          "appliesOncePerCustomer": true,
+          "context": {
+            "customers": [
+              {
+                "id": "gid://shopify/Customer/123456",
+                "displayName": "Test Customer"
+              }
+            ]
+          },
+          "codes": {
+            "nodes": [
+              {
+                "code": "GG-SHOES-ABCDE",
+                "asyncUsageCount": 0
+              }
+            ]
+          },
+          "customerGets": {
+            "appliesOnOneTimePurchase": true,
+            "value": {
+              "amount": {
+                "amount": "2.95",
+                "currencyCode": "USD"
+              },
+              "appliesOnEachItem": false
+            },
+            "items": {
+              "collections": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/Collection/111",
+                    "title": "Shoes"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "userErrors": []
+    }
+  }
+}

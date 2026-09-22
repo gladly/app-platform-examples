@@ -1,0 +1,12 @@
+{
+  "code": "GG-TOPS-FGHIJ",
+  "title": "Tops one-time discount",
+  "discountAmount": 5.5,
+  "customerId": "gid://shopify/Customer/123456",
+  "startsAt": "2026-06-01T00:00:00Z",
+  "endsAt": "2026-09-01T00:00:00Z",
+  "appliesTo": {
+    "productIds": ["gid://shopify/Product/222"],
+    "productVariantIds": ["gid://shopify/ProductVariant/333"]
+  }
+}

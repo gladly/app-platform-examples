@@ -1,0 +1,25 @@
+{
+  "errors": [
+    {
+      "code": "not_found",
+      "message": "Product or variant not found: gid://shopify/Product/9999999999999"
+    }
+  ],
+  "hasMoreVariants": false,
+  "variants": [
+    {
+      "availableForSale": true,
+      "id": "gid://shopify/ProductVariant/50591797903673",
+      "inventoryPolicy": "DENY",
+      "inventoryQuantity": 20,
+      "product": {
+        "id": "gid://shopify/Product/9825989689657",
+        "title": "The Draft Snowboard"
+      },
+      "sellableOnlineQuantity": 20,
+      "sku": null,
+      "title": "Default Title",
+      "tracked": true
+    }
+  ]
+}

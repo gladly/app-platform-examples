@@ -1,0 +1,26 @@
+{
+  "owners": [
+    {
+      "id": "gid://shopify/Product/7451895464087",
+      "typename": "Product",
+      "metafields": [
+        {
+          "id": "gid://shopify/Metafield/100",
+          "namespace": "custom",
+          "key": "product_subcategory",
+          "value": "Citrus",
+          "type": "single_line_text_field",
+          "createdAt": "2026-05-01T12:34:56Z",
+          "ownerId": "gid://shopify/Product/7451895464087",
+          "ownerType": "PRODUCT"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "Owner not found: gid://shopify/Order/5111111111111",
+      "code": "not_found"
+    }
+  ]
+}

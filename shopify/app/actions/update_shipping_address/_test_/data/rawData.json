@@ -1,0 +1,36 @@
+{
+  "data": {
+    "orderUpdate": {
+      "order": {
+        "id": "gid://shopify/Order/7118641365305",
+        "name": "#1048",
+        "updatedAt": "2026-04-13T19:06:18Z",
+        "shippingAddress": {
+          "firstName": "Jane",
+          "lastName": "Doe",
+          "company": null,
+          "address1": "35 Example St",
+          "address2": "",
+          "city": "Anytown",
+          "province": "New Jersey",
+          "provinceCode": "NJ",
+          "zip": "08879",
+          "country": "United States",
+          "countryCodeV2": "US",
+          "phone": null,
+          "formatted": [
+            "Jane Doe",
+            "35 Example St",
+            "Anytown NJ 08879",
+            "United States"
+          ],
+          "validationResultSummary": "NO_ISSUES",
+          "coordinatesValidated": true,
+          "latitude": 40.4862,
+          "longitude": -74.2807
+        }
+      },
+      "userErrors": []
+    }
+  }
+}

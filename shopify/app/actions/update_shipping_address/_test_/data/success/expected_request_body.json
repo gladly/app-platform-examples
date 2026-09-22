@@ -1,0 +1,17 @@
+{
+  "query": "mutation OrderUpdate($input: OrderInput!) {\n        orderUpdate(input: $input) {\n            order {\n                id\n                name\n                updatedAt\n                shippingAddress {\n                    firstName\n                    lastName\n                    company\n                    address1\n                    address2\n                    city\n                    province\n                    provinceCode\n                    zip\n                    country\n                    countryCodeV2\n                    phone\n                    formatted(withName: true, withCompany: true)\n                    validationResultSummary\n                    coordinatesValidated\n                    latitude\n                    longitude\n                }\n            }\n            userErrors {\n                field\n                message\n            }\n        }\n    }",
+  "variables": {
+    "input": {
+      "id": "gid://shopify/Order/4459956043927",
+      "shippingAddress": {
+        "address1": "address1",
+        "city": "City",
+        "countryCode": "US",
+        "lastName": "A",
+        "phone": "+34600600601",
+        "provinceCode": "M",
+        "zip": "28806"
+      }
+    }
+  }
+}

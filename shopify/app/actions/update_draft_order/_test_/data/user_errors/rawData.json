@@ -1,0 +1,10 @@
+{
+  "data": {
+    "draftOrderUpdate": {
+      "draftOrder": null,
+      "userErrors": [
+        { "field": ["input", "email"], "message": "Email is invalid" }
+      ]
+    }
+  }
+}

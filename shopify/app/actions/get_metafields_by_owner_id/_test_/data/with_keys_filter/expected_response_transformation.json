@@ -1,0 +1,31 @@
+{
+  "owners": [
+    {
+      "id": "gid://shopify/Product/7451895464087",
+      "typename": "Product",
+      "metafields": [
+        {
+          "id": "gid://shopify/Metafield/300",
+          "namespace": "custom",
+          "key": "warranty_period",
+          "value": "24",
+          "type": "number_integer",
+          "createdAt": "2026-05-01T12:00:00Z",
+          "ownerId": "gid://shopify/Product/7451895464087",
+          "ownerType": "PRODUCT"
+        },
+        {
+          "id": "gid://shopify/Metafield/301",
+          "namespace": "global",
+          "key": "title_tag",
+          "value": "Key Lime Tree",
+          "type": "string",
+          "createdAt": "2026-05-01T12:00:00Z",
+          "ownerId": "gid://shopify/Product/7451895464087",
+          "ownerType": "PRODUCT"
+        }
+      ]
+    }
+  ],
+  "errors": null
+}

@@ -1,0 +1,116 @@
+{
+  "data": {
+    "draftOrderCreateFromOrder": {
+      "draftOrder": {
+        "id": "gid://shopify/DraftOrder/1089001234567",
+        "name": "#D63",
+        "status": "OPEN",
+        "createdAt": "2026-06-10T16:23:00Z",
+        "updatedAt": "2026-06-10T16:23:00Z",
+        "invoiceUrl": null,
+        "invoiceSentAt": null,
+        "completedAt": null,
+        "order": null,
+        "purchasingEntity": null,
+        "email": null,
+        "phone": null,
+        "shippingAddress": null,
+        "billingAddress": null,
+        "shippingLine": null,
+        "lineItems": {
+          "nodes": [
+            {
+              "id": "gid://shopify/DraftOrderLineItem/58005",
+              "title": "Hand-tuned ski wax service",
+              "name": "Hand-tuned ski wax service",
+              "quantity": 1,
+              "sku": null,
+              "custom": true,
+              "requiresShipping": false,
+              "taxable": false,
+              "isGiftCard": false,
+              "weight": {
+                "value": 0.0,
+                "unit": "KILOGRAMS"
+              },
+              "originalUnitPriceSet": {
+                "shopMoney": {
+                  "amount": "25.00",
+                  "currencyCode": "USD"
+                },
+                "presentmentMoney": {
+                  "amount": "25.00",
+                  "currencyCode": "USD"
+                }
+              },
+              "discountedTotalSet": {
+                "shopMoney": {
+                  "amount": "25.00",
+                  "currencyCode": "USD"
+                },
+                "presentmentMoney": {
+                  "amount": "25.00",
+                  "currencyCode": "USD"
+                }
+              },
+              "appliedDiscount": null,
+              "variant": null,
+              "components": []
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false
+          }
+        },
+        "appliedDiscount": null,
+        "subtotalPriceSet": {
+          "shopMoney": {
+            "amount": "25.00",
+            "currencyCode": "USD"
+          },
+          "presentmentMoney": {
+            "amount": "25.00",
+            "currencyCode": "USD"
+          }
+        },
+        "totalShippingPriceSet": {
+          "shopMoney": {
+            "amount": "0.00",
+            "currencyCode": "USD"
+          },
+          "presentmentMoney": {
+            "amount": "0.00",
+            "currencyCode": "USD"
+          }
+        },
+        "totalTaxSet": {
+          "shopMoney": {
+            "amount": "0.00",
+            "currencyCode": "USD"
+          },
+          "presentmentMoney": {
+            "amount": "0.00",
+            "currencyCode": "USD"
+          }
+        },
+        "totalPriceSet": {
+          "shopMoney": {
+            "amount": "25.00",
+            "currencyCode": "USD"
+          },
+          "presentmentMoney": {
+            "amount": "25.00",
+            "currencyCode": "USD"
+          }
+        },
+        "taxesIncluded": false,
+        "taxExempt": false,
+        "note2": null,
+        "tags": [],
+        "poNumber": null,
+        "paymentTerms": null
+      },
+      "userErrors": []
+    }
+  }
+}

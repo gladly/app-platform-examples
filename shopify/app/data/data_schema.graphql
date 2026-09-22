@@ -1,0 +1,665 @@
+"""
+The validation status of a mailing address.
+"""
+enum MailingAddressValidationResult {
+  """
+  The address has been validated and is very likely to contain invalid information.
+  """
+  ERROR
+  """
+  The address has been validated and no issues were found.
+  """
+  NO_ISSUES
+  """
+  The address has been validated and might contain invalid information.
+  """
+  WARNING
+}
+
+"""
+Represents a mailing address, commonly used for billing and shipping purposes.
+"""
+type MailingAddress {
+  address1: String
+  address2: String
+  city: String
+  company: String
+  country: String
+  countryCodeV2: String
+  firstName: String
+  lastName: String
+  name: String
+    @deprecated(
+      reason: "Use firstName and lastName. This field is not populated."
+    )
+  phone: String
+  province: String
+  provinceCode: String
+  zip: String
+  """
+  A formatted version of the address, including the customer's name and company.
+  """
+  formatted: [String!]
+  """
+  The validation status of the address.
+  """
+  validationResultSummary: MailingAddressValidationResult
+  """
+  Whether the address corresponds to recognized latitude and longitude values.
+  """
+  coordinatesValidated: Boolean
+  """
+  The approximate latitude of the address.
+  """
+  latitude: Float
+  """
+  The approximate longitude of the address.
+  """
+  longitude: Float
+}
+
+type Money {
+  amount: Currency
+  currencyCode: String
+}
+
+type MoneySet {
+  """
+  The amount in the shop's own currency. On an order billed in a local currency
+  this is converted back from the local price, so it will not match the catalog
+  price.
+  """
+  shopMoney: Money
+
+  """
+  The amount in the currency the customer was billed in. Equal to `shopMoney`
+  when the market bills in the shop's currency.
+  """
+  presentmentMoney: Money
+}
+
+"""
+The ProductVariant object represents a version of a product that comes in more than one option, such as size or color. For example, if a merchant sells t-shirts with options for size and color, then a small, blue t-shirt would be one product variant and a large, blue t-shirt would be another.
+ProductVariantRef is a lightweight version of the product variant.
+"""
+type ProductVariantRef {
+  id: ID!
+  title: String!
+}
+
+"""
+A lightweight reference to a Shopify product.
+"""
+type ProductRef {
+  id: ID!
+  title: String!
+}
+
+"""
+Reference to a selling plan associated with the line item.
+Selling plans Define the specific terms for subscriptions, pre-orders, or try-before-you-buy offers, including when to bill customers, when to fulfill orders, and what pricing adjustments to apply.
+"""
+type LineItemSellingPlan {
+  """
+  The name of the selling plan for display purposes.
+  """
+  name: String!
+  """
+  The ID of the selling plan associated with the line item.
+  """
+  sellingPlanId: ID
+}
+
+"""
+A single line on an order — one line item per distinct product variant (catalog
+lines) or one per custom (off-catalog) line.
+"""
+type LineItem {
+  """
+  A globally-unique line-item ID (`gid://shopify/LineItem/...`).
+  """
+  id: ID!
+  """
+  The title of the product, optionally appended with the title of the variant.
+  """
+  name: String
+  """
+  The unit price of the line item when the order was created, in the shop's
+  currency. This value doesn't include discounts, and doesn't change if the line
+  is later discounted, refunded or removed.
+  """
+  price: Money # renamed from Shopify's originalUnitPriceSet.shopMoney
+  """
+  The product behind this line. Null for custom (off-catalog) lines.
+  """
+  product: ProductRef
+  """
+  The number of units ordered, including refunded and removed units.
+  """
+  quantity: Int
+  """
+  The number of units ordered, excluding refunded and removed units. This is the
+  one that reconciles with the order's `current*` totals.
+  """
+  currentQuantity: Int
+  """
+  The number of units not yet fulfilled.
+  """
+  unfulfilledQuantity: Int
+  """
+  The SKU of the ordered variant. Null for custom lines and untracked items.
+  """
+  sku: String
+  """
+  Whether the line item represents the purchase of a gift card.
+  """
+  giftCard: Boolean # renamed from Shopify's isGiftCard
+  """
+  The selling plan this line was bought on.
+  """
+  sellingPlan: LineItemSellingPlan
+  """
+  The total discount allocated to this line item, in the shop's currency, as a
+  decimal string. Includes the amount allocated to refunded and removed
+  quantities. Does not include order-level discounts.
+  """
+  totalDiscount: String # renamed from Shopify's totalDiscountSet.shopMoney.amount
+  """
+  The specific product variant ordered. Null for custom (off-catalog) lines and for
+  catalog lines whose variant has since been deleted, so always handle null.
+  """
+  variant: ProductVariantRef
+  """
+  The name of the vendor who made the variant.
+  """
+  vendor: String
+}
+
+"""
+Represents a shipping line for an order.
+"""
+type ShippingLine {
+  """
+  The customer-facing name of the shipping method, e.g. "Standard" or "International Shipping".
+  """
+  title: String!
+}
+
+"""
+Identifies the app that created an order.
+"""
+type OrderApp {
+  """
+  The application that created the order. For example, "Online Store",
+  "Point of Sale", or a custom app name.
+  """
+  name: String!
+}
+
+"""
+The financial status of the order that can be shown to the merchant.
+"""
+enum OrderDisplayFinancialStatus {
+  """
+  The payment provider has validated the customer's payment information. This
+  status appears only for manual payment capture and indicates payments should
+  be captured before the authorization period expires.
+  """
+  AUTHORIZED
+  """
+  Payment wasn't captured before the payment provider's deadline on an
+  authorized order. Some payment providers use this status to indicate failed
+  payment processing.
+  """
+  EXPIRED
+  PAID
+  PARTIALLY_PAID
+  PARTIALLY_REFUNDED
+  """
+  The payment provider needs time to complete the payment, or a manual payment
+  method is being used.
+  """
+  PENDING
+  REFUNDED
+  """
+  An authorized but uncaptured payment was voided, releasing the hold on the
+  funds. This is the payment's financial status and is distinct from the order's
+  status: an order can remain open even when its payment is voided.
+  """
+  VOIDED
+}
+
+"""
+Represents the order's aggregated fulfillment status for display purposes.
+Shown to people in sentence case with underscores as spaces, so
+`PARTIALLY_FULFILLED` is displayed as "Partially fulfilled" — say that to a
+customer rather than the constant.
+"""
+enum OrderDisplayFulfillmentStatus {
+  """
+  All the items in the order have been fulfilled.
+  """
+  FULFILLED
+  """
+  All of the items in the order have had a request for fulfillment sent to the
+  fulfillment service or all of the items have been marked as in progress.
+  """
+  IN_PROGRESS
+  """
+  All of the unfulfilled items in this order are on hold.
+  """
+  ON_HOLD
+  """
+  None of the items in the order have been fulfilled. Replaced by `UNFULFILLED`.
+  """
+  OPEN
+  """
+  Some of the items in the order have been fulfilled.
+  """
+  PARTIALLY_FULFILLED
+  """
+  A request for fulfillment of some items awaits a response from the fulfillment
+  service. Replaced by `IN_PROGRESS`.
+  """
+  PENDING_FULFILLMENT
+  """
+  Some of the items in the order have been rejected for fulfillment by the
+  fulfillment service.
+  """
+  REQUEST_DECLINED
+  """
+  All the items in the order have been restocked. Replaced by `UNFULFILLED`.
+  """
+  RESTOCKED
+  """
+  All of the unfulfilled items in this order are scheduled for fulfillment at
+  later time.
+  """
+  SCHEDULED
+  """
+  None of the items in the order have been fulfilled.
+  """
+  UNFULFILLED
+}
+
+"""
+The order's aggregated return status that's used for display purposes. An order
+might have multiple returns, so this field communicates the prioritized return
+status.
+"""
+enum OrderReturnStatus {
+  """
+  Some items in the order are being returned.
+  """
+  IN_PROGRESS
+  """
+  All return shipments from a return in this order were inspected.
+  """
+  INSPECTION_COMPLETE
+  NO_RETURN
+  RETURN_FAILED
+  RETURN_REQUESTED
+  """
+  Some items in the order were returned.
+  """
+  RETURNED
+}
+
+"""
+The reason provided when the order was canceled.
+"""
+enum ShopifyOrderCancelReason {
+  CUSTOMER
+  DECLINED
+  FRAUD
+  INVENTORY
+  OTHER
+  STAFF
+}
+
+type CustomerInfo {
+  id: ID!
+  displayName: String
+}
+
+"""
+Possible types of a metafield's owner resource. Only subset of types are supported.
+"""
+enum MetafieldOwnerType {
+  CUSTOMER
+  ORDER
+}
+
+type Metafield @dataType(name: "shopify_metafield", version: "1.0") {
+  id: ID!
+  createdAt: DateTime!
+  """
+  The container for a group of metafields that the metafield is associated with.
+  """
+  namespace: String!
+  """
+  The unique identifier for the metafield within its namespace.
+  """
+  key: String!
+  """
+  The data stored in the metafield. Always stored as a string, regardless of the metafield's type.
+  """
+  value: String!
+  """
+  The type of data that is stored in the metafield. Refer to the list of supported types at https://shopify.dev/docs/apps/build/custom-data/metafields/list-of-data-types#supported-types
+  """
+  type: String!
+  """
+  The ID of the resource that the metafield is attached to.
+  """
+  ownerId: ID!
+  """
+  The type of resource that the metafield is attached to. See MetafieldOwnerType definition for currently supported types.
+  """
+  ownerType: MetafieldOwnerType!
+}
+
+"""
+A quick summary of customer's order.
+"""
+type Order @dataType(name: "shopify_order", version: "4.1") {
+  id: ID!
+  """
+  A customer-facing order identifier, often shown instead of the order name. It
+  uses a random alphanumeric format (for example, `XPAV284CT`) and isn't
+  guaranteed to be unique across orders, so never key on it.
+  """
+  confirmationNumber: String
+  """
+  The order identifier the customer sees and that appears in the Shopify admin,
+  for example `#1059`. This is what to quote back when confirming an order.
+  """
+  name: String!
+  orderNumber: String!
+  """
+  The email address associated with the customer for this order. Used for sending order confirmations, shipping notifications, and other order-related communications. Returns null if no email address was provided during checkout.
+  """
+  email: String
+
+  customer: CustomerInfo
+  customerId: ID! # derived from customer.id - feeds the external id and the metafields @parentId
+  """
+  Line items after both line-level and order-level discounts, and after returns
+  and refunds. Includes tax when `taxesIncluded` is true. Excludes shipping and
+  duties.
+  """
+  currentSubtotalPriceSet: MoneySet
+  """
+  The total discounted on the order after returns and refunds. Includes both
+  order-level and line-level discounts.
+  """
+  currentTotalDiscountsSet: MoneySet
+  """
+  Shipping charged, after any shipping refund. Includes tax when `taxesIncluded`
+  is true.
+  """
+  currentShippingPriceSet: MoneySet
+  """
+  Tax on the order after returns and refunds. Added on top of the subtotal when
+  `taxesIncluded` is false, and already inside it when true.
+  """
+  currentTotalTaxSet: MoneySet
+  """
+  Import duties owed, after returns and modifications.
+  """
+  currentTotalDutiesSet: MoneySet
+  """
+  What the order is worth now, after returns, refunds and edits. The subtotal
+  plus shipping plus duties, plus tax when `taxesIncluded` is false.
+  """
+  currentTotalPriceSet: MoneySet
+  """
+  Whether this order's amounts already contain tax.
+  """
+  taxesIncluded: Boolean
+  """
+  Money received from the customer, before any refund. Subtract
+  `totalRefundedSet` for what was kept.
+  """
+  totalReceivedSet: MoneySet
+  """
+  Money refunded across the whole order.
+  """
+  totalRefundedSet: MoneySet
+  """
+  Money still owed. Positive favours the merchant, negative the customer.
+  """
+  totalOutstandingSet: MoneySet
+  """
+  Whether the order can be refunded based on its payment transactions.
+  """
+  refundable: Boolean
+  cancelReason: ShopifyOrderCancelReason
+  """
+  The note associated with the order. Contains additional information or instructions added by merchants or customers during the order process. Commonly used for special delivery instructions, gift messages, or internal processing notes. The maximum length is 5000 characters.
+  """
+  note: String
+  tags: [String]
+  createdAt: DateTime
+  updatedAt: DateTime
+  financialStatus: OrderDisplayFinancialStatus # renamed from Shopify's displayFinancialStatus
+  fulfillmentStatus: OrderDisplayFulfillmentStatus # renamed from Shopify's displayFulfillmentStatus
+  returnStatus: OrderReturnStatus
+  shippingAddress: MailingAddress
+  """
+  The shipping methods applied to the order. Each shipping line is a shipping
+  option chosen during checkout. Only the method name is carried here; what the
+  customer paid for shipping is on `currentShippingPriceSet`.
+  """
+  shippingLines: [ShippingLine] # flattened from Shopify's shippingLines.nodes
+  orderStatusUrl: String # renamed from Shopify's statusPageUrl
+  """
+  The name of the source associated with the order, such as `web`, `mobile_app`
+  or `pos`. Can be a bare channel id for app-created orders, so it is not
+  customer-facing. Call `orderByIdentifier` for the readable origin.
+  """
+  sourceName: String
+  app: OrderApp
+  lineItems: [LineItem] # flattened from Shopify's lineItems.nodes
+  """
+  Metafields associated with the order.
+  """
+  metafields: [Metafield] @parentId(template: "{{.id}}")
+  """
+  Whether the order has more metafields than `metafields` returned, i.e. the
+  list is capped and incomplete.
+  """
+  hasMoreMetafields: Boolean
+}
+
+"""
+The current marketing consent state for either email or SMS.
+"""
+type SmsOrEmailMarketingConsent {
+  marketingState: String
+  marketingOptInLevel: String
+  consentUpdatedAt: DateTime
+}
+
+type LastOrderId {
+  id: ID!
+}
+
+"""
+The valid tiers for the predicted spend of a customer with a shop.
+"""
+enum CustomerPredictedSpendTier {
+  """
+  The customer's spending is predicted to be in the top spending range for the
+  shop in the following year.
+  """
+  HIGH
+  """
+  The customer's spending is predicted to be zero, or in the lowest spending
+  range for the shop in the following year.
+  """
+  LOW
+  """
+  The customer's spending is predicted to be in the normal spending range for
+  the shop in the following year.
+  """
+  MEDIUM
+}
+
+"""
+The RFM (Recency, Frequency, Monetary) group for a customer.
+"""
+enum CustomerRfmGroup {
+  """
+  Customers with recent purchases, some orders, and moderate spend.
+  """
+  ACTIVE
+  """
+  Customers without recent purchases, fewer orders, and with lower spend.
+  """
+  ALMOST_LOST
+  """
+  Customers without recent purchases, but with a strong history of orders and
+  spend.
+  """
+  AT_RISK
+  """
+  Customers with very recent purchases, many orders, and the most spend.
+  """
+  CHAMPIONS
+  """
+  Customers without recent orders, with infrequent orders, and with low spend.
+  """
+  DORMANT
+  """
+  Customers with recent purchases, many orders, and the most spend.
+  """
+  LOYAL
+  """
+  Customers with recent purchases, some orders, and moderate spend.
+  """
+  NEEDS_ATTENTION
+  """
+  Customers with very recent purchases, few orders, and low spend.
+  """
+  NEW
+  """
+  Customers without recent purchases, but with a very strong history of orders
+  and spend.
+  """
+  PREVIOUSLY_LOYAL
+  """
+  Customers with recent purchases, few orders, and low spend.
+  """
+  PROMISING
+  """
+  Customers with no orders yet.
+  """
+  PROSPECTS
+}
+
+type CustomerStatistics {
+  predictedSpendTier: CustomerPredictedSpendTier
+  """
+  The RFM (Recency, Frequency, Monetary) group of the customer.
+  """
+  rfmGroup: CustomerRfmGroup
+}
+
+type Customer @dataType(name: "shopify_customer", version: "3.2") {
+  id: ID!
+  """
+  The customer's default email address.
+  """
+  email: String # flattened from Shopify's defaultEmailAddress.emailAddress
+  """
+  The customer's default phone number.
+  """
+  phone: String # flattened from Shopify's defaultPhoneNumber.phoneNumber
+  firstName: String
+  lastName: String
+  """
+  The full name of the customer, based on the values for first_name and last_name. If the first_name and last_name are not available, then this falls back to the customer's email address, and if that is not available, the customer's phone number.
+  """
+  displayName: String!
+  """
+  The customer's locale.
+  """
+  locale: String!
+  defaultAddress: MailingAddress
+  """
+  The total amount that the customer has spent on orders in their lifetime.
+  """
+  amountSpent: Money
+  lastOrder: LastOrderId @deprecated(reason: "Never populated. Use orders.")
+  """
+  The current email marketing state for the customer. If the customer doesn't have an email address, then this property is null.
+  """
+  # Shopify has deprecated the underlying Customer.emailMarketingConsent field.
+  # Kept because the replacement drops the REDACTED marketing state, which is
+  # the only signal that a customer's data was erased.
+  emailMarketingConsent: SmsOrEmailMarketingConsent
+  """
+  The current SMS marketing state for the customer's phone number.
+  """
+  # Shopify has deprecated the underlying Customer.smsMarketingConsent field.
+  # No non-deprecated replacement exists yet - every field on
+  # CustomerPhoneNumber except phoneNumber is itself deprecated.
+  smsMarketingConsent: SmsOrEmailMarketingConsent
+  lifetimeDuration: String! @deprecated(reason: "Compute using createdAt.")
+  note: String
+  numberOfOrders: Int!
+  tags: [String]
+  """
+  Shopify's own segmentation of this customer.
+  """
+  statistics: CustomerStatistics
+  orders: [Order] @parentId(template: "{{.id}}")
+  createdAt: DateTime
+  updatedAt: DateTime
+  metafields: [Metafield] @parentId(template: "{{.id}}")
+  """
+  Whether the customer has more metafields than `metafields` returned, i.e. the
+  list is capped and incomplete.
+  """
+  hasMoreMetafields: Boolean
+}
+
+type Query {
+  """
+  Returns overview of the customer in Shopify.
+  Who this customer is to the store: their standing, value, contact details, etc.
+
+  Use it when the question is about the person rather than a purchase - what
+  they are worth, how much they buy, whether they can be marketed to, anything
+  the merchant has noted or tagged about them.
+
+  An empty result means the profile's email and phone matched no Shopify
+  account or matched more than one customer. If customer created orders without
+  logging in they will not be returned. In these cases use "lookup" actions
+  """
+  customer: Customer
+  """
+  Customer's recent orders at a glance: what they bought, what each order cost,
+  and where each one currently stands (paid, refunded, outstanding).
+
+  Use this to understand a customer's purchasing history: which orders they've
+  placed, which still have money outstanding, and which have been refunded or
+  returned.
+
+  For details about a single order's tracking, carrier, specific
+  returns/refunds, or holds, use the `orderByIdentifier` action instead.
+
+  Results are:
+
+  - Sorted by last update time, not by when the order was placed. An older order
+    refunded today can appear above a newer untouched one. Don't assume the
+    first entry is their most recent purchase.
+  - Capped: if `Customer.numberOfOrders` is greater than the list length, older
+    orders are omitted.
+  - Scoped to this customer identity: guest orders or orders under other emails
+    aren't included. Use "lookup" actions to find those.
+  """
+  orders: [Order]
+  metafields: [Metafield]
+}

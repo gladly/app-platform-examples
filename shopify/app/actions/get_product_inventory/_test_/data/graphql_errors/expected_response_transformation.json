@@ -1,0 +1,14 @@
+{
+  "errors": [
+    {
+      "code": null,
+      "message": "Throttled"
+    },
+    {
+      "code": "not_found",
+      "message": "Product or variant not found: gid://shopify/Product/9825989689657"
+    }
+  ],
+  "hasMoreVariants": false,
+  "variants": null
+}

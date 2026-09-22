@@ -1,0 +1,20 @@
+{
+  "suggestedRefund": {
+    "amountSet": { "shopMoney": { "amount": "157.45", "currencyCode": "USD" }, "presentmentMoney": { "amount": "157.45", "currencyCode": "USD" } },
+    "maximumRefundableSet": { "shopMoney": { "amount": "157.45", "currencyCode": "USD" }, "presentmentMoney": { "amount": "157.45", "currencyCode": "USD" } },
+    "subtotalSet": { "shopMoney": { "amount": "135.50", "currencyCode": "USD" }, "presentmentMoney": { "amount": "135.50", "currencyCode": "USD" } },
+    "totalTaxSet": { "shopMoney": { "amount": "0.0", "currencyCode": "USD" }, "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" } },
+    "shipping": {
+      "amountSet": { "shopMoney": { "amount": "21.95", "currencyCode": "USD" }, "presentmentMoney": { "amount": "21.95", "currencyCode": "USD" } },
+      "maximumRefundableSet": { "shopMoney": { "amount": "21.95", "currencyCode": "USD" }, "presentmentMoney": { "amount": "21.95", "currencyCode": "USD" } },
+      "taxSet": { "shopMoney": { "amount": "0.0", "currencyCode": "USD" }, "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" } }
+    },
+    "refundLineItems": [
+      { "lineItemId": "gid://shopify/LineItem/13715390464151", "name": "Apex Carve Helmet", "sku": "ELA-HLMT-006", "quantity": 1, "subtotalSet": { "shopMoney": { "amount": "135.50", "currencyCode": "USD" }, "presentmentMoney": { "amount": "135.50", "currencyCode": "USD" } } }
+    ],
+    "suggestedTransactions": [
+      { "gateway": "shopify_payments", "parentTransaction": { "id": "gid://shopify/OrderTransaction/7126018261143" }, "accountNumber": "•••• 4242", "formattedGateway": "Visa", "amountSet": { "shopMoney": { "amount": "157.45", "currencyCode": "USD" }, "presentmentMoney": { "amount": "157.45", "currencyCode": "USD" } } }
+    ]
+  },
+  "errors": []
+}

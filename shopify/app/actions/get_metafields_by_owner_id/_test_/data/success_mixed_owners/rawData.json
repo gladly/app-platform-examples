@@ -1,0 +1,60 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "__typename": "Product",
+        "id": "gid://shopify/Product/7451895464087",
+        "metafields": {
+          "nodes": [
+            {
+              "id": "gid://shopify/Metafield/100",
+              "namespace": "custom",
+              "key": "product_subcategory",
+              "value": "Citrus",
+              "type": "single_line_text_field",
+              "createdAt": "2026-05-01T12:34:56Z",
+              "ownerType": "PRODUCT"
+            },
+            {
+              "id": "gid://shopify/Metafield/101",
+              "namespace": "global",
+              "key": "title_tag",
+              "value": "Key Lime Tree",
+              "type": "string",
+              "createdAt": "2026-05-01T12:34:57Z",
+              "ownerType": "PRODUCT"
+            }
+          ]
+        }
+      },
+      {
+        "__typename": "Order",
+        "id": "gid://shopify/Order/5111111111111",
+        "metafields": {
+          "nodes": [
+            {
+              "id": "gid://shopify/Metafield/200",
+              "namespace": "custom",
+              "key": "shipping_notes",
+              "value": "Leave on porch",
+              "type": "multi_line_text_field",
+              "createdAt": "2026-05-02T08:00:00Z",
+              "ownerType": "ORDER"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "extensions": {
+    "cost": {
+      "requestedQueryCost": 12,
+      "actualQueryCost": 4,
+      "throttleStatus": {
+        "maximumAvailable": 2000.0,
+        "currentlyAvailable": 1996,
+        "restoreRate": 100.0
+      }
+    }
+  }
+}

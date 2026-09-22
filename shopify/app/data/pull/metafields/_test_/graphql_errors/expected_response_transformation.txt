@@ -1,0 +1,1 @@
+"Invalid global id 'gid://shopify/Customer/invalid123' - argumentLiteralsIncompatible"

@@ -1,0 +1,62 @@
+{
+  "data": {
+    "discountCodeBasicCreate": {
+      "codeDiscountNode": {
+        "id": "gid://shopify/DiscountCodeNode/223456789",
+        "codeDiscount": {
+          "title": "Tops one-time discount",
+          "status": "ACTIVE",
+          "startsAt": "2026-06-01T00:00:00Z",
+          "endsAt": "2026-09-01T00:00:00Z",
+          "usageLimit": 1,
+          "appliesOncePerCustomer": true,
+          "context": {
+            "customers": [
+              {
+                "id": "gid://shopify/Customer/123456",
+                "displayName": "Test Customer"
+              }
+            ]
+          },
+          "codes": {
+            "nodes": [
+              {
+                "code": "GG-TOPS-FGHIJ",
+                "asyncUsageCount": 0
+              }
+            ]
+          },
+          "customerGets": {
+            "appliesOnOneTimePurchase": true,
+            "value": {
+              "amount": {
+                "amount": "5.50",
+                "currencyCode": "USD"
+              },
+              "appliesOnEachItem": false
+            },
+            "items": {
+              "products": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/Product/222",
+                    "title": "Cotton Tee"
+                  }
+                ]
+              },
+              "productVariants": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/ProductVariant/333",
+                    "title": "Cotton Tee - Large"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "userErrors": []
+    }
+  }
+}

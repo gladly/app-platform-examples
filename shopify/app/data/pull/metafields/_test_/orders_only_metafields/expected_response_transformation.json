@@ -1,0 +1,12 @@
+[
+  {
+    "id": "gid://shopify/Metafield/53667244998969",
+    "createdAt": "2026-05-28T23:25:21Z",
+    "namespace": "custom",
+    "key": "gift_message",
+    "value": "some helmets here you go\n",
+    "type": "multi_line_text_field",
+    "ownerId": "gid://shopify/Order/7443360284985",
+    "ownerType": "ORDER"
+  }
+]

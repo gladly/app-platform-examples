@@ -1,0 +1,10 @@
+{
+  "draftOrder": null,
+  "errors": [
+    {
+      "message": "Access denied for draftOrderCreate field. Required access: `write_draft_orders` access scope.",
+      "code": "ACCESS_DENIED"
+    }
+  ],
+  "userErrors": []
+}

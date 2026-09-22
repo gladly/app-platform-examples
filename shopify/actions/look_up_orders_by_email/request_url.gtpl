@@ -1,1 +1,0 @@
-https://{{.integration.configuration.shop}}.myshopify.com/admin/api/2025-04/graphql.json

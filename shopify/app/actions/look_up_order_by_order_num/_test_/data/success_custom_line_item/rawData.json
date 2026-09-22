@@ -1,0 +1,115 @@
+{
+  "data": {
+    "orders": {
+      "nodes": [
+        {
+          "id": "gid://shopify/Order/7467224990009",
+          "customer": {
+            "id": "gid://shopify/Customer/9010685411641",
+            "displayName": "siwy"
+          },
+          "confirmationNumber": "5YRDTMTRG",
+          "statusPageUrl": "https://partner-ela.myshopify.com/93185081657/orders/beb4291dbe9c5933f88cd617899fc4c9/authenticate?key=4704ad86226da12e473eaacc0cfa2e6c",
+          "createdAt": "2026-06-11T18:17:21Z",
+          "email": "ela@gladly.com",
+          "name": "#1059",
+          "note": null,
+          "tags": [],
+          "updatedAt": "2026-06-26T19:18:45Z",
+          "cancelReason": null,
+          "currentSubtotalPriceSet": {
+            "shopMoney": {
+              "amount": "44.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalDiscountsSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalTaxSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalPriceSet": {
+            "shopMoney": {
+              "amount": "44.0",
+              "currencyCode": "USD"
+            }
+          },
+          "displayFinancialStatus": "PARTIALLY_REFUNDED",
+          "displayFulfillmentStatus": "UNFULFILLED",
+          "shippingAddress": {
+            "address1": "123 main street",
+            "address2": null,
+            "city": "New York",
+            "province": "Illinois",
+            "provinceCode": "IL",
+            "zip": null,
+            "country": "United States",
+            "countryCodeV2": "US"
+          },
+          "shippingLines": {
+            "nodes": []
+          },
+          "lineItems": {
+            "nodes": [
+              {
+                "id": "gid://shopify/LineItem/17414544294201",
+                "name": "Smith Squad Goggles - Gray",
+                "sku": "1231111",
+                "vendor": "partner-ela",
+                "isGiftCard": false,
+                "quantity": 1,
+                "variant": {
+                  "id": "gid://shopify/ProductVariant/51737009357113",
+                  "title": "Gray"
+                },
+                "product": {
+                  "id": "gid://shopify/Product/10089017737529",
+                  "title": "Smith Squad Goggles"
+                },
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "45.0",
+                    "currencyCode": "USD"
+                  }
+                },
+                "totalDiscountSet": {
+                  "shopMoney": {
+                    "amount": "0.0"
+                  }
+                }
+              },
+              {
+                "id": "gid://shopify/LineItem/17414544326969",
+                "name": "Heavy stuff",
+                "sku": null,
+                "vendor": "",
+                "isGiftCard": false,
+                "quantity": 3,
+                "variant": null,
+                "product": null,
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "22.0",
+                    "currencyCode": "USD"
+                  }
+                },
+                "totalDiscountSet": {
+                  "shopMoney": {
+                    "amount": "0.0"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

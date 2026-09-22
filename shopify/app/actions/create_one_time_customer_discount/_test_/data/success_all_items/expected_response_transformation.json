@@ -1,0 +1,40 @@
+{
+  "discountCode": {
+    "id": "gid://shopify/DiscountCodeNode/323456789",
+    "codes": [
+      {
+        "code": "GG-STORE-KLMNO",
+        "asyncUsageCount": 0
+      }
+    ],
+    "title": "Storewide one-time discount",
+    "status": "ACTIVE",
+    "startsAt": "2026-06-01T00:00:00Z",
+    "endsAt": "2026-09-01T00:00:00Z",
+    "usageLimit": 1,
+    "appliesOncePerCustomer": true,
+    "context": {
+      "customers": [
+        {
+          "id": "gid://shopify/Customer/123456",
+          "displayName": "Test Customer"
+        }
+      ]
+    },
+    "customerGets": {
+      "appliesOnOneTimePurchase": true,
+      "value": {
+        "amount": {
+          "amount": "10.00",
+          "currencyCode": "USD"
+        },
+        "appliesOnEachItem": false
+      },
+      "items": {
+        "allItems": true
+      }
+    }
+  },
+  "errors": [],
+  "userErrors": []
+}

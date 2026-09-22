@@ -1,1 +1,0 @@
-https://gladly-development.myshopify.com/admin/api/2025-04/graphql.json

@@ -1,0 +1,9 @@
+{
+  "configuration": {
+    "shop": "partner-ela",
+    "ordersLimit": 40
+  },
+  "secrets": {
+    "access_token": "access_token"
+  }
+}

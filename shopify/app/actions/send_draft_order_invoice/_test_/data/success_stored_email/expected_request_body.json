@@ -1,0 +1,6 @@
+{
+  "query": "\nmutation draftOrderInvoiceSend($id: ID!) {\n    draftOrderInvoiceSend(id: $id) {\n        draftOrder {\n            id\n            name\n            status\n            invoiceUrl\n            invoiceSentAt\n        }\n        userErrors {\n            field\n            message\n        }\n    }\n}\n",
+  "variables": {
+    "id": "gid://shopify/DraftOrder/1243403911481"
+  }
+}

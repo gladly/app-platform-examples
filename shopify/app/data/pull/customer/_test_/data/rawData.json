@@ -1,0 +1,62 @@
+{
+  "data": {
+    "customers": {
+      "nodes": [
+        {
+          "id": "gid://shopify/Customer/10556137832761",
+          "firstName": "First",
+          "lastName": "Last",
+          "displayName": "First Last",
+          "defaultEmailAddress": {
+            "emailAddress": "primary@email.com"
+          },
+          "emailMarketingConsent": {
+            "marketingState": "NOT_SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": null
+          },
+          "smsMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2026-05-28T23:21:27Z"
+          },
+          "tags": [
+            "yotpo-tiers-brown"
+          ],
+          "lifetimeDuration": "2 months",
+          "note": "",
+          "defaultPhoneNumber": {
+            "phoneNumber": "+15551234567"
+          },
+          "locale": "en-GB",
+          "numberOfOrders": "1",
+          "amountSpent": {
+            "amount": "370.0",
+            "currencyCode": "USD"
+          },
+          "statistics": {
+            "predictedSpendTier": null,
+            "rfmGroup": "ALMOST_LOST"
+          },
+          "createdAt": "2026-05-28T23:21:27Z",
+          "updatedAt": "2026-06-25T18:43:28Z",
+          "defaultAddress": {
+            "address1": "123 Example Street",
+            "address2": "Unit 4",
+            "city": "London",
+            "province": null,
+            "provinceCode": null,
+            "zip": "SW1A 1AA",
+            "country": "United Kingdom",
+            "countryCodeV2": "GB"
+          },
+          "metafields": {
+            "pageInfo": {
+              "hasNextPage": false
+            }
+          }
+        }
+      ]
+    }
+  }
+}

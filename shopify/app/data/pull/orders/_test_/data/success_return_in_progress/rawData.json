@@ -1,0 +1,152 @@
+{
+  "data": {
+    "orders": {
+      "nodes": [
+        {
+          "id": "gid://shopify/Order/7462005375289",
+          "customer": {
+            "id": "gid://shopify/Customer/9010685411641",
+            "displayName": "Test Customer"
+          },
+          "confirmationNumber": "MT5Z4LUCQ",
+          "statusPageUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+          "createdAt": "2026-06-08T19:15:45Z",
+          "email": null,
+          "name": "#1056",
+          "note": null,
+          "tags": [],
+          "updatedAt": "2026-06-25T18:43:25Z",
+          "cancelReason": null,
+          "currentSubtotalPriceSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalDiscountsSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentShippingPriceSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalTaxSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalDutiesSet": null,
+          "currentTotalPriceSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "taxesIncluded": false,
+          "totalReceivedSet": {
+            "shopMoney": {
+              "amount": "157.45",
+              "currencyCode": "USD"
+            }
+          },
+          "totalRefundedSet": {
+            "shopMoney": {
+              "amount": "157.45",
+              "currencyCode": "USD"
+            }
+          },
+          "totalOutstandingSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "refundable": false,
+          "displayFinancialStatus": "REFUNDED",
+          "displayFulfillmentStatus": "FULFILLED",
+          "returnStatus": "IN_PROGRESS",
+          "sourceName": "web",
+          "app": {
+            "name": "Online Store"
+          },
+          "shippingAddress": {
+            "firstName": null,
+            "lastName": "Customer",
+            "company": null,
+            "address1": "123 Example Street",
+            "address2": null,
+            "city": "London",
+            "province": "England",
+            "provinceCode": "ENG",
+            "zip": null,
+            "country": "United Kingdom",
+            "countryCodeV2": "GB",
+            "phone": null,
+            "formatted": [
+              "Customer",
+              "123 Example Street",
+              "London",
+              "United Kingdom"
+            ],
+            "validationResultSummary": "NO_ISSUES",
+            "coordinatesValidated": true,
+            "latitude": null,
+            "longitude": null
+          },
+          "shippingLines": {
+            "nodes": [
+              {
+                "title": "First Class Package International"
+              }
+            ]
+          },
+          "lineItems": {
+            "nodes": [
+              {
+                "id": "gid://shopify/LineItem/17404492153145",
+                "name": "Apex Carve Helmet - Past Season - Matte Granite Blue / Mediterranean Geo / YM",
+                "sku": "ELA-HLMT-006",
+                "vendor": "Apex Outdoor",
+                "isGiftCard": false,
+                "quantity": 1,
+                "currentQuantity": 0,
+                "unfulfilledQuantity": 0,
+                "sellingPlan": null,
+                "variant": {
+                  "id": "gid://shopify/ProductVariant/53338378961209",
+                  "title": "Matte Granite Blue / Mediterranean Geo / YM"
+                },
+                "product": {
+                  "id": "gid://shopify/Product/10218180739385",
+                  "title": "Apex Carve Helmet - Past Season"
+                },
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "150.5",
+                    "currencyCode": "USD"
+                  }
+                },
+                "totalDiscountSet": {
+                  "shopMoney": {
+                    "amount": "0.0"
+                  }
+                }
+              }
+            ]
+          },
+          "metafields": {
+            "pageInfo": {
+              "hasNextPage": false
+            }
+          }
+        }
+      ]
+    }
+  }
+}

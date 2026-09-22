@@ -1,0 +1,404 @@
+[
+  {
+    "app": {
+      "name": "Shopify CLI Connector App"
+    },
+    "cancelReason": null,
+    "confirmationNumber": "XAJ08FQ78",
+    "createdAt": "2026-08-08T11:30:39Z",
+    "currentShippingPriceSet": {
+      "presentmentMoney": {
+        "amount": "25.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "25.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentSubtotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "320.34",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "320.34",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "presentmentMoney": {
+        "amount": "27.66",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "27.66",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDutiesSet": {
+      "presentmentMoney": {
+        "amount": "6.91",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "6.91",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "352.25",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "352.25",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "presentmentMoney": {
+        "amount": "58.71",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "58.71",
+        "currencyCode": "USD"
+      }
+    },
+    "customer": {
+      "displayName": "Money Probe",
+      "id": "gid://shopify/Customer/10750305337657"
+    },
+    "customerId": "gid://shopify/Customer/10750305337657",
+    "email": "money-probe-intl@example.com",
+    "financialStatus": "PAID",
+    "fulfillmentStatus": "UNFULFILLED",
+    "hasMoreMetafields": false,
+    "id": "gid://shopify/Order/7576391352633",
+    "lineItems": [
+      {
+        "currentQuantity": 2,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628261548345",
+        "name": "Smith Squad Goggles - Blue",
+        "price": {
+          "amount": "54.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/10089017737529",
+          "title": "Smith Squad Goggles"
+        },
+        "quantity": 2,
+        "sellingPlan": null,
+        "sku": null,
+        "totalDiscount": "10.8",
+        "unfulfilledQuantity": 2,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/51736134549817",
+          "title": "Blue"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "currentQuantity": 1,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628261581113",
+        "name": "Apex Carve Helmet - Past Season - Matte Mystic / Gold Dust / YM",
+        "price": {
+          "amount": "240.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/10218180739385",
+          "title": "Apex Carve Helmet - Past Season"
+        },
+        "quantity": 1,
+        "sellingPlan": null,
+        "sku": "ELA-HLMT-009",
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 1,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/53338379059513",
+          "title": "Matte Mystic / Gold Dust / YM"
+        },
+        "vendor": "Apex Outdoor"
+      }
+    ],
+    "name": "#1082",
+    "note": "M4 duties x discounts x inclusive tax",
+    "orderNumber": "#1082",
+    "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+    "refundable": true,
+    "returnStatus": "NO_RETURN",
+    "shippingAddress": {
+      "address1": "10 Downing St",
+      "address2": null,
+      "city": "London",
+      "company": null,
+      "coordinatesValidated": true,
+      "country": "United Kingdom",
+      "countryCodeV2": "GB",
+      "firstName": "Money",
+      "formatted": [
+        "Money Probe",
+        "10 Downing St",
+        "London",
+        "SW1A 2AA",
+        "United Kingdom"
+      ],
+      "lastName": "Probe",
+      "latitude": 51.5034035,
+      "longitude": -0.1275424,
+      "phone": null,
+      "province": "England",
+      "provinceCode": "ENG",
+      "validationResultSummary": "NO_ISSUES",
+      "zip": "SW1A 2AA"
+    },
+    "shippingLines": [
+      {
+        "title": "International"
+      }
+    ],
+    "sourceName": "341303132161",
+    "tags": [
+      "M4",
+      "money-field-probe"
+    ],
+    "taxesIncluded": true,
+    "totalOutstandingSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalReceivedSet": {
+      "presentmentMoney": {
+        "amount": "352.25",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "352.25",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefundedSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "updatedAt": "2026-08-08T11:30:40Z"
+  },
+  {
+    "app": {
+      "name": "Shopify CLI Connector App"
+    },
+    "cancelReason": null,
+    "confirmationNumber": "EHA8GE0A1",
+    "createdAt": "2026-08-08T11:18:19Z",
+    "currentShippingPriceSet": {
+      "presentmentMoney": {
+        "amount": "25.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "25.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentSubtotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "348.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "348.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDutiesSet": {
+      "presentmentMoney": {
+        "amount": "7.47",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "7.47",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "380.47",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "380.47",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "presentmentMoney": {
+        "amount": "63.41",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "63.41",
+        "currencyCode": "USD"
+      }
+    },
+    "customer": {
+      "displayName": "Money Probe",
+      "id": "gid://shopify/Customer/10750305337657"
+    },
+    "customerId": "gid://shopify/Customer/10750305337657",
+    "email": "money-probe-intl@example.com",
+    "financialStatus": "PAID",
+    "fulfillmentStatus": "UNFULFILLED",
+    "hasMoreMetafields": false,
+    "id": "gid://shopify/Order/7576372052281",
+    "lineItems": [
+      {
+        "currentQuantity": 2,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628213543225",
+        "name": "Smith Squad Goggles - Blue",
+        "price": {
+          "amount": "54.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/10089017737529",
+          "title": "Smith Squad Goggles"
+        },
+        "quantity": 2,
+        "sellingPlan": null,
+        "sku": null,
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 2,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/51736134549817",
+          "title": "Blue"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "currentQuantity": 1,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628213575993",
+        "name": "Apex Carve Helmet - Past Season - Matte Mystic / Gold Dust / YM",
+        "price": {
+          "amount": "240.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/10218180739385",
+          "title": "Apex Carve Helmet - Past Season"
+        },
+        "quantity": 1,
+        "sellingPlan": null,
+        "sku": "ELA-HLMT-009",
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 1,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/53338379059513",
+          "title": "Matte Mystic / Gold Dust / YM"
+        },
+        "vendor": "Apex Outdoor"
+      }
+    ],
+    "name": "#1080",
+    "note": null,
+    "orderNumber": "#1080",
+    "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+    "refundable": true,
+    "returnStatus": "NO_RETURN",
+    "shippingAddress": {
+      "address1": "10 Downing St",
+      "address2": null,
+      "city": "London",
+      "company": null,
+      "coordinatesValidated": true,
+      "country": "United Kingdom",
+      "countryCodeV2": "GB",
+      "firstName": "Money",
+      "formatted": [
+        "Money Probe",
+        "10 Downing St",
+        "London",
+        "SW1A 2AA",
+        "United Kingdom"
+      ],
+      "lastName": "Probe",
+      "latitude": 51.5034035,
+      "longitude": -0.1275424,
+      "phone": null,
+      "province": "England",
+      "provinceCode": "ENG",
+      "validationResultSummary": "NO_ISSUES",
+      "zip": "SW1A 2AA"
+    },
+    "shippingLines": [
+      {
+        "title": "International"
+      }
+    ],
+    "sourceName": "341303132161",
+    "tags": [
+      "draft-intl",
+      "money-field-probe"
+    ],
+    "taxesIncluded": true,
+    "totalOutstandingSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalReceivedSet": {
+      "presentmentMoney": {
+        "amount": "380.47",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "380.47",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefundedSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "updatedAt": "2026-08-08T11:18:21Z"
+  }
+]

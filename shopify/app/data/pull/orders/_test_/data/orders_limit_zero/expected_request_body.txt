@@ -1,0 +1,1 @@
+"Shopify 'ordersLimit' must be a positive whole number, got 0. Recent orders cannot be retrieved for this customer."

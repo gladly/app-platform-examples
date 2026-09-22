@@ -1,0 +1,13 @@
+{
+  "data": {
+    "customer": {
+      "id": "gid://shopify/Customer/9004916343097",
+      "metafields": {
+        "nodes": []
+      },
+      "orders": {
+        "nodes": []
+      }
+    }
+  }
+}

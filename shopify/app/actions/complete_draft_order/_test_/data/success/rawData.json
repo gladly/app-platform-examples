@@ -1,0 +1,137 @@
+{
+  "data": {
+    "draftOrderComplete": {
+      "draftOrder": {
+        "id": "gid://shopify/DraftOrder/123456789",
+        "name": "#D73",
+        "status": "COMPLETED",
+        "order": {
+          "id": "gid://shopify/Order/987654321",
+          "name": "#1045",
+          "createdAt": "2026-06-11T18:05:00Z",
+          "displayFinancialStatus": "PENDING",
+          "displayFulfillmentStatus": "UNFULFILLED",
+          "purchasingEntity": {
+            "__typename": "Customer",
+            "id": "gid://shopify/Customer/9010685411641",
+            "displayName": "Jane Doe",
+            "defaultEmailAddress": {
+              "emailAddress": "jane.doe@example.com"
+            },
+            "defaultPhoneNumber": null,
+            "defaultAddress": {
+              "formatted": [
+                "United States"
+              ]
+            }
+          },
+          "shippingAddress": {
+            "formatted": [
+              "123 Main Street",
+              "Springfield IL",
+              "United States"
+            ],
+            "address1": "123 Main Street",
+            "address2": null,
+            "city": "Springfield",
+            "company": null,
+            "country": "United States",
+            "countryCodeV2": "US",
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "phone": null,
+            "province": "Illinois",
+            "provinceCode": "IL",
+            "zip": null
+          },
+          "lineItems": {
+            "pageInfo": {
+              "hasNextPage": false
+            },
+            "nodes": [
+              {
+                "id": "gid://shopify/LineItem/58681285673273",
+                "name": "Smith Squad Goggles - Gray",
+                "quantity": 2,
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "45.00",
+                    "currencyCode": "USD"
+                  },
+                  "presentmentMoney": {
+                    "amount": "45.00",
+                    "currencyCode": "USD"
+                  }
+                },
+                "discountedTotalSet": {
+                  "shopMoney": {
+                    "amount": "90.00",
+                    "currencyCode": "USD"
+                  },
+                  "presentmentMoney": {
+                    "amount": "90.00",
+                    "currencyCode": "USD"
+                  }
+                }
+              }
+            ]
+          },
+          "subtotalPriceSet": {
+            "shopMoney": {
+              "amount": "90.0",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "90.0",
+              "currencyCode": "USD"
+            }
+          },
+          "totalDiscountsSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "totalShippingPriceSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "totalTaxSet": {
+            "shopMoney": {
+              "amount": "7.43",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "7.43",
+              "currencyCode": "USD"
+            }
+          },
+          "totalPriceSet": {
+            "shopMoney": {
+              "amount": "97.43",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "97.43",
+              "currencyCode": "USD"
+            }
+          },
+          "taxesIncluded": false,
+          "note": null,
+          "paymentTerms": null
+        }
+      },
+      "userErrors": []
+    }
+  }
+}

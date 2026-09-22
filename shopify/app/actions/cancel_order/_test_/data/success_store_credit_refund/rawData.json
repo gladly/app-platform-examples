@@ -1,0 +1,11 @@
+{
+  "data": {
+    "orderCancel": {
+      "job": {
+        "done": false,
+        "id": "gid://shopify/Job/42c5fea3-8957-4d6a-b29b-ac54dd0d7e0a"
+      },
+      "orderCancelUserErrors": []
+    }
+  }
+}

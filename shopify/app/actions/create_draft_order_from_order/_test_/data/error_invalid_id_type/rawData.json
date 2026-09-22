@@ -1,0 +1,20 @@
+{
+  "errors": [
+    {
+      "message": "Invalid id: gid://shopify/DraftOrder/1234567890123",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "draftOrderCreateFromOrder"
+      ],
+      "extensions": {
+        "code": "RESOURCE_NOT_FOUND"
+      }
+    }
+  ],
+  "data": null
+}

@@ -1,0 +1,16 @@
+{
+  "userErrors": [
+    {
+      "message": "Enter a last name",
+      "field": ["shippingAddress", "lastName"]
+    },
+    {
+      "message": "Select a state",
+      "field": ["shippingAddress", "province"]
+    },
+    {
+      "message": "Enter a city",
+      "field": ["shippingAddress", "city"]
+    }
+  ]
+}

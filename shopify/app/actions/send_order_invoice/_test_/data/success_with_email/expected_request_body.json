@@ -1,0 +1,9 @@
+{
+  "query": "\nmutation orderInvoiceSend($id: ID!, $email: EmailInput) {\n    orderInvoiceSend(id: $id, email: $email) {\n        order {\n            id\n        }\n        userErrors {\n            field\n            message\n        }\n    }\n}\n",
+  "variables": {
+    "id": "gid://shopify/Order/4459950243991",
+    "email": {
+      "to": "customer@example.com"
+    }
+  }
+}

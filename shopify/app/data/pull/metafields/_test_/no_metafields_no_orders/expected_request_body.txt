@@ -1,0 +1,5 @@
+#body
+{
+  "query": "query {\n    customer(id: \"gid://shopify/Customer/9004916343097\") {\n        id\n        metafields(first: 50) {\n            nodes {\n                id\n                namespace\n                key\n                value\n                type\n                createdAt\n                ownerType\n            }\n        }\n        orders(first: 40, reverse: true, sortKey: UPDATED_AT) {\n            nodes {\n                id\n                metafields(first: 50) {\n                    nodes {\n                        id\n                        namespace\n                        key\n                        value\n                        type\n                        createdAt\n                        ownerType\n                    }\n                }\n            }\n        }\n    }\n}\n"
+}
+

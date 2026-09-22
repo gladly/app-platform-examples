@@ -1,0 +1,145 @@
+{
+  "data": {
+    "draftOrderCreateFromOrder": {
+      "draftOrder": {
+        "id": "gid://shopify/DraftOrder/1089001234567",
+        "name": "#D63",
+        "status": "OPEN",
+        "createdAt": "2026-06-10T16:23:00Z",
+        "updatedAt": "2026-06-10T16:23:00Z",
+        "invoiceUrl": null,
+        "invoiceSentAt": null,
+        "completedAt": null,
+        "order": null,
+        "purchasingEntity": {
+          "__typename": "Customer",
+          "id": "gid://shopify/Customer/7009999999999",
+          "displayName": "Guest Shopper",
+          "defaultEmailAddress": null,
+          "defaultPhoneNumber": null,
+          "defaultAddress": null
+        },
+        "email": null,
+        "phone": null,
+        "shippingAddress": null,
+        "billingAddress": null,
+        "shippingLine": null,
+        "lineItems": {
+          "nodes": [
+            {
+              "id": "gid://shopify/DraftOrderLineItem/58001",
+              "title": "Apex Carve Helmet",
+              "name": "Apex Carve Helmet - Past Season",
+              "quantity": 2,
+              "sku": "ELA-HLMT-006",
+              "custom": false,
+              "requiresShipping": true,
+              "taxable": true,
+              "isGiftCard": false,
+              "weight": {
+                "value": 0.9,
+                "unit": "KILOGRAMS"
+              },
+              "originalUnitPriceSet": {
+                "shopMoney": {
+                  "amount": "42.45",
+                  "currencyCode": "USD"
+                },
+                "presentmentMoney": {
+                  "amount": "42.45",
+                  "currencyCode": "USD"
+                }
+              },
+              "discountedTotalSet": {
+                "shopMoney": {
+                  "amount": "76.41",
+                  "currencyCode": "USD"
+                },
+                "presentmentMoney": {
+                  "amount": "76.41",
+                  "currencyCode": "USD"
+                }
+              },
+              "appliedDiscount": {
+                "title": null,
+                "description": "Price match",
+                "value": 10.0,
+                "valueType": "PERCENTAGE",
+                "amountSet": {
+                  "shopMoney": {
+                    "amount": "8.49",
+                    "currencyCode": "USD"
+                  },
+                  "presentmentMoney": {
+                    "amount": "8.49",
+                    "currencyCode": "USD"
+                  }
+                }
+              },
+              "variant": {
+                "id": "gid://shopify/ProductVariant/41001",
+                "title": "Matte Granite Blue",
+                "displayName": "Apex Carve Helmet - Matte Granite Blue",
+                "availableForSale": true,
+                "inventoryQuantity": 8,
+                "inventoryPolicy": "DENY"
+              },
+              "components": []
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false
+          }
+        },
+        "appliedDiscount": null,
+        "subtotalPriceSet": {
+          "shopMoney": {
+            "amount": "76.41",
+            "currencyCode": "USD"
+          },
+          "presentmentMoney": {
+            "amount": "76.41",
+            "currencyCode": "USD"
+          }
+        },
+        "totalShippingPriceSet": {
+          "shopMoney": {
+            "amount": "0.00",
+            "currencyCode": "USD"
+          },
+          "presentmentMoney": {
+            "amount": "0.00",
+            "currencyCode": "USD"
+          }
+        },
+        "totalTaxSet": {
+          "shopMoney": {
+            "amount": "0.00",
+            "currencyCode": "USD"
+          },
+          "presentmentMoney": {
+            "amount": "0.00",
+            "currencyCode": "USD"
+          }
+        },
+        "totalPriceSet": {
+          "shopMoney": {
+            "amount": "76.41",
+            "currencyCode": "USD"
+          },
+          "presentmentMoney": {
+            "amount": "76.41",
+            "currencyCode": "USD"
+          }
+        },
+        "taxesIncluded": false,
+        "taxExempt": false,
+        "note2": null,
+        "tags": [],
+        "poNumber": null,
+        "paymentTerms": null
+      },
+      "userErrors": []
+    }
+  }
+}

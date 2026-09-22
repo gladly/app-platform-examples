@@ -1,0 +1,13 @@
+{
+  "shopify_customer": [
+    {
+      "id": "gid://shopify/Customer/9004916343097",
+      "email": "customer.no.metafields@example.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "createdAt": "2025-01-15T10:00:00Z",
+      "updatedAt": "2025-01-15T10:00:00Z"
+    }
+  ]
+}
+

@@ -1,0 +1,21 @@
+{
+  "amountSpent": { "amount": "370.0", "currencyCode": "USD" },
+  "createdAt": "2026-05-28T23:21:27Z",
+  "defaultAddress": { "address1": "123 Example Street", "address2": "Unit 4", "city": "London", "country": "United Kingdom", "countryCodeV2": "GB", "province": null, "provinceCode": null, "zip": "SW1A 1AA" },
+  "displayName": "First Last",
+  "email": "primary@email.com",
+  "emailMarketingConsent": { "consentUpdatedAt": null, "marketingOptInLevel": "SINGLE_OPT_IN", "marketingState": "NOT_SUBSCRIBED" },
+  "firstName": "First",
+  "hasMoreMetafields": false,
+  "id": "gid://shopify/Customer/10556137832761",
+  "lastName": "Last",
+  "lifetimeDuration": "2 months",
+  "locale": "en-GB",
+  "note": "",
+  "numberOfOrders": "1",
+  "phone": "+15551234567",
+  "smsMarketingConsent": { "consentUpdatedAt": "2026-05-28T23:21:27Z", "marketingOptInLevel": "SINGLE_OPT_IN", "marketingState": "SUBSCRIBED" },
+  "statistics": { "predictedSpendTier": null, "rfmGroup": "ALMOST_LOST" },
+  "tags": ["yotpo-tiers-brown"],
+  "updatedAt": "2026-06-25T18:43:28Z"
+}

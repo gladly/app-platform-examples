@@ -1,0 +1,30 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "__typename": "Product",
+        "id": "gid://shopify/Product/555",
+        "title": "Many Variant Tee",
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/1",
+              "title": "S",
+              "sku": "sku-s",
+              "availableForSale": true,
+              "inventoryPolicy": "DENY",
+              "inventoryQuantity": 3,
+              "sellableOnlineQuantity": 3,
+              "inventoryItem": {
+                "tracked": true
+              }
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": true
+          }
+        }
+      }
+    ]
+  }
+}

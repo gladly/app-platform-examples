@@ -1,0 +1,13 @@
+{
+  "data": {
+    "draftOrderInvoiceSend": {
+      "draftOrder": null,
+      "userErrors": [
+        {
+          "field": null,
+          "message": "Draft order Invoice can't be sent. This draft order is already paid."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "userErrors": [
+    {
+      "message": "Tag value is invalid",
+      "field": ["input", "tags"]
+    }
+  ]
+}

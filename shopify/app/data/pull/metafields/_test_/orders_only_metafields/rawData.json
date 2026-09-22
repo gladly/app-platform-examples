@@ -1,0 +1,36 @@
+{
+  "data": {
+    "customer": {
+      "id": "gid://shopify/Customer/10556137832761",
+      "metafields": {
+        "nodes": []
+      },
+      "orders": {
+        "nodes": [
+          {
+            "id": "gid://shopify/Order/7462005375289",
+            "metafields": {
+              "nodes": []
+            }
+          },
+          {
+            "id": "gid://shopify/Order/7443360284985",
+            "metafields": {
+              "nodes": [
+                {
+                  "id": "gid://shopify/Metafield/53667244998969",
+                  "namespace": "custom",
+                  "key": "gift_message",
+                  "value": "some helmets here you go\n",
+                  "type": "multi_line_text_field",
+                  "createdAt": "2026-05-28T23:25:21Z",
+                  "ownerType": "ORDER"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

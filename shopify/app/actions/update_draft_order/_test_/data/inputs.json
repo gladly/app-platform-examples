@@ -1,0 +1,17 @@
+{
+  "draftOrderId": "gid://shopify/DraftOrder/1240751341881",
+  "customerId": "gid://shopify/Customer/9010685411641",
+  "email": "jane.doe@example.com",
+  "note": "Updated shipping details per customer request.",
+  "phone": "+16135551111",
+  "poNumber": "PO-12345",
+  "shippingAddress": {
+    "address1": "456 Oak Avenue",
+    "city": "Springfield",
+    "provinceCode": "IL",
+    "countryCode": "US",
+    "zip": "62704",
+    "firstName": "Jane",
+    "lastName": "Doe"
+  }
+}

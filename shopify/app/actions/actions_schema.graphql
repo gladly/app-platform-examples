@@ -1,0 +1,4027 @@
+"""
+A monetary value with currency.
+""" # Equivalent to Shopify's `MoneyV2` type.
+type Money {
+  """
+  Decimal money amount.
+  """
+  amount: Currency
+  """
+  Currency of the money.
+  """
+  currencyCode: String
+}
+
+"""
+A collection of monetary values in their respective currencies.
+""" # Equivalent to Shopify's `MoneyBag` type.
+type MoneySet {
+  """
+  The amount in the shop's own currency. On an order billed in a local currency
+  this is converted back from the local price, so it will not match the catalog
+  price.
+  """
+  shopMoney: Money
+
+  """
+  The amount in the currency the customer was billed in. Equal to `shopMoney`
+  when the market bills in the shop's currency.
+  """
+  presentmentMoney: Money
+}
+
+"""
+A lightweight reference to a Shopify product.
+"""
+type ProductRef {
+  id: ID!
+  title: String!
+}
+
+"""
+A lightweight reference to a Shopify product variant.
+"""
+type ProductVariantRef {
+  id: ID!
+  title: String!
+}
+
+"""
+A lightweight reference to a Shopify collection — a group of products that merchants
+organize to help customers browse and find related products.
+"""
+type CollectionRef {
+  id: ID!
+  title: String!
+}
+
+"""
+A single line on an order — one line item per distinct product variant (catalog
+lines) or one per custom (off-catalog) line.
+"""
+type LineItem {
+  """
+  A globally-unique line-item ID (`gid://shopify/LineItem/...`).
+  """
+  id: ID!
+  """
+  The display name of the line (product title plus variant title).
+  """
+  name: String
+  """
+  The per-unit price before discounts, in the shop's currency. Mapped from
+  Shopify's `originalUnitPriceSet.shopMoney`.
+  """
+  price: Money
+  """
+  The product behind this line. Null for custom (off-catalog) lines, and absent
+  from the email lookup (`look_up_orders_by_email`), which omits it.
+  """
+  product: ProductRef
+  """
+  Units ordered on this line.
+  """
+  quantity: Int
+  """
+  The SKU of the ordered variant. Null for custom lines and untracked items.
+  """
+  sku: String
+  """
+  Whether this line is the purchase of a gift card.
+  """
+  giftCard: Boolean
+  """
+  The total discount applied to this line, as a decimal string in the shop's
+  currency. Mapped from Shopify's `totalDiscountSet.shopMoney.amount`.
+  """
+  totalDiscount: String
+  """
+  The specific product variant ordered (size/color/etc.). Use this to identify
+  WHICH variant the customer bought. Null for custom (off-catalog) lines and for
+  catalog lines whose variant has since been deleted, so always handle null.
+  """
+  variant: ProductVariantRef
+  """
+  The vendor / brand for this line.
+  """
+  vendor: String
+}
+
+"""
+The shipping method the customer chose for an order.
+"""
+type ShippingLine {
+  """
+  The title of the shipping line, e.g. "Standard" or "International Shipping".
+  """
+  title: String!
+}
+
+type ParentTransaction {
+  id: ID!
+}
+
+enum OrderTransactionKind {
+  """
+  An amount reserved against the cardholder's funding source. Money does not change hands until the authorization is captured.
+  """
+  AUTHORIZATION
+  """
+  A transfer of the money that was reserved by an authorization.
+  """
+  CAPTURE
+  """
+  The money returned to the customer when they've paid too much during a cash transaction.
+  """
+  CHANGE
+  """
+  An authorization for a payment taken with an EMV credit card reader.
+  """
+  EMV_AUTHORIZATION
+  """
+  A partial or full return of captured funds to the cardholder. A refund can happen only after a capture is processed.
+  """
+  REFUND
+  """
+  An authorization and capture performed together in a single step.
+  """
+  SALE
+  """
+  A suggested refund transaction that can be used to create a refund.
+  """
+  SUGGESTED_REFUND
+  """
+  A cancelation of an authorization transaction.
+  """
+  VOID
+}
+
+"""
+A standardized error code, independent of the payment provider.
+"""
+enum OrderTransactionErrorCode {
+  """
+  The payment method was invalid.
+  """
+  AMAZON_PAYMENTS_INVALID_PAYMENT_METHOD
+
+  """
+  The maximum amount has been captured.
+  """
+  AMAZON_PAYMENTS_MAX_AMOUNT_CHARGED
+
+  """
+  The maximum amount has been refunded.
+  """
+  AMAZON_PAYMENTS_MAX_AMOUNT_REFUNDED
+
+  """
+  The maximum of 10 authorizations has been captured for an order.
+  """
+  AMAZON_PAYMENTS_MAX_AUTHORIZATIONS_CAPTURED
+
+  """
+  The maximum of 10 refunds has been processed for an order.
+  """
+  AMAZON_PAYMENTS_MAX_REFUNDS_PROCESSED
+
+  """
+  The order was canceled, which canceled all open authorizations.
+  """
+  AMAZON_PAYMENTS_ORDER_REFERENCE_CANCELED
+
+  """
+  The order was not confirmed within three hours.
+  """
+  AMAZON_PAYMENTS_STALE
+
+  """
+  Call the card issuer.
+  """
+  CALL_ISSUER
+
+  """
+  The card was declined.
+  """
+  CARD_DECLINED
+
+  """
+  There is an error in the gateway or merchant configuration.
+  """
+  CONFIG_ERROR
+
+  """
+  The card is expired.
+  """
+  EXPIRED_CARD
+
+  """
+  There was an unknown error with processing the payment.
+  """
+  GENERIC_ERROR
+
+  """
+  The address does not match the card number.
+  """
+  INCORRECT_ADDRESS
+
+  """
+  The CVC does not match the card number.
+  """
+  INCORRECT_CVC
+
+  """
+  The card number is incorrect.
+  """
+  INCORRECT_NUMBER
+
+  """
+  The entered PIN is incorrect.
+  """
+  INCORRECT_PIN
+
+  """
+  The ZIP or postal code does not match the card number.
+  """
+  INCORRECT_ZIP
+
+  """
+  The amount is either too high or too low for the provider.
+  """
+  INVALID_AMOUNT
+
+  """
+  The payment method is not available in the customer's country.
+  """
+  INVALID_COUNTRY
+
+  """
+  The format of the CVC is incorrect.
+  """
+  INVALID_CVC
+
+  """
+  The format of the expiry date is incorrect.
+  """
+  INVALID_EXPIRY_DATE
+
+  """
+  The format of the card number is incorrect.
+  """
+  INVALID_NUMBER
+
+  """
+  The payment method is momentarily unavailable.
+  """
+  PAYMENT_METHOD_UNAVAILABLE
+
+  """
+  The card has been reported as lost or stolen, and the card issuer has requested that the merchant keep the card and call the number on the back.
+  """
+  PICK_UP_CARD
+
+  """
+  There was an error while processing the payment.
+  """
+  PROCESSING_ERROR
+
+  """
+  A real card was used but the gateway was in test mode.
+  """
+  TEST_MODE_LIVE_CARD
+
+  """
+  The gateway or merchant configuration doesn't support a feature, such as network tokenization.
+  """
+  UNSUPPORTED_FEATURE
+}
+
+"""
+The different states that an OrderTransaction can have.
+"""
+enum OrderTransactionStatus {
+  """
+  Awaiting a response.
+  """
+  AWAITING_RESPONSE
+
+  """
+  There was an error while processing the transaction.
+  """
+  ERROR
+
+  """
+  The transaction failed.
+  """
+  FAILURE
+
+  """
+  The transaction is pending.
+  """
+  PENDING
+
+  """
+  The transaction succeeded.
+  """
+  SUCCESS
+
+  """
+  The transaction status is unknown.
+  """
+  UNKNOWN
+}
+
+"""
+A transaction associated with the order.
+"""
+type OrderTransaction {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+  """
+  The amount and currency of the transaction in shop and presentment currencies.
+  """
+  amountSet: MoneySet
+  createdAt: DateTime
+  kind: OrderTransactionKind
+  status: OrderTransactionStatus
+  gateway: String
+  parentTransaction: ParentTransaction
+  """
+  A standardized error code, independent of the payment provider.
+  """
+  errorCode: OrderTransactionErrorCode
+}
+
+"""
+The financial status of the order that can be shown to the merchant.
+"""
+enum OrderDisplayFinancialStatus {
+  AUTHORIZED
+  EXPIRED
+  PAID
+  PARTIALLY_PAID
+  PARTIALLY_REFUNDED
+  PENDING
+  REFUNDED
+  VOIDED
+}
+
+"""
+Represents the order's aggregated fulfillment status for display purposes.
+"""
+enum OrderDisplayFulfillmentStatus {
+  FULFILLED
+  IN_PROGRESS
+  ON_HOLD
+  OPEN
+  PARTIALLY_FULFILLED
+  PENDING_FULFILLMENT
+  REQUEST_DECLINED
+  RESTOCKED
+  SCHEDULED
+  UNFULFILLED
+}
+
+"""
+The reason provided when the order was canceled.
+"""
+enum ShopifyOrderCancelReason {
+  CUSTOMER
+  DECLINED
+  FRAUD
+  INVENTORY
+  OTHER
+  STAFF
+}
+
+enum FulfillmentHoldReason {
+  """
+  The fulfillment hold is applied because payment is pending.
+  """
+  AWAITING_PAYMENT
+  """
+  The fulfillment hold is applied because of return items not yet received during an exchange.
+  """
+  AWAITING_RETURN_ITEMS
+  """
+  The fulfillment hold is applied because of a high risk of fraud.
+  """
+  HIGH_RISK_OF_FRAUD
+  """
+  The fulfillment hold is applied because of an incorrect address.
+  """
+  INCORRECT_ADDRESS
+  """
+  The fulfillment hold is applied because inventory is out of stock.
+  """
+  INVENTORY_OUT_OF_STOCK
+  """
+  The fulfillment hold is applied because of a post-purchase upsell offer.
+  """
+  ONLINE_STORE_POST_PURCHASE_CROSS_SELL
+  """
+  The fulfillment hold is applied because of an unknown delivery date.
+  """
+  UNKNOWN_DELIVERY_DATE
+  """
+  The fulfillment hold is applied for another reason.
+  """
+  OTHER
+}
+
+"""
+The validation status of a mailing address.
+"""
+enum MailingAddressValidationResult {
+  """
+  The address has been validated and is very likely to contain invalid information.
+  """
+  ERROR
+  """
+  The address has been validated and no issues were found.
+  """
+  NO_ISSUES
+  """
+  The address has been validated and might contain invalid information.
+  """
+  WARNING
+}
+
+"""
+A physical mailing address. For example, a Customer's default address and an Order's billing address are both mailing addresses.
+Stores standard address components, customer name information, and company details.
+
+The address includes geographic coordinates (latitude and longitude).
+"""
+type MailingAddress {
+  address1: String
+  address2: String
+  city: String
+  company: String
+  country: String
+  countryCodeV2: String
+  firstName: String
+  lastName: String
+  name: String
+  phone: String
+  province: String
+  provinceCode: String
+  zip: String
+  """
+  A formatted version of the address, including the customer's name and company.
+  """
+  formatted: [String!]
+  """
+  The validation status of the address.
+  """
+  validationResultSummary: MailingAddressValidationResult
+  """
+  Whether the address corresponds to recognized latitude and longitude values.
+  """
+  coordinatesValidated: Boolean
+  """
+  The approximate latitude of the address.
+  """
+  latitude: Float
+  """
+  The approximate longitude of the address.
+  """
+  longitude: Float
+}
+
+"""
+A minimal reference to a customer of the shop.
+"""
+type CustomerInfo {
+  id: ID!
+  displayName: String
+}
+
+"""
+A minimal overview of a customer including contact details.
+"""
+type CustomerSummary {
+  id: ID!
+  displayName: String
+
+  """
+  The email address of the customer.
+  """
+  email: String
+
+  """
+  The phone number of the customer.
+  """
+  phone: String
+
+  """
+  The customer's default address, formatted as multiple lines of text. Null when the customer has no default address.
+  """
+  defaultAddressFormatted: [String!]
+}
+
+enum MetafieldOwnerType {
+  ARTICLE
+  BLOG
+  COLLECTION
+  CUSTOMER
+  DRAFTORDER
+  LOCATION
+  ORDER
+  PAGE
+  PRODUCT
+  PRODUCTVARIANT
+  SHOP
+}
+
+"""
+Metafields enable you to attach additional information to a Shopify resource, such as a Product or a Collection.
+Some examples of the data that metafields enable you to store are specifications, size charts, downloadable documents,
+release dates, images, or part numbers. Metafields are identified by an owner resource, namespace, and key.
+"""
+type Metafield {
+  id: ID!
+  createdAt: DateTime!
+  """
+  The container for a group of metafields that the metafield is associated with.
+  """
+  namespace: String!
+  """
+  The unique identifier for the metafield within its namespace.
+  """
+  key: String!
+  """
+  The data stored in the metafield. Always stored as a string, regardless of the metafield's type.
+  """
+  value: String!
+  """
+  The type of data that is stored in the metafield.
+  """
+  type: String!
+  """
+  The ID of the resource that the metafield is attached to.
+  """
+  ownerId: ID!
+  """
+  The type of resource that the metafield is attached to.
+  """
+  ownerType: MetafieldOwnerType!
+}
+
+"""
+A single order, as returned by both slim lookups — `look_up_order_by_order_num`
+(single order) and `look_up_orders_by_email` (a list of these). Carries the order's
+current state without payment-movement, returns, refunds, or holds detail; for that
+use the deep `order_by_identifier` → `OrderDetail`.
+"""
+type Order {
+  id: ID!
+  confirmationNumber: String
+  customer: CustomerInfo
+  name: String!
+  orderNumber: String!
+  email: String
+  currentSubtotalPriceSet: MoneySet
+  currentTotalDiscountsSet: MoneySet
+  currentTotalTaxSet: MoneySet
+  currentTotalPriceSet: MoneySet
+  cancelReason: ShopifyOrderCancelReason
+  note: String
+  tags: [String]
+  createdAt: DateTime
+  updatedAt: DateTime
+  financialStatus: OrderDisplayFinancialStatus
+  fulfillmentStatus: OrderDisplayFulfillmentStatus
+  shippingAddress: MailingAddress
+  """
+  The shipping method the customer chose for their order (title only).
+  """
+  shippingLines: [ShippingLine]
+  orderStatusUrl: String
+  lineItems: [LineItem]
+}
+
+type ShopifyError {
+  message: String!
+  code: String
+}
+
+"""
+A Shopify resource (Product, Order, Customer, Collection, etc.) together
+with its metafields. Used as the per-owner row in `MetafieldsByOwnerIdResult`.
+"""
+type MetafieldOwner {
+  """
+  GID of the owning resource. Matches one of the input `ownerIds`.
+  """
+  id: ID!
+  """
+  The Shopify GraphQL type of the owning resource (e.g. `Product`, `Order`,
+  `Customer`, `Collection`). Useful for callers that pass mixed owner ids.
+  """
+  typename: String!
+  """
+  Metafields attached to this owner. Empty owners are omitted from the result.
+  """
+  metafields: [Metafield!]!
+}
+
+"""
+The result of fetching metafields for one or more owner GIDs.
+
+Owners with no metafields are omitted from `owners`. Owner ids that Shopify
+could not resolve appear in `errors` with `code: "not_found"`.
+"""
+type MetafieldsByOwnerIdResult {
+  owners: [MetafieldOwner!]!
+  errors: [ShopifyError!]
+}
+
+"""
+The result of looking up a single order
+"""
+type OrderResult {
+  order: Order
+  """
+  error message if the order is not found or there is an error
+  """
+  errors: [ShopifyError]
+}
+
+"""
+The result of looking up orders by email — a list of slim orders (`Order`),
+newest first.
+"""
+type OrdersResult {
+  orders: [Order!]
+  errors: [ShopifyError]
+}
+
+"""
+The type of restock for the refunded line item.
+"""
+enum RefundLineItemRestockType {
+  """
+  The refund line item was canceled. Use this when restocking unfulfilled line items.
+  """
+  CANCEL
+  """
+  Deprecated. The refund line item was restocked, without specifically being identified as a return or cancelation. This value is not accepted when creating new refunds.
+  """
+  LEGACY_RESTOCK
+  """
+  Refund line item was not restocked.
+  """
+  NO_RESTOCK
+  """
+  The refund line item was returned. Use this when restocking line items that were fulfilled.
+  """
+  RETURN
+}
+
+# =============================================================================
+# Deep-dive order read — types returned by `order_by_identifier`.
+#
+# `order_by_identifier` is the rich, single-order read keyed by GID (via Shopify's
+# `orderByIdentifier(identifier: { id })`). Its output is a SEPARATE type family
+# (`OrderDetail*`) from the slim `Order`/`LineItem` shapes — a slim read and a deep
+# read MUST NOT share a response type (CLAUDE.md §2). A type's descriptions ARE the
+# AI's tool docs, so if the slim reads returned the deep type, the slim action's tool
+# docs would advertise deep-only fields it never populates — returns/refunds/holds,
+# fulfillment-order lifecycle, and the per-line lifecycle quantities. The distinct
+# `OrderDetail` family keeps the slim lookups' tool docs scoped to what they actually
+# return. Shared value types (`Money`, `MoneySet`, `ProductVariantRef`, `ShopifyError`,
+# the status enums, `RefundLineItemRestockType`) are reused as-is, since their shape is
+# identical for both reads.
+#
+# Shape note for the AI: line items are a SINGLE FLAT LIST (`lineItems`). They are
+# NOT grouped by fulfillment. The per-line quantity fields encode each line's
+# lifecycle state, and the sibling blocks (`fulfillments`, `fulfillmentOrders`,
+# `returns`, `refunds`) link back to lines by `lineItem.id` — see field docs below.
+# =============================================================================
+
+"""
+Carrier tracking detail for a shipment. Each field is null when absent (often the whole block is empty even for a shipped fulfillment).
+"""
+type OrderDetailTrackingInfo {
+  """
+  The carrier / tracking company name (e.g. "UPS"). Null when unknown.
+  """
+  company: String
+  """
+  The tracking number. Null when unknown.
+  """
+  number: String
+  """
+  The tracking URL the customer can open. Null when unknown.
+  """
+  url: String
+}
+
+"""
+A line within a shipment, keyed back to the order line by `lineItemId`.
+"""
+type OrderDetailFulfillmentLineItem {
+  """
+  Units of this order line included in the shipment.
+  """
+  quantity: Int
+  """
+  The `OrderDetailLineItem.id` this shipment line refers to.
+  """
+  lineItemId: ID
+}
+
+"""
+A hold placed on a fulfillment order, explaining why fulfillment is paused.
+"""
+type OrderDetailFulfillmentHold {
+  """
+  The reason code for the hold, from Shopify's closed set of fulfillment-hold reasons.
+  """
+  reason: FulfillmentHoldReason
+  """
+  Free-text note elaborating on the hold, if the merchant supplied one.
+  """
+  reasonNotes: String
+}
+
+"""
+A line within a fulfillment order, keyed back to the order line by `lineItemId`.
+"""
+type OrderDetailFulfillmentOrderLineItem {
+  """
+  Units of this order line still to be fulfilled by this fulfillment order.
+  """
+  remainingQuantity: Int
+  """
+  The `OrderDetailLineItem.id` this fulfillment-order line refers to.
+  """
+  lineItemId: ID
+}
+
+"""
+A single line within a return, keyed back to the order line by `lineItemId`.
+"""
+type OrderDetailReturnLineItem {
+  """
+  Units of this line being returned.
+  """
+  quantity: Int
+  """
+  The return reason, e.g. "Too small" (mapped from `returnReasonDefinition.name`).
+  Sourced from the current return-reason definition, NOT the deprecated `returnReason`
+  scalar.
+  """
+  reason: String
+  """
+  Free-text note the customer or merchant attached to the return reason.
+  """
+  reasonNote: String
+  """
+  The `OrderDetailLineItem.id` being returned (via the return's fulfillment line item).
+  """
+  lineItemId: ID
+}
+
+"""
+A single refunded line, keyed back to the order line by `lineItemId`. The
+`restockType` distinguishes an order-edit removal (`CANCEL`) from a post-shipment
+return (`RETURN`).
+"""
+type RefundLineItemOverview {
+  """
+  Units of this line that were refunded.
+  """
+  quantity: Int
+  """
+  The line subtotal refunded, after discounts.
+  """
+  subtotalSet: MoneySet
+  """
+  The tax refunded on this line.
+  """
+  totalTaxSet: MoneySet
+  """
+  How the refunded units were restocked: `CANCEL` (order-edit removal of unfulfilled
+  units), `RETURN` (post-shipment return), or `NO_RESTOCK`.
+  """
+  restockType: RefundLineItemRestockType
+  """
+  The order line-item GID (`gid://shopify/LineItem/...`) that was refunded.
+  """
+  lineItemId: ID
+}
+
+"""
+One option the customer chose on the ordered variant — a name/value pair such as
+`Color` = `Black` or `Size` = `YM`. Every variant has at least one selected option;
+a product with no real options reports a single synthetic option whose name is
+`Title` and whose value is `Default Title`.
+"""
+type SelectedOption {
+  """
+  The option name, e.g. "Color" or "Size". "Title" for a no-option product.
+  """
+  name: String!
+  """
+  The chosen value for this option, e.g. "YM". "Default Title" for a no-option
+  product. May itself contain " / " (e.g. a value like "Red / Large"), so don't
+  try to split a variant title on " / " to recover options — read these instead.
+  """
+  value: String!
+}
+
+"""
+The specific product variant ordered, for the deep order read. Beyond the variant's
+`id` and `title`, it carries `selectedOptions` — the explicit option name/value pairs
+the customer chose — so a consumer can identify exactly which variant was bought.
+"""
+type OrderDetailLineItemVariant {
+  """
+  A globally-unique variant ID (`gid://shopify/ProductVariant/...`).
+  """
+  id: ID!
+  """
+  The variant title, e.g. "Gray / YM". Option values joined by " / ".
+  """
+  title: String!
+  """
+  The option name/value pairs the customer chose (e.g. `Color`=`Gray`, `Size`=`YM`),
+  one entry per product option in order. Always has at least one entry; a no-option
+  product reports `[{ name: "Title", value: "Default Title" }]`. Read these rather
+  than splitting `title`, since an option value can itself contain " / ".
+  """
+  selectedOptions: [SelectedOption!]!
+}
+
+"""
+A lightweight reference to the product behind an order line item — its id, title,
+vendor, and product type, enough to describe and disambiguate the item in a support
+conversation. Null for custom (off-catalog) lines.
+"""
+type OrderDetailLineItemProduct {
+  """
+  A globally-unique product ID (`gid://shopify/Product/...`).
+  """
+  id: ID!
+  """
+  The product title, e.g. "Smith Squad Goggles".
+  """
+  title: String!
+  """
+  The product's vendor / brand.
+  """
+  vendor: String
+  """
+  The product category, e.g. "Goggles". Free-form merchant-defined string.
+  """
+  productType: String
+  """
+  The collections (both manual and automated/smart) this product belongs to, up to
+  the first 50. Use a collection's `id` to scope a discount to this product's
+  collection. Empty when the product is in no collection; absent on custom
+  (off-catalog) lines (which have no product).
+  """
+  collections: [CollectionRef!]
+  """
+  True when the product belongs to more than the 50 collections fetched, so
+  `collections` is truncated. False/absent when the full set was returned.
+  """
+  hasMoreCollections: Boolean
+}
+
+"""
+A custom property. Attributes are used to store additional information about a
+Shopify resource.
+
+For example, a list of attributes might include whether a customer is a
+first-time buyer, whether an order is
+gift-wrapped, a preferred delivery date
+(`"preferred_delivery_date": "2025-10-01"`), the discount applied, and any notes provided by the customer
+(`"customer_notes": "Please leave at the front door"`).
+"""
+type Attribute {
+  """
+  The key or name of the attribute. For example, `"customer_first_order"`.
+  """
+  key: String!
+  value: String
+}
+
+"""
+A single line on the order. Lines are returned as one FLAT list on `OrderDetail`
+(catalog and custom lines interleaved) — they are NOT grouped by fulfillment. Each
+line's lifecycle state is encoded in its per-line quantity fields; the order's
+`fulfillments` / `fulfillmentOrders` / `returns` / `refunds` blocks link back to
+this line by its `id`.
+"""
+type OrderDetailLineItem {
+  """
+  A globally-unique line-item ID (`gid://shopify/LineItem/...`). This is the key
+  that the `fulfillments`, `fulfillmentOrders`, `returns`, and `refunds` sibling
+  blocks reference (as `lineItemId`) to point back to this line.
+  """
+  id: ID!
+  """
+  The display name of the line (product title plus variant title).
+  """
+  name: String
+  """
+  The line title (product title). Often equals `name` for single-variant products.
+  """
+  title: String
+  """
+  The specific product variant ordered (size/color/etc.), including the explicit
+  `selectedOptions` the customer chose — use this to identify WHICH variant the
+  customer bought for item-level actions. Null for custom (off-catalog) lines AND
+  for catalog lines whose variant has since been deleted (e.g. a past-season
+  variant), so always handle null.
+  """
+  variant: OrderDetailLineItemVariant
+  """
+  The product behind this line. Null for custom (off-catalog) lines.
+  """
+  product: OrderDetailLineItemProduct
+  """
+  The SKU of the ordered variant. Null for custom lines and untracked items.
+  """
+  sku: String
+  """
+  The vendor / brand for this line.
+  """
+  vendor: String
+  """
+  Whether this line is the purchase of a gift card.
+  """
+  giftCard: Boolean
+  """
+  The per-unit price before discounts (mapped from `originalUnitPriceSet.shopMoney`),
+  in the shop's currency.
+  """
+  price: Money
+  """
+  The total discount applied to this line (mapped from `totalDiscountSet.shopMoney.amount`),
+  as a decimal string in the shop's currency.
+  """
+  totalDiscount: String
+
+  """
+  Units originally ordered on this line.
+  """
+  quantity: Int
+  """
+  Units still on the order = ordered minus units removed via order-edit or refund. `0` ⇒ the
+  line was fully removed or refunded, nothing left to act on. This is ALSO the count still
+  **refundable** right now (ground-truthed equal to Shopify's `refundableQuantity` across order
+  edits and partial refunds, 2026-06-19), and `quantity − currentQuantity` is the count that can
+  no longer be fulfilled — so neither `refundableQuantity` nor `nonFulfillableQuantity` is carried
+  (they're derivable from this + `quantity`).
+  """
+  currentQuantity: Int
+  """
+  Units not yet fulfilled. `> 0` ⇒ the line is still order-editable (you can change or
+  remove it via an order edit). `0` ⇒ already fulfilled/shipped — use refund or return,
+  not an order edit. Independent of `currentQuantity` (e.g. a refund lowers `currentQuantity`
+  but not this; fulfilling lowers this but not `currentQuantity`).
+  """
+  unfulfilledQuantity: Int
+  """
+  A list of attributes that represent custom features or special requests.
+  """
+  customAttributes: [Attribute!]
+}
+
+"""
+An actual shipment for the order — the "where is my order?" answer. Sibling block
+on `OrderDetail`; its `lineItems` reference order lines by `lineItemId`.
+"""
+type OrderDetailFulfillment {
+  """
+  A globally-unique fulfillment ID.
+  """
+  id: ID!
+  """
+  Human-readable fulfillment reference, e.g. "#1056-F1".
+  """
+  name: String
+  """
+  The display status of the shipment, e.g. `IN_TRANSIT`, `DELIVERED`, `OUT_FOR_DELIVERY`,
+  `LABEL_PRINTED`. Returned as a string.
+  """
+  displayStatus: String
+  """
+  The date and time the shipment was delivered. Null until delivered.
+  """
+  deliveredAt: DateTime
+  """
+  The carrier's current estimated arrival date/time for this shipment. This is the
+  CARRIER estimate (what the carrier now says), distinct from the checkout-promise window
+  on `fulfillmentOrders[].deliveryMethod` (`minDeliveryDateTime`/`maxDeliveryDateTime`,
+  what was promised at checkout) — different sources, both may be present. Often null
+  (e.g. manual fulfillments, or carriers that don't provide an estimate).
+  """
+  estimatedDeliveryAt: DateTime
+  """
+  Carrier tracking entries. Often EMPTY even for a fulfilled shipment — treat as
+  optional, not a signal of fulfillment state.
+  """
+  trackingInfo: [OrderDetailTrackingInfo!]
+  """
+  Which order lines (and how many units) are in this shipment. Each entry's
+  `lineItemId` matches an `OrderDetailLineItem.id`.
+  """
+  lineItems: [OrderDetailFulfillmentLineItem!]
+}
+
+"""
+Possible delivery method types for a fulfillment order's delivery method
+(Shopify's `DeliveryMethodType`).
+"""
+enum DeliveryMethodType {
+  """
+  The order is delivered using a local delivery service.
+  """
+  LOCAL
+  """
+  Non-physical items, no delivery needed.
+  """
+  NONE
+  """
+  The order is picked up by the customer.
+  """
+  PICK_UP
+  """
+  The order is delivered to a pickup point.
+  """
+  PICKUP_POINT
+  """
+  In-store sale, no delivery needed.
+  """
+  RETAIL
+  """
+  The order is shipped.
+  """
+  SHIPPING
+}
+
+"""
+The delivery method selected for a fulfillment order: how it is delivered and, when
+captured at checkout, the estimated arrival window.
+"""
+type OrderDetailDeliveryMethod {
+  """
+  How the order is delivered. The robust signal for distinguishing in-store/customer
+  pickup (`PICK_UP`) from ship-to-home (`SHIPPING`) — don't infer it from the shipping
+  line title.
+  """
+  methodType: DeliveryMethodType
+  """
+  The earliest estimated delivery date/time at the buyer's location. A checkout-time
+  snapshot — NULL for admin/API/manual/pickup orders where no window was captured.
+  """
+  minDeliveryDateTime: DateTime
+  """
+  The latest estimated delivery date/time at the buyer's location. Null under the same
+  conditions as `minDeliveryDateTime`.
+  """
+  maxDeliveryDateTime: DateTime
+}
+
+"""
+A fulfillment OBLIGATION / routing record — NOT a shipment. This is the only block
+that carries on-hold state. Sibling block on `OrderDetail`; an order's lines can
+split across multiple fulfillment orders (so this is a flat list), and its
+`lineItems` reference order lines by `lineItemId`.
+"""
+type OrderDetailFulfillmentOrder {
+  """
+  A globally-unique fulfillment-order ID.
+  """
+  id: ID!
+  """
+  The fulfillment-order status, e.g. `OPEN`, `IN_PROGRESS`, `ON_HOLD`, `SCHEDULED`,
+  `INCOMPLETE`, `CLOSED`, `CANCELLED`. Returned as a string.
+  """
+  status: String
+  """
+  The name of the location assigned to fulfill these lines (e.g. "Main Warehouse").
+  """
+  assignedLocation: String
+  """
+  Active holds blocking fulfillment. NON-EMPTY only when the fulfillment order is
+  held — this is the one fact no other block carries (use it to explain why an order
+  hasn't shipped). Empty when not held.
+  """
+  holds: [OrderDetailFulfillmentHold!]
+  """
+  The lines this fulfillment order is responsible for, with how many units remain to
+  fulfill. Each `lineItemId` matches an `OrderDetailLineItem.id`.
+  """
+  lineItems: [OrderDetailFulfillmentOrderLineItem!]
+  """
+  The delivery method for this fulfillment order — the robust ship-vs-pickup signal
+  (`methodType`) plus the estimated delivery window. Null for orders with no delivery
+  method (some manual/API/admin orders).
+  """
+  deliveryMethod: OrderDetailDeliveryMethod
+}
+
+"""
+A return (RMA) against the order — the "is my return being processed?" answer.
+Sibling block on `OrderDetail`; its `lineItems` reference order lines by `lineItemId`.
+"""
+type OrderDetailReturn {
+  """
+  A globally-unique return ID.
+  """
+  id: ID!
+  """
+  Human-readable return reference, e.g. "#1056-R1".
+  """
+  name: String
+  """
+  The return status, e.g. `OPEN`, `REQUESTED`, `CLOSED`, `DECLINED`, `CANCELED`.
+  Returned as a string.
+  """
+  status: String
+  """
+  Total number of units across all lines in this return.
+  """
+  totalQuantity: Int
+  """
+  The individual lines being returned.
+  """
+  lineItems: [OrderDetailReturnLineItem!]
+}
+
+"""
+A payment transaction that reimbursed part of a refund — the money that actually moved.
+`kind` is `REFUND`; `gateway` / `formattedGateway` / `accountNumber` show where the money went
+(e.g. back to a card, or to store credit).
+"""
+type RefundOrderTransaction {
+  """
+  A globally-unique transaction ID.
+  """
+  id: ID!
+  """
+  The kind of transaction; `REFUND` for a refund movement.
+  """
+  kind: OrderTransactionKind
+  """
+  Whether the transaction succeeded, e.g. `SUCCESS`, `PENDING`, `FAILURE`.
+  """
+  status: OrderTransactionStatus
+  """
+  The payment gateway that processed the transaction (machine name, e.g. "shopify_payments", "shopify_store_credit").
+  """
+  gateway: String
+  """
+  The human-readable payment gateway name, e.g. "Visa" or "Store credit".
+  """
+  formattedGateway: String
+  """
+  The masked account number of the payment method, e.g. "•••• 4242". Null or empty for gateways without one (e.g. store credit).
+  """
+  accountNumber: String
+  """
+  The amount reimbursed by this transaction, in shop and presentment currencies.
+  """
+  amountSet: MoneySet
+}
+
+"""
+A refund issued against the order — the "was I refunded, and how?" answer: the refunded line
+items and the payment transactions that moved the money (where it went). Lines reference order
+lines by `lineItemId`.
+"""
+type RefundOverview {
+  """
+  A globally-unique refund ID.
+  """
+  id: ID!
+  """
+  The date and time when the refund was created.
+  """
+  createdAt: DateTime
+  """
+  The note recorded on the refund (Shopify's `Refund.note`). Null when none was recorded.
+  """
+  note: String
+  """
+  The total amount refunded, in shop and presentment currencies.
+  """
+  totalRefundedSet: MoneySet
+  """
+  The per-line refund detail.
+  """
+  lineItems: [RefundLineItemOverview!]
+  """
+  The payment transactions that reimbursed the refund — where the money went.
+  """
+  transactions: [RefundOrderTransaction!]
+}
+
+"""
+An additional fee charged on the order on top of the line items — typically duties,
+import, or handling charges. Informational for the agent (it explains an order total
+that's higher than the sum of the line items); it is NOT a line item and carries no
+quantity or fulfillment state.
+"""
+type AdditionalFee {
+  """
+  A globally-unique additional-fee ID.
+  """
+  id: ID!
+  """
+  The human-readable fee name, e.g. "Duties" or "Import fees".
+  """
+  name: String!
+  """
+  The fee amount, in shop and presentment currencies.
+  """
+  price: MoneySet
+}
+
+"""
+A company that purchases via B2B orders or draft orders.
+"""
+type CompanyRef {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The name of the company.
+  """
+  name: String
+}
+
+"""
+The company contact associated to the order or draft order.
+"""
+type CompanyContactRef {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The company contact's customer.
+  """
+  customer: CustomerInfo
+}
+
+"""
+The company location associated to the order or draft order.
+"""
+type CompanyLocationRef {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The name of the company location.
+  """
+  name: String
+}
+
+"""
+Represents information about the purchasing company for the order or draft order.
+"""
+type PurchasingCompanyRef {
+  """
+  The company associated to the order or draft order.
+  """
+  company: CompanyRef
+
+  """
+  The company contact associated to the order or draft order.
+  """
+  contact: CompanyContactRef
+
+  """
+  The company location associated to the order or draft order.
+  """
+  location: CompanyLocationRef
+}
+
+"""
+Represents information about the purchasing entity for the order or draft order.
+Exactly one of `customer` or `company` is set: `customer` for D2C purchases,
+`company` for B2B purchases.
+"""
+type PurchasingEntity {
+  """
+  The customer associated to the order or draft order.
+  """
+  customer: CustomerSummary
+
+  """
+  The purchasing company associated to the order or draft order.
+  """
+  company: PurchasingCompanyRef
+}
+
+"""
+The full deep-dive order detail returned by `order_by_identifier`. Carries order
+header facts, totals, current-state payment rollups (`totalReceived`/`totalOutstanding`/
+`totalRefunded`), addresses, a single flat `lineItems` list (with per-line quantity
+state), and the `fulfillments` / `fulfillmentOrders` / `returns` / `refunds` sibling
+blocks that link back to lines by `lineItem.id`. This is the read that drives
+draft/replacement/refund/return/order-edit decisions.
+"""
+type OrderDetail {
+  """
+  A globally-unique order ID (`gid://shopify/Order/...`).
+  """
+  id: ID!
+  """
+  The human-readable order name, e.g. "#1057".
+  """
+  name: String
+  """
+  The order confirmation number shown to the customer. Distinct from `name`; use
+  `name` to confirm the order with the customer.
+  """
+  confirmationNumber: String
+  """
+  The financial status of the order, e.g. `PAID`, `PARTIALLY_REFUNDED`, `REFUNDED`,
+  `PENDING`. A routing/branching signal (e.g. is this refundable?).
+  """
+  displayFinancialStatus: OrderDisplayFinancialStatus
+  """
+  The aggregated fulfillment status of the order, e.g. `UNFULFILLED`, `FULFILLED`,
+  `PARTIALLY_FULFILLED`, `ON_HOLD`. A routing/branching signal.
+  """
+  displayFulfillmentStatus: OrderDisplayFulfillmentStatus
+  """
+  The date and time the order was created.
+  """
+  createdAt: DateTime
+  """
+  The date and time when the order was processed. May differ from `createdAt`, for example, manual payments or imported orders.
+  Is the timestamp Shopify uses for financial/reporting purposes: when the order’s money is treated as having been processed.
+  """
+  processedAt: DateTime
+  """
+  The sales channel the order was placed through, e.g. "Online Store" (from Shopify's
+  `channelInformation.channelDefinition.channelName`). NULL when the order was created by
+  an app, the admin, or a draft — then `sourceAppName` carries the origin. Kept SEPARATE
+  from `sourceAppName` (never coalesced): the two together tell a real storefront channel
+  from an app/admin/draft-created order.
+  """
+  salesChannelName: String
+  """
+  The application that created the order, e.g. "Online Store", "Point of Sale",
+  "Draft Orders", or a custom app name (from Shopify's `app.name`). Especially meaningful
+  when `salesChannelName` is null (app/admin/draft-created order).
+  """
+  sourceAppName: String
+  """
+  The human-readable delivery method the customer chose — the order-level shipping line
+  title, e.g. "International Shipping", or the pickup location name for a pickup order
+  ("My Custom Location"). NULL when the order has no shipping line (e.g. a digital order
+  or some app/draft-created orders). This is the shipping-line title, NOT the carrier
+  (`fulfillments[].trackingInfo.company`) or the fulfillment service. For the robust
+  ship-vs-pickup signal use `fulfillmentOrders[].deliveryMethod.methodType`.
+  """
+  deliveryMethodName: String
+  """
+  The contact email on the order.
+  """
+  email: String
+  """
+  A staff/merchant note on the order.
+  """
+  note: String
+  """
+  The tags applied to the order.
+  """
+  tags: [String!]
+  """
+  The reason the order was canceled, if it was canceled.
+  """
+  cancelReason: ShopifyOrderCancelReason
+  """
+  The date and time the order was canceled. Null if not canceled.
+  """
+  cancelledAt: DateTime
+
+  """
+  The order total at the time it was placed. Unaffected by refunds, returns and
+  order edits.
+  """
+  originalTotalPriceSet: MoneySet
+  """
+  Duties calculated when the order was placed, before any modifications.
+  """
+  originalTotalDutiesSet: MoneySet
+
+  """
+  Line items after both discount tiers, before returns and refunds. Includes tax
+  when `taxesIncluded` is true.
+  """
+  subtotalPriceSet: MoneySet
+  """
+  Shipping charged, before any shipping refund.
+  """
+  totalShippingPriceSet: MoneySet
+  """
+  Tax on the order, before returns and refunds.
+  """
+  totalTaxSet: MoneySet
+  """
+  The order total before returns and refunds. Not fixed at creation: an order
+  edit moves it. Only `originalTotalPriceSet` is fixed.
+  """
+  totalPriceSet: MoneySet
+
+  """
+  Line items after both discount tiers, and after returns and refunds. Includes
+  tax when `taxesIncluded` is true.
+  """
+  currentSubtotalPriceSet: MoneySet
+  """
+  The total discounted on the order after returns and refunds. Includes both
+  order-level and line-level discounts.
+  """
+  currentTotalDiscountsSet: MoneySet
+  """
+  The order-level discount only, after returns and refunds. Excludes line-level
+  discounts, which `currentTotalDiscountsSet` includes. 0 rather than null when
+  the order carries no order-level discount.
+  """
+  currentCartDiscountAmountSet: MoneySet
+  """
+  Shipping charged, after any shipping refund.
+  """
+  currentShippingPriceSet: MoneySet
+  """
+  Tax on the order after returns and refunds.
+  """
+  currentTotalTaxSet: MoneySet
+  """
+  Import duties owed, after returns and modifications. Duty refunding is not
+  supported, so no per-line `Duty` data is exposed here.
+  """
+  currentTotalDutiesSet: MoneySet
+  """
+  What the order is worth now, after returns, refunds and edits.
+  """
+  currentTotalPriceSet: MoneySet
+
+  """
+  Money actually received (settled) on the order — answers "are they paid?" / "did the
+  payment go through?". 0 while a payment is only pending. Current-state rollup (mirrors the
+  admin "Paid" figure). Per-payment movement detail (when / who / partial payments) is the
+  deferred order-history read, NOT this field.
+  """
+  totalReceived: MoneySet
+  """
+  Money refunded so far across the whole order — answers "was I refunded, and how much?".
+  """
+  totalRefunded: MoneySet
+  """
+  How much of the shipping charge was refunded. Part of `totalRefunded`, not
+  additional to it.
+  """
+  totalRefundedShippingSet: MoneySet
+  """
+  Money still owed on the order — answers "how much is outstanding / still due?". 0 when
+  fully paid (mirrors the admin "Balance due"). Positive favours the merchant, negative
+  the customer. Not the order total minus what was paid — an over-refund written off as
+  an adjustment leaves nothing outstanding.
+  """
+  totalOutstanding: MoneySet
+  """
+  How far the refunds actually issued departed from the amount Shopify suggested.
+  Non-zero only when someone overrode it. Positive favours the merchant, negative the
+  customer.
+  """
+  refundDiscrepancySet: MoneySet
+  """
+  Authorised payment not yet captured. Answers "how much can still be taken" on an order
+  that is authorised but unpaid. Not adjusted for returns.
+  """
+  totalCapturableSet: MoneySet
+
+  """
+  The shipping address for the order — the shared `MailingAddress` (carries both the
+  structured/coded fields for downstream action flows and `formatted` for read-back,
+  plus `validationResultSummary`). Null when the order has none.
+  """
+  shippingAddress: MailingAddress
+  """
+  The billing address for the order — the shared `MailingAddress` (see `shippingAddress`).
+  Null when the order has none.
+  """
+  billingAddress: MailingAddress
+
+  """
+  Who the order was placed for. For a D2C order, `customer` is set — its `id` is the
+  `gid://shopify/Customer/...` you pass to `create_draft_order_for_customer` or to a
+  store-credit refund, so a single order read yields the customer for downstream actions.
+  For a B2B order, `company` is set instead (read the company, not `customer`, for
+  attribution). Null for guest / unattributed orders (no customer or company on the order).
+  """
+  purchasingEntity: PurchasingEntity
+
+  """
+  All line items on the order as one FLAT list (catalog and custom interleaved),
+  NOT grouped by fulfillment. Read each line's quantity fields for its state, and
+  the sibling blocks for where/why. Up to 50 lines — check `hasMoreLineItems`.
+  """
+  lineItems: [OrderDetailLineItem!]
+  """
+  True when the order has more line items than the first 50 returned in `lineItems`.
+  """
+  hasMoreLineItems: Boolean
+  """
+  Actual shipments for the order — the "where is my order?" answer. Each entry's
+  `lineItems` reference order lines by `lineItemId`.
+  """
+  fulfillments: [OrderDetailFulfillment!]
+  """
+  Fulfillment obligations / routing records — NOT shipments. The ONLY block carrying
+  on-hold state. Lines may split across several entries; each references order lines
+  by `lineItemId`. Up to 20 — check `hasMoreFulfillmentOrders`.
+  """
+  fulfillmentOrders: [OrderDetailFulfillmentOrder!]
+  """
+  True when the order has more fulfillment orders than the first 20 returned in `fulfillmentOrders`.
+  """
+  hasMoreFulfillmentOrders: Boolean
+  """
+  Returns (RMAs) against the order — "is my return being processed?". Each entry's
+  `lineItems` reference order lines by `lineItemId`. Up to 20 — check `hasMoreReturns`.
+  """
+  returns: [OrderDetailReturn!]
+  """
+  True when the order has more returns than the first 20 returned in `returns`.
+  """
+  hasMoreReturns: Boolean
+  """
+  Refunds issued against the order — "was I refunded, and why?". Each entry's
+  `lineItems` reference order lines by `lineItemId`; `restockType` distinguishes an
+  order-edit removal from a post-shipment return.
+  """
+  refunds: [RefundOverview!]
+  """
+  Additional fees charged on the order (duties / import / handling) — separate from
+  the line items. Informational: explains an order total above the line-item sum.
+  Empty when the order has none.
+  """
+  additionalFees: [AdditionalFee!]
+}
+
+"""
+The result of the `order_by_identifier` deep-dive read. On success `order` is
+populated and `errors` is empty. When the GID resolves to no order, `order` is null
+and `errors` contains a single `{ message: "Order is not found", code: "not_found" }`.
+"""
+type OrderDetailResult {
+  """
+  The full order detail, or null when the order is not found or an error occurred.
+  """
+  order: OrderDetail
+  """
+  Errors encountered, including the not-found case.
+  """
+  errors: [ShopifyError]
+}
+
+"""
+The reason provided when canceling an order.
+"""
+enum CancelOrderReason {
+  """
+  The customer wanted to cancel the order.
+  """
+  CUSTOMER
+  """
+  Payment was declined.
+  """
+  DECLINED
+  """
+  The order was fraudulent.
+  """
+  FRAUD
+  """
+  There was insufficient inventory.
+  """
+  INVENTORY
+  """
+  The order was canceled for an unlisted reason.
+  """
+  OTHER
+  """
+  Staff made an error.
+  """
+  STAFF
+}
+
+type UserError {
+  message: String!
+  field: [String!]
+}
+
+enum OrderCancelUserErrorCode {
+  """
+  Unexpected internal error happened.
+  """
+  INTERNAL_ERROR
+  """
+  The input value is invalid.
+  """
+  INVALID
+  """
+  The record with the ID used as the input value couldn't be found.
+  """
+  NOT_FOUND
+  """
+  An order refund was requested but the user does not have the refund_orders permission.
+  """
+  NO_REFUND_PERMISSION
+  """
+  An order refund was requested but the user does not have the refund_to_store_credit permission.
+  """
+  NO_REFUND_TO_STORE_CREDIT_PERMISSION
+  """
+  A store credit order refund was requested but the order is a B2B order.
+  """
+  STORE_CREDIT_REFUND_B2B_NOT_SUPPORTED
+  """
+  A store credit order refund was requested but the expiration date is in the past.
+  """
+  STORE_CREDIT_REFUND_EXPIRATION_IN_PAST
+  """
+  A store credit order refund was requested but the order has no customer.
+  """
+  STORE_CREDIT_REFUND_MISSING_CUSTOMER
+}
+
+type OrderCancelUserError {
+  message: String!
+  code: OrderCancelUserErrorCode!
+  field: String
+}
+
+type CancelOrderResult {
+  """
+  The ID of the job, used to track the status of internal operations.
+  """
+  jobId: ID
+  """
+  Indicates whether the job has been completed.
+  """
+  done: Boolean
+  errors: [ShopifyError]
+  """
+  Input-level errors from the cancellation.
+  """
+  # Maps to the `orderCancelUserErrors` field on Shopify Admin API's `orderCancel` mutation.
+  userErrors: [OrderCancelUserError]
+}
+
+type OrderCancelInformation {
+  name: String!
+  cancelledAt: DateTime
+  cancelReason: ShopifyOrderCancelReason
+  refunds: [RefundOverview!]
+}
+
+"""
+Returns a Job resource by ID. Used to check the status of internal jobs and any applicable changes. (i.e. order cancellation)
+"""
+type JobStatus {
+  """
+  The ID of the job, used to track the status of internal operations.
+  """
+  id: ID
+  """
+  Indicates whether the job has been completed.
+  """
+  done: Boolean
+  order: OrderCancelInformation
+  errors: [ShopifyError]
+  userErrors: [UserError]
+}
+
+"""
+A transaction suggested to reimburse a refund, identifying the original payment and the amount to
+refund against it. Suggested transactions are usually used in the context of refunds and exchanges.
+"""
+type SuggestedOrderTransaction {
+  """
+  The associated parent transaction, for example the authorization of a capture.
+  """
+  parentTransaction: ParentTransaction
+  """
+  The masked account number of the payment method, e.g. "•••• 4242". Null or empty for gateways without one (e.g. manual payments).
+  """
+  accountNumber: String
+  """
+  The payment gateway used to process the transaction (machine name, e.g. "shopify_payments").
+  """
+  gateway: String
+  """
+  The human-readable payment gateway name, e.g. "Visa" or "Manual".
+  """
+  formattedGateway: String
+  """
+  The amount of the suggested refund transaction, in shop and presentment currencies.
+  """
+  amountSet: MoneySet
+}
+
+"""
+A line item included in a suggested refund.
+"""
+type SuggestedRefundLineItem {
+  """
+  The order line-item GID to refund (`gid://shopify/LineItem/...`).
+  """
+  lineItemId: ID!
+  """
+  The line display name (product title plus variant title).
+  """
+  name: String
+  """
+  The SKU of the line, when it has one.
+  """
+  sku: String
+  """
+  Units of this line to refund — the currently-refundable quantity.
+  """
+  quantity: Int!
+  """
+  The subtotal being refunded for this line, net of discounts, in shop and presentment currencies.
+  """
+  subtotalSet: MoneySet
+}
+
+"""
+The shipping costs to be refunded on a suggested refund.
+"""
+type ShippingRefund {
+  """
+  The monetary value of the shipping fees to be refunded in shop and presentment currencies.
+  """
+  amountSet: MoneySet
+  """
+  The maximum amount of shipping fees currently refundable in shop and presentment currencies.
+  """
+  maximumRefundableSet: MoneySet
+  """
+  The monetary value of the tax allocated to shipping fees to be refunded in shop and presentment currencies.
+  """
+  taxSet: MoneySet
+}
+
+"""
+A refund amount that Shopify suggests based on the line items and shipping costs being reimbursed.
+Provides a breakdown of all monetary values — subtotals, taxes, and the maximum refundable amount —
+in shop and presentment currencies, plus the line items to refund (with quantities) and the suggested
+transactions to process the refund to the original payment method(s).
+"""
+type SuggestedRefund {
+  """
+  The amount that will actually be refunded — the refundable line items, tax, and
+  shipping summed, in shop and presentment currencies. This is the authoritative
+  figure: it is capped at what is still refundable on the order (only CAPTURED
+  payments can be refunded), so on an unpaid or uncaptured order it is 0.00 even
+  when `subtotalSet` and `totalTaxSet` still show the original line and tax amounts
+  — those breakdown sums are NOT capped by captured payment. Read `amountSet`
+  together with `suggestedTransactions` to decide what can be refunded, not the
+  line subtotals.
+  """
+  amountSet: MoneySet
+  """
+  The maximum amount currently refundable on the order, in shop and presentment currencies. Equals `amountSet` when nothing has been refunded yet; lower once partial refunds exist.
+  """
+  maximumRefundableSet: MoneySet
+  """
+  The sum of the prices of the line items being refunded, in shop and presentment currencies.
+  """
+  subtotalSet: MoneySet
+  """
+  The sum of the taxes being refunded, in shop and presentment currencies.
+  """
+  totalTaxSet: MoneySet
+  """
+  The shipping costs to be refunded. Zero unless a shipping refund was requested.
+  """
+  shipping: ShippingRefund
+  """
+  The line items suggested for refund, limited to each line's currently-refundable units.
+  """
+  refundLineItems: [SuggestedRefundLineItem!]
+  """
+  The transactions suggested to reimburse the refund to the original payment method(s); one per tender, so multi-tender orders return several.
+  """
+  suggestedTransactions: [SuggestedOrderTransaction!]
+}
+
+type SuggestedRefundResult {
+  errors: [ShopifyError]
+  suggestedRefund: SuggestedRefund
+}
+
+"""
+The method a refund amount is allocated to.
+"""
+enum RefundMethodAllocation {
+  """
+  The refund is returned to the customer's original payment method(s).
+  """
+  ORIGINAL_PAYMENT_METHODS
+  """
+  The refund is issued as store credit to the customer's store-credit account.
+  """
+  STORE_CREDIT
+}
+
+"""
+A line item to refund — an order line and the number of units. Used by `suggestedRefund` to preview
+specific lines (a partial refund) and by `refundOrder` to execute them.
+"""
+input RefundLineItemInput {
+  """
+  The order line-item GID (`gid://shopify/LineItem/...`).
+  """
+  lineItemId: ID!
+  """
+  The number of units of the line to refund.
+  """
+  quantity: Int!
+}
+
+"""
+A payment transaction to refund, taken from a `suggestedRefund` preview's `suggestedTransactions`.
+"""
+input RefundOrderTransactionInput {
+  """
+  The original payment transaction to refund against, for example the authorization of a capture.
+  """
+  parentTransactionId: ID!
+  """
+  The payment gateway that processed the original payment.
+  """
+  gateway: String!
+  """
+  The amount to refund against this transaction, in the order's presentment currency.
+  """
+  amount: Currency!
+}
+
+"""
+A compact overview of the order the refund was issued against — the order-level "where does this
+order stand now?" sibling of the refund detail. `displayFinancialStatus` and `totalRefundedSet`
+reflect the order's post-refund state.
+"""
+type RefundOrder {
+  """
+  A globally-unique order ID (`gid://shopify/Order/...`).
+  """
+  id: ID!
+  """
+  The human-readable order name, e.g. "#1057". Use this to confirm the order with the customer.
+  """
+  name: String
+  """
+  The order's financial status after the refund, e.g. `PARTIALLY_REFUNDED` or `REFUNDED`.
+  """
+  displayFinancialStatus: OrderDisplayFinancialStatus
+  """
+  The total amount refunded against the order to date, in shop and presentment currencies.
+  """
+  totalRefundedSet: MoneySet
+}
+
+"""
+The result of executing a refund with `refundOrder`.
+"""
+type RefundResult {
+  """
+  The order the refund was issued against, with its post-refund financial state.
+  """
+  order: RefundOrder
+  """
+  The created refund — its line items and the payment transactions that moved the money. Null when the refund was not created (see `errors` / `userErrors`).
+  """
+  refund: RefundOverview
+  """
+  Transport- or GraphQL-level errors (e.g. authentication, throttling, a malformed query). Input-level rejections are in `userErrors`, not here.
+  """
+  errors: [ShopifyError]
+  """
+  Input-level rejections from Shopify — the refund was NOT created. Examples: refunding more than was
+  purchased, a currency that doesn't match the parent transaction, restocking without a location, or
+  a store-credit refund on a B2B order or an order with no customer. `field` points at the rejected input.
+  """
+  userErrors: [UserError]
+}
+
+type UpdateShippingAddressResult {
+  """
+  The ID of the updated order.
+  """
+  orderId: ID
+  """
+  The human-readable order name (e.g. "#1001").
+  """
+  orderName: String
+  """
+  The updated shipping address.
+  """
+  shippingAddress: MailingAddress
+  """
+  The date and time when the order was last updated.
+  """
+  updatedAt: DateTime
+  errors: [ShopifyError]
+  userErrors: [UserError]
+}
+
+type OrderInvoiceSendUserError {
+  message: String!
+  """
+  The path to the input field that caused the error.
+  """
+  field: String
+}
+
+"""
+A minimal reference to an order.
+"""
+type OrderRef {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The identifier for the order, which is unique within the store.
+  """
+  name: String
+}
+
+type OrderInvoiceSendResult {
+  order: OrderRef
+  errors: [ShopifyError]
+  userErrors: [OrderInvoiceSendUserError]
+}
+
+"""
+The valid statuses for a draft order.
+"""
+enum DraftOrderStatus {
+  """
+  The draft order is open. It has not been paid, and an invoice hasn't been sent.
+  """
+  OPEN
+
+  """
+  An invoice for the draft order has been sent to the customer.
+  """
+  INVOICE_SENT
+
+  """
+  The draft order has been paid.
+  """
+  COMPLETED
+}
+
+"""
+A minimal reference to a draft order after an invoice send.
+"""
+type DraftOrderInvoiceRef {
+  id: ID!
+
+  """
+  The identifier for the draft order, unique within the store (e.g. `#D1223`).
+  """
+  name: String
+
+  """
+  The status of the draft order. After a successful send this is `INVOICE_SENT`.
+  """
+  status: DraftOrderStatus
+
+  """
+  The hosted Shopify checkout/invoice URL the customer pays through.
+  """
+  invoiceUrl: String
+
+  """
+  When the invoice was last emailed. Null until the first successful send.
+  """
+  invoiceSentAt: DateTime
+}
+
+type DraftOrderInvoiceSendUserError {
+  message: String!
+  """
+  The path to the input field that caused the error.
+  """
+  field: String
+}
+
+type DraftOrderInvoiceSendResult {
+  """
+  A minimal reference to the draft order after an invoice send, scoped to the fields that confirm
+  the send: identity, the post-send status, and the invoice link / sent timestamp.
+  """
+  draftOrder: DraftOrderInvoiceRef
+  errors: [ShopifyError]
+  userErrors: [DraftOrderInvoiceSendUserError]
+}
+
+"""
+The subset of order fields returned after a successful `updateOrderMetadata` call.
+Intentionally narrow: only the fields the action is allowed to write (`tags`, `note`)
+plus identity and an `updatedAt` token the caller can use to detect concurrent edits.
+"""
+type OrderMetadata {
+  """
+  The globally-unique ID of the order that was updated.
+  """
+  id: ID!
+  """
+  The full, current tag set on the order after the update. Shopify replaces the
+  whole set on write, so this is also the authoritative post-write state.
+  """
+  tags: [String!]
+  """
+  The order's note after the update. `null` if the note is unset.
+  """
+  note: String
+  """
+  The `updatedAt` timestamp after the write.
+  """
+  updatedAt: String
+}
+
+"""
+Result of `updateOrderMetadata`. Exactly one of `order`, `errors`, or
+`userErrors` is meaningfully populated:
+  * `order` — the update succeeded; the field reflects the post-write state.
+  * `errors` — Shopify returned a top-level GraphQL or transport-level error
+    (e.g. authentication, throttling, bad query).
+  * `userErrors` — Shopify accepted the request but rejected the input
+    (e.g. order not found, invalid tag value). The `field` path identifies
+    which input was bad.
+"""
+type UpdateOrderMetadataResult {
+  order: OrderMetadata
+  errors: [ShopifyError]
+  userErrors: [UserError]
+}
+
+"""
+The input fields used to refund to store credit.
+"""
+input StoreCreditRefundInput {
+  """
+  The expiration date of the store credit.
+  """
+  expiresAt: DateTime
+}
+
+"""
+The input fields used to specify the refund method for an order cancellation.
+"""
+input OrderCancelRefundMethodInput {
+  """
+  Whether to refund to the original payment method.
+  """
+  originalPaymentMethodsRefund: Boolean
+
+  """
+  Whether to refund to store credit.
+  """
+  storeCreditRefund: StoreCreditRefundInput
+}
+
+"""
+A non-fatal advisory generated by this app about an operation that still succeeded.
+Unlike an error, an alert does NOT mean the operation failed — the result is still returned.
+"""
+type GladlyAlert {
+  """
+  Human-readable advisory for the team member.
+  """
+  message: String!
+
+  """
+  Stable machine-readable code so callers can recognize the case, e.g. `customer_mismatch`.
+  """
+  code: String
+
+  """
+  The input field the alert relates to, if any (e.g. `customerId`). Null for order-level alerts.
+  """
+  field: String
+}
+
+"""
+A non-fatal advisory surfaced alongside a successful result. Exactly one arm is populated.
+"""
+type Alert {
+  """
+  An advisory generated by this app (e.g. a customer-attribution mismatch).
+  """
+  gladly: GladlyAlert
+  # Future: a `shopify: ResourceAlert` arm for alerts passed through from Shopify
+  # (e.g. draftOrderCalculate inventory/discount alerts). Add when an action surfaces them.
+}
+
+"""
+The items a discount applies to.
+"""
+type DiscountItems {
+  """
+  True when the discount applies to every item in the order.
+  """
+  allItems: Boolean
+
+  """
+  Collections the discount applies to.
+  """
+  collections: [CollectionRef!]
+
+  """
+  Products the discount applies to.
+  """
+  products: [ProductRef!]
+
+  """
+  Product variants the discount applies to.
+  """
+  productVariants: [ProductVariantRef!]
+}
+
+"""
+The fixed amount taken off by a discount.
+"""
+type DiscountAmount {
+  """
+  The monetary amount and currency taken off.
+  """
+  amount: Money
+
+  """
+  Whether the amount is taken off each entitled item (`true`) or as a single amount split
+  across them (`false`).
+  """
+  appliesOnEachItem: Boolean
+}
+
+"""
+What the customer gets from the discount.
+"""
+type DiscountCustomerGets {
+  """
+  Whether the discount applies to one-time (non-subscription) purchases.
+  """
+  appliesOnOneTimePurchase: Boolean
+  """
+  Whether the discount applies on subscription items.
+  """
+  appliesOnSubscription: Boolean
+
+  """
+  Entitled quantity and the discount value.
+  """
+  value: DiscountAmount
+
+  """
+  The items the discount applies to.
+  """
+  items: DiscountItems
+}
+
+"""
+A code that customers enter at checkout to redeem a discount.
+"""
+type DiscountRedeemCode {
+  """
+  The code customers enter at checkout (e.g. `GG-SHOES-ABCDE`).
+  """
+  code: String!
+
+  """
+  The number of times the discount code has been used. This value is updated
+  asynchronously, so it may not reflect the most recent usage.
+  """
+  asyncUsageCount: Int
+}
+
+"""
+Defines which buyers can use the discount.
+"""
+type DiscountContext {
+  """
+  The customers the discount is scoped to.
+  """
+  customers: [CustomerInfo!]
+}
+
+"""
+The DiscountCodeBasic object lets you manage amount off discounts
+that are applied on a cart and at checkout when a customer enters a code.
+Amount off discounts give customers a fixed value or a percentage off the products in an order,
+but don't apply to shipping costs.
+"""
+type DiscountCodeBasic {
+  """
+  The globally-unique ID of the discount (e.g. `gid://shopify/DiscountCodeNode/123`).
+  """
+  id: ID!
+
+  """
+  The codes that customers enter at checkout to redeem the discount.
+  """
+  codes: [DiscountRedeemCode!]
+
+  """
+  The merchant-facing title of the discount.
+  """
+  title: String
+
+  """
+  The status of the discount (e.g. `ACTIVE`, `EXPIRED`, `SCHEDULED`).
+  """
+  status: String
+
+  """
+  The date and time when the discount becomes active.
+  """
+  startsAt: DateTime
+
+  """
+  The date and time when the discount expires. Null when the discount has no end date.
+  """
+  endsAt: DateTime
+
+  """
+  The maximum number of times the discount can be used in total.
+  """
+  usageLimit: Int
+
+  """
+  Whether the discount can be used only once per customer.
+  """
+  appliesOncePerCustomer: Boolean
+
+  """
+  Defines which buyers can use the discount. Lists the customer(s) the discount
+  is scoped to.
+  """
+  context: DiscountContext
+
+  """
+  What the customer gets: the discount value and the items it applies to.
+  """
+  customerGets: DiscountCustomerGets
+}
+
+"""
+The items a discount applies to:
+- if `all=true`, the discount applies to the whole order (regardless of its items)
+- supplying one or more of `collectionIds`, `productIds`, `productVariantIds` narrows the
+  discount to those items
+"""
+input DiscountAppliesToInput {
+  """
+  Apply the discount to every item in the order. Mutually exclusive with the ID lists.
+  """
+  all: Boolean
+
+  """
+  Collection IDs the discount applies to (e.g. `gid://shopify/Collection/123`).
+  """
+  collectionIds: [ID!]
+
+  """
+  Product IDs the discount applies to (e.g. `gid://shopify/Product/123`).
+  """
+  productIds: [ID!]
+
+  """
+  Product variant IDs the discount applies to (e.g. `gid://shopify/ProductVariant/123`).
+  """
+  productVariantIds: [ID!]
+}
+
+"""
+The result of creating a discount.
+"""
+type CreateDiscountCodeResult {
+  """
+  The created discount code. Null when the creation failed.
+  """
+  discountCode: DiscountCodeBasic
+  """
+  List of errors that occurred while creating the discount.
+  """
+  errors: [ShopifyError]
+
+  """
+  List of user-facing validation errors returned by Shopify (e.g. duplicate code).
+  """
+  userErrors: [UserError]
+}
+
+"""
+A minimal reference to a draft order.
+"""
+type DraftOrderRef {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The identifier for the draft order, which is unique within the store. For example, #D1223.
+  """
+  name: String
+
+  """
+  The status of the draft order.
+  """
+  status: DraftOrderStatus
+}
+
+"""
+The selected shipping option for the draft order.
+"""
+type DraftOrderShippingLine {
+  """
+  The title of the shipping line, as shown to the merchant and customer.
+  For example, "Standard" or "Express".
+  """
+  title: String
+
+  """
+  The pre-tax shipping price with discounts applied.
+  """
+  discountedPriceSet: MoneySet
+}
+
+"""
+Whether a product variant can be ordered when it's out of stock.
+"""
+enum InventoryPolicy {
+  """
+  Out-of-stock orders are blocked once available inventory reaches zero.
+  """
+  DENY
+  """
+  Out-of-stock orders are allowed: the variant stays sellable even at zero or
+  negative available inventory (backorder / continue-selling). A zero or
+  negative count does not mean the customer can't buy it.
+  """
+  CONTINUE
+}
+
+"""
+The product variant for a draft order line item.
+"""
+type DraftOrderProductVariant {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The title of the product variant.
+  """
+  title: String
+
+  """
+  Display name of the variant, based on product's title + variant's title.
+  """
+  displayName: String
+
+  """
+  Whether the product variant is available for sale.
+  This does not guarantee that there is sufficient amount of product available
+  for shipping for this particular customer, however this can be finalized after
+  an Order is created.
+  """
+  availableForSale: Boolean
+
+  """
+  The total sellable quantity of the variant (across all locations).
+  """
+  inventoryQuantity: Int
+
+  """
+  Whether customers are allowed to place an order for the product variant when
+  it's out of stock.
+  """
+  inventoryPolicy: InventoryPolicy
+}
+
+"""
+Units of measurement for weight.
+"""
+enum WeightUnit {
+  """
+  Metric system unit of mass.
+  """
+  KILOGRAMS
+
+  """
+  1 kilogram equals 1000 grams.
+  """
+  GRAMS
+
+  """
+  Imperial system unit of mass.
+  """
+  POUNDS
+
+  """
+  1 pound equals 16 ounces.
+  """
+  OUNCES
+}
+
+"""
+A weight, which includes a numeric value and a unit of measurement.
+"""
+type Weight {
+  """
+  The weight value using the unit system specified with `unit`.
+  """
+  value: Float
+
+  """
+  The unit of measurement for `value`.
+  """
+  unit: WeightUnit
+}
+
+"""
+The valid discount types that can be applied to a draft order.
+"""
+enum DraftOrderAppliedDiscountType {
+  """
+  The discount is a fixed amount.
+  """
+  FIXED_AMOUNT
+
+  """
+  The discount is a percentage.
+  """
+  PERCENTAGE
+}
+
+"""
+The custom discount applied to a draft order or to a draft order line item.
+"""
+type DraftOrderAppliedDiscount {
+  """
+  Name of the discount.
+  """
+  title: String
+
+  """
+  Description of the discount.
+  """
+  description: String
+
+  """
+  Type of the discount.
+  """
+  valueType: DraftOrderAppliedDiscountType
+
+  """
+  The discount amount. If valueType is PERCENTAGE, then value is the percentage discount.
+  """
+  value: Float
+
+  """
+  The amount of money discounted, with values shown in both shop currency and
+  presentment currency.
+  """
+  amountSet: MoneySet
+}
+
+"""
+A monetary amount with its currency.
+"""
+input MoneyInput {
+  """
+  Decimal monetary amount as a string, e.g. "19.99".
+  """
+  amount: Currency!
+
+  """
+  ISO 4217 currency code, e.g. "USD". Must match the draft order's presentment currency.
+  """
+  currencyCode: String!
+}
+
+"""
+The weight of a custom line item.
+"""
+input WeightInput {
+  """
+  The weight value.
+  """
+  value: Float!
+
+  """
+  The unit of measurement for the weight value.
+  """
+  unit: WeightUnit!
+}
+
+"""
+A custom discount applied to a draft order line item.
+"""
+input DraftOrderAppliedDiscountInput {
+  """
+  Whether the discount is a fixed amount or a percentage.
+  """
+  valueType: DraftOrderAppliedDiscountType!
+
+  """
+  The discount amount: a currency amount when FIXED_AMOUNT, or a percent (0-100) when PERCENTAGE.
+  """
+  value: Float!
+
+  """
+  Customer-visible reason for the discount (the admin's "Reason for discount").
+  """
+  description: String
+
+  """
+  Optional internal title for the discount.
+  """
+  title: String
+}
+
+"""
+Input for a catalog product-variant line item in a draft order.
+"""
+input DraftOrderProductLineItemInput {
+  """
+  The ID of the product variant for this line (e.g. `gid://shopify/ProductVariant/123`).
+  """
+  variantId: ID!
+
+  """
+  The quantity of the variant.
+  """
+  quantity: Int!
+
+  """
+  An optional per-line discount applied to the variant's catalog price.
+  """
+  appliedDiscount: DraftOrderAppliedDiscountInput
+}
+
+"""
+Input for a custom (off-catalog) line item in a draft order. Custom line items carry
+their own title and price rather than referencing a product variant.
+"""
+input DraftOrderCustomLineItemInput {
+  """
+  The title of the custom line item.
+  """
+  title: String!
+
+  """
+  The quantity of the custom line item.
+  """
+  quantity: Int!
+
+  """
+  The unit price of the custom line item, in the draft order's presentment currency.
+  """
+  originalUnitPrice: MoneyInput!
+
+  """
+  Whether physical shipping is required for the custom line item. Defaults to true in Shopify.
+  """
+  requiresShipping: Boolean
+
+  """
+  Whether the custom line item is taxable. Defaults to true in Shopify.
+  """
+  taxable: Boolean
+
+  """
+  The weight of the custom line item.
+  """
+  weight: WeightInput
+
+  """
+  An optional per-line discount applied to the custom line item's price.
+  """
+  appliedDiscount: DraftOrderAppliedDiscountInput
+}
+
+"""
+A postal/mailing address used as input to address fields (e.g. a draft order's
+shipping address). Country and province are given as ISO codes.
+"""
+input MailingAddressInput {
+  """
+  The first line of the address, typically the street address or PO Box number.
+  """
+  address1: String
+
+  """
+  The second line of the address, typically the apartment, suite, or unit number.
+  """
+  address2: String
+
+  """
+  The name of the city, district, village, or town.
+  """
+  city: String
+
+  """
+  The company or organization name associated with the address.
+  """
+  company: String
+
+  """
+  The two-letter ISO 3166-1 alpha-2 country code, e.g. "US".
+  """
+  countryCode: String
+
+  """
+  The two-letter province/state code, e.g. "CA".
+  """
+  provinceCode: String
+
+  """
+  The ZIP or postal code of the address.
+  """
+  zip: String
+
+  """
+  The first name of the person associated with the address.
+  """
+  firstName: String
+
+  """
+  The last name of the person associated with the address.
+  """
+  lastName: String
+
+  """
+  A phone number for this address, formatted using E.164, e.g. +16135551111.
+  """
+  phone: String
+}
+
+"""
+A component of a bundle line item: one of the individual items the bundle
+contains, as shown when expanding a bundle row in the admin.
+"""
+type DraftOrderLineItemComponent {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The name of the product.
+  """
+  name: String
+
+  """
+  The quantity of this component within one bundle.
+  """
+  quantity: Int!
+
+  """
+  The product variant for the component.
+  """
+  variant: ProductVariantRef
+}
+
+"""
+A catalog product-variant line item in a draft order.
+"""
+type DraftOrderProductLineItem {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The name of the product (product title plus variant title).
+  """
+  name: String
+
+  """
+  The quantity of items. For a bundle item, this is the quantity of bundles, not
+  the quantity of items contained in the bundles themselves.
+  """
+  quantity: Int!
+
+  """
+  The product variant for the line item. Null when the line references a variant that no longer
+  exists in the catalog (for example, a draft duplicated from an order whose variant was since deleted).
+  """
+  variant: DraftOrderProductVariant
+
+  """
+  The SKU number of the product variant.
+  """
+  sku: String
+
+  """
+  The components of the line item. Populated when the line item is a bundle; empty otherwise.
+  """
+  components: [DraftOrderLineItemComponent!]
+
+  """
+  Whether physical shipping is required for the variant.
+  """
+  requiresShipping: Boolean
+
+  """
+  Whether the variant is taxable.
+  """
+  taxable: Boolean
+
+  """
+  Whether the line item represents the purchase of a gift card.
+  """
+  isGiftCard: Boolean
+
+  """
+  The price without any discounts applied.
+  """
+  originalUnitPriceSet: MoneySet
+
+  """
+  The total price with discounts applied.
+  """
+  discountedTotalSet: MoneySet
+
+  """
+  The custom applied discount.
+  """
+  appliedDiscount: DraftOrderAppliedDiscount
+}
+
+"""
+A custom (off-catalog) line item in a draft order. Custom line items carry their own
+title and price rather than referencing a product variant.
+"""
+type DraftOrderCustomLineItem {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The title of the custom line item.
+  """
+  title: String!
+
+  """
+  The quantity of items.
+  """
+  quantity: Int!
+
+  """
+  Whether physical shipping is required for the custom line item.
+  """
+  requiresShipping: Boolean
+
+  """
+  Whether the custom line item is taxable.
+  """
+  taxable: Boolean
+
+  """
+  The weight unit and value of the custom line item.
+  """
+  weight: Weight
+
+  """
+  The price without any discounts applied.
+  """
+  originalUnitPriceSet: MoneySet
+
+  """
+  The total price with discounts applied.
+  """
+  discountedTotalSet: MoneySet
+
+  """
+  The custom applied discount.
+  """
+  appliedDiscount: DraftOrderAppliedDiscount
+}
+
+"""
+The type of payment terms.
+"""
+enum PaymentTermsType {
+  """
+  The payment is due on receipt.
+  """
+  RECEIPT
+
+  """
+  The payment is due within a set number of days after the issue date.
+  """
+  NET
+
+  """
+  The payment is due on a fixed date.
+  """
+  FIXED
+
+  """
+  The payment is due on fulfillment.
+  """
+  FULFILLMENT
+
+  """
+  The type of payment terms is unknown.
+  """
+  UNKNOWN
+}
+
+"""
+The payment terms associated with an order or draft order, e.g. Net 30.
+"""
+type PaymentTerms {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The name of the payment terms template, e.g. "Net 30", "Due on receipt".
+  """
+  paymentTermsName: String
+
+  """
+  The type of payment terms.
+  """
+  paymentTermsType: PaymentTermsType
+
+  """
+  The number of days between issue and due date, for NET-type terms.
+  """
+  dueInDays: Int
+
+  """
+  Whether the payment is past due.
+  """
+  overdue: Boolean
+}
+
+"""
+An order that a merchant creates on behalf of a customer. Draft orders are useful
+for merchants that need to do the following tasks:
+
+- Create new orders for sales made by phone, in person, by chat, or elsewhere.
+  When a merchant accepts payment for a draft order, an order is created.
+- Send invoices to customers to pay with a secure checkout link.
+- Use custom items to represent additional costs or products that aren't displayed
+  in a shop's inventory.
+- Re-create orders manually from active sales channels.
+- Sell products at discount or wholesale rates.
+- Take pre-orders.
+"""
+type DraftOrder {
+  """
+  A globally-unique ID.
+  """
+  id: ID!
+
+  """
+  The identifier for the draft order, which is unique within the store. For example, #D1223.
+  """
+  name: String!
+
+  """
+  The status of the draft order.
+  """
+  status: DraftOrderStatus!
+
+  """
+  The date and time when the draft order was created in Shopify.
+  """
+  createdAt: DateTime
+
+  """
+  The date and time when the draft order was last changed.
+  """
+  updatedAt: DateTime
+
+  """
+  The link to the checkout, which is sent to the customer in the invoice email.
+  """
+  invoiceUrl: String
+
+  """
+  The date and time when the invoice was last emailed to the customer.
+  """
+  invoiceSentAt: DateTime
+
+  """
+  The date and time when the draft order was converted to a new order, and had its
+  status changed to Completed.
+  """
+  completedAt: DateTime
+
+  """
+  The order that was created from the draft order. Null until the draft order is completed.
+  """
+  order: OrderRef
+
+  """
+  Represents information about the purchasing entity for the draft order.
+  """
+  purchasingEntity: PurchasingEntity
+
+  """
+  The email address of the customer, which is used to send notifications.
+  """
+  email: String
+
+  """
+  The assigned phone number.
+  """
+  phone: String
+
+  """
+  The shipping address of the customer.
+  """
+  shippingAddress: MailingAddress
+
+  """
+  The billing address of the customer.
+  """
+  billingAddress: MailingAddress
+
+  """
+  The selected shipping option for the draft order.
+  """
+  shippingLine: DraftOrderShippingLine
+
+  """
+  The catalog product-variant line items in the draft order. Only the first 50
+  line items (counting product and custom line items together) are returned, so the
+  lists may be incomplete for draft orders with more than 50 line items; check
+  `hasMoreLineItems` before treating the lists as complete.
+  """
+  productLineItems: [DraftOrderProductLineItem!]
+
+  """
+  The custom (off-catalog) line items in the draft order. Only the first 50 line
+  items (counting product and custom line items together) are returned; check
+  `hasMoreLineItems` before treating the lists as complete.
+  """
+  customLineItems: [DraftOrderCustomLineItem!]
+
+  """
+  Whether the draft order has more line items beyond the first 50 returned across
+  `productLineItems` and `customLineItems` combined.
+  """
+  hasMoreLineItems: Boolean
+
+  """
+  The custom order-level discount applied.
+  """
+  appliedDiscount: DraftOrderAppliedDiscount
+
+  """
+  The subtotal of the line items and their discounts, excluding shipping charges,
+  shipping discounts, and taxes.
+  """
+  subtotalPriceSet: MoneySet
+
+  """
+  The total shipping price.
+  """
+  totalShippingPriceSet: MoneySet
+
+  """
+  The total tax.
+  """
+  totalTaxSet: MoneySet
+
+  """
+  The total price, includes taxes, shipping charges, and discounts.
+  """
+  totalPriceSet: MoneySet
+
+  """
+  Whether the line item prices include taxes.
+  """
+  taxesIncluded: Boolean
+
+  """
+  Whether the draft order is tax exempt.
+  """
+  taxExempt: Boolean
+
+  """
+  The text from an optional note attached to the draft order.
+  """
+  # Maps to the Shopify Admin API field `DraftOrder.note2`.
+  note: String
+
+  """
+  The list of tags associated with the draft order.
+  """
+  tags: [String!]
+
+  """
+  The purchase order number.
+  """
+  poNumber: String
+
+  """
+  The payment terms for the draft order, when the merchant has assigned any
+  (commonly used for B2B). Null otherwise.
+  """
+  paymentTerms: PaymentTerms
+}
+
+"""
+A minimal summary of an order line item.
+"""
+type OrderLineItemSummary {
+  """
+  A globally-unique ID for the order line item.
+  """
+  id: ID!
+
+  """
+  The display name of the line item (product + variant).
+  """
+  name: String!
+
+  """
+  The quantity ordered.
+  """
+  quantity: Int!
+
+  """
+  The unit price before discounts, in shop and presentment currencies.
+  """
+  originalUnitPriceSet: MoneySet
+
+  """
+  The line total after discounts, before taxes, in shop and presentment
+  currencies — the row total shown in the Shopify admin. The post-discount unit
+  price is derivable as `discountedTotalSet ÷ quantity`.
+  """
+  discountedTotalSet: MoneySet
+}
+
+"""
+A minimal overview of an order created from a draft order. All monetary
+figures reflect the order at the time of creation, before any later returns,
+edits, or refunds.
+"""
+type OrderSummary {
+  """
+  A globally-unique ID for the order.
+  """
+  id: ID!
+
+  """
+  The human-readable name of the order, e.g. #1001.
+  """
+  name: String!
+
+  """
+  The date and time when the order was created.
+  """
+  createdAt: DateTime
+
+  """
+  The current financial status of the order, e.g. PAID, PENDING.
+  """
+  financialStatus: OrderDisplayFinancialStatus
+
+  """
+  The current fulfillment status of the order, e.g. FULFILLED, UNFULFILLED.
+  """
+  fulfillmentStatus: OrderDisplayFulfillmentStatus
+
+  """
+  Who this order is for: a customer (B2C) or a purchasing company (B2B).
+  """
+  purchasingEntity: PurchasingEntity
+
+  """
+  The shipping address for the order.
+  """
+  shippingAddress: MailingAddress
+
+  """
+  A minimal list of line items for quick review. Only the first 50 line items are returned; check `hasMoreLineItems` before treating the list as complete.
+  """
+  lineItems: [OrderLineItemSummary!]
+
+  """
+  Whether the order has more line items beyond the first 50 returned in `lineItems`.
+  """
+  hasMoreLineItems: Boolean
+
+  """
+  The sum of the line items after their line-level discounts, before
+  order-level discounts, shipping, and tax.
+  """
+  subtotalPriceSet: MoneySet
+
+  """
+  The total amount discounted on the order, in shop and presentment currencies.
+  Includes both order-level and line-level discounts.
+  """
+  totalDiscountsSet: MoneySet
+
+  """
+  The total shipping price.
+  """
+  totalShippingPriceSet: MoneySet
+
+  """
+  The total tax on the order.
+  """
+  totalTaxSet: MoneySet
+
+  """
+  The total price of the order, including taxes, shipping, and discounts.
+  """
+  totalPriceSet: MoneySet
+
+  """
+  Whether line item prices include taxes.
+  """
+  taxesIncluded: Boolean
+
+  """
+  An optional note attached to the order.
+  """
+  note: String
+
+  """
+  The payment terms governing the order, when any are assigned (commonly B2B,
+  or orders completed with payment pending). Null otherwise.
+  """
+  paymentTerms: PaymentTerms
+}
+
+"""
+Result of updating a draft order.
+"""
+type UpdateDraftOrderResult {
+  """
+  The updated draft order.
+  """
+  draftOrder: DraftOrder
+
+  """
+  List of errors that occurred during updating the draft order.
+  """
+  errors: [ShopifyError]
+
+  """
+  List of user-facing errors.
+  """
+  userErrors: [UserError]
+
+  """
+  Non-fatal advisories about the update. The `draftOrder` is still returned when alerts are present.
+  """
+  alerts: [Alert!]
+}
+
+"""
+Result of completing a draft order.
+"""
+type CompleteDraftOrderResult {
+  """
+  The order created from the completed draft order.
+  """
+  order: OrderSummary
+
+  """
+  A minimal reference to the draft order that was completed.
+  """
+  draftOrder: DraftOrderRef
+
+  """
+  List of errors that occurred during completing the draft order.
+  """
+  errors: [ShopifyError]
+
+  """
+  List of user-facing errors.
+  """
+  userErrors: [UserError]
+}
+
+"""
+Result of creating a draft order from an existing order.
+"""
+type CreateDraftOrderFromOrderResult {
+  """
+  The created draft order, with its line items copied from the source order.
+  """
+  draftOrder: DraftOrder
+
+  """
+  List of errors that occurred while creating the draft order.
+  """
+  errors: [ShopifyError]
+
+  """
+  List of user-facing errors.
+  """
+  userErrors: [UserError]
+
+  """
+  Non-fatal advisories about the created draft. The `draftOrder` is still returned when alerts are present.
+  """
+  alerts: [Alert!]
+}
+
+"""
+Live inventory for a single product variant.
+"""
+type VariantInventory {
+  """
+  The product variant's GID (`gid://shopify/ProductVariant/...`).
+  """
+  id: ID!
+  title: String
+  sku: String
+  """
+  Whether the product variant is available for sale. This can be true even when
+  the available quantity is zero or null (see `inventoryPolicy` and `tracked`).
+  """
+  availableForSale: Boolean
+  """
+  Whether out-of-stock orders are allowed. `CONTINUE` means the variant stays
+  sellable at zero or negative quantity, so a zero count does not imply
+  "unavailable".
+  """
+  inventoryPolicy: InventoryPolicy
+  """
+  Total available quantity across all locations. Null when the variant is
+  untracked (`tracked: false`).
+  """
+  inventoryQuantity: Int
+  """
+  Quantity sellable through online sales channels, which excludes retail /
+  showroom-only stock. Use this (not `inventoryQuantity`) for online
+  availability. Null when the variant is untracked.
+  """
+  sellableOnlineQuantity: Int
+  """
+  Whether Shopify tracks inventory for this variant. When false, quantity
+  fields are null and the variant is treated as always purchasable.
+  """
+  tracked: Boolean
+  """
+  The product this variant belongs to (id and title only).
+  """
+  product: ProductRef
+}
+
+"""
+Result of `getProductInventory`. `variants` and `errors` can both be present:
+resolvable variants are returned alongside per-id errors (e.g. a `not_found`
+for an unresolvable GID), which is a normal partial response.
+"""
+type ProductInventoryResult {
+  """
+  Inventory for the requested variants. A variant GID returns that variant; a
+  product GID expands to the product's variants (up to 50).
+  """
+  variants: [VariantInventory!]
+  """
+  True when a product GID in the input has more than 50 variants, so its
+  variant list here is incomplete. Query the specific variant GIDs to get the
+  rest.
+  """
+  hasMoreVariants: Boolean
+  errors: [ShopifyError!]
+}
+
+"""
+Result of creating a draft order.
+"""
+type CreateDraftOrderResult {
+  """
+  The created draft order.
+  """
+  draftOrder: DraftOrder
+
+  """
+  List of errors that occurred during creating the draft order.
+  """
+  errors: [ShopifyError]
+
+  """
+  List of user-facing errors.
+  """
+  userErrors: [UserError]
+}
+
+"""
+The possible statuses for a file object.
+"""
+enum FileStatus {
+  """
+  File has been uploaded but hasn't been processed.
+  """
+  UPLOADED
+  """
+  File is being processed.
+  """
+  PROCESSING
+  """
+  File is ready to be displayed.
+  """
+  READY
+  """
+  File processing has failed.
+  """
+  FAILED
+}
+
+"""
+Represents an image resource.
+"""
+type Image {
+  """
+  The location of the image as a URL.
+  """
+  url: String
+  """
+  The original width of the image in pixels. Returns `null` if the image isn't
+  hosted by Shopify.
+  """
+  width: Int
+  """
+  The original height of the image in pixels. Returns `null` if the image isn't
+  hosted by Shopify.
+  """
+  height: Int
+  """
+  A word or phrase to share the nature or contents of an image.
+  """
+  altText: String
+}
+
+"""
+Represents an image hosted on Shopify's content delivery network (CDN). Image
+processing is handled asynchronously, so an image might not be available
+immediately after upload — `fileStatus` indicates when processing is complete.
+"""
+type MediaImage {
+  """
+  The image for the media. Returns `null` until `fileStatus` is `READY`.
+  """
+  image: Image
+  """
+  The MIME type of the image.
+  """
+  mimeType: String
+}
+
+"""
+Represents any file other than HTML — for example a PDF return label or an
+invoice.
+"""
+type GenericFile {
+  """
+  The generic file's URL.
+  """
+  url: String
+  """
+  The generic file's size in bytes.
+  """
+  originalFileSize: Int
+  """
+  The generic file's MIME type.
+  """
+  mimeType: String
+}
+
+type ShopifyFile {
+  """
+  A globally-unique ID (`gid://shopify/MediaImage/...`, `gid://shopify/GenericFile/...`).
+  """
+  id: ID!
+  """
+  The Shopify GraphQL type of the file, which is also the name of the populated
+  arm: `MediaImage` (read `mediaImage`), `GenericFile` (read `genericFile`)
+  `Video` / `Model3d` / `ExternalVideo` are not currently supported and will not be populated.
+  """
+  typename: String!
+  """
+  The status of the file.
+  """
+  fileStatus: FileStatus!
+  """
+  A word or phrase to describe the contents or the function of a file.
+  """
+  alt: String
+  """
+  The date and time (ISO 8601 format) when the file was created.
+  """
+  createdAt: DateTime!
+  """
+  The date and time (ISO 8601 format) when the file was last updated.
+  """
+  updatedAt: DateTime!
+  """
+  The image detail, when `typename` is `MediaImage`. Null otherwise.
+  """
+  mediaImage: MediaImage
+  """
+  The document detail, when `typename` is `GenericFile`. Null otherwise.
+  """
+  genericFile: GenericFile
+}
+
+"""
+The result of resolving file GIDs to URLs.
+
+Every GID that resolved to a file appears in `files`, so `files` may be shorter
+than the `ids` that were passed. A GID that did not resolve to a file appears in
+`errors` with `code: "not_found"` — whether it resolved to nothing at all or to
+something that isn't a file, such as an Order GID passed by mistake.
+"""
+type FilesByIdsResult {
+  files: [ShopifyFile!]!
+  errors: [ShopifyError!]
+}
+
+type Query {
+  """
+  Deep-dive read of a single order, by its globally-unique order GID. This is
+  the rich, "everything you need to decide what to do next" view: order header
+  (status, dates, email, note, tags), totals and money state, shipping/billing
+  addresses, a flat list of line items with per-line quantity state, and sibling
+  blocks for fulfillments, fulfillment orders, returns, and refunds. Use it to
+  drive draft, replacement, refund, return, and order-edit decisions, and to
+  identify exactly which product variant (size/color) was ordered for item-level
+  actions.
+
+  Line items are returned as a single flat list, not grouped by fulfillment.
+  Each line's quantity fields encode its lifecycle (what's still orderable,
+  shipped, refundable, or removed), and the fulfillment/return/refund sibling
+  blocks link back to lines via `lineItem.id`. If the GID doesn't resolve to an
+  order, `order` is null and `errors` contains a `not_found` entry.
+  """
+  orderByIdentifier(
+    """
+    The globally-unique order ID to read (`gid://shopify/Order/...`). Must be a GID;
+    this action does not accept order numbers.
+    """
+    gid: ID!
+  ): OrderDetailResult @action(name: "order_by_identifier")
+
+  """
+  Look up a single order by its order number.
+  """
+  lookupOrderByOrderNum(
+    """
+    The unique identifier for the order that appears on the order page in the Shopify admin and the Order status page. For example, '#1001', 'EN1001', or '1001-A'. This value isn't unique across multiple stores.
+    """
+    orderNum: String!
+  ): OrderResult @action(name: "look_up_order_by_order_num")
+
+  """
+  Search orders by email address provided during checkout. Note this does not return orders for customers that have an account with this email address.
+  Returns the most recent orders by creation date, newest first; the count is the integration's `ordersLimit` (default 10).
+  """
+  lookupOrdersByEmail(
+    "The email address that's associated with the order."
+    email: String!
+  ): OrdersResult @action(name: "look_up_orders_by_email")
+
+  """
+  Check the status of an asynchronous job, such as an order cancellation.
+  """
+  jobStatus(
+    "The ID of the job."
+    jobId: ID!
+    "The order ID related to the job."
+    orderId: ID!
+  ): JobStatus @action(name: "job_status")
+
+  """
+  Preview a refund for an order before one is issued: the amount to confirm with the customer, plus
+  the suggested line items and payment transactions an actual refund can be generated from. By
+  default (`suggestFullRefund: true`) it previews the WHOLE order — all currently-refundable line
+  items; set `suggestFullRefund: false` with `refundLineItems` to preview specific lines.
+  `refundShipping` is required and controls whether a full shipping refund is included — all shipping
+  (true) or none (false); partial shipping amounts aren't supported. Amounts are given in both shop and
+  presentment currencies.
+
+  Refundable: order line items (the whole order or specific lines) and shipping, to the original
+  payment method. Not refundable: duties and additional fees (not supported); and only CAPTURED
+  amounts can be refunded — an authorized-but-uncaptured payment is cancelled via `cancel_order`,
+  not refunded here.
+  """
+  suggestedRefund(
+    "The order to preview a refund for, e.g. \"gid://shopify/Order/7462005375289\"."
+    orderId: ID!
+    "Specific lines to refund (partial refund). Ignored when `suggestFullRefund` is true; omit for a whole-order refund."
+    refundLineItems: [RefundLineItemInput!]
+    "When true (default), suggest a refund for ALL currently-refundable line items. When false, suggest for the given `refundLineItems`."
+    suggestFullRefund: Boolean = true
+    "Whether to include a full shipping refund. Required. Shopify refunds either ALL shipping (true) or none (false) — partial shipping amounts aren't supported. Pass the same value to `refundOrder`."
+    refundShipping: Boolean!
+    "Which method the suggested amount is allocated to: the original payment method(s) (default) or store credit. Store credit requires the order to have a customer and is not supported for B2B orders."
+    refundMethodAllocation: RefundMethodAllocation = ORIGINAL_PAYMENT_METHODS
+  ): SuggestedRefundResult @action(name: "suggested_refund")
+
+  """
+  Fetch metafields attached to one or more Shopify resources, given their GIDs.
+  Accepts mixed owner types in a single call. Each returned owner includes its
+  `typename`. Owners with no metafields are omitted from the result;
+  unresolvable GIDs are surfaced as errors. Reference-type metafields are
+  returned as their raw GID `value`; the referenced resources are not resolved.
+  """
+  getMetafieldsByOwnerId(
+    """
+    GIDs of resources to fetch metafields for. Up to 25 per call.
+    """
+    ownerIds: [ID!]!
+    """
+    Optional filter to specific metafields by `namespace.key` (e.g.
+    `["custom.warranty_period", "global.title_tag"]`). When omitted, returns
+    the first 50 metafields per owner.
+    """
+    keys: [String!]
+  ): MetafieldsByOwnerIdResult @action(name: "get_metafields_by_owner_id")
+
+  """
+  Get live inventory for product variants, given product or variant GIDs.
+  Answers "is this in stock?", "how many are left?", and "can the customer buy
+  this online?". A variant GID returns that variant; a product GID returns its
+  variants. Accepts product and variant GIDs mixed in one call.
+  """
+  getProductInventory(
+    """
+    Product and/or variant GIDs (`gid://shopify/Product/...` or
+    `gid://shopify/ProductVariant/...`), mixed freely. Up to 25 per call.
+    """
+    ids: [ID!]!
+  ): ProductInventoryResult @action(name: "get_product_inventory")
+
+  """
+  Resolve Shopify file GIDs to usable URLs — the image URL for an image, the
+  document URL for a PDF. Use this to turn a file reference into something you
+  can show or send to a customer.
+
+  Retrieves a list of files that have been uploaded to a Shopify store.
+  Files represent digital assets that merchants can upload to their store for various
+  purposes including product images, marketing materials, documents, and brand assets.
+  Note: this app does not have access to all file resources.
+  """
+  getFilesByIds(
+    """
+    File GIDs to resolve (`gid://shopify/MediaImage/...`,
+    `gid://shopify/GenericFile/...`), mixed freely. Up to 25 per call.
+    """
+    ids: [ID!]!
+  ): FilesByIdsResult @action(name: "get_files_by_ids")
+}
+
+type Mutation {
+  """
+  Cancels an order, with options for refunding, restocking inventory, and customer notification.
+  Caution: Order cancellation is irreversible. An order that has been cancelled can't be restored to its original state.
+  This is an asynchronous task and will return a jobId to track the status of the operation.
+
+  An order can only be cancelled if it meets the following criteria:
+  - The order hasn't already been cancelled.
+  - The order has no pending payment authorizations.
+  - The order has no active returns in progress.
+  - The order has no outstanding fulfillments that can't be cancelled.
+  """
+  cancelOrder(
+    """
+    The ID of the order to be canceled, e.g. "gid://shopify/Order/4459950243991".
+    """
+    orderId: ID!
+
+    """
+    The reason for canceling the order.
+    """
+    reason: CancelOrderReason!
+
+    """
+    Indicates how to refund the amount paid by the customer. Authorized payments are voided
+    regardless of this setting. Omit to issue no refund.
+    """
+    refundMethod: OrderCancelRefundMethodInput
+
+    """
+    Whether to restock the inventory committed to the order. For unpaid orders fulfilled from locations that have been deactivated, inventory will not be restocked to the deactivated locations even if this argument is set to true.
+    """
+    restock: Boolean!
+
+    """
+    A staff-facing note about the order cancellation. This is not visible to the customer. default: null
+    """
+    staffNote: String
+
+    """
+    Whether to send a notification to the customer about the order cancellation.
+    """
+    notifyCustomer: Boolean
+  ): CancelOrderResult @action(name: "cancel_order")
+
+  """
+  Issue a refund for an order, using values from a `suggestedRefund` preview of the same order.
+
+  - To the original payment method(s) (`refundMethod: ORIGINAL_PAYMENT_METHODS`, default): run
+    `suggestedRefund` (with `refundMethodAllocation: ORIGINAL_PAYMENT_METHODS`) and pass its
+    `refundLineItems` and `suggestedTransactions` as this action's `refundLineItems` and
+    `transactions`.
+  - To store credit (`refundMethod: STORE_CREDIT`): run `suggestedRefund` with
+    `refundMethodAllocation: STORE_CREDIT` and pass its `amountSet` (presentment) as
+    `storeCreditAmount`, with no `transactions`. Store credit requires the order to have a customer
+    and is not supported for B2B orders.
+
+  In both cases `currencyCode` is the order's presentment currency and `refundShipping` must match
+  the value previewed with, or Shopify rejects the refund as an over-refund. Refunded items are not
+  restocked. The refund is idempotent per execution, so a retried execution replays the original
+  refund rather than issuing a duplicate.
+
+  Refundable: order line items (the whole order or specific lines) and shipping, to the original
+  payment method or store credit. Not refundable: duties and additional fees (not supported); and
+  only CAPTURED amounts can be refunded — an authorized-but-uncaptured payment is cancelled via
+  `cancel_order`, not refunded here.
+  """
+  refundOrder(
+    "The order to refund, e.g. \"gid://shopify/Order/7462005375289\"."
+    orderId: ID!
+    "The order's presentment (customer) currency, e.g. \"USD\", so the refund settles in the original payment currency."
+    currencyCode: String!
+    "The line items to refund, each identified by its order line-item GID and the quantity to refund."
+    refundLineItems: [RefundLineItemInput!]!
+    "Where the refund is sent: the original payment method(s) (default) or store credit."
+    refundMethod: RefundMethodAllocation = ORIGINAL_PAYMENT_METHODS
+    "The payment transactions to reimburse when refunding to the original payment method, each identifying an original payment to refund against and the amount. Required for `ORIGINAL_PAYMENT_METHODS`; omit for `STORE_CREDIT`. With no transactions and no store credit, the refund records no money movement."
+    transactions: [RefundOrderTransactionInput!]
+    "The amount to issue as store credit, in the order's presentment currency — use `amountSet` (presentment) from a `suggestedRefund` preview run with `refundMethodAllocation: STORE_CREDIT`. Required when `refundMethod` is `STORE_CREDIT`; ignored otherwise."
+    storeCreditAmount: Currency
+    "Optional expiry for the issued store credit (ISO 8601, e.g. \"2027-01-15T00:00:00Z\"); must be in the future. Omit for store credit that never expires. Ignored unless `refundMethod` is `STORE_CREDIT`."
+    storeCreditExpiresAt: DateTime
+    "Whether to refund shipping in full. Required, and must match the value used in the order's `suggestedRefund` preview, or Shopify rejects the refund as an over-refund. Refunds either ALL shipping (true) or none (false) — partial shipping amounts aren't supported."
+    refundShipping: Boolean!
+    "An optional note recorded on the refund."
+    note: String
+    "Whether to email the customer about the refund. Default false."
+    notify: Boolean = false
+  ): RefundResult @action(name: "refund_order")
+
+  """
+  Update the shipping address on an order.
+  """
+  updateShippingAddress(
+    "The ID of the order to update."
+    orderId: ID!
+    "The first line of the address."
+    address1: String
+    "The second line of the address."
+    address2: String
+    "The city of the address."
+    city: String
+    "The company of the person associated with the address."
+    company: String
+    "The two-letter code for the country of the address."
+    countryCode: String
+    """
+    A unique phone number for the customer.
+    Formatted using E.164 standard. For example, +16135551111.
+    """
+    phone: String
+    "The two-letter code for the province or state of the address."
+    provinceCode: String
+    "The ZIP or postal code of the address."
+    zip: String
+    "The first name of the person associated with the address."
+    firstName: String
+    "The last name of the person associated with the address."
+    lastName: String
+  ): UpdateShippingAddressResult @action(name: "update_shipping_address")
+
+  """
+  Creates a draft order for a customer from line items. A draft order can be used to
+  create an order on behalf of a customer.
+
+  Provide catalog products as `productLineItems` and off-catalog items as
+  `customLineItems`; at least one line item (of either kind) is required. Each line
+  may carry an `appliedDiscount` (a 100% PERCENTAGE discount yields a $0 line for
+  replacement orders).
+  """
+  createDraftOrderForCustomer(
+    "The ID of the customer the draft order is placed for (e.g. `gid://shopify/Customer/123`)."
+    customerId: ID!
+
+    "Catalog product-variant line items."
+    productLineItems: [DraftOrderProductLineItemInput!]
+
+    "Off-catalog custom line items (e.g. a goodwill credit or made-to-order item)."
+    customLineItems: [DraftOrderCustomLineItemInput!]
+
+    """
+    Lock the price of every catalog (product) line item to its current price so it won't
+    change before the customer pays. When true, each product line is given a price override
+    that snapshots today's catalog price; when false or omitted, product lines recalculate to
+    the live catalog price at checkout — so the customer could be charged a different amount
+    than was quoted if a price or sale changes in between.
+
+    Rule of thumb: if this draft is a QUOTE or CONTRACT the customer will pay later (e.g. an
+    emailed invoice via `send_draft_order_invoice`), set this true so the quoted prices hold.
+    If it is a temporary cart that will be paid immediately and should reflect live pricing and
+    discounts, leave it off. Affects catalog (product) lines only — custom line items already
+    carry their own fixed price.
+    """
+    lockPrices: Boolean
+
+    """
+    An order-level discount applied to the whole order. A PERCENTAGE discount applies
+    to the order subtotal; a FIXED_AMOUNT is taken off the order total. This is separate
+    from and stacks with any per-line `appliedDiscount` on the line items.
+    """
+    appliedDiscount: DraftOrderAppliedDiscountInput
+
+    """
+    Set true to charge no tax on this order (e.g. a tax-exempt customer or a goodwill
+    replacement). Omit for normal tax calculation based on the customer's address and
+    product taxability. This exempts the whole order, separate from a custom line item's
+    own `taxable` flag.
+    """
+    taxExempt: Boolean
+
+    """
+    An optional note attached to the draft order, e.g. the reason for the order
+    ("Replacement for damaged order #1059").
+    """
+    note: String
+
+    """
+    Tags to attach to the draft order, for categorization and filtering.
+    """
+    tags: [String!]
+  ): CreateDraftOrderResult @action(name: "create_draft_order_for_customer")
+
+  """
+  Updates basic fields on an existing draft order: the contact email, note, phone,
+  purchase order number, and shipping address. Only the fields provided are changed;
+  omitted fields are left untouched. At least one updatable field must be provided.
+
+  This action does NOT change line items, discounts, tax settings, the customer, or
+  any other draft-order field. It targets direct-to-customer (D2C) draft orders identified by
+  `customerId`; updating B2B (company-owned) draft orders is out of scope — a company-owned draft
+  has no matching customer and so trips the `customer_mismatch` alert. (B2B drafts still appear in
+  the response's `purchasingEntity`; only updating them is unsupported.)
+
+  The update always applies. If the updated draft turns out not to belong to `customerId`,
+  the action still returns the updated draft and adds a non-fatal `alert` — it does not fail.
+  """
+  updateDraftOrder(
+    "The ID of the draft order to update (e.g. `gid://shopify/DraftOrder/123`)."
+    draftOrderId: ID!
+    """
+    The customer the draft order belongs to (e.g. `gid://shopify/Customer/123`).
+    Used to confirm the update is applied to the right customer's draft: if the updated draft
+    is not associated with this customer, the action still returns it but adds a non-fatal
+    `alert` with code `customer_mismatch`.
+    """
+    customerId: ID!
+    "The contact email used to send notifications for the draft order."
+    email: String
+    "An optional note attached to the draft order."
+    note: String
+    "The contact phone number for the draft order."
+    phone: String
+    "The purchase order number."
+    poNumber: String
+    "The shipping address for the draft order. Provided sub-fields replace the address."
+    shippingAddress: MailingAddressInput
+  ): UpdateDraftOrderResult @action(name: "update_draft_order")
+
+  """
+  Completes a draft order and converts it into a regular order. The order appears
+  in the merchant's orders list, and the customer can be notified about their order.
+  Completing a draft order reserves inventory for its line items, making them
+  unavailable to other customers, so verify availability before completing.
+  Returns a minimal summary of the created order plus a reference to the completed draft order.
+  """
+  completeDraftOrder(
+    "The ID of the draft order to complete."
+    draftOrderId: ID!
+
+    """
+    A channel definition handle used for sales channel attribution of the
+    resulting order. If not specified, the sourceName will be 'gladly'.
+    """
+    sourceName: String
+
+    """
+    Whether the resulting order should be created with payment pending. Defaults
+    to true: the order's financialStatus starts as PENDING and payment is
+    collected later (e.g. by invoice or payment terms). Pass false to mark the
+    order as paid on completion.
+    """
+    paymentPending: Boolean
+  ): CompleteDraftOrderResult @action(name: "complete_draft_order")
+
+  """
+  Creates a draft order from an existing order, copying its line items.
+  Useful for re-ordering or re-billing the same items. Each line item includes
+  stock availability so agents can spot out-of-stock items before completing.
+
+  IMPORTANT: the result is NOT necessarily an exact copy of the source order. Shopify does
+  not specify what gets duplicated — so treat the new draft as a starting point, not a faithful
+  duplicate. Some details may be dropped, for example discounts or payment terms.
+
+  Line item prices reflect the product's CURRENT catalogue price, NOT the price paid on the
+  source order. If a product's price has changed since the original order, the draft will use
+  the new price. This is especially important to flag when the original order was placed at a
+  promotional or historical price.
+
+  Because of this, review the returned draft against the intent —
+  especially anything that affects what the customer pays (discounts, payment terms,
+  shipping, totals) and the line items themselves — and confirm the values with a
+  team member.
+
+  When proposing this action for review, identify the source order by its
+  human-readable name (e.g. `#1059`) in addition to its `orderId` GID, so the
+  approving team member can confirm which order is being duplicated from the
+  proposed inputs alone.
+  """
+  createDraftOrderFromOrder(
+    """
+    The globally-unique ID of the order to duplicate (e.g. `gid://shopify/Order/123456789`).
+    """
+    orderId: ID!
+
+    """
+    The globally-unique ID of the customer the draft order is for (e.g.
+    `gid://shopify/Customer/123`). The draft inherits the source order's customer, so the
+    source order should belong to this customer. If the created draft is not associated with
+    this customer, the action still returns the draft and adds a non-fatal `customer_mismatch`
+    alert — it does not fail.
+    """
+    customerId: ID!
+  ): CreateDraftOrderFromOrderResult
+    @action(name: "create_draft_order_from_order")
+
+  """
+  Update writable order metadata (`tags`, `note`).
+
+  Note that this action does NOT cover line items, shipping address, payment,
+  customer data, or any other order field.
+  """
+  updateOrderMetadata(
+    """
+    The globally-unique ID of the order to update (e.g. `gid://shopify/Order/123456789`).
+    """
+    orderId: ID!
+
+    """
+    The complete desired tag set on the order. Shopify uses **set-replace** semantics:
+    whatever array you pass becomes the new tag set in its entirety, e.g to remove a tag,
+    pass the existing tags minus that one. Passing an empty array `[]` clears ALL tags on the order. Omitting
+    this field leaves the existing tags untouched.
+    """
+    tags: [String!]
+
+    """
+    The complete desired note on the order. Replaces the current note. Passing an
+    empty string `""` clears the note. Omitting this field (or passing `null`)
+    leaves the existing note untouched.
+    """
+    note: String
+  ): UpdateOrderMetadataResult @action(name: "update_order_metadata")
+
+  """
+  Send the customer an order invoice email for an unpaid order.
+  """
+  sendOrderInvoice(
+    """
+    The globally-unique ID of the order to send the invoice for (e.g. `gid://shopify/Order/123456789`).
+    """
+    orderId: ID!
+
+    """
+    The email address the invoice is sent to. When provided, this overrides the
+    order's default recipient. Omitting this field (or passing `null`/empty)
+    leaves Shopify to send the invoice to the order's default email address.
+    """
+    email: String
+  ): OrderInvoiceSendResult @action(name: "send_order_invoice")
+
+  """
+  Email the customer an invoice for an OPEN draft order — a hosted Shopify checkout link the
+  customer uses to pay themselves. Use this as the PAID alternative to `complete_draft_order`
+  (which finalizes with no payment): after building the draft with `create_draft_order_for_customer`
+  or `create_draft_order_from_order` (and optionally `update_draft_order`), send the invoice so the
+  customer pays at checkout. Moves the draft from OPEN to INVOICE_SENT; the order is created by
+  Shopify once the customer pays. Fails if the draft is already completed/paid, or if no recipient
+  is available (the draft has no email and no `email` override is provided).
+  """
+  sendDraftOrderInvoice(
+    """
+    The globally-unique ID of the draft order to invoice (e.g. `gid://shopify/DraftOrder/123456789`).
+    Must be an OPEN draft — completed/paid drafts are rejected.
+    """
+    draftOrderId: ID!
+
+    """
+    The email address the invoice is sent to. When provided, this overrides the recipient for THIS
+    send only (it does not change the email stored on the draft). Omit (or pass `null`/empty) to send
+    to the draft's own email or its attached customer's email (resolved live at send time). A
+    recipient is required: if the draft has no email and no customer with an email, this must be set.
+    """
+    email: String
+  ): DraftOrderInvoiceSendResult @action(name: "send_draft_order_invoice")
+
+  """
+  Creates an "amount off" discount that's applied on a cart and at checkout when a customer enters a code.
+  Currently the action supports only a fixed amount off (not a percentage).
+  The discount is:
+  - a fixed amount off
+  - applicable to one-time purchases only
+  - single-use
+  - scoped to one specific customer
+  - cannot be combined with other discounts
+
+  Using the `appliesTo` parameter you can narrow down what the discount can be redeemed against:
+  - one or more collections (`collectionIds`),
+  - specific products (`productIds`),
+  - specific product variants (`productVariantIds`).
+  By default the discount applies a fixed amount off the whole order.
+
+  Note: the created discount currently cannot be applied to an order via the Shopify admin UI.
+  """
+  createOneTimeCustomerDiscount(
+    """
+    The discount code customers enter at checkout (e.g. `GG-SHOES-ABCDE`).
+    Must be unique within the store.
+    """
+    code: String!
+
+    """
+    The merchant-facing name shown in the Shopify admin.
+    """
+    title: String!
+
+    """
+    The fixed amount taken off (e.g. `2.95`).
+    """
+    discountAmount: Currency!
+
+    """
+    The single customer eligible for the discount (e.g. `gid://shopify/Customer/123`).
+    """
+    customerId: ID!
+
+    """
+    When the discount becomes active, in ISO-8601 format. Omit to start the discount
+    immediately (defaults to the current time).
+    """
+    startsAt: DateTime
+
+    """
+    When the discount expires, in ISO-8601 format. Omit for a discount with no end date.
+    """
+    endsAt: DateTime
+
+    """
+    The items the discount applies to (a collection, specific products/variants, or the
+    whole order). Omit to apply the discount to the whole order (the default).
+    """
+    appliesTo: DiscountAppliesToInput
+  ): CreateDiscountCodeResult @action(name: "create_one_time_customer_discount")
+}

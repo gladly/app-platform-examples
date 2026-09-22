@@ -1,0 +1,400 @@
+{
+  "order": {
+    "additionalFees": [],
+    "billingAddress": null,
+    "cancelReason": null,
+    "cancelledAt": null,
+    "confirmationNumber": "HGU026Q03",
+    "createdAt": "2026-08-08T11:31:58Z",
+    "currentCartDiscountAmountSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentShippingPriceSet": {
+      "presentmentMoney": {
+        "amount": "12.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "12.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentSubtotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "60.4",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "60.4",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "presentmentMoney": {
+        "amount": "4.5",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "4.5",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDutiesSet": null,
+    "currentTotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "78.97",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "78.97",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "presentmentMoney": {
+        "amount": "6.57",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "6.57",
+        "currencyCode": "USD"
+      }
+    },
+    "deliveryMethodName": "Standard",
+    "displayFinancialStatus": "PARTIALLY_REFUNDED",
+    "displayFulfillmentStatus": "UNFULFILLED",
+    "email": "money-probe@example.com",
+    "fulfillmentOrders": [
+      {
+        "assignedLocation": "Shop location",
+        "deliveryMethod": {
+          "maxDeliveryDateTime": null,
+          "methodType": "SHIPPING",
+          "minDeliveryDateTime": null
+        },
+        "holds": [],
+        "id": "gid://shopify/FulfillmentOrder/8194703196473",
+        "lineItems": [
+          {
+            "lineItemId": "gid://shopify/LineItem/17628267741497",
+            "remainingQuantity": 1
+          },
+          {
+            "lineItemId": "gid://shopify/LineItem/17628267774265",
+            "remainingQuantity": 2
+          }
+        ],
+        "status": "OPEN"
+      }
+    ],
+    "fulfillments": [],
+    "hasMoreFulfillmentOrders": false,
+    "hasMoreLineItems": false,
+    "hasMoreReturns": false,
+    "id": "gid://shopify/Order/7576393843001",
+    "lineItems": [
+      {
+        "currentQuantity": 1,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628267741497",
+        "name": "Smith Squad Goggles - Blue",
+        "price": {
+          "amount": "45.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "collections": [
+            {
+              "id": "gid://shopify/Collection/527381561657",
+              "title": "The Under $50 Stash"
+            }
+          ],
+          "hasMoreCollections": false,
+          "id": "gid://shopify/Product/10089017737529",
+          "productType": "",
+          "title": "Smith Squad Goggles",
+          "vendor": "partner-ela"
+        },
+        "quantity": 2,
+        "sku": null,
+        "title": "Smith Squad Goggles",
+        "totalDiscount": "9.0",
+        "unfulfilledQuantity": 2,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/51736134549817",
+          "selectedOptions": [
+            {
+              "name": "Eyewear frame color",
+              "value": "Blue"
+            }
+          ],
+          "title": "Blue"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "currentQuantity": 2,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628267774265",
+        "name": "Selling Plans Ski Wax - Sample Selling Plans Ski Wax",
+        "price": {
+          "amount": "9.95",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "collections": [
+            {
+              "id": "gid://shopify/Collection/527381561657",
+              "title": "The Under $50 Stash"
+            }
+          ],
+          "hasMoreCollections": false,
+          "id": "gid://shopify/Product/9825989755193",
+          "productType": "accessories",
+          "title": "Selling Plans Ski Wax",
+          "vendor": "partner-ela"
+        },
+        "quantity": 2,
+        "sku": null,
+        "title": "Selling Plans Ski Wax",
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 2,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/50591798395193",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Sample Selling Plans Ski Wax"
+            }
+          ],
+          "title": "Sample Selling Plans Ski Wax"
+        },
+        "vendor": "partner-ela"
+      }
+    ],
+    "name": "#1085",
+    "note": "M8 base order",
+    "originalTotalDutiesSet": null,
+    "originalTotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "123.06",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "123.06",
+        "currencyCode": "USD"
+      }
+    },
+    "processedAt": "2026-08-08T11:31:57Z",
+    "purchasingEntity": {
+      "customer": {
+        "defaultAddressFormatted": [
+          "500 5th Ave",
+          "New York NY 10110",
+          "United States"
+        ],
+        "displayName": "Money Probe",
+        "email": "money-probe@example.com",
+        "id": "gid://shopify/Customer/10750260085049"
+      }
+    },
+    "refundDiscrepancySet": {
+      "presentmentMoney": {
+        "amount": "-15.91",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "-15.91",
+        "currencyCode": "USD"
+      }
+    },
+    "refunds": [
+      {
+        "createdAt": "2026-08-08T11:33:12Z",
+        "id": "gid://shopify/Refund/1053876617529",
+        "lineItems": [
+          {
+            "lineItemId": "gid://shopify/LineItem/17628267741497",
+            "quantity": 1,
+            "restockType": "NO_RESTOCK",
+            "subtotalSet": {
+              "presentmentMoney": {
+                "amount": "40.5",
+                "currencyCode": "USD"
+              },
+              "shopMoney": {
+                "amount": "40.5",
+                "currencyCode": "USD"
+              }
+            },
+            "totalTaxSet": {
+              "presentmentMoney": {
+                "amount": "3.59",
+                "currencyCode": "USD"
+              },
+              "shopMoney": {
+                "amount": "3.59",
+                "currencyCode": "USD"
+              }
+            }
+          }
+        ],
+        "note": "M8 over-refund: suggested 44.09, actually refunding 60.00 as goodwill",
+        "totalRefundedSet": {
+          "presentmentMoney": {
+            "amount": "60.0",
+            "currencyCode": "USD"
+          },
+          "shopMoney": {
+            "amount": "60.0",
+            "currencyCode": "USD"
+          }
+        },
+        "transactions": [
+          {
+            "accountNumber": "",
+            "amountSet": {
+              "presentmentMoney": {
+                "amount": "60.0",
+                "currencyCode": "USD"
+              },
+              "shopMoney": {
+                "amount": "60.0",
+                "currencyCode": "USD"
+              }
+            },
+            "formattedGateway": "Manual",
+            "gateway": "manual",
+            "id": "gid://shopify/OrderTransaction/8835518202169",
+            "kind": "REFUND",
+            "status": "SUCCESS"
+          }
+        ]
+      }
+    ],
+    "returns": [],
+    "shippingAddress": {
+      "address1": "500 5th Ave",
+      "address2": null,
+      "city": "New York",
+      "company": null,
+      "country": "United States",
+      "countryCodeV2": "US",
+      "firstName": "Money",
+      "formatted": [
+        "500 5th Ave",
+        "New York NY 10110",
+        "United States"
+      ],
+      "lastName": "Probe",
+      "name": "Money Probe",
+      "phone": null,
+      "province": "New York",
+      "provinceCode": "NY",
+      "zip": "10110"
+    },
+    "sourceAppName": "Shopify CLI Connector App",
+    "subtotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "100.9",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "100.9",
+        "currencyCode": "USD"
+      }
+    },
+    "tags": [
+      "M8",
+      "money-field-probe"
+    ],
+    "totalCapturableSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalOutstanding": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalPriceSet": {
+      "presentmentMoney": {
+        "amount": "123.06",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "123.06",
+        "currencyCode": "USD"
+      }
+    },
+    "totalReceived": {
+      "presentmentMoney": {
+        "amount": "123.06",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "123.06",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefunded": {
+      "presentmentMoney": {
+        "amount": "60.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "60.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefundedShippingSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalShippingPriceSet": {
+      "presentmentMoney": {
+        "amount": "12.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "12.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalTaxSet": {
+      "presentmentMoney": {
+        "amount": "10.16",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "10.16",
+        "currencyCode": "USD"
+      }
+    }
+  },
+  "errors": []
+}

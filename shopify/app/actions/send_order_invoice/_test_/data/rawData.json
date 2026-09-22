@@ -1,0 +1,10 @@
+{
+  "data": {
+    "orderInvoiceSend": {
+      "order": {
+        "id": "gid://shopify/Order/4459950243991"
+      },
+      "userErrors": []
+    }
+  }
+}

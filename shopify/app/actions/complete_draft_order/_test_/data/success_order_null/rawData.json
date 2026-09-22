@@ -1,0 +1,13 @@
+{
+  "data": {
+    "draftOrderComplete": {
+      "draftOrder": {
+        "id": "gid://shopify/DraftOrder/123456789",
+        "name": "#D73",
+        "status": "COMPLETED",
+        "order": null
+      },
+      "userErrors": []
+    }
+  }
+}

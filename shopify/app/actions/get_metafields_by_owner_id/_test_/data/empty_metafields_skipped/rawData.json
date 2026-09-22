@@ -1,0 +1,31 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "__typename": "Product",
+        "id": "gid://shopify/Product/7451895464087",
+        "metafields": {
+          "nodes": []
+        }
+      },
+      {
+        "__typename": "Order",
+        "id": "gid://shopify/Order/5111111111111",
+        "metafields": {
+          "nodes": []
+        }
+      }
+    ]
+  },
+  "extensions": {
+    "cost": {
+      "requestedQueryCost": 12,
+      "actualQueryCost": 2,
+      "throttleStatus": {
+        "maximumAvailable": 2000.0,
+        "currentlyAvailable": 1998,
+        "restoreRate": 100.0
+      }
+    }
+  }
+}

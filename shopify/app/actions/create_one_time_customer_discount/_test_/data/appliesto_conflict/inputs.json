@@ -1,0 +1,12 @@
+{
+  "code": "GG-CONFLICT-UVWXY",
+  "title": "Conflicting target discount",
+  "discountAmount": 2.95,
+  "customerId": "gid://shopify/Customer/123456",
+  "startsAt": "2026-06-01T00:00:00Z",
+  "endsAt": "2026-09-01T00:00:00Z",
+  "appliesTo": {
+    "all": true,
+    "collectionIds": ["gid://shopify/Collection/111"]
+  }
+}

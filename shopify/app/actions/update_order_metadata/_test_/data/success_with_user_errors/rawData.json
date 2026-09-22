@@ -1,0 +1,13 @@
+{
+  "data": {
+    "orderUpdate": {
+      "order": null,
+      "userErrors": [
+        {
+          "field": ["input", "tags"],
+          "message": "Tag value is invalid"
+        }
+      ]
+    }
+  }
+}

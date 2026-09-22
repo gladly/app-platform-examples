@@ -1,0 +1,9 @@
+{
+  "order": null,
+  "userErrors": [
+    {
+      "message": "Cannot send invoice for this order",
+      "field": "id"
+    }
+  ]
+}

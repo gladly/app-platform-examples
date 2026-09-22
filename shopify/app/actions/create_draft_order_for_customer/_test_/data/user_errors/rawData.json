@@ -1,0 +1,18 @@
+{
+  "data": {
+    "draftOrderCreate": {
+      "draftOrder": null,
+      "userErrors": [
+        {
+          "field": [
+            "input",
+            "lineItems",
+            "0",
+            "variantId"
+          ],
+          "message": "Variant not found"
+        }
+      ]
+    }
+  }
+}

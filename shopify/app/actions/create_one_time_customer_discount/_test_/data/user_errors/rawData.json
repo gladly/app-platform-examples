@@ -1,0 +1,14 @@
+{
+  "data": {
+    "discountCodeBasicCreate": {
+      "codeDiscountNode": null,
+      "userErrors": [
+        {
+          "field": ["basicCodeDiscount", "code"],
+          "code": "TAKEN",
+          "message": "Code must be unique. Please try a different code."
+        }
+      ]
+    }
+  }
+}

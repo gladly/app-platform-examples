@@ -1,9 +1,0 @@
-{
-  "dataType": {
-    "name": "shopify_order",
-    "version": "3.0"
-  },
-  "dependsOnDataTypes": ["shopify_customer"],
-  "httpMethod": "POST",
-  "contentType": "application/json"
-}

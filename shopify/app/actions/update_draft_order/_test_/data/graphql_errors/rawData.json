@@ -1,0 +1,14 @@
+{
+  "errors": [
+    {
+      "message": "Access denied for draftOrderUpdate field. Required access: `write_draft_orders` access scope.",
+      "locations": [{ "line": 2, "column": 3 }],
+      "path": ["draftOrderUpdate"],
+      "extensions": {
+        "code": "ACCESS_DENIED",
+        "documentation": "https://shopify.dev/api/usage/access-scopes"
+      }
+    }
+  ],
+  "data": null
+}

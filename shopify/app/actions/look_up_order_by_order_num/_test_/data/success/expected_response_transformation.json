@@ -1,0 +1,94 @@
+{
+  "order": {
+    "cancelReason": null,
+    "confirmationNumber": "5YRDTMTRG",
+    "createdAt": "2026-06-11T18:17:21Z",
+    "currentSubtotalPriceSet": {
+      "shopMoney": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalPriceSet": {
+      "shopMoney": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "customer": {
+      "displayName": "siwy",
+      "id": "gid://shopify/Customer/9010685411641"
+    },
+    "email": "ela@gladly.com",
+    "financialStatus": "PARTIALLY_REFUNDED",
+    "fulfillmentStatus": "UNFULFILLED",
+    "id": "gid://shopify/Order/7467224990009",
+    "lineItems": [
+      {
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17414544294201",
+        "name": "Smith Squad Goggles - Gray",
+        "price": {
+          "amount": "45.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/10089017737529",
+          "title": "Smith Squad Goggles"
+        },
+        "quantity": 1,
+        "sku": "1231111",
+        "totalDiscount": "0.0",
+        "variant": {
+          "id": "gid://shopify/ProductVariant/51737009357113",
+          "title": "Gray"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17414544326969",
+        "name": "Heavy stuff",
+        "price": {
+          "amount": "22.0",
+          "currencyCode": "USD"
+        },
+        "product": null,
+        "quantity": 3,
+        "sku": null,
+        "totalDiscount": "0.0",
+        "variant": null,
+        "vendor": ""
+      }
+    ],
+    "name": "#1059",
+    "note": null,
+    "orderNumber": "#1059",
+    "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/beb4291dbe9c5933f88cd617899fc4c9/authenticate?key=4704ad86226da12e473eaacc0cfa2e6c",
+    "shippingAddress": {
+      "address1": "123 main street",
+      "address2": null,
+      "city": "New York",
+      "country": "United States",
+      "countryCodeV2": "US",
+      "province": "Illinois",
+      "provinceCode": "IL",
+      "zip": null
+    },
+    "shippingLines": [],
+    "tags": [],
+    "updatedAt": "2026-06-26T19:18:45Z"
+  }
+}

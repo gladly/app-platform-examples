@@ -1,0 +1,82 @@
+{
+  "data": {
+    "customers": {
+      "nodes": [
+        {
+          "id": "gid://shopify/Customer/5999224094871",
+          "firstName": "Carina",
+          "lastName": "Test-Gladly",
+          "email": "primary@email.com",
+          "emailMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          },
+          "smsMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          },
+          "tags": ["big spender", "loyal", "superstar"],
+          "lifetimeDuration": "over 2 years",
+          "note": "",
+          "phone": "+1234567890",
+          "numberOfOrders": "6",
+          "amountSpent": {
+            "amount": "488.64",
+            "currencyCode": "USD"
+          },
+          "createdAt": "2022-02-24T20:42:01Z",
+          "updatedAt": "2022-06-10T21:10:02Z",
+          "defaultAddress": {
+            "address1": "xxx Some Address",
+            "address2": "",
+            "city": "Chandler",
+            "province": "Arizona",
+            "provinceCode": "AZ",
+            "zip": "85248",
+            "country": "United States",
+            "countryCodeV2": "US"
+          }
+        },
+        {
+          "id": "gid://shopify/Customer/5999224094872",
+          "firstName": "Carina",
+          "lastName": "Test-Gladly",
+          "email": "primary@email.com",
+          "emailMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          },
+          "smsMarketingConsent": {
+            "marketingState": "SUBSCRIBED",
+            "marketingOptInLevel": "SINGLE_OPT_IN",
+            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+          },
+          "tags": ["big spender", "loyal", "superstar"],
+          "lifetimeDuration": "over 2 years",
+          "note": "",
+          "phone": "+1234567890",
+          "numberOfOrders": "6",
+          "amountSpent": {
+            "amount": "488.64",
+            "currencyCode": "USD"
+          },
+          "createdAt": "2022-02-24T20:42:01Z",
+          "updatedAt": "2022-06-10T21:10:02Z",
+          "defaultAddress": {
+            "address1": "xxx Some Address",
+            "address2": "",
+            "city": "Chandler",
+            "province": "Arizona",
+            "provinceCode": "AZ",
+            "zip": "85248",
+            "country": "United States",
+            "countryCodeV2": "US"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,618 @@
+{
+  "errors": [],
+  "orders": [
+    {
+      "id": "gid://shopify/Order/7496969355577",
+      "customer": {
+        "id": "gid://shopify/Customer/9010685411641",
+        "displayName": "siwy"
+      },
+      "confirmationNumber": "F4E5QWQL5",
+      "createdAt": "2026-06-26T22:49:51Z",
+      "email": "ela@gladly.com",
+      "name": "#1073",
+      "note": "Seed multi-line paid order for partial-refund re-verify (run 2026-06-26-v57-fixes)",
+      "tags": [
+        "team-assist-test",
+        "v57-refund-seed"
+      ],
+      "updatedAt": "2026-06-26T22:50:16Z",
+      "cancelReason": null,
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "345.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "345.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": {
+        "address1": "123 main street",
+        "address2": null,
+        "city": "New York",
+        "province": "Illinois",
+        "provinceCode": "IL",
+        "zip": null,
+        "country": "United States",
+        "countryCodeV2": "US"
+      },
+      "shippingLines": [],
+      "lineItems": [
+        {
+          "id": "gid://shopify/LineItem/17472300745017",
+          "name": "Smith Squad Goggles - Blue",
+          "sku": null,
+          "vendor": "partner-ela",
+          "quantity": 2,
+          "variant": {
+            "id": "gid://shopify/ProductVariant/51736134549817",
+            "title": "Blue"
+          },
+          "product": {
+            "id": "gid://shopify/Product/10089017737529",
+            "title": "Smith Squad Goggles"
+          },
+          "price": {
+            "amount": "45.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        },
+        {
+          "id": "gid://shopify/LineItem/17472300777785",
+          "name": "Barbie's Revenge Helmet - XS / Babies / Gold",
+          "sku": "1233",
+          "vendor": "partner-ela",
+          "quantity": 1,
+          "variant": {
+            "id": "gid://shopify/ProductVariant/51964493463865",
+            "title": "XS / Babies / Gold"
+          },
+          "product": {
+            "id": "gid://shopify/Product/10105404391737",
+            "title": "Barbie's Revenge Helmet"
+          },
+          "price": {
+            "amount": "300.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        }
+      ],
+      "orderNumber": "#1073",
+      "fulfillmentStatus": "UNFULFILLED",
+      "financialStatus": "PARTIALLY_REFUNDED",
+      "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/95d435fdee1844de463f79d0e504d542/authenticate?key=7de9245ef7cab4ccf4a5c69c85e3cc62"
+    },
+    {
+      "id": "gid://shopify/Order/7496959426873",
+      "customer": {
+        "id": "gid://shopify/Customer/9010685411641",
+        "displayName": "siwy"
+      },
+      "confirmationNumber": "NXN8D985M",
+      "createdAt": "2026-06-26T22:41:57Z",
+      "email": "ela@gladly.com",
+      "name": "#1072",
+      "note": "Invoice-path test (run 2026-06-26-v57-fixes) — verify fixed sendDraftOrderInvoice",
+      "tags": [
+        "team-assist-test",
+        "v57-invoice"
+      ],
+      "updatedAt": "2026-06-26T22:47:04Z",
+      "cancelReason": null,
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": {
+        "address1": "123 main street",
+        "address2": null,
+        "city": "New York",
+        "province": "Illinois",
+        "provinceCode": "IL",
+        "zip": null,
+        "country": "United States",
+        "countryCodeV2": "US"
+      },
+      "shippingLines": [],
+      "lineItems": [
+        {
+          "id": "gid://shopify/LineItem/17472280559929",
+          "name": "Barbie's Revenge Helmet - XS / Babies / Gold",
+          "sku": "1233",
+          "vendor": "partner-ela",
+          "quantity": 1,
+          "variant": {
+            "id": "gid://shopify/ProductVariant/51964493463865",
+            "title": "XS / Babies / Gold"
+          },
+          "product": {
+            "id": "gid://shopify/Product/10105404391737",
+            "title": "Barbie's Revenge Helmet"
+          },
+          "price": {
+            "amount": "300.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        }
+      ],
+      "orderNumber": "#1072",
+      "fulfillmentStatus": "UNFULFILLED",
+      "financialStatus": "REFUNDED",
+      "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/9ea2d9e2f96c4b0ef3bb29386e185110/authenticate?key=7854a30109e0af32c3d1b9acb5abdcc3"
+    },
+    {
+      "id": "gid://shopify/Order/7496672772409",
+      "customer": {
+        "id": "gid://shopify/Customer/9010685411641",
+        "displayName": "siwy"
+      },
+      "confirmationNumber": "KPAA33WL5",
+      "createdAt": "2026-06-26T19:22:22Z",
+      "email": "ela@gladly.com",
+      "name": "#1068",
+      "note": "$0 replacement for damaged order #1059 (Team Assist test)",
+      "tags": [
+        "gladly-replacement-test"
+      ],
+      "updatedAt": "2026-06-26T19:22:24Z",
+      "cancelReason": null,
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "111.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": {
+        "address1": "123 main street",
+        "address2": null,
+        "city": "New York",
+        "province": "Illinois",
+        "provinceCode": "IL",
+        "zip": null,
+        "country": "United States",
+        "countryCodeV2": "US"
+      },
+      "shippingLines": [],
+      "lineItems": [
+        {
+          "id": "gid://shopify/LineItem/17471697060153",
+          "name": "Smith Squad Goggles - Gray",
+          "sku": "1231111",
+          "vendor": "partner-ela",
+          "quantity": 1,
+          "variant": {
+            "id": "gid://shopify/ProductVariant/51737009357113",
+            "title": "Gray"
+          },
+          "product": {
+            "id": "gid://shopify/Product/10089017737529",
+            "title": "Smith Squad Goggles"
+          },
+          "price": {
+            "amount": "45.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "45.0",
+          "giftCard": false
+        },
+        {
+          "id": "gid://shopify/LineItem/17471697092921",
+          "name": "Heavy stuff",
+          "sku": null,
+          "vendor": "",
+          "quantity": 3,
+          "variant": null,
+          "product": null,
+          "price": {
+            "amount": "22.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "66.0",
+          "giftCard": false
+        }
+      ],
+      "orderNumber": "#1068",
+      "fulfillmentStatus": "UNFULFILLED",
+      "financialStatus": "PAID",
+      "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/addeab54b91386bb4c42f143de9b08d1/authenticate?key=09fc072054fa154215f80452c6356ebe"
+    },
+    {
+      "id": "gid://shopify/Order/7482624049465",
+      "customer": {
+        "id": "gid://shopify/Customer/9010685411641",
+        "displayName": "siwy"
+      },
+      "confirmationNumber": "7XXUJ9PA5",
+      "createdAt": "2026-06-18T22:49:25Z",
+      "email": "ela@gladly.com",
+      "name": "#1064",
+      "note": "Gladly investigation note 2026-06-19 events test",
+      "tags": [],
+      "updatedAt": "2026-06-19T09:34:43Z",
+      "cancelReason": null,
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "10.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "10.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": null,
+      "shippingLines": [],
+      "lineItems": [
+        {
+          "id": "gid://shopify/LineItem/17443826204985",
+          "name": "Probe complete",
+          "sku": null,
+          "vendor": "",
+          "quantity": 1,
+          "variant": null,
+          "product": null,
+          "price": {
+            "amount": "10.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        }
+      ],
+      "orderNumber": "#1064",
+      "fulfillmentStatus": "UNFULFILLED",
+      "financialStatus": "PAID",
+      "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/8612d83029b8ae81464a8bc149f10f64/authenticate?key=29330df8550aa3d1acd98da098569926"
+    },
+    {
+      "id": "gid://shopify/Order/7467675156793",
+      "customer": {
+        "id": "gid://shopify/Customer/9010685411641",
+        "displayName": "siwy"
+      },
+      "confirmationNumber": "XGH3VZPFN",
+      "createdAt": "2026-06-11T23:13:37Z",
+      "email": "ela@gladly.com",
+      "name": "#1061",
+      "note": null,
+      "tags": [],
+      "updatedAt": "2026-06-19T10:45:07Z",
+      "cancelReason": null,
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "67.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "67.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": {
+        "address1": "123 main street",
+        "address2": null,
+        "city": "New York",
+        "province": "Illinois",
+        "provinceCode": "IL",
+        "zip": null,
+        "country": "United States",
+        "countryCodeV2": "US"
+      },
+      "shippingLines": [],
+      "lineItems": [
+        {
+          "id": "gid://shopify/LineItem/17415387775289",
+          "name": "Smith Squad Goggles - Gray",
+          "sku": "1231111",
+          "vendor": "partner-ela",
+          "quantity": 1,
+          "variant": {
+            "id": "gid://shopify/ProductVariant/51737009357113",
+            "title": "Gray"
+          },
+          "product": {
+            "id": "gid://shopify/Product/10089017737529",
+            "title": "Smith Squad Goggles"
+          },
+          "price": {
+            "amount": "45.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        },
+        {
+          "id": "gid://shopify/LineItem/17415387808057",
+          "name": "Heavy stuff",
+          "sku": null,
+          "vendor": "",
+          "quantity": 3,
+          "variant": null,
+          "product": null,
+          "price": {
+            "amount": "22.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        }
+      ],
+      "orderNumber": "#1061",
+      "fulfillmentStatus": "UNFULFILLED",
+      "financialStatus": "PENDING",
+      "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/ec36042059fbfaf8046e4e8e342d5f33/authenticate?key=af2555d54f604afd1724e53345d88edf"
+    },
+    {
+      "id": "gid://shopify/Order/7467459379513",
+      "customer": {
+        "id": "gid://shopify/Customer/9010685411641",
+        "displayName": "siwy"
+      },
+      "confirmationNumber": "1FUAEAK75",
+      "createdAt": "2026-06-11T20:18:48Z",
+      "email": "ela@gladly.com",
+      "name": "#1060",
+      "note": null,
+      "tags": [],
+      "updatedAt": "2026-06-25T21:07:35Z",
+      "cancelReason": null,
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": {
+        "address1": "123 main street",
+        "address2": null,
+        "city": "New York",
+        "province": "Illinois",
+        "provinceCode": "IL",
+        "zip": null,
+        "country": "United States",
+        "countryCodeV2": "US"
+      },
+      "shippingLines": [],
+      "lineItems": [
+        {
+          "id": "gid://shopify/LineItem/17414957957433",
+          "name": "Smith Squad Goggles - Gray",
+          "sku": "1231111",
+          "vendor": "partner-ela",
+          "quantity": 1,
+          "variant": {
+            "id": "gid://shopify/ProductVariant/51737009357113",
+            "title": "Gray"
+          },
+          "product": {
+            "id": "gid://shopify/Product/10089017737529",
+            "title": "Smith Squad Goggles"
+          },
+          "price": {
+            "amount": "45.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        },
+        {
+          "id": "gid://shopify/LineItem/17414957990201",
+          "name": "Heavy stuff",
+          "sku": null,
+          "vendor": "",
+          "quantity": 3,
+          "variant": null,
+          "product": null,
+          "price": {
+            "amount": "22.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        }
+      ],
+      "orderNumber": "#1060",
+      "fulfillmentStatus": "UNFULFILLED",
+      "financialStatus": "PARTIALLY_REFUNDED",
+      "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/07b636f8ce117378129e324cbfa2d9b0/authenticate?key=8b3eda0933f35663ee515c76fe2ebcaf"
+    },
+    {
+      "id": "gid://shopify/Order/7467224990009",
+      "customer": {
+        "id": "gid://shopify/Customer/9010685411641",
+        "displayName": "siwy"
+      },
+      "confirmationNumber": "5YRDTMTRG",
+      "createdAt": "2026-06-11T18:17:21Z",
+      "email": "ela@gladly.com",
+      "name": "#1059",
+      "note": null,
+      "tags": [],
+      "updatedAt": "2026-06-26T19:18:45Z",
+      "cancelReason": null,
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "44.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "44.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": {
+        "address1": "123 main street",
+        "address2": null,
+        "city": "New York",
+        "province": "Illinois",
+        "provinceCode": "IL",
+        "zip": null,
+        "country": "United States",
+        "countryCodeV2": "US"
+      },
+      "shippingLines": [],
+      "lineItems": [
+        {
+          "id": "gid://shopify/LineItem/17414544294201",
+          "name": "Smith Squad Goggles - Gray",
+          "sku": "1231111",
+          "vendor": "partner-ela",
+          "quantity": 1,
+          "variant": {
+            "id": "gid://shopify/ProductVariant/51737009357113",
+            "title": "Gray"
+          },
+          "product": {
+            "id": "gid://shopify/Product/10089017737529",
+            "title": "Smith Squad Goggles"
+          },
+          "price": {
+            "amount": "45.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        },
+        {
+          "id": "gid://shopify/LineItem/17414544326969",
+          "name": "Heavy stuff",
+          "sku": null,
+          "vendor": "",
+          "quantity": 3,
+          "variant": null,
+          "product": null,
+          "price": {
+            "amount": "22.0",
+            "currencyCode": "USD"
+          },
+          "totalDiscount": "0.0",
+          "giftCard": false
+        }
+      ],
+      "orderNumber": "#1059",
+      "fulfillmentStatus": "UNFULFILLED",
+      "financialStatus": "PARTIALLY_REFUNDED",
+      "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/beb4291dbe9c5933f88cd617899fc4c9/authenticate?key=4704ad86226da12e473eaacc0cfa2e6c"
+    }
+  ]
+}

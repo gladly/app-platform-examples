@@ -1,0 +1,143 @@
+[
+  {
+    "app": {
+      "name": "Online Store"
+    },
+    "cancelReason": null,
+    "confirmationNumber": "YDM5N3UYE",
+    "createdAt": "2025-07-16T18:21:13Z",
+    "currentShippingPriceSet": {
+      "shopMoney": {
+        "amount": "30.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentSubtotalPriceSet": {
+      "shopMoney": {
+        "amount": "10.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDutiesSet": null,
+    "currentTotalPriceSet": {
+      "shopMoney": {
+        "amount": "40.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "customer": {
+      "id": "gid://shopify/Customer/9010685411641",
+      "displayName": "Test Customer"
+    },
+    "customerId": "gid://shopify/Customer/9010685411641",
+    "email": "customer@example.com",
+    "financialStatus": "PAID",
+    "fulfillmentStatus": "UNFULFILLED",
+    "hasMoreMetafields": false,
+    "id": "gid://shopify/Order/6569912664377",
+    "lineItems": [
+      {
+        "currentQuantity": 1,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/16139946819897",
+        "name": "Ruby Membership",
+        "price": {
+          "amount": "10.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/9926892618041",
+          "title": "Ruby Membership"
+        },
+        "quantity": 1,
+        "sellingPlan": {
+          "name": "Deliver every month, $10.00",
+          "sellingPlanId": null
+        },
+        "sku": null,
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 1,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/50996342096185",
+          "title": "Default Title"
+        },
+        "vendor": "partner-ela"
+      }
+    ],
+    "name": "#1010",
+    "note": null,
+    "orderNumber": "#1010",
+    "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+    "refundable": true,
+    "returnStatus": "NO_RETURN",
+    "shippingAddress": {
+      "firstName": null,
+      "lastName": "Customer",
+      "company": null,
+      "address1": "123 Example Street",
+      "address2": null,
+      "city": "London",
+      "province": "England",
+      "provinceCode": "ENG",
+      "zip": null,
+      "country": "United Kingdom",
+      "countryCodeV2": "GB",
+      "phone": null,
+      "formatted": [
+        "Customer",
+        "123 Example Street",
+        "London",
+        "United Kingdom"
+      ],
+      "validationResultSummary": "WARNING",
+      "coordinatesValidated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    "shippingLines": [
+      {
+        "title": "International Shipping"
+      },
+      {
+        "title": "International Shipping"
+      }
+    ],
+    "sourceName": "web",
+    "tags": [
+      "Subscription",
+      "Subscription First Order"
+    ],
+    "taxesIncluded": false,
+    "totalOutstandingSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalReceivedSet": {
+      "shopMoney": {
+        "amount": "40.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefundedSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "updatedAt": "2025-07-16T18:21:16Z"
+  }
+]

@@ -1,0 +1,1 @@
+https://partner-ela.myshopify.com/admin/api/2026-07/graphql.json

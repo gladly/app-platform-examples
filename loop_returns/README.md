@@ -13,8 +13,8 @@ The Loop Returns app for Gladly automates the handling of return and exchange re
 
 ## Example Use Cases
 
-- A customer contacts support asking for the status of their return. Sidekick pulls their most recent return, provides current data on when the return was processed, and tells the customer that they have been credited.
-- A customer wishes to initiate a return. Sidekick asks onboarding details to identify the customer, clarifies the order the customer wishes to return, and provides a personalized link to the Loop Returns portal for the customer's order.
+- A customer contacts support asking for the status of their return. Gladly AI pulls their most recent return, provides current data on when the return was processed, and tells the customer that they have been credited.
+- A customer wishes to initiate a return. Gladly AI asks onboarding details to identify the customer, clarifies the order the customer wishes to return, and provides a personalized link to the Loop Returns portal for the customer's order.
 - An agent needs to add a customer's email address to the allowlist to enable them to create returns outside of the standard eligibility through the Loop Returns portal.
 
 ## Available Actions

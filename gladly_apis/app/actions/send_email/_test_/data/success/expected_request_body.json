@@ -1,0 +1,14 @@
+{
+    "to": [
+        {
+            "email": "jane.doe@example.com",
+            "name": "Jane Doe"
+        }
+    ],
+    "from": "no-reply@gladly.com",
+    "subject": "This is a sample email message!",
+    "body": {
+        "html": "<div><p>This is a sample email message!</p><p>Best regards,<br>The Support Team</p></div>",
+        "text": "This is a sample email message!\n\nBest regards,\nThe Support Team"
+    }
+}

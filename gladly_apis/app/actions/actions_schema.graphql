@@ -1,0 +1,291 @@
+enum ConversationStatus {
+    OPEN
+    WAITING
+    CLOSED
+}
+
+enum ActivityType {
+    EMAIL
+    ISSUE
+    SMS
+    SURVEY
+}
+
+enum PhoneType {
+    HOME
+    MOBILE
+    OFFICE
+}
+
+enum SmsPreference {
+    ON
+    OFF
+    FORBIDDEN
+}
+
+type Agent {
+    id: ID!
+    "First and last name of the agent."
+    name: String!
+    "Agent's login email address."
+    emailAddress: String!
+}
+
+type Error {
+    attr: String
+    code: String
+    detail: String
+}
+
+type Inbox {
+    id: ID!
+    name: String!
+    disabled: Boolean!
+}
+
+type SimpleResult {
+    "Indicates whether the operation was successful or not."
+    success: Boolean!
+    "If the operation was not successful, this will contain details about the error."
+    errors: [Error]
+}
+
+type SendSmsResult {
+    customerId: String
+    conversationItemId: String
+    errors: [Error]
+}
+
+type SendEmailResult {
+    customerId: String
+    conversationItemId: String
+    errors: [Error]
+}
+
+type CustomerActivityItemResult {
+    id: String
+    customerId: String
+    timestamp: String
+    errors: [Error]
+}
+
+type Topic {
+    "Id of the Topic."
+    id: ID!
+    "if the Topic cannot be applied to Conversations, and is no longer in use."
+    disabled: Boolean!
+    "Name of the Topic."
+    name: String!
+    "If the Topic is nested under another topic, parentId is the Id of the parent topic."
+    parentId: String
+}
+
+input CustomerEmailInput {
+    "Email address as entered."
+    original: String!
+    normalized: String
+    "Marks the customer's preferred email. At most one per customer. Default is false."
+    primary: Boolean
+}
+
+input CustomerPhoneInput {
+    "Phone number as entered."
+    original: String!
+    "Phone number extension, if applicable."
+    extension: String
+    "ISO 3166 country code. If set, the original is interpreted as a national number in this country. If NOT set, the original must contain an E.164 number or it will be interpreted as a US number."
+    regionCode: String
+    "Normalized E.164 value for the phone number."
+    normalized: String
+    "Marks the customer's preferred phone number. At most one per customer. Default is false."
+    primary: Boolean
+    "Enables sending SMS to a customer when type is MOBILE. If set to FORBIDDEN, SMS will not be sent to this number."
+    smsPreference: SmsPreference
+    "Non-presence indicates OTHER type"
+    type: PhoneType
+}
+
+input LinkInput {
+    "URL for a clickable link."
+    url: String!
+    "Text label for the link."
+    text: String!
+}
+
+type Query {
+    "Returns a list of agents."
+    agents: [Agent] @action(name: "agents")
+
+    """
+    Returns a list of inbox metadata.
+
+    An Inbox receives customer communications in Gladly. The communications route to the inbox according to channel 
+    and destination endpoint configuration. For example, all calls to a specific phone number or emails to a specific 
+    address may go to an inbox.
+    """
+    inboxes(
+        "Determines whether to return only enabled inboxes or all inboxes."
+        enabledOnly: Boolean
+    ): [Inbox] @action(name: "inboxes")
+
+    """
+    Returns a list of Topics.
+
+    A Topic is a way of labeling a conversation in Gladly for specific business purposes. For example, an agent may 
+    apply the topic "Return" to a conversation where a customer returns merchandise. Topics are used for reporting 
+    and to control various workflows.
+
+    Topics can be configured to have a nested hierarchy. For instance, the topic "Return" could be a parent of "Size" 
+    and "Color" child topics. 
+    """
+    topics(
+        "Determines whether to return only enabled topics or all topics."
+        enabledOnly: Boolean
+    ): [Topic] @action(name: "topics")
+}
+
+type Mutation {
+    "Adds a list of topics to the conversation. If a topic being added already exists on the conversation, that topic is ignored."
+    addTopicsToConversation(conversationId: String!, topicIds: [String!]!): SimpleResult! @action(name: "add_topics_to_conversation")
+
+    "Add items to a customer's timeline where the customer has the specified email address."
+    createCustomerActivityItemForEmailAddress(
+        "Customer's email address.",
+        emailAddress: String!, 
+        "Type of this activity. This will determine the icon displayed in the customer timeline."
+        activityType: ActivityType!, 
+        "First line of highlighted text for the item in the customer timeline."
+        title: String, 
+        "Description of the activity that will appear as the main content."
+        body: String, 
+        "Name of the source system generating this activity."
+        sourceName: String, 
+        "Clickable reference to appear at the bottom portion of the customer activity card in the customer timeline."
+        link: LinkInput
+    ): CustomerActivityItemResult! @action(name: "create_customer_activity_item_for_email")
+
+    "Add items to a customer's timeline where the customer has the specified mobile phone number."
+    createCustomerActivityItemForMobilePhone(
+        "Customer's mobile phone number. Mobile phone number should be in E.164 format. For example, +14155552671 for a US number.",
+        mobilePhone: String!, 
+        "Type of this activity. This will determine the icon displayed in the customer timeline."
+        activityType: ActivityType!, 
+        "First line of highlighted text for the item in the customer timeline."
+        title: String, 
+        "Description of the activity that will appear as the main content."
+        body: String, 
+        "Name of the source system generating this activity."
+        sourceName: String, 
+        "Clickable reference to appear at the bottom portion of the customer activity card in the customer timeline."
+        link: LinkInput
+    ): CustomerActivityItemResult! @action(name: "create_customer_activity_item_for_phone")
+
+    "Add items to a customer's timeline where the customer has the specified customer ID."
+    createTaskCustomerId(
+        "Id of the customer associated with the task to create."
+        customerId: String!, 
+        "Id of the inbox the task should be assigned to."
+        inboxId: String!, 
+        "Id of the agent the task should be assigned to."
+        agentId: String, 
+        "Text to describe what task to complete."
+        task: String!, 
+        "Time when the task will be due. This must be set to a time in the future."
+        dueAt: DateTime!
+    ): SimpleResult! @action(name: "create_task_customerid")
+
+    "Add tasks to the timeline for a customer specified by email address. If the customer doesn't exist, a new customer profile is created."
+    createTaskEmailAddress(
+        "Customer's email address.",
+        emailAddress: String!, 
+        "Id of the inbox the task should be assigned to."
+        inboxId: String!, 
+        "Id of the agent the task should be assigned to."
+        agentId: String, 
+        "Text to describe what task to complete."
+        task: String!, 
+        "Time when the task will be due. This must be set to a time in the future."
+        dueAt: DateTime!
+    ): SimpleResult! @action(name: "create_task_email")
+
+    "Add tasks to the timeline for a customer specified by mobile phone number. If the customer doesn't exist, a new customer profile is created."
+    createTaskMobilePhone(
+        "Customer's mobile phone number. Mobile phone number should be in E.164 format. For example, +14155552671 for a US number.",
+        mobilePhone: String!, 
+        "Id of the inbox the task should be assigned to."
+        inboxId: String!, 
+        "Id of the agent the task should be assigned to."
+        agentId: String, 
+        "Text to describe what task to complete."
+        task: String!, 
+        "Time when the task will be due. This must be set to a time in the future."
+        dueAt: DateTime!
+    ): SimpleResult! @action(name: "create_task_phone")
+
+    """
+    Send an email messages to a customer specified by an email address.
+
+    Any items created using this API will not be considered part of a conversation, and are non-routable and 
+    non-searchable aside from the email address specified as part of the payload.
+    """
+    sendEmail(
+        "Email address to send the email to. The email address will be used to find or create the customer."
+        toEmail: String!, 
+        "Customer name."
+        toName: String, 
+        "Email address to send the email from. This must be a configured email address in your organization."
+        from: String!, 
+        "Subject of the email. Must be less than 1000 characters."
+        subject: String!, 
+        "HTML content of the email."
+        bodyHtml: String, 
+        "Plain text content of the email."
+        bodyText: String
+    ): SendEmailResult @action(name: "send_email")
+
+    "Send an SMS message to a customer specified by a mobile phone number."
+    sendSms(
+        "Mobile phone number to send the SMS to. Mobile phone number should be in E.164 format. For example, +14155552671 for a US number."
+        customerNumber: String!, 
+        "Mobile phone number to send the SMS from. This must be a configured phone number in your organization. Mobile phone number should be in E.164 format. For example, +14155552671 for a US number."
+        fromNumber: String!, 
+        "SMS content."
+        message: String!
+    ): SendSmsResult @action(name: "send_sms")
+
+    "Update conversation assignee"
+    updateConversationAssignee(
+        "Id of the conversation to update."
+        conversationId: String!, 
+        "The id of the inbox to which the conversation belongs to."
+        inboxId: String!, 
+        "The id of the agent who is assigned to the conversation."
+        agentId: String
+    ): SimpleResult! @action(name: "update_conversation_assignee")
+
+    "Update conversation status."
+    updateConversationStatus(
+        "Id of the conversation to update."
+        conversationId: String!, 
+        "Conversation status to update to."
+        status: ConversationStatus!, 
+        "Determines whether to override the existing value if conversation still needs a response."
+        force: Boolean
+    ): SimpleResult! @action(name: "update_conversation_status")
+
+    """
+    Update a customer profile. Both emails and phones replace the existing values. If you want to
+    add or remove values, you must first retrieve the existing values and then submit the updated list.
+    """
+    updateCustomerProfile(
+        customerId: String!,
+        "Full name."
+        name: String,
+        "URL for an image that will appear as the customer's avatar."
+        image: String,
+        "Full address."
+        address: String,
+        emails: [CustomerEmailInput],
+        phones: [CustomerPhoneInput]
+    ): SimpleResult! @action(name: "update_customer_profile")
+}

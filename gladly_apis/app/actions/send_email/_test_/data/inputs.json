@@ -1,0 +1,8 @@
+{
+    "toEmail": "jane.doe@example.com",
+    "toName": "Jane Doe",
+    "from": "no-reply@gladly.com",
+    "subject": "This is a sample email message!",
+    "bodyHtml": "<div><p>This is a sample email message!</p><p>Best regards,<br>The Support Team</p></div>",
+    "bodyText": "This is a sample email message!\n\nBest regards,\nThe Support Team"
+}

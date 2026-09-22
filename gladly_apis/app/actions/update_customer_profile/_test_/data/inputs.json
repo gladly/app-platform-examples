@@ -1,0 +1,13 @@
+{
+  "customerId": "OOrlNMXeS72gs_WEX2TtMg",
+  "name": "Frankie Avalon",
+  "emails": [
+    {
+      "original": "existing@francisavallone.com"
+    },
+    {
+      "original": "new@frankieavalon.com",
+      "primary": true
+    }
+  ]
+}

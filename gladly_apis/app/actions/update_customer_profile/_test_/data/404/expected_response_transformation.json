@@ -1,0 +1,10 @@
+{
+  "success": false,
+  "errors": [
+    {
+      "attr": "customerId",
+      "code": "not_found",
+      "detail": "customer not found"
+    }
+  ]
+}

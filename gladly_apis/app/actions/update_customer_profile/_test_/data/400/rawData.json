@@ -1,0 +1,9 @@
+{
+  "errors": [
+    {
+      "attr": "emails",
+      "code": "invalid",
+      "detail": "emails[0].original is not a valid email address"
+    }
+  ]
+}

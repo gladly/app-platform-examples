@@ -72,4 +72,4 @@ Authentication is handled via [authentication method, e.g., API tokens] included
 
 ## [App Name] Custom App
 
-The source for this app lives in this repository under `apps/<name>/app/`.
+If you want to dive deeper into the technical details of the app you can find it in our [app-platform-examples repo](https://github.com/gladly/app-platform-examples). You can always clone it and adapt it to your needs.

@@ -100,13 +100,35 @@
     }
 {{- end -}}
   ],
-  "merchant_cancellation_reasons": [
-{{- range $index, $reason := .rawData.results -}}
-{{- if $index -}},{{- end }}
-    {
-      "cancel_reason": {{$reason.cancel_reason}},
-      "application": "{{$reason.application}}"
-    }
+  "merchant_cancellation_reasons":
+{{- /* D1 fix. This block emitted a key called "cancel_reason" while the GraphQL type
+       declares `code`, so `code` could never resolve - and it is declared Int! (non
+       null), which makes an unresolvable field a hard failure rather than a blank.
+       The value was also interpolated unquoted, so a non-numeric vendor value emitted
+       invalid JSON (same class as the products defect). Build a dict and serialise.
+
+       `code` cannot simply be made nullable: narrowing a shipped non-null field is a
+       breaking schema change and the platform rejects the upgrade (observed on install,
+       "field definitions do not match: have code: Int but want code: Int!"). So `code`
+       keeps its shipped type and is populated whenever the vendor value is a plain
+       integer - which is more than the shipped template managed, since it never
+       populated the field at all - and the correctly typed replacements `reasonCode`
+       (nullable Int) and `cancelReason` (raw string) are emitted for every row.
+       `code` is documented as deprecated and comes out in the next major. */ -}}
+{{- $merchantRows := list -}}
+{{- range $reason := .rawData.results -}}
+  {{- $raw := printf "%v" (default "" $reason.cancel_reason) -}}
+  {{- $row := dict "application" $reason.application -}}
+  {{- if regexMatch "^[0-9]+$" $raw -}}
+    {{- $_ := set $row "code" (int $raw) -}}
+    {{- $_ := set $row "reasonCode" (int $raw) -}}
+  {{- else -}}
+    {{- /* Leave `code` unset: it is Int! and there is no honest integer for this row.
+           reasonCode carries the null, cancelReason carries the raw value. */ -}}
+    {{- $_ := set $row "reasonCode" nil -}}
+  {{- end -}}
+  {{- $_ := set $row "cancelReason" $raw -}}
+  {{- $merchantRows = append $merchantRows $row -}}
 {{- end -}}
-  ]
+{{ toJson $merchantRows }}
 }

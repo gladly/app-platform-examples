@@ -1,0 +1,64 @@
+{
+  "results": [
+    {
+      "public_id": "ord_msg_code_first",
+      "merchant": "merchant_test",
+      "customer": "cust_12345",
+      "subscription": "sub_1",
+      "status": 3,
+      "locked": false,
+      "cancelled": null,
+      "tries": 2,
+      "total": "49.50",
+      "rejected_message": "{\"code\": \"500\", \"message\": \"Expiration Date is in the past.\"}"
+    },
+    {
+      "public_id": "ord_msg_message_first",
+      "merchant": "merchant_test",
+      "customer": "cust_12345",
+      "subscription": "sub_1",
+      "status": 3,
+      "locked": false,
+      "cancelled": null,
+      "tries": 1,
+      "total": "49.50",
+      "rejected_message": "{\"message\": \"Internal app error: Unauthorized hmac\", \"code\": \"020\"}"
+    },
+    {
+      "public_id": "ord_msg_plain_prose",
+      "merchant": "merchant_test",
+      "customer": "cust_12345",
+      "subscription": "sub_1",
+      "status": 3,
+      "locked": false,
+      "cancelled": null,
+      "tries": 1,
+      "total": "49.50",
+      "rejected_message": "Card declined by issuer"
+    },
+    {
+      "public_id": "ord_msg_json_no_message",
+      "merchant": "merchant_test",
+      "customer": "cust_12345",
+      "subscription": "sub_1",
+      "status": 3,
+      "locked": false,
+      "cancelled": null,
+      "tries": 1,
+      "total": "49.50",
+      "rejected_message": "{\"code\": \"777\"}"
+    },
+    {
+      "public_id": "ord_msg_null",
+      "merchant": "merchant_test",
+      "customer": "cust_12345",
+      "subscription": "sub_1",
+      "status": 1,
+      "locked": false,
+      "cancelled": null,
+      "tries": 0,
+      "total": "49.50",
+      "rejected_message": null
+    }
+  ]
+}

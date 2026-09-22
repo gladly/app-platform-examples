@@ -2,6 +2,8 @@
 
 Used with Gladly Sidekick, the Ordergroove app empowers customers to manage subscriptions and related data. It allows customers to perform actions like retrieving subscription details, cancelling subscriptions, reactivating subscriptions, and skipping orders, reducing resolution time for subscription-related inquiries.
 
+As of 2.3.5 the app also serves the **agent**. The goal is narrow and worth stating plainly: an agent handling a subscription contact should not have to open the Ordergroove portal in a second tab. That is the test every addition in this release was scoped against - not feature parity with Ordergroove's own tooling. The app now renders a customer profile card and exposes the subscription and order mutations an agent actually needs mid-conversation.
+
   ![Skip subscription](./documentation/skip-subscription.png)
 
 
@@ -26,6 +28,20 @@ The Ordergroove integration provides the following core functionality:
     - Cancel a subscription with reason code and details (`cancelSubscription`)
     - Reactivate a cancelled subscription (`reactivateSubscription`)
     - Skip a subscription's next order by removing its items from the order and rescheduling them (`skipSubscription`)
+    - Change delivery frequency (`changeSubscriptionFrequency`) and quantity (`changeSubscriptionQuantity`)
+    - Move the next order date (`changeNextOrderDate`)
+    - Change what a prepaid term does when it ends (`changePrepaidRenewalBehavior`)
+    - Cancel a specific order (`cancelOrder`) or send it immediately (`sendOrderNow`)
+    - Change a line item's quantity (`changeItemQuantity`) or remove it (`deleteOrderItem`)
+    - Issue a one-time discount (`issueOneTimeDiscount`) - **off by default, see Guards and limits**
+
+4.  **Customer profile card** (`ui/templates/ordergroove-subscriptions`): subscriptions with
+    status, cadence, quantity, price, prepaid state, product detail, and recent order history
+    with totals and line items. New in 2.3.5 - before this release the app pulled all of this
+    data and rendered none of it, so an agent saw nothing unless their org hand-built a card.
+
+5.  **Agent forms** (`ui/forms/`, 12 of them) so each mutation is usable from the agent
+    desktop. Note that forms are **not** access control - see Guards and limits.
 
 # Ordergroove App Toolkit
 
@@ -47,6 +63,21 @@ Authentication is handled via the `x-api-key` header included in all requests.
 To use this app, you need to configure the following in `integration.secrets`:
 
 - `api_key`: Your API key for authentication with the Ordergroove platform.
+
+Three optional settings in `integration.configuration` control the one-time discount action
+(admin UI: `app/ui/admin/form.json`). None of them is required to save the configuration, and
+all three ship in the safe position - a merchant who only pastes an API key gets an app with
+discounts switched off:
+
+| Key | Admin field | Default | Meaning |
+|---|---|---|---|
+| `enableIssueDiscount` | Enable one-time discounts (dropdown) | `"false"` (Disabled) | Master switch, preselected to Disabled on a fresh install. While it is anything but `"true"`, `issueOneTimeDiscount` refuses every call. |
+| `maxDiscountAmount` | Maximum discount amount (optional) | blank | Largest fixed-amount discount an agent may issue. Blank refuses every fixed-amount discount. |
+| `maxDiscountPercent` | Maximum discount percentage (optional) | blank | Largest percentage discount an agent may issue. Blank refuses every percentage discount. |
+
+**A blank cap means "refuse that kind of discount", never "unlimited."** Turning the master
+switch on without setting a cap therefore changes nothing: each discount type stays refused
+until its own cap is filled in, and the two caps are independent of each other.
 
 For local testing, create a `.env` file in the `/ordergroove` root directory with:
 ```
@@ -346,6 +377,89 @@ This operation allows customers to skip a subscription's next scheduled delivery
 ```
 
 **Documentation:** [Ordergroove Skip Subscription API](https://developer.ordergroove.com/reference/skip-subscription)
+
+## Mutation actions added in 2.3.5
+
+Each is a POST to a documented Ordergroove endpoint. Ids are Ordergroove `public_id`s, taken
+from this app's own data pulls (an agent never types one), and are URL-encoded on the way into
+the path anyway.
+
+| Action | Endpoint | Notes |
+|---|---|---|
+| `changeSubscriptionFrequency` | `/subscriptions/{id}/change_frequency/` | `every` + `every_period`; rejects a non-positive `every`. |
+| `changeSubscriptionQuantity` | `/subscriptions/{id}/change_quantity/` | Rejects a non-positive quantity. |
+| `changeNextOrderDate` | `/subscriptions/{id}/change_next_order_date/` | Date must be `YYYY-MM-DD`. **The 200 does not echo the new date** (verified live), so the agent is told the change was accepted, not what it now is. |
+| `changePrepaidRenewalBehavior` | `/subscriptions/{id}/change_renewal_behavior/` | Only meaningful on a prepaid subscription. |
+| `cancelOrder` | `/orders/{id}/cancel/` | Only an order that has not been placed. |
+| `sendOrderNow` | `/orders/{id}/send_now/` | Idempotency is **unconfirmed with the vendor** - see Known gaps. |
+| `changeItemQuantity` | `/items/{id}/change_quantity/` | Rejects a non-positive quantity. |
+| `deleteOrderItem` | `/items/{id}/delete/` | Removes a line from an unsent order. |
+| `issueOneTimeDiscount` | `/one_time_incentives/create/` | Guarded - see below. |
+
+## Guards and limits
+
+**Forms are not access control.** Team Assist invokes actions directly and never renders
+`ui/forms/`, so a dropdown, a hint or a confirmation checkbox constrains only one of the two
+callers. Every real constraint in this app therefore lives in the action's own templates, and
+the forms merely mirror it. Read `request_url.gtpl` / `action_inputs.gtpl`, not the form, to
+see what an action will actually refuse.
+
+**`issueOneTimeDiscount` is fail-closed at four points**, all enforced in `request_url.gtpl`
+*before* the request is built, because it moves money and the vendor endpoint has no
+idempotency key - a desktop retry or a repeated Team Assist call double-issues:
+
+1. `enableIssueDiscount` must be exactly `"true"`.
+2. The agent must tick the `confirmed` checkbox, which defaults to off.
+3. Exactly one target - an item **or** an order, never both and never neither.
+4. The value must be numeric **and** within the merchant's cap for that discount type. An
+   unset cap refuses; it never means unlimited.
+
+Each gate emits a `stop` with a message an agent can act on. The gate matrix is exercised by
+twelve datasets under `app/actions/issueOneTimeDiscount/_test_/data/gate_*`.
+
+**Numeric inputs are validated on the raw string.** A form input arrives as a string, and
+sprig's `int` turns `"abc"` into `0` silently - which on a quantity or a discount is a typo
+quietly setting the value to zero. Every numeric conversion is guarded by a regex on the raw
+value and the field is omitted when it does not match, so the call fails loudly on a missing
+required input rather than succeeding with the wrong number.
+
+**Request fan-out is capped.** Ordergroove has no bulk endpoint, so item detail is fetched per
+order. A five-subscription customer with two years of history would otherwise be several
+hundred sequential requests on every profile open. `data/pull/items/request_url.gtpl` fetches
+items for every order an agent can still act on, plus the six most recent completed orders
+*per subscription*, capped at 30 historical requests overall. The per-subscription grouping
+matters: the orders pull issues one request per subscription and the platform concatenates
+every response into one array, so a cap applied to that flat list would spend its whole budget
+on whichever subscription happened to come back first and leave the rest of the card with no
+line items. Orders in a terminal failure state count as history rather than as actionable, so
+a customer whose payments fail every cycle does not reopen the unbounded case. A typical
+five-subscription profile issues roughly 40 item requests instead of about 500.
+
+**Rendered order history is capped separately.** The fan-out cap bounds *requests*; it does
+nothing about how many rows the card draws, and these are different problems. The orders
+transform marks the four most recent orders plus every actionable one (`isRecent`), and the
+card renders only those. The full list stays in the payload so actions and order pickers still
+see everything.
+
+This second cap is deliberately **not** purely positional. Ordergroove's list endpoint accepts
+no ordering parameter, and a live render returned Sep 15, Sep 16, Sep 14, Sep 13 - a future
+unsent order sitting between two placed ones. A fixed top-N alone could therefore hide the one
+order the agent needs to act on.
+
+## Known gaps
+
+Recorded here rather than left for a reviewer to find:
+
+- **`sendOrderNow` idempotency is unconfirmed.** The endpoint is documented; whether a repeat
+  call is safe is a question outstanding with Ordergroove.
+- **Whether `place_start` can replace the client-side fan-out cap** is the second outstanding
+  vendor question. If `GET /orders/` accepts a date or status filter, the cap becomes a server-
+  side one and the transform simplifies.
+- **`changeNextOrderDate` cannot confirm its own result** - see the table above.
+- **Order list truncation is real.** One sandbox subscription has 335 orders; the endpoint
+  returns 100 with `next` populated, and App Platform does not follow `next`, so the remaining
+  235 are invisible. This costs history depth, not the recent and actionable orders an agent
+  works with. A `place_start` window would fix it at source - the client-side cap cannot.
 
 # Testing
 

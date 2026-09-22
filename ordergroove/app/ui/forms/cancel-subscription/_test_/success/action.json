@@ -1,0 +1,11 @@
+{
+  "inputs": {
+    "subscriptionId": "sub_active_1",
+    "cancelReasonCode": "1",
+    "cancelReasonDetails": "Too much product"
+  },
+  "result": {
+    "publicId": "sub_active_1",
+    "statusLabel": "Cancelled"
+  }
+}

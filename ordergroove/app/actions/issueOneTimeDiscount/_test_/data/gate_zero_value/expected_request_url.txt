@@ -1,0 +1,1 @@
+"Discount value must be greater than zero."

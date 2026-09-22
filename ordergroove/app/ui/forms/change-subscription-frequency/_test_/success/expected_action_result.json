@@ -1,0 +1,4 @@
+{
+  "message": "Delivery frequency changed",
+  "detail": "Every future order on subscription sub_active_1 now uses the new cadence."
+}

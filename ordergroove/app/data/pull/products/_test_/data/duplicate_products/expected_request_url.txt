@@ -1,1 +1,1 @@
-https://restapi.ordergroove.com/products/?external_product_ids[]=HDPH-001
+https://restapi.ordergroove.com/products/?external_product_ids[]=HDPH-001&page_size=100

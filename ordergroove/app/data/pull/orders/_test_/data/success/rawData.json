@@ -21,10 +21,14 @@
       "type": "1",
       "order_merchant_id": "ORD-2023-001",
       "rejected_message": null,
-      "extra_data": { "custom_field": "custom_value", "notes": "Test order" },
+      "extra_data": {
+        "custom_field": "custom_value",
+        "notes": "Test order"
+      },
       "locked": false,
       "oos_free_shipping": false,
-      "subscription": "sub_123456789"
+      "subscription": "sub_123456789",
+      "sub_total": "100.00"
     }
   ]
 }

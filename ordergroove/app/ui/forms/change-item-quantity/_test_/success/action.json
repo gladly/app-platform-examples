@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "itemId": "item_1",
+    "quantity": "3"
+  },
+  "result": {
+    "publicId": "item_1",
+    "quantityLabel": "3"
+  }
+}

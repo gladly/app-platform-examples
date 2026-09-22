@@ -1,0 +1,13 @@
+{
+  "merchant": "merch_1",
+  "customer": "cust_12345",
+  "order": "ord_wave4_test",
+  "incentive": {
+    "name": "Late delivery goodwill",
+    "discount_type": "Discount Amount",
+    "value": "5",
+    "field": "sub_total",
+    "type": "Discount",
+    "target": "order"
+  }
+}

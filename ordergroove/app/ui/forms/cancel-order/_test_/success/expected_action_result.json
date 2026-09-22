@@ -1,0 +1,4 @@
+{
+  "message": "Order cancelled",
+  "detail": "Order ord_1 was cancelled. The subscription continues - Ordergroove will create the next order on its usual schedule."
+}

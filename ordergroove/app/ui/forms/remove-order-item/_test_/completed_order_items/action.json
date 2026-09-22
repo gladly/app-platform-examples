@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "itemId": "item_1"
+  },
+  "result": {
+    "deleted": true,
+    "itemId": "item_1",
+    "message": "removed"
+  }
+}

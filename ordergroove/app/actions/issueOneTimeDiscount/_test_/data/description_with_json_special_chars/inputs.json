@@ -1,0 +1,10 @@
+{
+  "merchantId": "merch_1",
+  "customerId": "cust_12345",
+  "itemId": "item_wave4_test",
+  "discountType": "amount",
+  "value": "5",
+  "reason": "Late \"holiday\" delivery",
+  "description": "Agent note: customer said \"the box arrived crushed\".\nPath on file share: C:\\claims\\2026\\crushed-box",
+  "confirmed": true
+}

@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "subscriptionId": "sub_cancelled_1",
+    "every": "1",
+    "everyPeriod": "3",
+    "startDate": "2026-11-01"
+  },
+  "result": null
+}

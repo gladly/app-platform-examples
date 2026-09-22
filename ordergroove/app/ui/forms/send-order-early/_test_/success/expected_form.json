@@ -1,0 +1,23 @@
+{
+  "title": "Place an order early",
+  "submitButton": "Place within 24 hours",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Order",
+      "attr": "orderId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose the order to bring forward",
+        "optional": false,
+        "options": [
+          {
+            "text": "Order ord_1 - due 2026-10-01 - 104.98 (Unsent)",
+            "value": "ord_1"
+          }
+        ]
+      },
+      "hint": "Ordergroove places the order within a 24-hour window. It is not dispatched immediately - do not tell the customer it has shipped."
+    }
+  ]
+}

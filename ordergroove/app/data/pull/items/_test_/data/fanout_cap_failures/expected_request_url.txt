@@ -1,0 +1,10 @@
+https://restapi.ordergroove.com/items/?order=ord_x_unsent&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_generic_error&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_awaiting_retry&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_cc_retry&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_rejected_00&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_rejected_01&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_rejected_02&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_rejected_03&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_rejected_04&page_size=100
+https://restapi.ordergroove.com/items/?order=ord_x_rejected_05&page_size=100

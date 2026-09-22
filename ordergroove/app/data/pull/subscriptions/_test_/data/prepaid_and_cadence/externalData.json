@@ -1,0 +1,22 @@
+{
+  "ordergroove_customer": [
+    {
+      "id": "cust_12345",
+      "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+      "session_id": "session_abc123",
+      "user_token_id": null,
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "phone_number": "+15551234567",
+      "phone_type": 2,
+      "live": true,
+      "created": "2022-10-13T10:24:25Z",
+      "last_updated": "2024-09-12T09:30:45Z",
+      "last_login": "2024-08-15T14:30:00Z",
+      "extra_data": {"custom_field": "value"},
+      "locale": 1,
+      "price_code": "standard"
+    }
+  ]
+}

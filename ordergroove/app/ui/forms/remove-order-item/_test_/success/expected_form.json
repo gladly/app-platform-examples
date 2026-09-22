@@ -1,0 +1,27 @@
+{
+  "title": "Remove an item from an order",
+  "submitButton": "Remove item",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Item",
+      "attr": "itemId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose the item to remove",
+        "optional": false,
+        "options": [
+          {
+            "text": "Premium Headphones - qty 2 - 59.98 [order ord_1]",
+            "value": "item_1"
+          },
+          {
+            "text": "Cotton T-Shirt - qty 2 - 59.98 [order ord_1]",
+            "value": "item_2"
+          }
+        ]
+      },
+      "hint": "Removes the item from this order only. It returns on the next order. There is no undo for this order."
+    }
+  ]
+}

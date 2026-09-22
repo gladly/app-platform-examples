@@ -17,7 +17,7 @@
       "cancelled": null,
       "tries": 1,
       "generic_error_count": 0,
-      "status": 1,
+      "status": "UNSENT",
       "type": 1,
       "order_merchant_id": null,
       "rejected_message": null,

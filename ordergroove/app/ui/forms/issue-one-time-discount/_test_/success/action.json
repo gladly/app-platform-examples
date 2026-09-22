@@ -1,0 +1,15 @@
+{
+  "inputs": {
+    "merchantId": "merch_1",
+    "customerId": "cust_12345",
+    "itemId": "item_1",
+    "discountType": "amount",
+    "value": "5",
+    "reason": "Goodwill",
+    "confirmed": true
+  },
+  "result": {
+    "publicId": "otd_abc123",
+    "discountValue": "5"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "message": "Next order date requested",
+  "detail": "The next order on subscription sub_active_1 was moved to 2026-12-01. Refresh the card to confirm - Ordergroove does not return the new date."
+}

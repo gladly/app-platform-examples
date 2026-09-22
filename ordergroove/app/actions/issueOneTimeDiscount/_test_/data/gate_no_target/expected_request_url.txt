@@ -1,0 +1,1 @@
+"Choose what the discount applies to: either a single item or a whole order."

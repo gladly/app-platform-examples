@@ -1,0 +1,12 @@
+{
+  "action": {
+    "graphqlField": "skipSubscription",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "orders",
+      "graphqlSchema": "data"
+    }
+  ]
+}

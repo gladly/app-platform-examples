@@ -1,0 +1,1 @@
+"Discount type must be percent or amount (got \"freebie\")."

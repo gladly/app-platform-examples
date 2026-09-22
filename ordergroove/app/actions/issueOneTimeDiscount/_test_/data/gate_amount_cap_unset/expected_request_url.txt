@@ -1,0 +1,1 @@
+"No maximum discount amount is configured for this store, so fixed-amount discounts cannot be issued. This is a Gladly setting, not an Ordergroove one: a Gladly admin sets \"Maximum discount amount\" under Settings, App Platform, Ordergroove."

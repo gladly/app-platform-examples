@@ -1,0 +1,29 @@
+{
+  "created": "2026-09-15T11:00:00Z",
+  "customer": "cust_12345",
+  "description": null,
+  "discountTarget": "item",
+  "discountType": "Discount Amount",
+  "discountValue": "5",
+  "externalCode": null,
+  "external_code": null,
+  "incentive": {
+    "discount_type": "Discount Amount",
+    "field": "total_price",
+    "limit_policy": null,
+    "limit_value": null,
+    "name": "Late delivery goodwill",
+    "target": "item",
+    "type": "Discount",
+    "value": "5"
+  },
+  "incentiveName": "Late delivery goodwill",
+  "item": "item_wave4_test",
+  "lastUpdated": "2026-09-15T11:00:00Z",
+  "last_updated": "2026-09-15T11:00:00Z",
+  "merchant": "merch_1",
+  "message": "Discount issued. It applies to the order when it places - refresh the card to confirm the new total.",
+  "order": null,
+  "publicId": "otd_abc123",
+  "public_id": "otd_abc123"
+}

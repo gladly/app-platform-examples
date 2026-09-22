@@ -1,1 +1,1 @@
-https://restapi.ordergroove.com/items/?order=order+with+spaces%26special%3Dchars
+https://restapi.ordergroove.com/items/?order=order+with+spaces%26special%3Dchars&page_size=100

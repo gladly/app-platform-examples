@@ -1,0 +1,1 @@
+"Issuing discounts is turned off for this store. This is a Gladly setting, not an Ordergroove one: a Gladly admin turns it on under Settings, App Platform, Ordergroove, by setting \"Enable one-time discounts\" to Enabled."

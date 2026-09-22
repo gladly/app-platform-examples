@@ -1,0 +1,7 @@
+{
+  "target": "item|item_1|cust_12345|merch_1",
+  "discountType": "amount",
+  "value": "5",
+  "reason": "Goodwill",
+  "confirmed": true
+}

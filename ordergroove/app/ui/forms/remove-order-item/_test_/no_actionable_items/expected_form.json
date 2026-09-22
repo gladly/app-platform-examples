@@ -1,0 +1,11 @@
+{
+  "title": "Remove an item from an order",
+  "closeButton": "Close",
+  "submitButton": "Unavailable",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no order items available to remove."
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "title": "Change delivery frequency",
+  "submitButton": "Change frequency",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a subscription",
+        "optional": false,
+        "options": [
+          {
+            "text": "Premium Headphones - Every 2 months - qty 2 (Active)",
+            "value": "sub_active_1"
+          },
+          {
+            "text": "Cotton T-Shirt - Every 2 months - qty 2 (Active)",
+            "value": "sub_prepaid_1"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "Every",
+      "attr": "every",
+      "input": {
+        "type": "text",
+        "placeholder": "e.g. 2"
+      },
+      "hint": "A number. Combined with the period below: 2 + months is every 2 months."
+    },
+    {
+      "type": "input",
+      "label": "Period",
+      "attr": "everyPeriod",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a period",
+        "optional": false,
+        "options": [
+          {
+            "text": "Days",
+            "value": "1"
+          },
+          {
+            "text": "Weeks",
+            "value": "2"
+          },
+          {
+            "text": "Months",
+            "value": "3"
+          },
+          {
+            "text": "Years",
+            "value": "4"
+          }
+        ]
+      }
+    }
+  ]
+}

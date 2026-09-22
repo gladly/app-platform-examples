@@ -1,0 +1,12 @@
+{
+  "action": {
+    "graphqlField": "changeSubscriptionFrequency",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "subscriptions",
+      "graphqlSchema": "data"
+    }
+  ]
+}

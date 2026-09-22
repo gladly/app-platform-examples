@@ -1,0 +1,23 @@
+{
+  "title": "Skip the next order",
+  "submitButton": "Skip this order",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Order",
+      "attr": "orderRef",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose the order to skip",
+        "optional": false,
+        "options": [
+          {
+            "text": "Order ord_1 - due 2026-10-01 - 104.98",
+            "value": "ord_1|sub_active_1"
+          }
+        ]
+      },
+      "hint": "Skipping reschedules this subscription's items to the next cycle. The subscription stays active."
+    }
+  ]
+}

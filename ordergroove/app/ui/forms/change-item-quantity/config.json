@@ -1,0 +1,16 @@
+{
+  "action": {
+    "graphqlField": "changeItemQuantity",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "items",
+      "graphqlSchema": "data"
+    },
+    {
+      "graphqlField": "orders",
+      "graphqlSchema": "data"
+    }
+  ]
+}

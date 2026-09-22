@@ -1,0 +1,19 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "cancel_reason": "101",
+      "application": "storefront"
+    },
+    {
+      "cancel_reason": "TOO_EXPENSIVE",
+      "application": "csr"
+    },
+    {
+      "cancel_reason": null,
+      "application": "api"
+    }
+  ]
+}

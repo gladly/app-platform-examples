@@ -1,0 +1,9 @@
+{
+  "inputs": {
+    "orderId": "ord_1",
+    "subscriptionId": "sub_active_1"
+  },
+  "result": {
+    "publicId": "ord_1"
+  }
+}

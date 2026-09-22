@@ -1,1 +1,1 @@
-https://restapi.ordergroove.com/products/
+https://restapi.ordergroove.com/products/?page_size=100

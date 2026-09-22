@@ -1,0 +1,36 @@
+{
+  "title": "Move the next order date",
+  "submitButton": "Move next order",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a subscription",
+        "optional": false,
+        "options": [
+          {
+            "text": "Premium Headphones - Every 2 months - qty 2 (Active)",
+            "value": "sub_active_1"
+          },
+          {
+            "text": "Cotton T-Shirt - Every 2 months - qty 2 (Active)",
+            "value": "sub_prepaid_1"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "New date",
+      "attr": "orderDate",
+      "input": {
+        "type": "text",
+        "placeholder": "YYYY-MM-DD"
+      },
+      "hint": "Must be a future date, in YYYY-MM-DD format."
+    }
+  ]
+}

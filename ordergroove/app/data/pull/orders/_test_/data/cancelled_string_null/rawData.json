@@ -1,0 +1,37 @@
+{
+  "results": [
+    {
+      "public_id": "order_cancelled_string_null",
+      "merchant": "merchant_test",
+      "customer": "cust_12345",
+      "status": 1,
+      "locked": false,
+      "cancelled": "null",
+      "place": "2026-10-01 10:00:00",
+      "tries": 0,
+      "total": "42.00"
+    },
+    {
+      "public_id": "order_cancelled_real_null",
+      "merchant": "merchant_test",
+      "customer": "cust_12345",
+      "status": 1,
+      "locked": false,
+      "cancelled": null,
+      "place": "2026-10-08 10:00:00",
+      "tries": 0,
+      "total": "42.00"
+    },
+    {
+      "public_id": "order_genuinely_cancelled",
+      "merchant": "merchant_test",
+      "customer": "cust_12345",
+      "status": 1,
+      "locked": false,
+      "cancelled": "2026-09-01 09:30:00",
+      "place": "2026-09-03 10:00:00",
+      "tries": 0,
+      "total": "42.00"
+    }
+  ]
+}

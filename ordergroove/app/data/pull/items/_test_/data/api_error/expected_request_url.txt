@@ -1,1 +1,1 @@
-https://restapi.ordergroove.com/items/?order=order_error_test
+https://restapi.ordergroove.com/items/?order=order_error_test&page_size=100

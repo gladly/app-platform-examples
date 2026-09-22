@@ -1,0 +1,4 @@
+{
+  "message": "Order scheduled to place early",
+  "detail": "Order ord_1 will be placed within 24 hours. It has not shipped yet - refresh the card to confirm placement."
+}

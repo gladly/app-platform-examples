@@ -1,0 +1,9 @@
+{
+  "merchantId": "merch_1",
+  "customerId": "cust_12345",
+  "itemId": "item_wave4_test",
+  "discountType": "amount",
+  "value": "0",
+  "reason": "Late delivery goodwill",
+  "confirmed": true
+}

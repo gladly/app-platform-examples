@@ -1,0 +1,51 @@
+{
+  "title": "Cancel a subscription",
+  "submitButton": "Cancel subscription",
+  "sections": [
+    {
+      "type": "text",
+      "text": "Before cancelling, consider a save lever: change the frequency, reduce the quantity, move the next order, or issue a one-time discount."
+    },
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a subscription to cancel",
+        "optional": false,
+        "options": [
+          {
+            "text": "Premium Headphones - Every 2 months (Active)",
+            "value": "sub_active_1"
+          },
+          {
+            "text": "Cotton T-Shirt - Every 2 months (Active)",
+            "value": "sub_prepaid_1"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "Reason code",
+      "attr": "cancelReasonCode",
+      "input": {
+        "type": "text",
+        "optional": true,
+        "placeholder": "e.g. 1"
+      },
+      "hint": "Your store's cancellation reason codes. Both this and the detail below must be filled in for Ordergroove to record a reason."
+    },
+    {
+      "type": "input",
+      "label": "Reason detail",
+      "attr": "cancelReasonDetails",
+      "input": {
+        "type": "text",
+        "optional": true,
+        "placeholder": "What the customer told you"
+      }
+    }
+  ]
+}

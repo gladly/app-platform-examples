@@ -1,0 +1,10 @@
+{
+  "status": "Created",
+  "statusCode": 201,
+  "headers": {
+    "content-type": [
+      "application/json"
+    ]
+  },
+  "body": "{}"
+}

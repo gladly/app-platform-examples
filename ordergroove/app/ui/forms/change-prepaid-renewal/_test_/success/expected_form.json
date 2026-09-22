@@ -1,0 +1,47 @@
+{
+  "title": "Change prepaid renewal",
+  "submitButton": "Change renewal",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Prepaid subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a prepaid subscription",
+        "optional": false,
+        "options": [
+          {
+            "text": "Cotton T-Shirt - Every 2 months - qty 2 (Active)",
+            "value": "sub_prepaid_1"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "At the end of the prepaid term",
+      "attr": "renewalBehavior",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose what happens",
+        "optional": false,
+        "options": [
+          {
+            "text": "Automatically renew",
+            "value": "autorenew"
+          },
+          {
+            "text": "Cancel the subscription",
+            "value": "cancel"
+          },
+          {
+            "text": "Downgrade to a standard subscription",
+            "value": "downgrade"
+          }
+        ]
+      },
+      "hint": "Does not change the current term or refund anything already paid."
+    }
+  ]
+}

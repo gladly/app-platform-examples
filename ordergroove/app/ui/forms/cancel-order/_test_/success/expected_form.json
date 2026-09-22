@@ -1,0 +1,23 @@
+{
+  "title": "Cancel one order",
+  "submitButton": "Cancel this order",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Order",
+      "attr": "orderId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose the order to cancel",
+        "optional": false,
+        "options": [
+          {
+            "text": "Order ord_1 - due 2026-10-01 - 104.98 (Unsent)",
+            "value": "ord_1"
+          }
+        ]
+      },
+      "hint": "This cancels ONE order. The subscription keeps running and Ordergroove creates the next order on its normal schedule."
+    }
+  ]
+}

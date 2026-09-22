@@ -1,0 +1,100 @@
+{
+  "subscriptions": [
+    {
+      "publicId": "sub_active_1",
+      "statusLabel": "Active",
+      "cadenceLabel": "Every 2 months",
+      "quantityLabel": "2",
+      "isPrepaid": false,
+      "productDetail": {
+        "name": "Premium Headphones",
+        "sku": "123456789"
+      },
+      "merchant": "merch_1"
+    },
+    {
+      "publicId": "sub_prepaid_1",
+      "statusLabel": "Active",
+      "cadenceLabel": "Every 2 months",
+      "quantityLabel": "2",
+      "isPrepaid": true,
+      "productDetail": {
+        "name": "Cotton T-Shirt",
+        "sku": "123456789"
+      },
+      "merchant": "merch_1",
+      "prepaidOrdersRemaining": "3",
+      "renewalBehaviorLabel": "Autorenew"
+    },
+    {
+      "publicId": "sub_cancelled_1",
+      "statusLabel": "Cancelled",
+      "cadenceLabel": "Every 2 months",
+      "quantityLabel": "2",
+      "isPrepaid": false,
+      "productDetail": {
+        "name": "Wireless Earbuds",
+        "sku": "123456789"
+      },
+      "merchant": "merch_1"
+    }
+  ],
+  "orders": [
+    {
+      "publicId": "ord_1",
+      "isActionable": false,
+      "place": "2026-10-01T00:00:00Z",
+      "total": "104.98",
+      "statusLabel": "Success",
+      "subscriptionId": "sub_active_1",
+      "merchant": "merch_1"
+    },
+    {
+      "publicId": "ord_2",
+      "isActionable": false,
+      "place": "2026-10-01T00:00:00Z",
+      "total": "104.98",
+      "statusLabel": "Success",
+      "subscriptionId": "sub_active_1",
+      "merchant": "merch_1"
+    }
+  ],
+  "items": [
+    {
+      "publicId": "item_1",
+      "order": "ord_1",
+      "product": "HDPH-001",
+      "quantityLabel": "2",
+      "totalPrice": "59.98",
+      "productDetail": {
+        "name": "Premium Headphones"
+      }
+    },
+    {
+      "publicId": "item_2",
+      "order": "ord_1",
+      "product": "HDPH-001",
+      "quantityLabel": "2",
+      "totalPrice": "59.98",
+      "productDetail": {
+        "name": "Cotton T-Shirt"
+      }
+    },
+    {
+      "publicId": "item_3",
+      "order": "ord_1",
+      "product": "EARB-002",
+      "quantityLabel": "1",
+      "totalPrice": "45.00",
+      "productDetail": {
+        "name": "Wireless Earbuds"
+      }
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust_12345",
+      "merchant": "merch_1"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Change quantity of one item",
+  "closeButton": "Close",
+  "submitButton": "Unavailable",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no order items available to change."
+    }
+  ]
+}

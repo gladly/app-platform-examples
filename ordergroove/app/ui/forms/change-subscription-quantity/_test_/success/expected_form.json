@@ -1,0 +1,33 @@
+{
+  "title": "Change subscription quantity",
+  "submitButton": "Change quantity",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a subscription",
+        "optional": false,
+        "options": [
+          {
+            "text": "Premium Headphones - Every 2 months - qty 2 (Active)",
+            "value": "sub_active_1"
+          }
+        ]
+      },
+      "hint": "Prepaid subscriptions are excluded - Ordergroove rejects quantity changes on them."
+    },
+    {
+      "type": "input",
+      "label": "New quantity",
+      "attr": "quantity",
+      "input": {
+        "type": "text",
+        "placeholder": "e.g. 2"
+      },
+      "hint": "Applies to every future order. To change just one order, use Change item quantity."
+    }
+  ]
+}

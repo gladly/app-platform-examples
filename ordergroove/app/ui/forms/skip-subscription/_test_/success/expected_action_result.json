@@ -1,0 +1,4 @@
+{
+  "message": "Order skipped",
+  "detail": "The items on order ord_1 were rescheduled to the next delivery cycle. The subscription is still active."
+}

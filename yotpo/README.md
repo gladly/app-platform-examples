@@ -107,7 +107,7 @@ This app requires:
 
 ### Installation Steps
 
-To install the Yotpo App for Gladly Sidekick, follow these steps:
+To install the Yotpo App for Gladly AI, follow these steps:
 
 1. **Gather Required Yotpo Credentials**
    Follow [Finding your Yotpo app key and secret key](https://support.yotpo.com/docs/finding-your-yotpo-app-key-and-secret-key) to obtain Yotpo app key and secret key.

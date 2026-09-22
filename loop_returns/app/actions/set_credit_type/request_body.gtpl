@@ -1,0 +1,1 @@
+{ "credit_type": {{.inputs.creditType | toJson}} }

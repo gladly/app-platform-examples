@@ -1,0 +1,10 @@
+{
+    "draftReturnId": "900123456",
+    "state": "items_pending",
+    "returningItems": [ { "id": "12345678901", "orderLineItemId": "401103686", "returnType": "credit" } ],
+    "links": [
+        { "rel": "set-return-reason", "href": "/api/v1/draft-returns/900123456/returning-items/12345678901/return-reason", "method": "POST", "isRequired": true },
+        { "rel": "totals", "href": "/api/v1/draft-returns/900123456/totals", "method": "GET", "isRequired": false }
+    ],
+    "exchangeOptions": []
+}

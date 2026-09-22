@@ -4,10 +4,18 @@
 {{$externalCustomer := index .externalData.shopify_customer 0}}
 
 
-{{ $ol := .integration.configuration.ordersLimit}}
-{{- $ordersLimit := $ol | default 40 -}}
+{{- $ordersLimit := 40 -}}
+{{- with index .integration.configuration "ordersLimit" -}}
+{{- $parsed := atoi (printf "%v" .) -}}
+{{- if le $parsed 0 }}{{ fail (printf "Shopify 'ordersLimit' must be a positive whole number, got %v. Recent orders cannot be retrieved for this customer." .) }}{{ end -}}
+{{- $ordersLimit = $parsed -}}
+{{- end -}}
 
 {{- $customerId := splitList "/" $externalCustomer.id | last -}}
+
+{{- /* Same limit the metafields data pull uses, so hasNextPage reports the cap
+    that will actually be applied to each order's metafields. */ -}}
+{{- $metafieldsLimit := (default 50 (index .integration.configuration "metafieldsLimit")) -}}
 
 {{$query := printf `
 query {
@@ -17,53 +25,8 @@ query {
             customer {
                 id
                 displayName
-            }            
+            }
             confirmationNumber
-            customer {
-                id
-            }
-            fulfillable
-            fulfillmentsCount {count precision}
-            fulfillments {
-                    id
-                    fulfillmentLineItems(first:10) {
-                        nodes {
-                            id
-                            quantity
-                            originalTotalSet{
-                                shopMoney { amount currencyCode }
-                            }
-                            discountedTotalSet {
-                                shopMoney { amount currencyCode }
-                            }
-                            lineItem {
-                                id
-                            }
-                        }
-                    }
-                    createdAt
-                    updatedAt
-                    deliveredAt
-                    displayStatus
-                    estimatedDeliveryAt
-                    inTransitAt
-                    name
-                    originAddress {
-                        address1
-                        address2
-                        city
-                        countryCode
-                        provinceCode
-                        zip
-                    }
-                    requiresShipping
-                    status
-                    trackingInfo {
-                        company
-                        number
-                        url
-                    }
-            }
             statusPageUrl
             createdAt
             email
@@ -71,10 +34,13 @@ query {
             note
             tags
             updatedAt
-            currencyCode
             cancelReason
             currentSubtotalPriceSet {
                 shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
                     amount
                     currencyCode
                 }
@@ -84,9 +50,37 @@ query {
                     amount
                     currencyCode
                 }
+                presentmentMoney {
+                    amount
+                    currencyCode
+                }
+            }
+            currentShippingPriceSet {
+                shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
+                    amount
+                    currencyCode
+                }
             }
             currentTotalTaxSet {
                 shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
+                    amount
+                    currencyCode
+                }
+            }
+            currentTotalDutiesSet {
+                shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
                     amount
                     currencyCode
                 }
@@ -96,16 +90,54 @@ query {
                     amount
                     currencyCode
                 }
-            }
-            subtotalPriceSet {
-                shopMoney {
+                presentmentMoney {
                     amount
                     currencyCode
                 }
             }
+            taxesIncluded
+            totalReceivedSet {
+                shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
+                    amount
+                    currencyCode
+                }
+            }
+            totalRefundedSet {
+                shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
+                    amount
+                    currencyCode
+                }
+            }
+            totalOutstandingSet {
+                shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
+                    amount
+                    currencyCode
+                }
+            }
+            refundable
             displayFinancialStatus
             displayFulfillmentStatus
+            returnStatus
+            sourceName
+            app {
+                name
+            }
             shippingAddress {
+                firstName
+                lastName
+                company
                 address1
                 address2
                 city
@@ -113,99 +145,63 @@ query {
                 provinceCode
                 zip
                 country
-                countryCode
+                countryCodeV2
+                phone
+                formatted(withName: true, withCompany: true)
+                validationResultSummary
+                coordinatesValidated
+                latitude
+                longitude
             }
-            shippingLines(first: 10) {
+            shippingLines(first: 40) {
                 nodes {
-                    carrierIdentifier
-                    code
-                    custom
-                    id
-                    phone
-                    source
                     title
                 }
             }
-            billingAddress {
-                address1
-                address2
-                city
-                province
-                provinceCode
-                zip
-                country
-                countryCode
-            }
             lineItems(first: 40) {
                 nodes {
-                        id
+                    id
+                    name
+                    sku
+                    vendor
+                    isGiftCard
+                    quantity
+                    currentQuantity
+                    unfulfilledQuantity
+                    sellingPlan {
                         name
-                        product {
-                            id
-                            title
-                            status
-                            createdAt
-                            productType
-                            vendor
-                            updatedAt
-                            tags
-                            variants(first: 10) {
-                                nodes {
-                                    id
-                                    title
-                                    createdAt
-                                    price
-                                    sku
-                                    updatedAt
-                                }
-                            }
-                            options {
-                                name
-                                values
-                            }
+                        sellingPlanId
+                    }
+                    variant {
+                        id
+                        title
+                    }
+                    product {
+                        id
+                        title
+                    }
+                    originalUnitPriceSet {
+                        shopMoney {
+                            amount
+                            currencyCode
                         }
-                        quantity
-                        sku
-                        originalUnitPriceSet {
-                            shopMoney {
-                                amount
-                                currencyCode
-                            }
+                    }
+                    totalDiscountSet {
+                        shopMoney {
+                            amount
                         }
-                        isGiftCard
-                        totalDiscountSet {
-                            shopMoney {
-                                amount
-                                currencyCode
-                            }
-                        }
-                        variant {
-                            id
-                            title
-                        }
-                        vendor
+                    }
                 }
             }
-            transactions(first: 5) {
-                id
-                createdAt
-                kind
-                gateway
-                parentTransaction {
-                    id
-                }
-                amountSet {
-                    shopMoney {
-                        amount
-                        currencyCode
-                    }
+            metafields(first: %v) {
+                pageInfo {
+                    hasNextPage
                 }
             }
         }
     }
 }
-
-` $ordersLimit $customerId }}
+` $ordersLimit $customerId $metafieldsLimit }}
 
 {
     "query": {{toJson $query}}

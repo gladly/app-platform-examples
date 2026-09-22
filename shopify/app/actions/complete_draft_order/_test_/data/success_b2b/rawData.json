@@ -1,0 +1,148 @@
+{
+  "data": {
+    "draftOrderComplete": {
+      "draftOrder": {
+        "id": "gid://shopify/DraftOrder/123456789",
+        "name": "#D74",
+        "status": "COMPLETED",
+        "order": {
+          "id": "gid://shopify/Order/987654322",
+          "name": "#1046",
+          "createdAt": "2026-06-11T19:10:00Z",
+          "displayFinancialStatus": "PAID",
+          "displayFulfillmentStatus": "UNFULFILLED",
+          "purchasingEntity": {
+            "__typename": "PurchasingCompany",
+            "company": {
+              "id": "gid://shopify/Company/600",
+              "name": "Acme Outdoor Wholesale"
+            },
+            "contact": {
+              "id": "gid://shopify/CompanyContact/700",
+              "customer": {
+                "id": "gid://shopify/Customer/7005550000001",
+                "displayName": "Bo Buyer"
+              }
+            },
+            "location": {
+              "id": "gid://shopify/CompanyLocation/800",
+              "name": "Acme HQ"
+            }
+          },
+          "shippingAddress": {
+            "formatted": [
+              "Acme Outdoor Wholesale",
+              "1 Warehouse Way",
+              "Denver CO 80014",
+              "United States"
+            ],
+            "address1": "1 Warehouse Way",
+            "address2": null,
+            "city": "Denver",
+            "company": "Acme Outdoor Wholesale",
+            "country": "United States",
+            "countryCodeV2": "US",
+            "firstName": "Bo",
+            "lastName": "Buyer",
+            "phone": null,
+            "province": "Colorado",
+            "provinceCode": "CO",
+            "zip": "80014"
+          },
+          "lineItems": {
+            "pageInfo": {
+              "hasNextPage": true
+            },
+            "nodes": [
+              {
+                "id": "gid://shopify/LineItem/58681285673274",
+                "name": "Smith Squad Goggles - Gray",
+                "quantity": 3,
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "33.33",
+                    "currencyCode": "USD"
+                  },
+                  "presentmentMoney": {
+                    "amount": "33.33",
+                    "currencyCode": "USD"
+                  }
+                },
+                "discountedTotalSet": {
+                  "shopMoney": {
+                    "amount": "99.99",
+                    "currencyCode": "USD"
+                  },
+                  "presentmentMoney": {
+                    "amount": "99.99",
+                    "currencyCode": "USD"
+                  }
+                }
+              }
+            ]
+          },
+          "subtotalPriceSet": {
+            "shopMoney": {
+              "amount": "99.99",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "99.99",
+              "currencyCode": "USD"
+            }
+          },
+          "totalDiscountsSet": {
+            "shopMoney": {
+              "amount": "15.00",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "15.00",
+              "currencyCode": "USD"
+            }
+          },
+          "totalShippingPriceSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "totalTaxSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "totalPriceSet": {
+            "shopMoney": {
+              "amount": "84.99",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "84.99",
+              "currencyCode": "USD"
+            }
+          },
+          "taxesIncluded": false,
+          "note": null,
+          "paymentTerms": {
+            "id": "gid://shopify/PaymentTerms/987654321",
+            "paymentTermsName": "Net 30",
+            "paymentTermsType": "NET",
+            "dueInDays": 30,
+            "overdue": false
+          }
+        }
+      },
+      "userErrors": []
+    }
+  }
+}

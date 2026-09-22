@@ -17,11 +17,33 @@
     ]
 }
 {{- else -}}
-{{- with .rawData.data.job }}
-    {{- if and (ne .query nil) (ne .query.order nil) -}}
-    {{- $_ := set . "order" .query.order }}
-    {{- $_ := unset . "query" }}
-    {{- end}}
-    {{- toJson . -}}
-{{- end }}
+{{- $job := .rawData.data.job -}}
+{{- $out := dict "id" $job.id "done" $job.done -}}
+{{- if and (ne $job.query nil) (ne $job.query.order nil) -}}
+  {{- $ord := $job.query.order -}}
+  {{- /* Flatten each refund into the RefundOverview shape (refundLineItems.nodes -> lineItems,
+         transactions.nodes -> transactions). */ -}}
+  {{- $refunds := list -}}
+  {{- range $ord.refunds -}}
+    {{- $rfLines := list -}}
+    {{- range .refundLineItems.nodes -}}
+      {{- $rfl := dict "quantity" .quantity "restockType" .restockType -}}
+      {{- if .lineItem -}}{{- $_ := set $rfl "lineItemId" .lineItem.id -}}{{- end -}}
+      {{- $rfLines = append $rfLines $rfl -}}
+    {{- end -}}
+    {{- $rfTxns := list -}}
+    {{- range .transactions.nodes -}}
+      {{- $rfTxns = append $rfTxns (dict
+          "id" .id "kind" .kind "status" .status "gateway" .gateway
+          "formattedGateway" .formattedGateway "accountNumber" .accountNumber "amountSet" .amountSet) -}}
+    {{- end -}}
+    {{- $refunds = append $refunds (dict
+        "id" .id "createdAt" .createdAt "note" .note "totalRefundedSet" .totalRefundedSet
+        "lineItems" $rfLines "transactions" $rfTxns) -}}
+  {{- end -}}
+  {{- $_ := set $out "order" (dict
+      "name" $ord.name "cancelledAt" $ord.cancelledAt "cancelReason" $ord.cancelReason
+      "refunds" $refunds) -}}
+{{- end -}}
+{{- toJson $out -}}
 {{- end -}}

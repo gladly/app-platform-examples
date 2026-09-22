@@ -30,42 +30,22 @@
         {{- range $index, $error := $userErrors -}}
         {
         "message": "{{- $error.message -}}",
-        "field": "{{- $error.field -}}"
+        "field": {{- toJson $error.field -}}
         }
         {{- if lt (add $index 1) (len $userErrors) -}},{{- end -}}
         {{- end -}}
     ]
 }
 {{- else -}}
+{{- $order := .rawData.data.orderUpdate.order -}}
+{{- if $order -}}
 {
-    "order": {{- template "orderTemplate" .rawData.data.orderUpdate }}
+    "orderId": "{{ $order.id }}",
+    "orderName": "{{ $order.name }}",
+    "updatedAt": "{{ $order.updatedAt }}",
+    "shippingAddress": {{ toJson $order.shippingAddress }}
 }
+{{- else -}}
+{}
 {{- end -}}
-
-
-{{- define "orderTemplate" }}
-    {{- $order := . -}}
-    {{- $_ := set $order "shippingLines" $order.shippingLines.nodes -}}
-    
-    {{- /* get rid of order->fulfillments[<i>]->fulfillmentLineItems->"nodes" */ -}}
-    {{- $arr := list -}}
-    {{- range $order.fulfillments -}}
-        {{- $_ := set . "fulfillmentLineItems" .fulfillmentLineItems.nodes -}}
-        {{- $arr = append $arr . -}}
-    {{- end -}}
-    {{- $_ := set $order "fulfillments" $arr -}}
-    
-    {{- /* get rid of order->lineItems[<i>]->"nodes" */ -}}
-    {{- $_ := set $order "lineItems" $order.lineItems.nodes -}}
-    
-    {{/* get rid of order->lineItems[<i>]->product->variants->"nodes" */ -}}
-    {{- $arr := list -}}
-    {{- range $order.lineItems -}}
-        {{- if ne .product nil }}
-            {{- $_ := set .product "variants" .product.variants.nodes -}}
-            {{- $arr = append $arr . -}}
-        {{- end -}}
-    {{- end -}}
-    {{- $_ := set $order "lineItems" $arr -}}
-    {{- toJson $order -}}
 {{- end -}}

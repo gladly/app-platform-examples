@@ -17,6 +17,28 @@
                   "amount": "1130.0",
                   "currencyCode": "USD"
                 }
+              },
+              "createdAt": "2024-12-03T15:52:52Z",
+              "refundLineItems": {
+                "nodes": []
+              },
+              "transactions": {
+                "nodes": [
+                  {
+                    "id": "gid://shopify/OrderTransaction/900710727900",
+                    "kind": "REFUND",
+                    "status": "SUCCESS",
+                    "gateway": "shopify_payments",
+                    "formattedGateway": "Visa",
+                    "accountNumber": "•••• 4242",
+                    "amountSet": {
+                      "presentmentMoney": {
+                        "amount": "1130.0",
+                        "currencyCode": "USD"
+                      }
+                    }
+                  }
+                ]
               }
             }
           ]

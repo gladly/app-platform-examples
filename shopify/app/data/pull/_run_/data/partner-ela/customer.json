@@ -1,0 +1,16 @@
+{
+  "id": "customer1",
+  "name": "Ayumu Hirano",
+  "primaryEmailAddress": "ayumu.hirano@example.com",
+  "emailAddresses": ["ayumu.hirano@example.com"],
+  "primaryPhoneNumber": {
+    "number": "+16135550127",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+16135550127",
+      "type": "MOBILE"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "data": {
+    "orderInvoiceSend": {
+      "order": null,
+      "userErrors": [
+        {
+          "field": ["id"],
+          "message": "Cannot send invoice for this order"
+        }
+      ]
+    }
+  }
+}

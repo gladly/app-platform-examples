@@ -31,6 +31,37 @@
 
 {{/* Iterate through all customers. Simplify nodes and nodes out of the response. */}}
 {{- $customer := (index .rawData.data.customers.nodes 0) -}}
+
+{{- /* Shopify deprecated Customer.email and Customer.phone. We read the
+       non-deprecated defaultEmailAddress / defaultPhoneNumber instead and flatten
+       them back onto the field names shopify_customer already publishes, so the
+       data type is unchanged. Set explicitly in both branches: an absent key and
+       a null one are not the same fixture. */ -}}
+{{- if $customer.defaultEmailAddress -}}
+    {{- $_ := set $customer "email" $customer.defaultEmailAddress.emailAddress -}}
+{{- else -}}
+    {{- $_ := set $customer "email" nil -}}
+{{- end -}}
+{{- $_ := unset $customer "defaultEmailAddress" -}}
+
+{{- if $customer.defaultPhoneNumber -}}
+    {{- $_ := set $customer "phone" $customer.defaultPhoneNumber.phoneNumber -}}
+{{- else -}}
+    {{- $_ := set $customer "phone" nil -}}
+{{- end -}}
+{{- $_ := unset $customer "defaultPhoneNumber" -}}
+
+{{- /* The metafields data pull caps each owner's metafields, so a short list
+       is indistinguishable from a complete one. Carry Shopify's hasNextPage
+       for the customer's own metafields and drop the connection wrapper: the
+       metafields themselves come from the metafields data pull. */ -}}
+{{- if $customer.metafields -}}
+    {{- $_ := set $customer "hasMoreMetafields" $customer.metafields.pageInfo.hasNextPage -}}
+{{- else -}}
+    {{- $_ := set $customer "hasMoreMetafields" nil -}}
+{{- end -}}
+{{- $_ := unset $customer "metafields" -}}
+
 {{- with $customer -}}
 {{ toJson . -}}
 {{- end -}}

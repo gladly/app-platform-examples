@@ -10,13 +10,14 @@ query jobStatus($jobId: ID!, $orderId: ID!) {
           cancelReason
           refunds(first: 10) {
             id
+            createdAt
             note
             totalRefundedSet {
-              shopMoney {
-                amount
-                currencyCode
-              }
+              shopMoney { amount currencyCode }
+              presentmentMoney { amount currencyCode }
             }
+            refundLineItems(first: 50) { nodes { quantity restockType lineItem { id } } }
+            transactions(first: 10) { nodes { id kind status gateway formattedGateway accountNumber amountSet { shopMoney { amount currencyCode } presentmentMoney { amount currencyCode } } } }
           }
         }
     }

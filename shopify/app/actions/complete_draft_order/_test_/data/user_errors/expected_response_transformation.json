@@ -1,0 +1,11 @@
+{
+  "order": null,
+  "draftOrder": null,
+  "errors": [],
+  "userErrors": [
+    {
+      "message": "The previously proposed price for this merchandise was invalid and has been updated.",
+      "field": null
+    }
+  ]
+}

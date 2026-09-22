@@ -1,0 +1,20 @@
+{
+  "errors": null,
+  "hasMoreVariants": true,
+  "variants": [
+    {
+      "availableForSale": true,
+      "id": "gid://shopify/ProductVariant/1",
+      "inventoryPolicy": "DENY",
+      "inventoryQuantity": 3,
+      "product": {
+        "id": "gid://shopify/Product/555",
+        "title": "Many Variant Tee"
+      },
+      "sellableOnlineQuantity": 3,
+      "sku": "sku-s",
+      "title": "S",
+      "tracked": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "data": {
+    "orderUpdate": {
+      "order": {
+        "id": "gid://shopify/Order/4459950243991",
+        "tags": [],
+        "note": "Original note unchanged",
+        "updatedAt": "2026-05-28T12:10:00Z"
+      },
+      "userErrors": []
+    }
+  }
+}

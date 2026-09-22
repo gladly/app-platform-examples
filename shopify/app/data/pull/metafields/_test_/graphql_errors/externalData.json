@@ -1,0 +1,13 @@
+{
+  "shopify_customer": [
+    {
+      "id": "gid://shopify/Customer/invalid123",
+      "email": "invalid.customer@example.com",
+      "firstName": "Invalid",
+      "lastName": "Customer",
+      "createdAt": "2025-01-15T10:00:00Z",
+      "updatedAt": "2025-01-15T10:00:00Z"
+    }
+  ]
+}
+

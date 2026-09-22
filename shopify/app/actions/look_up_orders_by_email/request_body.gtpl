@@ -1,62 +1,41 @@
+{{- /* The email validation is deliberately loose: it only has to be good enough
+     to search with, which is what Shopify recommends for email order lookup.
+     Resist tightening it — a stricter pattern rejects real addresses.
 
-{{- /* Retrieve orders by email. Note that only order's email will be matched. For example if a customer has an account with an 'customer@mail.com'
-    and makes an order using 'order@mail.com', it will only be returned when searching for 'order@email.com'.
-    If you want to lookup customers by email addresss, please use the Data Pull. 
-    Orders are sorted by the most recently updated. By default first 40 orders are fetched. */ -}}
-{{ $ol := .integration.configuration.ordersLimit}}
-{{- $ordersLimit := $ol | default 10 -}}
+     Injection is not a concern here. The email travels as a GraphQL variable,
+     so the document below is a fixed string that no input can restructure.
+*/ -}}
+
+{{- if not .inputs.email }}
+    {{- stop "Email address is required to look up orders" }}
+{{- end }}
+
+{{- $email := .inputs.email | trim | lower -}}
+
+{{- if eq $email "" }}
+    {{- stop "Email address is required to look up orders" }}
+{{- end }}
+
+{{- if or (not (regexMatch `^[^\s@]+@[^\s@]+\.[^\s@]+$` $email)) (regexMatch `@\.|\.$` $email) }}
+    {{- stop "Invalid email address format provided" }}
+{{- end }}
+
+{{- $ordersLimit := 10 -}}
+{{- with index .integration.configuration "ordersLimit" -}}
+{{- $parsed := atoi (printf "%v" .) -}}
+{{- if le $parsed 0 }}{{ fail (printf "Shopify 'ordersLimit' must be a positive whole number, got %v. Order lookup by email cannot proceed." .) }}{{ end -}}
+{{- $ordersLimit = $parsed -}}
+{{- end -}}
 
 {{-
-$query := printf `
-{
-    orders(first: %.0f, sortKey: UPDATED_AT, reverse: true, query: "email:'%s'") {
+$query := `
+query OrdersByEmail($search: String!, $first: Int!) {
+    orders(first: $first, sortKey: CREATED_AT, reverse: true, query: $search) {
         nodes {
             id
             customer {
                 id
                 displayName
-            }
-            fulfillable
-            fulfillmentsCount {count precision}
-            fulfillments {
-                id
-                fulfillmentLineItems(first:10) {
-                    nodes {
-                        id
-                        quantity
-                        originalTotalSet{
-                            shopMoney {amount}
-                        }
-                        discountedTotalSet {
-                            shopMoney {amount}
-                        }
-                        lineItem {
-                            id
-                        }
-                    }
-                }
-                createdAt
-                updatedAt
-                deliveredAt
-                displayStatus
-                estimatedDeliveryAt
-                inTransitAt
-                name
-                originAddress {
-                    address1
-                    address2
-                    city
-                    countryCode
-                    provinceCode
-                    zip
-                }
-                requiresShipping
-                status
-                trackingInfo {
-                    company
-                    number
-                    url
-                }
             }
             confirmationNumber
             statusPageUrl
@@ -66,10 +45,13 @@ $query := printf `
             note
             tags
             updatedAt
-            currencyCode
             cancelReason
             currentSubtotalPriceSet {
                 shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
                     amount
                     currencyCode
                 }
@@ -79,9 +61,17 @@ $query := printf `
                     amount
                     currencyCode
                 }
+                presentmentMoney {
+                    amount
+                    currencyCode
+                }
             }
             currentTotalTaxSet {
                 shopMoney {
+                    amount
+                    currencyCode
+                }
+                presentmentMoney {
                     amount
                     currencyCode
                 }
@@ -91,9 +81,7 @@ $query := printf `
                     amount
                     currencyCode
                 }
-            }
-            subtotalPriceSet {
-                shopMoney {
+                presentmentMoney {
                     amount
                     currencyCode
                 }
@@ -108,100 +96,49 @@ $query := printf `
                 provinceCode
                 zip
                 country
-                countryCode
+                countryCodeV2
             }
             shippingLines(first: 40) {
                 nodes {
-                    carrierIdentifier
-                    code
-                    custom
-                    id
-                    phone
-                    source
                     title
                 }
-            }
-            billingAddress {
-                address1
-                address2
-                city
-                province
-                provinceCode
-                zip
-                country
-                countryCode
             }
             lineItems(first: 40) {
                 nodes {
                     id
                     name
+                    sku
+                    vendor
+                    isGiftCard
+                    quantity
+                    variant {
+                        id
+                        title
+                    }
                     product {
                         id
                         title
-                        status
-                        createdAt
-                        productType
-                        vendor
-                        updatedAt
-                        tags
-                        variants(first: 10) {
-                            nodes {
-                                id
-                                title
-                                createdAt
-                                price
-                                sku
-                                updatedAt
-                            }
-                        }
-                        options {
-                            name
-                            values
-                        }
                     }
-                    quantity
-                    sku
                     originalUnitPriceSet {
                         shopMoney {
                             amount
                             currencyCode
                         }
                     }
-                    isGiftCard
                     totalDiscountSet {
                         shopMoney {
                             amount
-                            currencyCode
                         }
-                    }
-                    variant {
-                        id
-                        title
-                    }
-                    vendor
-                }
-            }
-            transactions(first: 5) {
-                id
-                createdAt
-                kind
-                gateway
-                parentTransaction {
-                    id
-                }
-                amountSet {
-                    shopMoney {
-                        amount
-                        currencyCode
                     }
                 }
             }
         }
     }
 }
-` $ordersLimit .inputs.email
+`
 -}}
 
 {
-    "query": {{toJson $query}}
+    "query": {{toJson $query}},
+    "variables": {{toJson (dict "search" (printf `email:"%s"` $email) "first" $ordersLimit)}}
 }

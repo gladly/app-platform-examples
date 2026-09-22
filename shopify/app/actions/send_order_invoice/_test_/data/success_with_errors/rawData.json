@@ -1,0 +1,22 @@
+{
+  "errors": [
+      {
+          "message": "Something went wrong",
+          "locations": [
+              {
+                  "line": 2,
+                  "column": 14
+              }
+          ],
+          "path": [
+              "query",
+              "orderInvoiceSend"
+          ],
+          "extensions": {
+              "code": "SomethingWentWrongCode",
+              "name": "orderInvoiceSend",
+              "typeName": "Field"
+          }
+      }
+  ]
+}

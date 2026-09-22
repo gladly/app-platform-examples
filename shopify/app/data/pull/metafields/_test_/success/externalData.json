@@ -1,0 +1,105 @@
+{
+  "shopify_customer": [
+    {
+      "id": "gid://shopify/Customer/9010685411641"
+    }
+  ],
+  "shopify_order": [
+    {
+      "id": "gid://shopify/Order/1234567890",
+      "name": "#1001",
+      "email": "customer@example.com",
+      "createdAt": "2023-12-01T10:00:00Z",
+      "totalPrice": "99.99"
+    },
+    {
+      "id": "gid://shopify/Order/1234567891",
+      "name": "#1002",
+      "email": "customer2@example.com",
+      "createdAt": "2023-12-02T11:00:00Z",
+      "totalPrice": "149.99"
+    }
+  ],
+  "shopify_metafield": [
+    {
+      "id": "gid://shopify/Metafield/53108041449785",
+      "createdAt": "2026-05-18T17:14:21Z",
+      "namespace": "custom",
+      "key": "special_metafield",
+      "value": "hello I am a metafield",
+      "type": "single_line_text_field",
+      "ownerId": "gid://shopify/Customer/9010685411641",
+      "ownerType": "CUSTOMER"
+    },
+    {
+      "id": "gid://shopify/Metafield/56107515216185",
+      "createdAt": "2026-07-30T07:42:00Z",
+      "namespace": "custom",
+      "key": "transaction_log",
+      "value": "[{\"order_id\":7520658260281,\"order_txn_id\":8005020254259,\"txn_created_at\":\"2026-07-17T15:41:10Z\",\"txn_stage\":\"Checkout\",\"txn_kind\":\"SALE\",\"amount_charged\":275.0}]",
+      "type": "json",
+      "ownerId": "gid://shopify/Order/7520658260281",
+      "ownerType": "ORDER"
+    },
+    {
+      "id": "gid://shopify/Metafield/56107515248953",
+      "createdAt": "2026-07-30T07:42:00Z",
+      "namespace": "custom",
+      "key": "event_date",
+      "value": "2026-08-15",
+      "type": "date",
+      "ownerId": "gid://shopify/Order/7520658260281",
+      "ownerType": "ORDER"
+    },
+    {
+      "id": "gid://shopify/Metafield/56107515281721",
+      "createdAt": "2026-07-30T07:42:00Z",
+      "namespace": "custom",
+      "key": "promised_delivery_date",
+      "value": "2026-08-05",
+      "type": "date",
+      "ownerId": "gid://shopify/Order/7520658260281",
+      "ownerType": "ORDER"
+    },
+    {
+      "id": "gid://shopify/Metafield/56107515314489",
+      "createdAt": "2026-07-30T07:42:00Z",
+      "namespace": "custom",
+      "key": "is_rtk_eligible",
+      "value": "false",
+      "type": "boolean",
+      "ownerId": "gid://shopify/Order/7520658260281",
+      "ownerType": "ORDER"
+    },
+    {
+      "id": "gid://shopify/Metafield/56107515347257",
+      "createdAt": "2026-07-30T07:42:00Z",
+      "namespace": "custom",
+      "key": "return_labels",
+      "value": "[\"gid://shopify/MediaImage/42523367932217\"]",
+      "type": "list.file_reference",
+      "ownerId": "gid://shopify/Order/7520658260281",
+      "ownerType": "ORDER"
+    },
+    {
+      "id": "gid://shopify/Metafield/56202218570041",
+      "createdAt": "2026-08-01T09:43:17Z",
+      "namespace": "updated_esd",
+      "key": "17518060077369",
+      "value": "Ships by Aug 12 (updated)",
+      "type": "single_line_text_field",
+      "ownerId": "gid://shopify/Order/7520658260281",
+      "ownerType": "ORDER"
+    },
+    {
+      "id": "gid://shopify/Metafield/53184441942329",
+      "createdAt": "2026-05-20T12:08:08Z",
+      "namespace": "custom",
+      "key": "gift_message",
+      "value": "Go get them!",
+      "type": "multi_line_text_field",
+      "ownerId": "gid://shopify/Order/7419980316985",
+      "ownerType": "ORDER"
+    }
+  ]
+}

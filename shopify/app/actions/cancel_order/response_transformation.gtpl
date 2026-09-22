@@ -25,7 +25,7 @@
         {
         "message": "{{- $error.message -}}",
         "code": "{{- $error.code -}}",
-        "field": "{{- $error.field -}}"
+        "field": {{ if $error.field }}"{{ join "." $error.field }}"{{ else }}null{{ end }}
         }
         {{- if lt (add $index 1) (len $userErrors) -}},{{- end -}}
         {{- end -}}

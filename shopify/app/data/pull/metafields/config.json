@@ -1,0 +1,9 @@
+{
+  "dataType": {
+    "name": "shopify_metafield",
+    "version": "1.0"
+  },
+  "dependsOnDataTypes": ["shopify_customer"],
+  "httpMethod": "POST",
+  "contentType": "application/json"
+}

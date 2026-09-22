@@ -1,7 +1,7 @@
 {
   "dataType": {
     "name": "shopify_customer",
-    "version": "3.0"
+    "version": "3.2"
   },
   "httpMethod": "POST",
   "contentType": "application/json",

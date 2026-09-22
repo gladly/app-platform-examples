@@ -1,0 +1,29 @@
+{
+  "errors": [
+    {
+      "message": "Variable $ids of type [ID!]! was provided invalid value for 0 (Invalid global id 'not-a-gid')",
+      "locations": [
+        {
+          "line": 1,
+          "column": 21
+        }
+      ],
+      "extensions": {
+        "code": "INVALID_VARIABLE",
+        "value": [
+          "not-a-gid",
+          "gid://shopify/MediaImage/45178023018809"
+        ],
+        "problems": [
+          {
+            "path": [
+              0
+            ],
+            "explanation": "Invalid global id 'not-a-gid'",
+            "message": "Invalid global id 'not-a-gid'"
+          }
+        ]
+      }
+    }
+  ]
+}

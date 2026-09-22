@@ -1,0 +1,9 @@
+{
+  "draftOrder": {
+    "id": "gid://shopify/DraftOrder/1243403911481",
+    "name": "#D100",
+    "status": "INVOICE_SENT",
+    "invoiceUrl": "https://gladly-development.myshopify.com/00000000000/invoices/fakeinvoicetoken0123456789abcdef",
+    "invoiceSentAt": "2026-06-26T19:42:22Z"
+  }
+}

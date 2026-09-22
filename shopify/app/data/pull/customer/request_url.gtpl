@@ -1,5 +1,5 @@
 {{- $shop := .integration.configuration.shop}}
-{{- $apiVersion := "2025-04"}}
+{{- $apiVersion := "2026-07"}}
 
 {{/* Shopify GRAPHQL url */}}
 

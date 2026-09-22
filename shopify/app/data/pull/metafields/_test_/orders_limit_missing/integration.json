@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "shop": "test-shop"
+  },
+  "secrets": {
+    "access_token": "test_access_token"
+  }
+}

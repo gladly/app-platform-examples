@@ -1,0 +1,8 @@
+{
+  "code": "GG-DEFLT-PQRST",
+  "title": "Whole-order one-time discount",
+  "discountAmount": 2.95,
+  "customerId": "gid://shopify/Customer/123456",
+  "startsAt": "2026-06-01T00:00:00Z",
+  "endsAt": "2026-09-01T00:00:00Z"
+}

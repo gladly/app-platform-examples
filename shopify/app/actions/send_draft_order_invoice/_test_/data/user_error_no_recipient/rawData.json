@@ -1,0 +1,13 @@
+{
+  "data": {
+    "draftOrderInvoiceSend": {
+      "draftOrder": null,
+      "userErrors": [
+        {
+          "field": null,
+          "message": "To can't be blank"
+        }
+      ]
+    }
+  }
+}

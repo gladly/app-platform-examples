@@ -1,0 +1,13 @@
+{
+  "data": {
+    "draftOrderCreateFromOrder": {
+      "draftOrder": null,
+      "userErrors": [
+        {
+          "field": null,
+          "message": "Order not found"
+        }
+      ]
+    }
+  }
+}

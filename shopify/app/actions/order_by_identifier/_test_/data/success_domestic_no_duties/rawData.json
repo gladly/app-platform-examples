@@ -1,0 +1,445 @@
+{
+  "data": {
+    "orderByIdentifier": {
+      "id": "gid://shopify/Order/7462005375289",
+      "name": "#1056",
+      "confirmationNumber": "MT5Z4LUCQ",
+      "displayFinancialStatus": "REFUNDED",
+      "displayFulfillmentStatus": "FULFILLED",
+      "createdAt": "2026-06-08T19:15:45Z",
+      "processedAt": "2026-06-08T19:15:43Z",
+      "channelInformation": null,
+      "app": {
+        "name": "Draft Orders"
+      },
+      "shippingLines": {
+        "nodes": [
+          {
+            "title": "My Custom Location"
+          }
+        ]
+      },
+      "email": null,
+      "note": null,
+      "tags": [],
+      "cancelReason": null,
+      "cancelledAt": null,
+      "originalTotalPriceSet": {
+        "shopMoney": {
+          "amount": "157.45",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "157.45",
+          "currencyCode": "USD"
+        }
+      },
+      "originalTotalDutiesSet": null,
+      "subtotalPriceSet": {
+        "shopMoney": {
+          "amount": "135.5",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "135.5",
+          "currencyCode": "USD"
+        }
+      },
+      "totalShippingPriceSet": {
+        "shopMoney": {
+          "amount": "21.95",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "21.95",
+          "currencyCode": "USD"
+        }
+      },
+      "totalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "totalPriceSet": {
+        "shopMoney": {
+          "amount": "157.45",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "157.45",
+          "currencyCode": "USD"
+        }
+      },
+      "currentSubtotalPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDiscountsSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentCartDiscountAmountSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentShippingPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalTaxSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "currentTotalDutiesSet": null,
+      "currentTotalPriceSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "totalReceivedSet": {
+        "shopMoney": {
+          "amount": "157.45",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "157.45",
+          "currencyCode": "USD"
+        }
+      },
+      "totalRefundedSet": {
+        "shopMoney": {
+          "amount": "157.45",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "157.45",
+          "currencyCode": "USD"
+        }
+      },
+      "totalRefundedShippingSet": {
+        "shopMoney": {
+          "amount": "21.95",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "21.95",
+          "currencyCode": "USD"
+        }
+      },
+      "totalOutstandingSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "refundDiscrepancySet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "totalCapturableSet": {
+        "shopMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        },
+        "presentmentMoney": {
+          "amount": "0.0",
+          "currencyCode": "USD"
+        }
+      },
+      "shippingAddress": {
+        "address1": "2 Triangle Road",
+        "address2": "Unit A",
+        "city": "London",
+        "company": null,
+        "country": "United Kingdom",
+        "countryCodeV2": "GB",
+        "firstName": null,
+        "lastName": "Sam",
+        "name": "Sam",
+        "phone": null,
+        "province": "England",
+        "provinceCode": "ENG",
+        "zip": "E8 3RP",
+        "formatted": [
+          "2 Triangle Road",
+          "Unit A",
+          "London",
+          "E8 3RP",
+          "United Kingdom"
+        ]
+      },
+      "billingAddress": {
+        "address1": "2 Triangle Road",
+        "address2": "Unit A",
+        "city": "London",
+        "company": null,
+        "country": "United Kingdom",
+        "countryCodeV2": "GB",
+        "firstName": null,
+        "lastName": "Sam",
+        "name": "Sam",
+        "phone": null,
+        "province": "England",
+        "provinceCode": "ENG",
+        "zip": "E8 3RP",
+        "formatted": [
+          "2 Triangle Road",
+          "Unit A",
+          "London",
+          "E8 3RP",
+          "United Kingdom"
+        ]
+      },
+      "lineItems": {
+        "pageInfo": {
+          "hasNextPage": false
+        },
+        "nodes": [
+          {
+            "id": "gid://shopify/LineItem/17404492153145",
+            "name": "Apex Carve Helmet - Past Season - Matte Granite Blue / Mediterranean Geo / YM",
+            "title": "Apex Carve Helmet - Past Season",
+            "sku": "ELA-HLMT-006",
+            "vendor": "Apex Outdoor",
+            "isGiftCard": false,
+            "currentQuantity": 0,
+            "quantity": 1,
+            "unfulfilledQuantity": 0,
+            "originalUnitPriceSet": {
+              "shopMoney": {
+                "amount": "150.5",
+                "currencyCode": "USD"
+              }
+            },
+            "totalDiscountSet": {
+              "shopMoney": {
+                "amount": "0.0",
+                "currencyCode": "USD"
+              }
+            },
+            "variant": {
+              "id": "gid://shopify/ProductVariant/53338378961209",
+              "title": "Matte Granite Blue / Mediterranean Geo / YM"
+            },
+            "product": {
+              "id": "gid://shopify/Product/10218180739385",
+              "title": "Apex Carve Helmet - Past Season",
+              "vendor": "Apex Outdoor",
+              "productType": "Helmet"
+            },
+            "customAttributes": [
+              {
+                "key": "_email_delivery_notice",
+                "value": "Estimated delivery Aug 12-16. We'll email tracking when it ships."
+              },
+              {
+                "key": "Gift note",
+                "value": "Happy birthday!"
+              }
+            ]
+          }
+        ]
+      },
+      "fulfillments": [
+        {
+          "id": "gid://shopify/Fulfillment/6335871910201",
+          "name": "#1056-F1",
+          "displayStatus": "FULFILLED",
+          "deliveredAt": null,
+          "estimatedDeliveryAt": null,
+          "trackingInfo": [],
+          "fulfillmentLineItems": {
+            "nodes": [
+              {
+                "quantity": 1,
+                "lineItem": {
+                  "id": "gid://shopify/LineItem/17404492153145"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "fulfillmentOrders": {
+        "pageInfo": {
+          "hasNextPage": false
+        },
+        "nodes": [
+          {
+            "id": "gid://shopify/FulfillmentOrder/8076880511289",
+            "status": "CLOSED",
+            "assignedLocation": {
+              "name": "Shop location"
+            },
+            "fulfillmentHolds": [],
+            "lineItems": {
+              "nodes": [
+                {
+                  "remainingQuantity": 0,
+                  "lineItem": {
+                    "id": "gid://shopify/LineItem/17404492153145"
+                  }
+                }
+              ]
+            },
+            "deliveryMethod": {
+              "methodType": "PICK_UP",
+              "minDeliveryDateTime": null,
+              "maxDeliveryDateTime": null
+            }
+          }
+        ]
+      },
+      "returns": {
+        "pageInfo": {
+          "hasNextPage": false
+        },
+        "nodes": [
+          {
+            "id": "gid://shopify/Return/16755884345",
+            "name": "#1056-R1",
+            "status": "OPEN",
+            "totalQuantity": 1,
+            "returnLineItems": {
+              "nodes": [
+                {
+                  "quantity": 1,
+                  "returnReasonNote": "Customer says the helmet runs too small",
+                  "returnReasonDefinition": {
+                    "name": "Too small"
+                  },
+                  "fulfillmentLineItem": {
+                    "lineItem": {
+                      "id": "gid://shopify/LineItem/17404492153145"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "refunds": [
+        {
+          "id": "gid://shopify/Refund/1048505745721",
+          "note": "TEST whole-order refund happy path",
+          "totalRefundedSet": {
+            "shopMoney": {
+              "amount": "157.45",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "157.45",
+              "currencyCode": "USD"
+            }
+          },
+          "refundLineItems": {
+            "nodes": [
+              {
+                "quantity": 1,
+                "subtotalSet": {
+                  "shopMoney": {
+                    "amount": "135.5",
+                    "currencyCode": "USD"
+                  },
+                  "presentmentMoney": {
+                    "amount": "135.5",
+                    "currencyCode": "USD"
+                  }
+                },
+                "totalTaxSet": {
+                  "shopMoney": {
+                    "amount": "0.0",
+                    "currencyCode": "USD"
+                  },
+                  "presentmentMoney": {
+                    "amount": "0.0",
+                    "currencyCode": "USD"
+                  }
+                },
+                "restockType": "NO_RESTOCK",
+                "lineItem": {
+                  "id": "gid://shopify/LineItem/17404492153145"
+                }
+              }
+            ]
+          },
+          "createdAt": "2026-06-20T10:00:00Z",
+          "transactions": {
+            "nodes": [
+              {
+                "id": "gid://shopify/OrderTransaction/8800000000001",
+                "kind": "REFUND",
+                "status": "SUCCESS",
+                "gateway": "bogus",
+                "formattedGateway": "(For Testing) Bogus Gateway",
+                "accountNumber": "•••• •••• •••• 1",
+                "amountSet": {
+                  "shopMoney": {
+                    "amount": "157.45",
+                    "currencyCode": "USD"
+                  },
+                  "presentmentMoney": {
+                    "amount": "157.45",
+                    "currencyCode": "USD"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "additionalFees": []
+    }
+  }
+}

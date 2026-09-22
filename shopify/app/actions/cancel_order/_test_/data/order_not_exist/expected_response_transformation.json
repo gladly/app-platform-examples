@@ -4,7 +4,7 @@
     {
       "message": "Order does not exist",
       "code": "NOT_FOUND",
-      "field": "[orderId]"
+      "field": "orderId"
     }
   ]
 }

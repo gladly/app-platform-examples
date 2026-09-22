@@ -1,0 +1,47 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "__typename": "Product",
+        "id": "gid://shopify/Product/9825989689657",
+        "title": "The Draft Snowboard",
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/50591797903673",
+              "title": "Default Title",
+              "sku": null,
+              "availableForSale": true,
+              "inventoryPolicy": "DENY",
+              "inventoryQuantity": 20,
+              "sellableOnlineQuantity": 20,
+              "inventoryItem": {
+                "tracked": true
+              }
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false
+          }
+        }
+      },
+      {
+        "__typename": "ProductVariant",
+        "id": "gid://shopify/ProductVariant/50591797903673",
+        "title": "Default Title",
+        "sku": null,
+        "availableForSale": true,
+        "inventoryPolicy": "DENY",
+        "inventoryQuantity": 20,
+        "sellableOnlineQuantity": 20,
+        "inventoryItem": {
+          "tracked": true
+        },
+        "product": {
+          "id": "gid://shopify/Product/9825989689657",
+          "title": "The Draft Snowboard"
+        }
+      }
+    ]
+  }
+}

@@ -1,11 +1,11 @@
 {{ $query := printf `
-mutation orderCancel($notifyCustomer: Boolean, $orderId: ID!, $reason: OrderCancelReason!, $refund: Boolean!, $restock: Boolean!, $staffNote: String) {
+mutation orderCancel($notifyCustomer: Boolean, $orderId: ID!, $reason: OrderCancelReason!, $refundMethod: OrderCancelRefundMethodInput, $restock: Boolean!, $staffNote: String) {
     orderCancel(
-        notifyCustomer: $notifyCustomer, 
-        orderId: $orderId, 
-        reason: $reason, 
-        refund: $refund, 
-        restock: $restock, 
+        notifyCustomer: $notifyCustomer,
+        orderId: $orderId,
+        reason: $reason,
+        refundMethod: $refundMethod,
+        restock: $restock,
         staffNote: $staffNote
     ) {
         job {

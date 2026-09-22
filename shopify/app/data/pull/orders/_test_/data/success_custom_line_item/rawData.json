@@ -1,0 +1,174 @@
+{
+  "data": {
+    "orders": {
+      "nodes": [
+        {
+          "id": "gid://shopify/Order/7496672772409",
+          "customer": {
+            "id": "gid://shopify/Customer/9010685411641",
+            "displayName": "Test Customer"
+          },
+          "confirmationNumber": "KPAA33WL5",
+          "statusPageUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+          "createdAt": "2026-06-26T19:22:22Z",
+          "email": "customer@example.com",
+          "name": "#1068",
+          "note": "$0 replacement for damaged order #1059 (Team Assist test)",
+          "tags": [
+            "gladly-replacement-test"
+          ],
+          "updatedAt": "2026-06-26T19:22:24Z",
+          "cancelReason": null,
+          "currentSubtotalPriceSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalDiscountsSet": {
+            "shopMoney": {
+              "amount": "111.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentShippingPriceSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalTaxSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "currentTotalDutiesSet": null,
+          "currentTotalPriceSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "taxesIncluded": false,
+          "totalReceivedSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "totalRefundedSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "totalOutstandingSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            }
+          },
+          "refundable": false,
+          "displayFinancialStatus": "PAID",
+          "displayFulfillmentStatus": "UNFULFILLED",
+          "returnStatus": "NO_RETURN",
+          "sourceName": "4303413",
+          "app": {
+            "name": "Gladly"
+          },
+          "shippingAddress": {
+            "firstName": null,
+            "lastName": "Customer",
+            "company": null,
+            "address1": "123 Example Street",
+            "address2": null,
+            "city": "New York",
+            "province": "Illinois",
+            "provinceCode": "IL",
+            "zip": null,
+            "country": "United States",
+            "countryCodeV2": "US",
+            "phone": null,
+            "formatted": [
+              "Customer",
+              "123 Example Street",
+              "New York IL",
+              "United States"
+            ],
+            "validationResultSummary": "ERROR",
+            "coordinatesValidated": true,
+            "latitude": 40.6331249,
+            "longitude": -89.3985283
+          },
+          "shippingLines": {
+            "nodes": []
+          },
+          "lineItems": {
+            "nodes": [
+              {
+                "id": "gid://shopify/LineItem/17471697060153",
+                "name": "Smith Squad Goggles - Gray",
+                "sku": "1231111",
+                "vendor": "partner-ela",
+                "isGiftCard": false,
+                "quantity": 1,
+                "currentQuantity": 1,
+                "unfulfilledQuantity": 1,
+                "sellingPlan": null,
+                "variant": {
+                  "id": "gid://shopify/ProductVariant/51737009357113",
+                  "title": "Gray"
+                },
+                "product": {
+                  "id": "gid://shopify/Product/10089017737529",
+                  "title": "Smith Squad Goggles"
+                },
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "45.0",
+                    "currencyCode": "USD"
+                  }
+                },
+                "totalDiscountSet": {
+                  "shopMoney": {
+                    "amount": "45.0"
+                  }
+                }
+              },
+              {
+                "id": "gid://shopify/LineItem/17471697092921",
+                "name": "Heavy stuff",
+                "sku": null,
+                "vendor": "",
+                "isGiftCard": false,
+                "quantity": 3,
+                "currentQuantity": 3,
+                "unfulfilledQuantity": 3,
+                "sellingPlan": null,
+                "variant": null,
+                "product": null,
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "22.0",
+                    "currencyCode": "USD"
+                  }
+                },
+                "totalDiscountSet": {
+                  "shopMoney": {
+                    "amount": "66.0"
+                  }
+                }
+              }
+            ]
+          },
+          "metafields": {
+            "pageInfo": {
+              "hasNextPage": false
+            }
+          }
+        }
+      ]
+    }
+  }
+}

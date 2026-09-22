@@ -1,0 +1,35 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "__typename": "Product",
+        "id": "gid://shopify/Product/7451895464087",
+        "metafields": {
+          "nodes": [
+            {
+              "id": "gid://shopify/Metafield/100",
+              "namespace": "custom",
+              "key": "product_subcategory",
+              "value": "Citrus",
+              "type": "single_line_text_field",
+              "createdAt": "2026-05-01T12:34:56Z",
+              "ownerType": "PRODUCT"
+            }
+          ]
+        }
+      },
+      null
+    ]
+  },
+  "extensions": {
+    "cost": {
+      "requestedQueryCost": 12,
+      "actualQueryCost": 3,
+      "throttleStatus": {
+        "maximumAvailable": 2000.0,
+        "currentlyAvailable": 1997,
+        "restoreRate": 100.0
+      }
+    }
+  }
+}

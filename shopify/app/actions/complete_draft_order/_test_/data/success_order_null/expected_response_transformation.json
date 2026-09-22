@@ -1,0 +1,10 @@
+{
+  "order": null,
+  "draftOrder": {
+    "id": "gid://shopify/DraftOrder/123456789",
+    "name": "#D73",
+    "status": "COMPLETED"
+  },
+  "errors": [],
+  "userErrors": []
+}

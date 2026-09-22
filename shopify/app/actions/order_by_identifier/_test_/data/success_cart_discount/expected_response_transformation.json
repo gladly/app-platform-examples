@@ -1,0 +1,448 @@
+{
+  "order": {
+    "additionalFees": [],
+    "billingAddress": null,
+    "cancelReason": null,
+    "cancelledAt": null,
+    "confirmationNumber": "YYF2ZZ83I",
+    "createdAt": "2026-08-08T11:30:30Z",
+    "currentCartDiscountAmountSet": {
+      "presentmentMoney": {
+        "amount": "15.54",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "15.54",
+        "currencyCode": "USD"
+      }
+    },
+    "currentShippingPriceSet": {
+      "presentmentMoney": {
+        "amount": "15.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "15.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentSubtotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "295.31",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "295.31",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "presentmentMoney": {
+        "amount": "49.54",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "49.54",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDutiesSet": null,
+    "currentTotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "335.91",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "335.91",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "presentmentMoney": {
+        "amount": "25.6",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "25.6",
+        "currencyCode": "USD"
+      }
+    },
+    "deliveryMethodName": "Standard",
+    "displayFinancialStatus": "PAID",
+    "displayFulfillmentStatus": "UNFULFILLED",
+    "email": "money-probe@example.com",
+    "fulfillmentOrders": [
+      {
+        "assignedLocation": "Shop location",
+        "deliveryMethod": {
+          "maxDeliveryDateTime": null,
+          "methodType": "SHIPPING",
+          "minDeliveryDateTime": null
+        },
+        "holds": [],
+        "id": "gid://shopify/FulfillmentOrder/8194700509497",
+        "lineItems": [
+          {
+            "lineItemId": "gid://shopify/LineItem/17628260860217",
+            "remainingQuantity": 2
+          },
+          {
+            "lineItemId": "gid://shopify/LineItem/17628260892985",
+            "remainingQuantity": 1
+          },
+          {
+            "lineItemId": "gid://shopify/LineItem/17628260925753",
+            "remainingQuantity": 3
+          }
+        ],
+        "status": "OPEN"
+      },
+      {
+        "assignedLocation": "Shop location",
+        "deliveryMethod": {
+          "maxDeliveryDateTime": null,
+          "methodType": "NONE",
+          "minDeliveryDateTime": null
+        },
+        "holds": [],
+        "id": "gid://shopify/FulfillmentOrder/8194700542265",
+        "lineItems": [
+          {
+            "lineItemId": "gid://shopify/LineItem/17628260958521",
+            "remainingQuantity": 1
+          }
+        ],
+        "status": "OPEN"
+      }
+    ],
+    "fulfillments": [],
+    "hasMoreFulfillmentOrders": false,
+    "hasMoreLineItems": false,
+    "hasMoreReturns": false,
+    "id": "gid://shopify/Order/7576391156025",
+    "lineItems": [
+      {
+        "currentQuantity": 2,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628260860217",
+        "name": "Smith Squad Goggles - Blue",
+        "price": {
+          "amount": "45.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "collections": [
+            {
+              "id": "gid://shopify/Collection/527381561657",
+              "title": "The Under $50 Stash"
+            }
+          ],
+          "hasMoreCollections": false,
+          "id": "gid://shopify/Product/10089017737529",
+          "productType": "",
+          "title": "Smith Squad Goggles",
+          "vendor": "partner-ela"
+        },
+        "quantity": 2,
+        "sku": null,
+        "title": "Smith Squad Goggles",
+        "totalDiscount": "9.0",
+        "unfulfilledQuantity": 2,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/51736134549817",
+          "selectedOptions": [
+            {
+              "name": "Eyewear frame color",
+              "value": "Blue"
+            }
+          ],
+          "title": "Blue"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "currentQuantity": 1,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628260892985",
+        "name": "Apex Carve Helmet - Past Season - Matte Mystic / Gold Dust / YM",
+        "price": {
+          "amount": "200.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "collections": [
+            {
+              "id": "gid://shopify/Collection/498237604153",
+              "title": "Automated Collection"
+            },
+            {
+              "id": "gid://shopify/Collection/527984263481",
+              "title": "Youth snow helmets"
+            },
+            {
+              "id": "gid://shopify/Collection/528674423097",
+              "title": "Past Season"
+            }
+          ],
+          "hasMoreCollections": false,
+          "id": "gid://shopify/Product/10218180739385",
+          "productType": "Helmet",
+          "title": "Apex Carve Helmet - Past Season",
+          "vendor": "Apex Outdoor"
+        },
+        "quantity": 1,
+        "sku": "ELA-HLMT-009",
+        "title": "Apex Carve Helmet - Past Season",
+        "totalDiscount": "25.0",
+        "unfulfilledQuantity": 1,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/53338379059513",
+          "selectedOptions": [
+            {
+              "name": "Color",
+              "value": "Matte Mystic / Gold Dust"
+            },
+            {
+              "name": "Size",
+              "value": "YM"
+            }
+          ],
+          "title": "Matte Mystic / Gold Dust / YM"
+        },
+        "vendor": "Apex Outdoor"
+      },
+      {
+        "currentQuantity": 3,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17628260925753",
+        "name": "Selling Plans Ski Wax - Sample Selling Plans Ski Wax",
+        "price": {
+          "amount": "9.95",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "collections": [
+            {
+              "id": "gid://shopify/Collection/527381561657",
+              "title": "The Under $50 Stash"
+            }
+          ],
+          "hasMoreCollections": false,
+          "id": "gid://shopify/Product/9825989755193",
+          "productType": "accessories",
+          "title": "Selling Plans Ski Wax",
+          "vendor": "partner-ela"
+        },
+        "quantity": 3,
+        "sku": null,
+        "title": "Selling Plans Ski Wax",
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 3,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/50591798395193",
+          "selectedOptions": [
+            {
+              "name": "Title",
+              "value": "Sample Selling Plans Ski Wax"
+            }
+          ],
+          "title": "Sample Selling Plans Ski Wax"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "currentQuantity": 1,
+        "giftCard": true,
+        "id": "gid://shopify/LineItem/17628260958521",
+        "name": "Gift Card - $25",
+        "price": {
+          "amount": "25.0",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "collections": [
+            {
+              "id": "gid://shopify/Collection/527381561657",
+              "title": "The Under $50 Stash"
+            }
+          ],
+          "hasMoreCollections": false,
+          "id": "gid://shopify/Product/9825989656889",
+          "productType": "giftcard",
+          "title": "Gift Card",
+          "vendor": "Snowboard Vendor"
+        },
+        "quantity": 1,
+        "sku": null,
+        "title": "Gift Card",
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 1,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/50591797805369",
+          "selectedOptions": [
+            {
+              "name": "Denominations",
+              "value": "$25"
+            }
+          ],
+          "title": "$25"
+        },
+        "vendor": "Snowboard Vendor"
+      }
+    ],
+    "name": "#1081",
+    "note": "M1 discount tiers x exclusive tax x non-taxable line",
+    "originalTotalDutiesSet": null,
+    "originalTotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "335.91",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "335.91",
+        "currencyCode": "USD"
+      }
+    },
+    "processedAt": "2026-08-08T11:30:29Z",
+    "purchasingEntity": {
+      "customer": {
+        "defaultAddressFormatted": [
+          "500 5th Ave",
+          "New York NY 10110",
+          "United States"
+        ],
+        "displayName": "Money Probe",
+        "email": "money-probe@example.com",
+        "id": "gid://shopify/Customer/10750260085049"
+      }
+    },
+    "refundDiscrepancySet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "refunds": [],
+    "returns": [],
+    "shippingAddress": {
+      "address1": "500 5th Ave",
+      "address2": null,
+      "city": "New York",
+      "company": null,
+      "country": "United States",
+      "countryCodeV2": "US",
+      "firstName": "Money",
+      "formatted": [
+        "500 5th Ave",
+        "New York NY 10110",
+        "United States"
+      ],
+      "lastName": "Probe",
+      "name": "Money Probe",
+      "phone": null,
+      "province": "New York",
+      "provinceCode": "NY",
+      "zip": "10110"
+    },
+    "sourceAppName": "Shopify CLI Connector App",
+    "subtotalPriceSet": {
+      "presentmentMoney": {
+        "amount": "295.31",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "295.31",
+        "currencyCode": "USD"
+      }
+    },
+    "tags": [
+      "M1",
+      "money-field-probe"
+    ],
+    "totalCapturableSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalOutstanding": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalPriceSet": {
+      "presentmentMoney": {
+        "amount": "335.91",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "335.91",
+        "currencyCode": "USD"
+      }
+    },
+    "totalReceived": {
+      "presentmentMoney": {
+        "amount": "335.91",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "335.91",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefunded": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefundedShippingSet": {
+      "presentmentMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalShippingPriceSet": {
+      "presentmentMoney": {
+        "amount": "15.0",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "15.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalTaxSet": {
+      "presentmentMoney": {
+        "amount": "25.6",
+        "currencyCode": "USD"
+      },
+      "shopMoney": {
+        "amount": "25.6",
+        "currencyCode": "USD"
+      }
+    }
+  },
+  "errors": []
+}

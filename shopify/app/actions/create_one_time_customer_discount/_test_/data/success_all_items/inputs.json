@@ -1,0 +1,11 @@
+{
+  "code": "GG-STORE-KLMNO",
+  "title": "Storewide one-time discount",
+  "discountAmount": 10,
+  "customerId": "gid://shopify/Customer/123456",
+  "startsAt": "2026-06-01T00:00:00Z",
+  "endsAt": "2026-09-01T00:00:00Z",
+  "appliesTo": {
+    "all": true
+  }
+}

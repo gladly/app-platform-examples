@@ -3,66 +3,57 @@
     "customers": {
       "nodes": [
         {
-          "id": "gid://shopify/Customer/5999224094871",
-          "firstName": "Carina",
-          "lastName": "Test-Gladly",
-          "email": "primary@email.com",
+          "id": "gid://shopify/Customer/10556137832761",
+          "firstName": "First",
+          "lastName": "Last",
+          "displayName": "First Last",
+          "defaultEmailAddress": {
+            "emailAddress": "primary@email.com"
+          },
           "emailMarketingConsent": {
-            "marketingState": "SUBSCRIBED",
+            "marketingState": "NOT_SUBSCRIBED",
             "marketingOptInLevel": "SINGLE_OPT_IN",
-            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+            "consentUpdatedAt": null
           },
           "smsMarketingConsent": {
             "marketingState": "SUBSCRIBED",
             "marketingOptInLevel": "SINGLE_OPT_IN",
-            "consentUpdatedAt": "2022-03-13T18:26:47Z"
+            "consentUpdatedAt": "2026-05-28T23:21:27Z"
           },
-          "tags": ["big spender", "loyal", "superstar"],
-          "lifetimeDuration": "over 2 years",
+          "tags": [
+            "yotpo-tiers-brown"
+          ],
+          "lifetimeDuration": "2 months",
           "note": "",
-          "phone": "+1234567890",
-          "numberOfOrders": "6",
+          "defaultPhoneNumber": {
+            "phoneNumber": "+15551234567"
+          },
+          "locale": "en-GB",
+          "numberOfOrders": "1",
           "amountSpent": {
-            "amount": "488.64",
+            "amount": "370.0",
             "currencyCode": "USD"
           },
-          "createdAt": "2022-02-24T20:42:01Z",
-          "updatedAt": "2022-06-10T21:10:02Z",
-          "defaultAddress": {
-            "formattedArea": "Chandler AZ, United States",
-            "address1": "xxx Some Address",
-            "address2": "",
-            "city": "Chandler",
-            "province": "Arizona",
-            "provinceCode": "AZ",
-            "zip": "85248",
-            "country": "United States",
-            "countryCode": "US"
+          "statistics": {
+            "predictedSpendTier": null,
+            "rfmGroup": "ALMOST_LOST"
           },
-          "addresses": [
-            {
-              "address1": "12345 Happy Valley Ln",
-              "address2": "",
-              "city": "SLC",
-              "province": null,
-              "provinceCode": null,
-              "zip": "UT",
-              "country": "",
-              "countryCode": null
-            },
-            {
-              "address1": "xxx Some Address",
-              "address2": "",
-              "city": "Chandler",
-              "province": "Arizona",
-              "provinceCode": "AZ",
-              "zip": "85248",
-              "country": "United States",
-              "countryCode": "US"
+          "createdAt": "2026-05-28T23:21:27Z",
+          "updatedAt": "2026-06-25T18:43:28Z",
+          "defaultAddress": {
+            "address1": "123 Example Street",
+            "address2": "Unit 4",
+            "city": "London",
+            "province": null,
+            "provinceCode": null,
+            "zip": "SW1A 1AA",
+            "country": "United Kingdom",
+            "countryCodeV2": "GB"
+          },
+          "metafields": {
+            "pageInfo": {
+              "hasNextPage": false
             }
-          ],
-          "image": {
-            "src": "https://cdn.shopify.com/proxy/3d1f9752317dcb948f93460f0008d1905072ae44fcbcb8b0fedbc016a768dd78/www.gravatar.com/avatar/6069c3efa3da6403e8611b7813128f37.jpg?s=2048&d=https%3A%2F%2Fcdn.shopify.com%2Fshopifycloud%2Fshopify%2Fassets%2Fadmin%2Fcustomers%2Fpolaris%2Favatar-3-d7b953912ef42b1ef360e0a80bf1d474b9cfc90cb46126bd72ff32d10b47cefb.png"
           }
         }
       ]

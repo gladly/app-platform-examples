@@ -1,0 +1,144 @@
+{
+  "data": {
+    "orders": {
+      "nodes": [
+        {
+          "id": "gid://shopify/Order/7576391582009",
+          "customer": {
+            "id": "gid://shopify/Customer/10750323851577",
+            "displayName": "Money Probe"
+          },
+          "confirmationNumber": "AY0DPMFFJ",
+          "statusPageUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+          "createdAt": "2026-08-08T11:30:48Z",
+          "email": "money-probe-mx@example.com",
+          "name": "#1083",
+          "note": "M5 multi-currency shopMoney vs presentmentMoney",
+          "tags": [
+            "M5",
+            "money-field-probe"
+          ],
+          "updatedAt": "2026-08-08T11:30:50Z",
+          "cancelReason": null,
+          "currentSubtotalPriceSet": {
+            "shopMoney": {
+              "amount": "100.8",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "1727.1",
+              "currencyCode": "MXN"
+            }
+          },
+          "currentTotalDiscountsSet": {
+            "shopMoney": {
+              "amount": "5.3",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "90.9",
+              "currencyCode": "MXN"
+            }
+          },
+          "currentTotalTaxSet": {
+            "shopMoney": {
+              "amount": "0.0",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "0.0",
+              "currencyCode": "MXN"
+            }
+          },
+          "currentTotalPriceSet": {
+            "shopMoney": {
+              "amount": "131.26",
+              "currencyCode": "USD"
+            },
+            "presentmentMoney": {
+              "amount": "2249.1",
+              "currencyCode": "MXN"
+            }
+          },
+          "displayFinancialStatus": "PAID",
+          "displayFulfillmentStatus": "UNFULFILLED",
+          "shippingAddress": {
+            "address1": "Paseo de la Reforma 222",
+            "address2": null,
+            "city": "Mexico City",
+            "province": null,
+            "provinceCode": null,
+            "zip": "06600",
+            "country": "Mexico",
+            "countryCodeV2": "MX"
+          },
+          "shippingLines": {
+            "nodes": [
+              {
+                "title": "International"
+              }
+            ]
+          },
+          "lineItems": {
+            "nodes": [
+              {
+                "id": "gid://shopify/LineItem/17628261908793",
+                "name": "Smith Squad Goggles - Blue",
+                "sku": null,
+                "vendor": "partner-ela",
+                "isGiftCard": false,
+                "quantity": 2,
+                "variant": {
+                  "id": "gid://shopify/ProductVariant/51736134549817",
+                  "title": "Blue"
+                },
+                "product": {
+                  "id": "gid://shopify/Product/10089017737529",
+                  "title": "Smith Squad Goggles"
+                },
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "43.42",
+                    "currencyCode": "USD"
+                  }
+                },
+                "totalDiscountSet": {
+                  "shopMoney": {
+                    "amount": "0.0"
+                  }
+                }
+              },
+              {
+                "id": "gid://shopify/LineItem/17628261941561",
+                "name": "Selling Plans Ski Wax - Sample Selling Plans Ski Wax",
+                "sku": null,
+                "vendor": "partner-ela",
+                "isGiftCard": false,
+                "quantity": 2,
+                "variant": {
+                  "id": "gid://shopify/ProductVariant/50591798395193",
+                  "title": "Sample Selling Plans Ski Wax"
+                },
+                "product": {
+                  "id": "gid://shopify/Product/9825989755193",
+                  "title": "Selling Plans Ski Wax"
+                },
+                "originalUnitPriceSet": {
+                  "shopMoney": {
+                    "amount": "9.63",
+                    "currencyCode": "USD"
+                  }
+                },
+                "totalDiscountSet": {
+                  "shopMoney": {
+                    "amount": "0.0"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

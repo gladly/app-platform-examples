@@ -1,0 +1,30 @@
+{
+	"title": "Configure Shopify",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Enter your Shopify store details below."
+		},
+		{
+			"type": "input",
+			"label": "Shop",
+			"attr": "configuration.shop",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. my-store"
+			},
+			"hint": "Your Shopify store subdomain (the part before .myshopify.com)"
+		},
+		{
+			"type": "input",
+			"label": "Orders Limit",
+			"attr": "configuration.ordersLimit",
+			"defaultValue": "40",
+			"input": {
+				"type": "text",
+				"placeholder": "40"
+			},
+			"hint": "Maximum number of recent orders to retrieve per customer. Must be a positive number."
+		}
+	]
+}

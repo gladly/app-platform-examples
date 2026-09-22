@@ -1,0 +1,15 @@
+{
+  "draftOrder": null,
+  "errors": [],
+  "userErrors": [
+    {
+      "message": "Variant not found",
+      "field": [
+        "input",
+        "lineItems",
+        "0",
+        "variantId"
+      ]
+    }
+  ]
+}

@@ -1,63 +1,148 @@
 [
   {
-    "billingAddress": { "address1": "1281 West Bartlett Way", "address2": "", "city": "Chandler", "country": "United States", "countryCode": "US", "province": "Arizona", "provinceCode": "AZ", "zip": "85248" },
+    "app": {
+      "name": "Draft Orders"
+    },
     "cancelReason": null,
-    "confirmationNumber": "XW52L5HCU",
-    "createdAt": "2022-06-10T21:08:24Z",
-    "currencyCode": "USD",
-    "currentSubtotalPriceSet": { "presentmentMoney": { "amount": "99.0", "currencyCode": "USD" }, "shopMoney": { "amount": "99.0", "currencyCode": "USD" } },
-    "currentTotalDiscountsSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } },
-    "currentTotalPriceSet": { "presentmentMoney": { "amount": "99.0", "currencyCode": "USD" }, "shopMoney": { "amount": "99.0", "currencyCode": "USD" } },
-    "currentTotalTaxSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } },
-    "customer": { "displayName": "Jon Doe", "id": "gid://shopify/Customer/7711469076631" },
-    "customerId": "gid://shopify/Customer/7711469076631",
-    "displayFinancialStatus": "PARTIALLY_REFUNDED",
-    "displayFulfillmentStatus": "UNFULFILLED",
-    "email": "primary@email.com",
-    "fulfillable": false,
-    "fulfillments": [],
-    "id": "gid://shopify/Order/4602612154519",
+    "confirmationNumber": "5YRDTMTRG",
+    "createdAt": "2026-06-11T18:17:21Z",
+    "currentShippingPriceSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentSubtotalPriceSet": {
+      "shopMoney": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDutiesSet": null,
+    "currentTotalPriceSet": {
+      "shopMoney": {
+        "amount": "44.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "customer": {
+      "id": "gid://shopify/Customer/9010685411641",
+      "displayName": "Test Customer"
+    },
+    "customerId": "gid://shopify/Customer/9010685411641",
+    "email": "customer@example.com",
+    "financialStatus": "PARTIALLY_REFUNDED",
+    "fulfillmentStatus": "UNFULFILLED",
+    "hasMoreMetafields": false,
+    "id": "gid://shopify/Order/7467224990009",
     "lineItems": [
       {
-        "id": "gid://shopify/LineItem/11166584701079",
-        "isGiftCard": false,
-        "name": "t-shirt (short):  Cat Shirt - Small",
-        "originalUnitPriceSet": { "presentmentMoney": { "amount": "99.0", "currencyCode": "USD" }, "shopMoney": { "amount": "99.0", "currencyCode": "USD" } },
+        "currentQuantity": 0,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17414544294201",
+        "name": "Smith Squad Goggles - Gray",
+        "price": {
+          "amount": "45.0",
+          "currencyCode": "USD"
+        },
         "product": {
-          "createdAt": "2021-09-22T16:15:58Z",
-          "id": "gid://shopify/Product/7175822475415",
-          "options": [{ "name": "Size", "values": ["Small", "Medium", "Large"] }],
-          "productType": "Shirts \u0026 Tops",
-          "status": "ACTIVE",
-          "tags": [],
-          "title": "t-shirt (short):  Cat Shirt",
-          "updatedAt": "2024-12-03T11:30:06Z",
-          "variants": [
-            { "createdAt": "2022-02-28T22:47:09Z", "id": "gid://shopify/ProductVariant/41799856357527", "price": "99.00", "sku": "09876", "title": "Small", "updatedAt": "2023-10-27T18:08:37Z" },
-            { "createdAt": "2022-02-28T22:47:09Z", "id": "gid://shopify/ProductVariant/41799856390295", "price": "99.00", "sku": "09877", "title": "Medium", "updatedAt": "2024-11-25T13:26:50Z" },
-            { "createdAt": "2022-02-28T22:47:09Z", "id": "gid://shopify/ProductVariant/41799856423063", "price": "99.00", "sku": "09878", "title": "Large", "updatedAt": "2024-12-03T11:30:04Z" }
-          ],
-          "vendor": "gladly-development"
+          "id": "gid://shopify/Product/10089017737529",
+          "title": "Smith Squad Goggles"
         },
         "quantity": 1,
-        "sku": "09876",
-        "totalDiscountSet": { "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }, "shopMoney": { "amount": "0.0", "currencyCode": "USD" } },
-        "variant": { "id": "gid://shopify/ProductVariant/41799856357527", "title": "Small" },
-        "vendor": "gladly-development"
+        "sellingPlan": null,
+        "sku": "1231111",
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 1,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/51737009357113",
+          "title": "Gray"
+        },
+        "vendor": "partner-ela"
+      },
+      {
+        "currentQuantity": 2,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17414544326969",
+        "name": "Heavy stuff",
+        "price": {
+          "amount": "22.0",
+          "currencyCode": "USD"
+        },
+        "product": null,
+        "quantity": 3,
+        "sellingPlan": null,
+        "sku": null,
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 3,
+        "variant": null,
+        "vendor": ""
       }
     ],
-    "name": "#1044",
+    "name": "#1059",
     "note": null,
-    "orderNumber": "#1044",
-    "shippingAddress": { "address1": "1281 West Bartlett Way", "address2": "", "city": "Chandler", "country": "United States", "countryCode": "US", "province": "Arizona", "provinceCode": "AZ", "zip": "85248" },
+    "orderNumber": "#1059",
+    "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+    "refundable": true,
+    "returnStatus": "NO_RETURN",
+    "shippingAddress": {
+      "firstName": null,
+      "lastName": "Customer",
+      "company": null,
+      "address1": "123 Example Street",
+      "address2": null,
+      "city": "New York",
+      "province": "Illinois",
+      "provinceCode": "IL",
+      "zip": null,
+      "country": "United States",
+      "countryCodeV2": "US",
+      "phone": null,
+      "formatted": [
+        "Customer",
+        "123 Example Street",
+        "New York IL",
+        "United States"
+      ],
+      "validationResultSummary": "ERROR",
+      "coordinatesValidated": true,
+      "latitude": 40.6331249,
+      "longitude": -89.3985283
+    },
     "shippingLines": [],
-    "statusPageUrl": "https://gladly-development.myshopify.com/47554330775/orders/e7bcdb7edcd1a42a2eda083b586c266e/authenticate?key=1336dc7625f78fb28e1c647998573b42",
-    "subtotalPriceSet": { "presentmentMoney": { "amount": "99.0", "currencyCode": "USD" }, "shopMoney": { "amount": "99.0", "currencyCode": "USD" } },
+    "sourceName": "shopify_draft_order",
     "tags": [],
-    "transactions": [
-      { "amountSet": { "shopMoney": { "amount": "99.0", "currencyCode": "USD" } }, "createdAt": "2022-06-10T21:08:24Z", "gateway": "manual", "id": "gid://shopify/OrderTransaction/5503969034391", "kind": "SALE", "parentTransaction": null },
-      { "amountSet": { "shopMoney": { "amount": "11.0", "currencyCode": "USD" } }, "createdAt": "2022-06-10T21:09:59Z", "gateway": "manual", "id": "gid://shopify/OrderTransaction/5503971000471", "kind": "REFUND", "parentTransaction": { "id": "gid://shopify/OrderTransaction/5503969034391" } }
-    ],
-    "updatedAt": "2022-06-10T21:09:59Z"
+    "taxesIncluded": false,
+    "totalOutstandingSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalReceivedSet": {
+      "shopMoney": {
+        "amount": "111.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefundedSet": {
+      "shopMoney": {
+        "amount": "67.0",
+        "currencyCode": "USD"
+      }
+    },
+    "updatedAt": "2026-06-26T19:18:45Z"
   }
 ]

@@ -4,7 +4,7 @@
     {
       "message": "Cannot cancel an order that has already been canceled",
       "code": "INVALID",
-      "field": "[orderId]"
+      "field": "orderId"
     }
   ]
 }

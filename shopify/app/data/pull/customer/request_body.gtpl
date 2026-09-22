@@ -27,6 +27,10 @@
 {{- end }}
 
 
+{{- /* Same limit the metafields data pull uses, so hasNextPage reports the cap
+    that will actually be applied to this customer's metafields. */ -}}
+{{- $metafieldsLimit := (default 50 (index .integration.configuration "metafieldsLimit")) -}}
+
 {{$query := printf `
 query  {
     customers(first: 2, query: %s) {
@@ -34,7 +38,10 @@ query  {
             id
             firstName
             lastName
-            email
+            displayName
+            defaultEmailAddress {
+                emailAddress
+            }
             emailMarketingConsent {
                 marketingState
                 marketingOptInLevel
@@ -47,20 +54,23 @@ query  {
             }
             lifetimeDuration
             note
-            phone
+            defaultPhoneNumber {
+                phoneNumber
+            }
+            locale
             numberOfOrders
             tags
             amountSpent {
                 amount
                 currencyCode
             }
+            statistics {
+                predictedSpendTier
+                rfmGroup
+            }
             createdAt
             updatedAt
-            note
-            tags
-            lifetimeDuration
             defaultAddress {
-                formattedArea
                 address1
                 address2
                 city
@@ -68,25 +78,17 @@ query  {
                 provinceCode
                 zip
                 country
-                countryCode
+                countryCodeV2
             }
-            addresses {
-                address1
-                address2
-                city
-                province
-                provinceCode
-                zip
-                country
-                countryCode
-            }
-            image {
-                src
+            metafields(first: %v) {
+                pageInfo {
+                    hasNextPage
+                }
             }
         }
     }
 }
-` (toJson $customerQuery)}}
+` (toJson $customerQuery) $metafieldsLimit}}
 
 {
     "query": {{toJson $query}}

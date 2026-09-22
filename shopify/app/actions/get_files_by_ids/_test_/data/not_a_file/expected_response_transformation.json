@@ -1,0 +1,27 @@
+{
+  "files": [
+    {
+      "id": "gid://shopify/MediaImage/45178023018809",
+      "typename": "MediaImage",
+      "fileStatus": "READY",
+      "alt": "",
+      "createdAt": "2026-06-08T18:26:39Z",
+      "updatedAt": "2026-06-08T18:26:41Z",
+      "mediaImage": {
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0931/8508/1657/files/Screenshot_2026-06-08_at_19.26.33.png?v=1780943201",
+          "width": 2082,
+          "height": 1760,
+          "altText": ""
+        },
+        "mimeType": "image/png"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "message": "File not found: gid://shopify/Order/7520658260281",
+      "code": "not_found"
+    }
+  ]
+}

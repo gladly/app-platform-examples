@@ -1,0 +1,9 @@
+{
+  "configuration": {
+    "shop": "gladly-development",
+    "ordersLimit": "0"
+  },
+  "secrets": {
+    "access_token": "access_token"
+  }
+}

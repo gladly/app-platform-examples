@@ -1,0 +1,1 @@
+"Shopify 'ordersLimit' must be a positive whole number, got -5. Order lookup by email cannot proceed."

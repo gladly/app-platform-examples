@@ -1,0 +1,10 @@
+{
+  "discountCode": null,
+  "errors": [],
+  "userErrors": [
+    {
+      "message": "Code must be unique. Please try a different code.",
+      "field": ["basicCodeDiscount", "code"]
+    }
+  ]
+}

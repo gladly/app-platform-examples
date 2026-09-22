@@ -1,0 +1,134 @@
+[
+  {
+    "app": {
+      "name": "Online Store"
+    },
+    "cancelReason": null,
+    "confirmationNumber": "MT5Z4LUCQ",
+    "createdAt": "2026-06-08T19:15:45Z",
+    "currentShippingPriceSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentSubtotalPriceSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDiscountsSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalDutiesSet": null,
+    "currentTotalPriceSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "currentTotalTaxSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "customer": {
+      "id": "gid://shopify/Customer/9010685411641",
+      "displayName": "Test Customer"
+    },
+    "customerId": "gid://shopify/Customer/9010685411641",
+    "email": null,
+    "financialStatus": "REFUNDED",
+    "fulfillmentStatus": "FULFILLED",
+    "hasMoreMetafields": false,
+    "id": "gid://shopify/Order/7462005375289",
+    "lineItems": [
+      {
+        "currentQuantity": 0,
+        "giftCard": false,
+        "id": "gid://shopify/LineItem/17404492153145",
+        "name": "Apex Carve Helmet - Past Season - Matte Granite Blue / Mediterranean Geo / YM",
+        "price": {
+          "amount": "150.5",
+          "currencyCode": "USD"
+        },
+        "product": {
+          "id": "gid://shopify/Product/10218180739385",
+          "title": "Apex Carve Helmet - Past Season"
+        },
+        "quantity": 1,
+        "sellingPlan": null,
+        "sku": "ELA-HLMT-006",
+        "totalDiscount": "0.0",
+        "unfulfilledQuantity": 0,
+        "variant": {
+          "id": "gid://shopify/ProductVariant/53338378961209",
+          "title": "Matte Granite Blue / Mediterranean Geo / YM"
+        },
+        "vendor": "Apex Outdoor"
+      }
+    ],
+    "name": "#1056",
+    "note": null,
+    "orderNumber": "#1056",
+    "orderStatusUrl": "https://partner-ela.myshopify.com/93185081657/orders/00000000000000000000000000000000/authenticate?key=00000000000000000000000000000000",
+    "refundable": false,
+    "returnStatus": "IN_PROGRESS",
+    "shippingAddress": {
+      "firstName": null,
+      "lastName": "Customer",
+      "company": null,
+      "address1": "123 Example Street",
+      "address2": null,
+      "city": "London",
+      "province": "England",
+      "provinceCode": "ENG",
+      "zip": null,
+      "country": "United Kingdom",
+      "countryCodeV2": "GB",
+      "phone": null,
+      "formatted": [
+        "Customer",
+        "123 Example Street",
+        "London",
+        "United Kingdom"
+      ],
+      "validationResultSummary": "NO_ISSUES",
+      "coordinatesValidated": true,
+      "latitude": null,
+      "longitude": null
+    },
+    "shippingLines": [
+      {
+        "title": "First Class Package International"
+      }
+    ],
+    "sourceName": "web",
+    "tags": [],
+    "taxesIncluded": false,
+    "totalOutstandingSet": {
+      "shopMoney": {
+        "amount": "0.0",
+        "currencyCode": "USD"
+      }
+    },
+    "totalReceivedSet": {
+      "shopMoney": {
+        "amount": "157.45",
+        "currencyCode": "USD"
+      }
+    },
+    "totalRefundedSet": {
+      "shopMoney": {
+        "amount": "157.45",
+        "currencyCode": "USD"
+      }
+    },
+    "updatedAt": "2026-06-25T18:43:25Z"
+  }
+]

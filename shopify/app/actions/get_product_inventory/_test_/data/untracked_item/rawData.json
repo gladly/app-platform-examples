@@ -1,0 +1,30 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "__typename": "Product",
+        "id": "gid://shopify/Product/9825989624121",
+        "title": "The Inventory Not Tracked Snowboard",
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/50591797739833",
+              "title": "Default Title",
+              "sku": "sku-untracked-1",
+              "availableForSale": true,
+              "inventoryPolicy": "DENY",
+              "inventoryQuantity": 0,
+              "sellableOnlineQuantity": 0,
+              "inventoryItem": {
+                "tracked": false
+              }
+            }
+          ],
+          "pageInfo": {
+            "hasNextPage": false
+          }
+        }
+      }
+    ]
+  }
+}

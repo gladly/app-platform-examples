@@ -1,0 +1,18 @@
+{
+  "data": {
+    "draftOrderComplete": {
+      "draftOrder": {
+        "id": "gid://shopify/DraftOrder/1250794111289",
+        "name": "#D129",
+        "status": "OPEN",
+        "order": null
+      },
+      "userErrors": [
+        {
+          "field": null,
+          "message": "The previously proposed price for this merchandise was invalid and has been updated."
+        }
+      ]
+    }
+  }
+}

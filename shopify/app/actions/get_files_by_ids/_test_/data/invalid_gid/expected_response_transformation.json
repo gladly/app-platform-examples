@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "errors": [
+    {
+      "message": "Variable $ids of type [ID!]! was provided invalid value for 0 (Invalid global id 'not-a-gid')",
+      "code": "INVALID_VARIABLE"
+    }
+  ]
+}

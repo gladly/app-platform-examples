@@ -1,0 +1,23 @@
+{
+  "errors": [
+    {
+      "message": "Invalid global id 'gid://shopify/Customer/invalid123'",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "query",
+        "customer",
+        "id"
+      ],
+      "extensions": {
+        "code": "argumentLiteralsIncompatible",
+        "typeName": "CoercionError"
+      }
+    }
+  ]
+}
+

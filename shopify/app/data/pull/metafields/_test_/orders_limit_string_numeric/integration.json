@@ -1,0 +1,10 @@
+{
+  "configuration": {
+    "shop": "test-shop",
+    "ordersLimit": "10",
+    "metafieldsLimit": 25
+  },
+  "secrets": {
+    "access_token": "test_access_token"
+  }
+}

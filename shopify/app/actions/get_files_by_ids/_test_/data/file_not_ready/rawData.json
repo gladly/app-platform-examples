@@ -1,0 +1,16 @@
+{
+  "data": {
+    "nodes": [
+      {
+        "__typename": "MediaImage",
+        "id": "gid://shopify/MediaImage/45178023018809",
+        "fileStatus": "PROCESSING",
+        "alt": "",
+        "createdAt": "2026-06-08T18:26:39Z",
+        "updatedAt": "2026-06-08T18:26:39Z",
+        "mimeType": "image/png",
+        "image": null
+      }
+    ]
+  }
+}

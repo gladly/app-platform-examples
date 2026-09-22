@@ -1,0 +1,117 @@
+{
+  "data": {
+    "draftOrderUpdate": {
+      "draftOrder": {
+        "id": "gid://shopify/DraftOrder/1240751341881",
+        "name": "#D73",
+        "status": "OPEN",
+        "createdAt": "2026-06-11T17:58:56Z",
+        "updatedAt": "2026-06-18T20:31:00Z",
+        "invoiceUrl": "https://example-store.myshopify.com/12345678901/invoices/fakeinvoicetoken0123456789abcdef",
+        "invoiceSentAt": null,
+        "completedAt": null,
+        "order": null,
+        "purchasingEntity": {
+          "__typename": "Customer",
+          "id": "gid://shopify/Customer/9010685411641",
+          "displayName": "Jane Doe",
+          "defaultEmailAddress": { "emailAddress": "jane.doe@example.com" },
+          "defaultPhoneNumber": null,
+          "defaultAddress": { "formatted": ["United States"] }
+        },
+        "email": "jane.doe@example.com",
+        "phone": "+16135551111",
+        "shippingAddress": {
+          "formatted": ["456 Oak Avenue", "Springfield IL 62704", "United States"],
+          "address1": "456 Oak Avenue",
+          "address2": null,
+          "city": "Springfield",
+          "company": null,
+          "country": "United States",
+          "countryCodeV2": "US",
+          "firstName": "Jane",
+          "lastName": "Doe",
+          "phone": "+16135551111",
+          "province": "Illinois",
+          "provinceCode": "IL",
+          "zip": "62704"
+        },
+        "billingAddress": {
+          "formatted": ["United States"],
+          "address1": "",
+          "address2": null,
+          "city": "",
+          "company": null,
+          "country": "United States",
+          "countryCodeV2": "US",
+          "firstName": null,
+          "lastName": "",
+          "phone": null,
+          "province": null,
+          "provinceCode": null,
+          "zip": null
+        },
+        "shippingLine": null,
+        "lineItems": {
+          "pageInfo": { "hasNextPage": false },
+          "nodes": [
+            {
+              "id": "gid://shopify/DraftOrderLineItem/58681285673273",
+              "title": "Smith Squad Goggles",
+              "name": "Smith Squad Goggles - Gray",
+              "quantity": 1,
+              "sku": "1231111",
+              "custom": false,
+              "requiresShipping": true,
+              "taxable": true,
+              "isGiftCard": false,
+              "weight": { "value": 0.0, "unit": "POUNDS" },
+              "originalUnitPriceSet": {
+                "shopMoney": { "amount": "45.0", "currencyCode": "USD" },
+                "presentmentMoney": { "amount": "45.0", "currencyCode": "USD" }
+              },
+              "discountedTotalSet": {
+                "shopMoney": { "amount": "45.0", "currencyCode": "USD" },
+                "presentmentMoney": { "amount": "45.0", "currencyCode": "USD" }
+              },
+              "appliedDiscount": null,
+              "variant": {
+                "id": "gid://shopify/ProductVariant/51737009357113",
+                "title": "Gray",
+                "displayName": "Smith Squad Goggles - Gray",
+                "availableForSale": false,
+                "inventoryQuantity": -15,
+                "inventoryPolicy": "DENY"
+              },
+              "components": []
+            }
+          ]
+        },
+        "appliedDiscount": null,
+        "subtotalPriceSet": {
+          "shopMoney": { "amount": "45.0", "currencyCode": "USD" },
+          "presentmentMoney": { "amount": "45.0", "currencyCode": "USD" }
+        },
+        "totalShippingPriceSet": {
+          "shopMoney": { "amount": "0.0", "currencyCode": "USD" },
+          "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }
+        },
+        "totalTaxSet": {
+          "shopMoney": { "amount": "0.0", "currencyCode": "USD" },
+          "presentmentMoney": { "amount": "0.0", "currencyCode": "USD" }
+        },
+        "totalPriceSet": {
+          "shopMoney": { "amount": "45.0", "currencyCode": "USD" },
+          "presentmentMoney": { "amount": "45.0", "currencyCode": "USD" }
+        },
+        "taxesIncluded": false,
+        "taxExempt": false,
+        "note2": "Updated shipping details per customer request.",
+        "tags": [],
+        "poNumber": "PO-12345",
+        "paymentTerms": null
+      },
+      "userErrors": []
+    }
+  }
+}

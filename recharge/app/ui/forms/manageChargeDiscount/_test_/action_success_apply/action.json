@@ -1,0 +1,7 @@
+{
+  "inputs": { "chargeId": "1839251121", "operation": "apply", "discountCode": "GLADLYTEST10" },
+  "result": {
+    "error": null,
+    "charge": { "id": "1839251121", "status": "queued", "scheduled_at": "2026-08-20" }
+  }
+}

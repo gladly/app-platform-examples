@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "adjustCredit"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "credit_accounts"
+        }
+    ]
+}

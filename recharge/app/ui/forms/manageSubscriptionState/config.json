@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "manageSubscriptionState"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "subscriptions"
+        }
+    ]
+}

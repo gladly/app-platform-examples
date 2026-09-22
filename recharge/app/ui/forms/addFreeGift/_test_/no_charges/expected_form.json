@@ -1,0 +1,10 @@
+{
+  "title": "Add free gift",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no queued or errored charges that can take a free gift."
+    }
+  ]
+}

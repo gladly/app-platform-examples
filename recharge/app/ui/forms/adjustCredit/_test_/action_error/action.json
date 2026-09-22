@@ -1,0 +1,15 @@
+{
+  "inputs": {
+    "creditAccountId": "25490038",
+    "amount": "5.00",
+    "type": "credit",
+    "confirmationCopy": "approve"
+  },
+  "result": {
+    "error": {
+      "http_status": 404,
+      "error_message": "Not Found"
+    },
+    "credit_adjustment": null
+  }
+}

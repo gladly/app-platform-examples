@@ -1,0 +1,115 @@
+{
+  "title": "Delay next order",
+  "submitButton": "Reschedule",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "New next-charge date",
+      "attr": "rescheduleSelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Select a subscription and a new charge date",
+        "optional": false,
+        "options": [
+          {
+            "text": "Test Product: +1 month -> 2026-10-15",
+            "value": "{\"resumeDate\":\"2026-10-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +2 months -> 2026-11-15",
+            "value": "{\"resumeDate\":\"2026-11-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +3 months -> 2026-12-15",
+            "value": "{\"resumeDate\":\"2026-12-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +4 months -> 2027-01-15",
+            "value": "{\"resumeDate\":\"2027-01-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +5 months -> 2027-02-15",
+            "value": "{\"resumeDate\":\"2027-02-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +6 months -> 2027-03-15",
+            "value": "{\"resumeDate\":\"2027-03-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +7 months -> 2027-04-15",
+            "value": "{\"resumeDate\":\"2027-04-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +8 months -> 2027-05-15",
+            "value": "{\"resumeDate\":\"2027-05-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +9 months -> 2027-06-15",
+            "value": "{\"resumeDate\":\"2027-06-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +10 months -> 2027-07-15",
+            "value": "{\"resumeDate\":\"2027-07-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +11 months -> 2027-08-15",
+            "value": "{\"resumeDate\":\"2027-08-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +12 months -> 2027-09-15",
+            "value": "{\"resumeDate\":\"2027-09-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +13 months -> 2027-10-15",
+            "value": "{\"resumeDate\":\"2027-10-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +14 months -> 2027-11-15",
+            "value": "{\"resumeDate\":\"2027-11-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +15 months -> 2027-12-15",
+            "value": "{\"resumeDate\":\"2027-12-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +16 months -> 2028-01-15",
+            "value": "{\"resumeDate\":\"2028-01-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +17 months -> 2028-02-15",
+            "value": "{\"resumeDate\":\"2028-02-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +18 months -> 2028-03-15",
+            "value": "{\"resumeDate\":\"2028-03-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +19 months -> 2028-04-15",
+            "value": "{\"resumeDate\":\"2028-04-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +20 months -> 2028-05-15",
+            "value": "{\"resumeDate\":\"2028-05-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +21 months -> 2028-06-15",
+            "value": "{\"resumeDate\":\"2028-06-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +22 months -> 2028-07-15",
+            "value": "{\"resumeDate\":\"2028-07-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +23 months -> 2028-08-15",
+            "value": "{\"resumeDate\":\"2028-08-15\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: +24 months -> 2028-09-15",
+            "value": "{\"resumeDate\":\"2028-09-15\",\"subscriptionId\":\"841337538\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

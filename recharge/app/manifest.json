@@ -1,6 +1,6 @@
 {
-  "author": "",
-  "appName": "",
-  "version": "1.1.0",
-  "description": "Manage subscriptions and orders in Gladly"
+	"author": "gladly.com",
+	"appName": "Recharge_App",
+	"version": "2.0.2",
+	"description": "Recharge subscriptions for Gladly. Shows each customer's Recharge subscriptions and payment status on the customer profile, and lets agents reschedule the next charge, change subscription frequency, update the shipping address, add a free gift, adjust store credit, apply or remove a discount code, swap a subscription's item, adjust a subscription's price, refund a charge, cancel or reactivate a subscription, and skip or unskip its next order."
 }

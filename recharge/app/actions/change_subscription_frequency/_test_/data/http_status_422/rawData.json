@@ -1,0 +1,6 @@
+{
+  "errors": {
+    "charge_interval_frequency": "cannot change a regular subscription to prepaid",
+    "shipping_interval_frequency": "cannot change a regular subscription to prepaid"
+  }
+}

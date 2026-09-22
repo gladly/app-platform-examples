@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "frequencySelection",
+      "detail": "cannot change a regular subscription to prepaid"
+    }
+  ]
+}

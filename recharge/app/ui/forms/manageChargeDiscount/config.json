@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "manageChargeDiscount"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "charges"
+        }
+    ]
+}

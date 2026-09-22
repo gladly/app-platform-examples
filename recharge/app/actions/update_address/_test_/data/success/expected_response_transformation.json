@@ -1,0 +1,33 @@
+{
+  "error": null,
+  "address": {
+    "id": "283415114",
+    "customer_id": "255770437",
+    "payment_method_id": "306356575",
+    "address1": "5616 N Shore Dr",
+    "address2": "Ste 100",
+    "city": "Milwaukee",
+    "company": null,
+    "country_code": "US",
+    "created_at": "2026-06-30T21:28:57+00:00",
+    "discounts": [],
+    "first_name": "Nate",
+    "is_gift": false,
+    "last_name": "Larkin",
+    "order_attributes": [],
+    "order_note": null,
+    "phone": null,
+    "presentment_currency": "USD",
+    "province": "Wisconsin",
+    "shipping_lines_conserved": [
+      {
+        "code": "Economy",
+        "price": "4.90",
+        "title": "Economy"
+      }
+    ],
+    "shipping_lines_override": [],
+    "updated_at": "2026-06-30T22:44:03+00:00",
+    "zip": "53217"
+  }
+}

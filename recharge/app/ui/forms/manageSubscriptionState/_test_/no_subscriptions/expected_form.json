@@ -1,0 +1,10 @@
+{
+  "title": "Cancel or reactivate subscription",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no Recharge subscriptions to cancel or reactivate."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{ "inputs": { "chargeId": "1839251121", "discountCode": "UATLOOP15" }, "result": { "error": { "http_status": 422, "error_message": "You already applied a discount code to the charge." }, "charge": null } }

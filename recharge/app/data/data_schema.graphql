@@ -78,7 +78,8 @@ type RestrictedAddress {
 
 # The charge object > line_items: https://developer.rechargepayments.com/2021-11/charges/charge_object
 type LineItem {
-  purchase_item_id: ID! # The Subscription or Onetime ID associated with the line_item
+  """The Subscription or Onetime item id for a recurring line item; null for a one-time free gift (matches actions_schema LineItem)."""
+  purchase_item_id: ID
   external_product_id: ExternalId
   external_variant_id: ExternalId
   grams: Int
@@ -164,6 +165,7 @@ type Subscription @dataType(name: "recharge_subscription", version: "1.0") {
   cancellation_reason: String
   cancellation_reason_comments: String
   cancelled_at: DateTime
+  """How many order_interval_unit periods elapse between charges; equals order_interval_frequency for non-prepaid subscriptions."""
   charge_interval_frequency: Int!
   created_at: DateTime
   expire_after_specific_number_of_charges: Int
@@ -173,10 +175,12 @@ type Subscription @dataType(name: "recharge_subscription", version: "1.0") {
   is_prepaid: Boolean
   is_skippable: Boolean
   is_swappable: Boolean
+  """True when the subscription's failed charge has exhausted all payment retries."""
   max_retries_reached: Boolean
   order_day_of_month: Int
   order_day_of_week: Int
-  order_interval_frequency: Int! # doc incorrectly specifies String, actual type is Int
+  """How many order_interval_unit periods elapse between orders (e.g. 1 with unit "month" = monthly). Recharge's docs mistype this as String; it is an Int."""
+  order_interval_frequency: Int!
   next_charge_scheduled_at: String
   order_interval_unit: OrderInternalUnits!
   presentment_currency: String
@@ -185,10 +189,55 @@ type Subscription @dataType(name: "recharge_subscription", version: "1.0") {
   properties: [Property!]
   quantity: Int!
   sku: String
+  """True when the SKU was manually overridden on the subscription rather than inherited from the product."""
   sku_override: Boolean
   status: SubscriptionStatus!
   updated_at: DateTime
   variant_title: String
+
+  # camelCase aliases for the profile card. The flexible.card XSD forbids underscores in
+  # `dataSource` refs, and the platform does NOT camelCase snake_case data-type fields at the card
+  # layer (confirmed live: single-word fields like `status`/`price` render, multi-word snake fields
+  # do not). These mirror the snake_case fields above 1:1 and are populated in the pull transform.
+  productTitle: String
+  nextChargeScheduledAt: String
+  """How many order_interval_unit periods elapse between charges (camelCase alias of charge_interval_frequency for the card)."""
+  chargeIntervalFrequency: Int
+  orderIntervalFrequency: Int
+  orderIntervalUnit: String
+  presentmentCurrency: String
+  variantTitle: String
+  hasQueuedCharges: Boolean
+  """True when the subscription's failed charge has exhausted all payment retries (camelCase alias of max_retries_reached for the card)."""
+  maxRetriesReached: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+  cancelledAt: DateTime
+  cancellationReason: String
+
+  """
+  Admin-configured maximum delay (in billing cycles) for the Delay next order form, echoed onto
+  each subscription by the pull transform so the form can honor it (agent forms can't read config).
+  """
+  maxDelayCycles: Int
+}
+
+# A customer's credit account (store credit balance).
+# https://developer.rechargepayments.com/2021-11/credit_accounts/credit_accounts_object
+type CreditAccount @dataType(name: "recharge_credit_account", version: "1.0") {
+  id: ID!
+  customer_id: ID!
+  """The store credit currently available to spend."""
+  available_balance: Currency
+  """The credit account's balance when it was created."""
+  initial_value: Currency
+  currency_code: String
+  name: String
+  """The credit account type (e.g. store credit)."""
+  type: String
+  expires_at: DateTime
+  created_at: DateTime
+  updated_at: DateTime
 }
 
 # The customer object: https://developer.rechargepayments.com/2021-11/customers/customers_object
@@ -197,24 +246,43 @@ type Customer @dataType(name: "recharge_customer", version: "1.0") {
   email: String
   external_customer_id: ExternalId
   first_name: String
+  """Recharge customer hash, used to build customer-portal URLs."""
   hash: String
   last_name: String
   phone: String
   subscriptions_active_count: Int
   subscriptions_total_count: Int
   tax_exempt: Boolean
+  """True when a recent charge failed and the payment method is in dunning (retry) state."""
   has_payment_method_in_dunning: Boolean
+  """True when the customer has a valid payment method on file."""
   has_valid_payment_method: Boolean
   updated_at: DateTime
   created_at: DateTime
   first_charge_processed_at: DateTime
+
+  # camelCase aliases for the profile card (see the Subscription note above). Mirror the
+  # snake_case customer fields 1:1; populated in the customer pull transform.
+  subscriptionsActiveCount: Int
+  subscriptionsTotalCount: Int
+  hasPaymentMethodInDunning: Boolean
+  hasValidPaymentMethod: Boolean
+
   subscriptions: [Subscription!]! @parentId(template: "{{.id}}")
   addresses: [Address!]! @parentId(template: "{{.id}}")
   charges: [Charge!]! @parentId(template: "{{.id}}")
+  credit_accounts: [CreditAccount!]! @parentId(template: "{{.id}}")
 }
 
 # API Token Scopes doc: https://developer.rechargepayments.com/2021-11/authentication
 type Query {
   # Requires: 'read_customers', 'read_subscriptions' and 'read_orders' scopes to access customer data
   customer: Customer
+  # Top-level list fields backed by the customer-scoped pulls, so agent UI forms can
+  # bind formData to them (a form's formData.graphqlField must be a top-level Query field).
+  # The nested @parentId versions under Customer remain for the profile card.
+  subscriptions: [Subscription]
+  addresses: [Address]
+  charges: [Charge]
+  credit_accounts: [CreditAccount]
 }

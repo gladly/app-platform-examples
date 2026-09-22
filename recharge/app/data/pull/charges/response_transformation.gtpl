@@ -13,7 +13,11 @@
 
         {{- /* convert all line items purchase_item_ids to strings to ensure proper graphql output formatting */ -}}
         {{- range $index, $line_item := $charge.line_items -}}
-            {{- $_ := set . "purchase_item_id" ($line_item.purchase_item_id | int64 | toString) -}}
+            {{- /* A free-gift line item has a null purchase_item_id (nullable in the schema); keep it
+                   null rather than coercing it to "0". */ -}}
+            {{- if $line_item.purchase_item_id -}}
+                {{- $_ := set . "purchase_item_id" ($line_item.purchase_item_id | int64 | toString) -}}
+            {{- end -}}
         {{- end -}}
 
         {{- /* merge the formatted IDs back into the charge data */}}

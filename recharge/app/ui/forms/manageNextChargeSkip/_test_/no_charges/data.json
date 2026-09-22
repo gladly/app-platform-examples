@@ -1,0 +1,15 @@
+{
+  "charges": [
+    {
+      "id": "1",
+      "status": "success",
+      "scheduled_at": "2026-06-01",
+      "line_items": [
+        {
+          "purchase_item_id": "841337538",
+          "title": "Test Product"
+        }
+      ]
+    }
+  ]
+}

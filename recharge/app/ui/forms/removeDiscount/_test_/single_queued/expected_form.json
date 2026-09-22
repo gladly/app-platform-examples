@@ -1,0 +1,11 @@
+{
+  "title": "Remove discount",
+  "submitButton": "Remove discount",
+  "closeButton": "Close",
+  "sections": [
+    { "type": "input", "label": "Charge", "attr": "chargeId", "input": { "type": "select", "placeholder": "Select the order to remove the discount from.", "options": [
+      { "text": "Next order — ships 2026-08-20 (#1839251121)", "value": "1839251121" }
+    ], "optional": false } },
+    { "type": "text", "text": "This removes any discount from the next order, scheduled 2026-08-20." }
+  ]
+}

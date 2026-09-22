@@ -1,0 +1,5 @@
+{
+  "subscriptionId": "123456",
+  "operation": "cancel",
+  "reason": "reason"
+}

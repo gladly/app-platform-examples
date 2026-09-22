@@ -1,0 +1,14 @@
+{
+  "inputs": {
+    "chargeId": "1839251131",
+    "externalVariantId": "51139736109343",
+    "quantity": 1
+  },
+  "result": {
+    "error": {
+      "http_status": 422,
+      "error_message": "Charge must be in a QUEUED or ERROR status."
+    },
+    "charge": null
+  }
+}

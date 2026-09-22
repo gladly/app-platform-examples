@@ -1,0 +1,1 @@
+"Adjustment amount 500.00 exceeds the configured maximum of 100.00. A manager must make a larger adjustment directly in Recharge."

@@ -1,0 +1,7 @@
+{
+  "title": "Swap subscription item",
+  "closeButton": "Close",
+  "sections": [
+    { "type": "text", "text": "This customer has no swappable subscriptions. One-time or non-swappable items must be changed in Recharge directly." }
+  ]
+}

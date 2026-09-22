@@ -1,0 +1,14 @@
+{
+  "subscriptions": [
+    {
+      "id": "841337538",
+      "status": "active",
+      "product_title": "Test Product"
+    },
+    {
+      "id": "111",
+      "status": "cancelled",
+      "product_title": "Old Product"
+    }
+  ]
+}

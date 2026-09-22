@@ -1,0 +1,1 @@
+{ "errors": [ { "attr": "discountCode", "detail": "Recharge couldn't apply this code: You already applied a discount code to the charge. Check the spelling and that the promotion is active for this customer in Recharge." } ] }

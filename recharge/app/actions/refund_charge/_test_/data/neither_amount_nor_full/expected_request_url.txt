@@ -1,0 +1,1 @@
+"Enter a refund amount, or choose a full refund."

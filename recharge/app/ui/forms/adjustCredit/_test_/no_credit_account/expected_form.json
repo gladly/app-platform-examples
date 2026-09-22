@@ -1,0 +1,10 @@
+{
+  "title": "Adjust store credit",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no Recharge credit account."
+    }
+  ]
+}

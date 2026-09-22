@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "chargeSelection",
+      "detail": "Only charges with status queued and error can be skipped"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{ "inputs": { "subscriptionId": "841337538", "externalVariantId": "51139736109343" }, "result": { "error": null, "subscription": { "id": "841337538", "product_title": "Test Product", "variant_title": "Large", "price": "6.99" } } }

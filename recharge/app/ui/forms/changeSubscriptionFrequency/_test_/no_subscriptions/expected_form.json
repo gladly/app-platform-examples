@@ -1,0 +1,10 @@
+{
+  "title": "Change subscription frequency",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no active subscriptions to modify."
+    }
+  ]
+}

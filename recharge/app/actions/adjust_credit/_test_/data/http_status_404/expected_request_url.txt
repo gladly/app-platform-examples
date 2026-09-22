@@ -1,0 +1,1 @@
+https://api.rechargeapps.com/credit_accounts/9999999999/credit_adjustments

@@ -1,0 +1,19 @@
+{
+  "error": null,
+  "credit_adjustment": {
+    "id": "38275571",
+    "credit_account_id": "25490038",
+    "amount": "1.00",
+    "created_at": "2026-06-30T23:46:41+00:00",
+    "created_by": {
+      "resource_id": null,
+      "identifier": "API",
+      "type": "external"
+    },
+    "currency_code": "USD",
+    "ending_balance": "24.00",
+    "note": "review debit fixture",
+    "type": "debit",
+    "updated_at": "2026-06-30T23:46:41+00:00"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Delay next order",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no active subscriptions with an upcoming charge to reschedule."
+    }
+  ]
+}

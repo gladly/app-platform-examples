@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "refundCharge"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "charges"
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+{
+  "error": {
+    "error_message": "Subscription is already cancelled",
+    "http_status": 422
+  },
+  "subscription": null
+}

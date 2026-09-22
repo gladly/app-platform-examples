@@ -104,7 +104,7 @@ type RechargeError {
 
 # The charge object > line_items: https://developer.rechargepayments.com/2021-11/charges/charge_object
 type LineItem {
-  purchase_item_id: ID! # The Subscription or Onetime ID associated with the line_item
+  purchase_item_id: ID # The Subscription/Onetime ID for a recurring item; null for a one-time free gift added via add_free_gift
   external_product_id: ExternalId
   external_variant_id: ExternalId
   grams: Int
@@ -198,6 +198,13 @@ type Subscription {
 }
 
 # Response Types
+#
+# TIMESTAMP TYPING CONVENTION -- do not "fix" for consistency:
+# Vendor-emitted RFC3339 timestamps may be DateTime; agent-supplied/echoed dates MUST be String.
+# Each type's choice is FROZEN once shipped: appcfg compatible rejects DateTime<->String in
+# either direction as a breaking schema change (verified against the 1.3.1 build). So
+# Subscription/Charge/CreditAdjustment timestamps stay DateTime and CustomerAddress timestamps
+# stay String -- both are correct; leave them as they are.
 type SubscriptionActionResult {
   error: RechargeError
   subscription: Subscription
@@ -206,6 +213,72 @@ type SubscriptionActionResult {
 type SubscriptionSkipActionResult {
   error: RechargeError
   charge: Charge
+}
+
+# An address that carries its own id (distinct from the embedded `Address` type above, which is
+# inlined under Charge.billing_address/shipping_address without an id). Returned by updateAddress.
+# Timestamps are String (not DateTime) on this action-result type to avoid any runtime coercion risk.
+type CustomerAddress {
+  id: ID!
+  customer_id: ID
+  payment_method_id: ID
+  address1: String
+  address2: String
+  city: String
+  company: String
+  country_code: String
+  first_name: String
+  last_name: String
+  phone: String
+  province: String
+  zip: String
+  created_at: String
+  updated_at: String
+}
+
+type AddressActionResult {
+  error: RechargeError
+  address: CustomerAddress
+}
+
+enum CreditAdjustmentType {
+  credit
+  debit
+}
+
+# Consolidated-pair operations (see manageSubscriptionState / manageNextChargeSkip below).
+enum SubscriptionStateOperation {
+  cancel
+  reactivate
+}
+
+enum NextChargeSkipOperation {
+  skip
+  unskip
+}
+
+enum ChargeDiscountOperation {
+  apply
+  remove
+}
+
+# The credit adjustment returned by adjust_credit. Money fields are Currency (the API returns
+# decimal strings that coerce cleanly, verified live). Defined before CreditActionResult/Mutation.
+type CreditAdjustment {
+  id: ID!
+  credit_account_id: ID!
+  amount: Currency
+  ending_balance: Currency
+  currency_code: String
+  type: String
+  note: String
+  created_at: DateTime
+  updated_at: DateTime
+}
+
+type CreditActionResult {
+  error: RechargeError
+  credit_adjustment: CreditAdjustment
 }
 
 # API Token Scopes doc: https://developer.rechargepayments.com/2021-11/authentication
@@ -232,6 +305,196 @@ type Mutation {
     subscriptionId: ID!
     chargeId: ID!
   ): SubscriptionSkipActionResult! @action(name: "unskip_next_subscription")
+
+  """
+  Move a subscription's next charge to a later date. This only defers the next charge: it does
+  NOT pause the subscription (its status is unchanged) and it clears any existing skip on that
+  charge. resumeDate is the new charge date as a date-only string in YYYY-MM-DD format (e.g.
+  2026-09-15) with no time or timezone, and must be a valid future charge date for the
+  subscription (Recharge rejects a past or otherwise invalid date). Requires the
+  'write_subscriptions' scope.
+  """
+  rescheduleNextCharge(
+    subscriptionId: ID!
+    resumeDate: String! # date-only (YYYY-MM-DD); String, not DateTime, so date-only values never fail coercion
+  ): SubscriptionActionResult! @action(name: "reschedule_next_charge")
+
+  """
+  Change how often a subscription renews. Send all three of orderIntervalFrequency,
+  orderIntervalUnit, and chargeIntervalFrequency together, and chargeIntervalFrequency MUST equal
+  orderIntervalFrequency (a mismatch is rejected as "cannot change a regular subscription to
+  prepaid"). Requires the 'write_subscriptions' scope.
+  """
+  changeSubscriptionFrequency(
+    subscriptionId: ID!
+    orderIntervalFrequency: Int!
+    orderIntervalUnit: OrderInternalUnits!
+    chargeIntervalFrequency: Int!
+  ): SubscriptionActionResult! @action(name: "change_subscription_frequency")
+
+  """
+  Update a customer/subscription shipping address. Only the fields you supply are changed. If you
+  change countryCode you MUST also supply a zip valid for the new country in the same call, or the
+  update is rejected. Requires the 'write_customers' scope.
+  """
+  updateAddress(
+    addressId: ID!
+    address1: String
+    address2: String
+    city: String
+    province: String
+    zip: String
+    countryCode: String
+    firstName: String
+    lastName: String
+    phone: String
+    company: String
+  ): AddressActionResult! @action(name: "update_address")
+
+  """
+  Add a one-time free gift line item to a charge, identified by its Shopify external variant id.
+  The target charge MUST be in QUEUED or ERROR status (a processed charge is rejected). quantity is
+  required; price is optional. Requires the 'write_orders' scope.
+  """
+  addFreeGift(
+    chargeId: ID!
+    externalVariantId: ID!
+    quantity: Int!
+    price: String
+  ): SubscriptionSkipActionResult! @action(name: "add_free_gift")
+
+  """
+  Add (type "credit") or remove (type "debit") store credit on a customer's credit account.
+  Only adjust an amount the customer actually requested, after verifying their identity -- never
+  choose an amount on the customer's behalf. amount must be a plain positive decimal (e.g. 10.00).
+  This action is GUARDED: the agent must type "approve" in confirmationCopy and the amount must not
+  exceed the merchant-configured maximum, or it is rejected without calling Recharge. Requires the
+  credit read+write scope.
+  """
+  adjustCredit(
+    creditAccountId: ID!
+    amount: String!
+    type: CreditAdjustmentType!
+    note: String
+    confirmationCopy: String!
+  ): CreditActionResult! @action(name: "adjust_credit")
+
+  """
+  Apply a discount/coupon code to a charge. To discount a customer's next order, apply it to their
+  queued charge. Requires the 'write_orders' scope.
+  """
+  applyDiscount(
+    chargeId: ID!
+    discountCode: String!
+  ): SubscriptionSkipActionResult! @action(name: "apply_discount")
+
+  """
+  Remove a previously applied discount from a charge. NOT idempotent: removing when no discount is
+  applied is rejected by Recharge (surfaced as an error, not a silent success). Requires the
+  'write_orders' scope.
+  """
+  removeDiscount(
+    chargeId: ID!
+  ): SubscriptionSkipActionResult! @action(name: "remove_discount")
+
+  """
+  Swap a subscription's item to a different Shopify variant, identified by its external variant id.
+  The subscription must be swappable (see is_swappable); one-time items are not swappable. Prepaid
+  subscriptions additionally require an override and may be rejected -- have a manager handle those
+  in Recharge. Recharge backfills the product/price/sku from the variant. The optional price field
+  is capped by the same merchant-configured maximum as adjustSubscriptionPrice (rejected before
+  calling Recharge), but -- unlike adjustSubscriptionPrice -- carries no typed-approval confirmation,
+  so prefer leaving it unset and using adjustSubscriptionPrice instead. The agent form omits this
+  field entirely (only AI/API callers can set it). Requires the 'write_subscriptions' scope.
+  """
+  swapSubscriptionItem(
+    subscriptionId: ID!
+    externalVariantId: ID!
+    quantity: Int
+    price: String
+  ): SubscriptionActionResult! @action(name: "swap_subscription_item")
+
+  """
+  Set a subscription's line-item price. Only set a price the customer actually requested -- never
+  choose one on their behalf. price must be a plain positive decimal (e.g. 12.00). This action is
+  GUARDED: the agent must type "approve" in confirmationCopy and the price must not exceed the
+  merchant-configured maximum, or it is rejected without calling Recharge. Requires the
+  'write_subscriptions' scope.
+  """
+  adjustSubscriptionPrice(
+    subscriptionId: ID!
+    price: String!
+    confirmationCopy: String!
+  ): SubscriptionActionResult! @action(name: "adjust_subscription_price")
+
+  """
+  Cancel or reactivate a subscription -- pick the operation. reason and sendEmail are used only
+  when operation is "cancel" (mirrors cancelSubscription's optional args) and are ignored when
+  reactivating; sendEmail is "true"/"false" as a string, default "true". cancelSubscription,
+  reactivateSubscription, skipNextSubscription, and unskipNextSubscription remain available
+  unchanged for Gladly AI/API callers -- this mutation is the human-agent-facing equivalent for
+  the cancel/reactivate pair, added instead of a compose-menu form per subscription/onetime item.
+  Requires the 'write_subscriptions' scope.
+  """
+  manageSubscriptionState(
+    subscriptionId: ID!
+    operation: SubscriptionStateOperation!
+    reason: String
+    sendEmail: String
+  ): SubscriptionActionResult! @action(name: "manage_subscription_state")
+
+  """
+  Skip or unskip a subscription's charge -- pick the operation. Requires both subscriptionId and
+  chargeId, matching skipNextSubscription/unskipNextSubscription (which remain available
+  unchanged for Gladly AI/API callers). This mutation is the human-agent-facing equivalent for the
+  skip/unskip pair. Requires the 'write_orders' scope.
+  """
+  manageNextChargeSkip(
+    subscriptionId: ID!
+    chargeId: ID!
+    operation: NextChargeSkipOperation!
+  ): SubscriptionSkipActionResult! @action(name: "manage_next_charge_skip")
+
+  """
+  Apply or remove a discount on a charge -- pick the operation. discountCode is required when
+  operation is "apply" and ignored when removing. applyDiscount and removeDiscount remain available
+  unchanged for Gladly AI/API callers -- this mutation is the human-agent-facing equivalent for the
+  apply/remove pair, added instead of two separate compose-menu forms. Removing a discount when none
+  is applied is rejected by Recharge (surfaced as an error, not a silent success). Requires the
+  'write_orders' scope. Returns the updated charge.
+  """
+  manageChargeDiscount(
+    chargeId: ID!
+    operation: ChargeDiscountOperation!
+    discountCode: String
+  ): SubscriptionSkipActionResult! @action(name: "manage_charge_discount")
+
+  """
+  Refund a charge, partially or fully. Provide EITHER amount (a partial refund of that dollar value)
+  OR fullRefund "true" (refund the charge's entire remaining refundable balance) -- exactly one, not
+  both. Only a charge processed through Recharge's own checkout can be refunded here; a charge
+  processed through Shopify's checkout must be refunded in Shopify and is rejected by Recharge. This
+  action is GUARDED: the agent must type "approve" in confirmationCopy, and the dollars actually
+  refunded (amount for a partial, refundableAmount for a full) must not exceed the merchant-
+  configured maximum, or it is rejected without calling Recharge. refundableAmount is the charge's
+  remaining refundable balance (total_price minus total_refunds), supplied by the form. For a full
+  refund it is BOTH the cap-checked figure AND the amount sent to Recharge: the request always sends
+  an explicit `amount` (never Recharge's `full_refund` flag) so the dollars vetted against the cap
+  are exactly the dollars refunded -- otherwise a caller could understate refundableAmount to slip a
+  larger real refund past the cap. Because it is the amount sent, a stale/understated value simply
+  under-refunds or is rejected by Recharge (recoverable), never over-refunds. fullRefund is
+  "true"/"false" as a string (mirrors manageSubscriptionState.sendEmail) to avoid Boolean coercion
+  from the form. Requires only the 'write_orders' scope -- the same scope the other charge actions
+  use; Recharge's 2021-11 refund endpoint docs list "Scopes: write_orders" and no payments scope, so
+  no additional Payments permission is needed. Returns the refunded charge.
+  """
+  refundCharge(
+    chargeId: ID!
+    amount: String
+    fullRefund: String
+    refundableAmount: String
+    confirmationCopy: String!
+  ): SubscriptionSkipActionResult! @action(name: "refund_charge")
 }
 
 type Query {

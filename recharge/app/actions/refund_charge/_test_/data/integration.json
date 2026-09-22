@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "maxRefundAmount": "100.00"
+  },
+  "secrets": {
+    "accessToken": "access_token"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Delay next order",
+  "submitButton": "Reschedule",
+  "closeButton": "Close",
+  "sections": [
+    { "type": "input", "label": "New next-charge date", "attr": "rescheduleSelection",
+      "input": { "type": "select", "placeholder": "Select a subscription and a new charge date", "optional": false,
+        "options": [
+          { "text": "Test Product: +1 month -> 2026-10-15", "value": "{\"resumeDate\":\"2026-10-15\",\"subscriptionId\":\"841337538\"}" }
+        ] } }
+  ]
+}

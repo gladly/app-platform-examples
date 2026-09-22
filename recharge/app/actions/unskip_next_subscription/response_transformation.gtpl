@@ -1,5 +1,10 @@
 {{- $isSuccess := eq .response.statusCode 200 -}}
 
+{{- /* KTD1: the runtime handles auth errors (401/403); fail loudly on unexpected >=500. */ -}}
+{{- if and (not $isSuccess) (ge (int .response.statusCode) 500) -}}
+    {{- fail (printf "Recharge returned an unexpected status code: %d" (int .response.statusCode)) -}}
+{{- end -}}
+
 {{- $errorMessages := "" -}}
 
 {{- if not $isSuccess -}}
@@ -35,7 +40,11 @@
 
 {{- /* convert all line items purchase_item_ids to strings to ensure proper graphql output formatting */ -}}
 {{- range $index, $line_item := $charge.line_items -}}
-    {{- $_ := set . "purchase_item_id" ($line_item.purchase_item_id | int64 | toString) -}}
+    {{- /* A free-gift line item has a null purchase_item_id (nullable in the schema); keep it null
+           rather than coercing it to "0". */ -}}
+    {{- if $line_item.purchase_item_id -}}
+        {{- $_ := set . "purchase_item_id" ($line_item.purchase_item_id | int64 | toString) -}}
+    {{- end -}}
 {{- end -}}
 
 {{- /* merge the formatted IDs back into the charge data */}}

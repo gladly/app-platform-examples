@@ -1,0 +1,1 @@
+{ "inputs": { "subscriptionId": "841337538", "price": "250.00", "confirmationCopy": "approve" }, "result": { "error": { "http_status": 422, "error_message": "Price 250.00 exceeds the configured maximum of 200.00. A manager must make a larger change directly in Recharge." }, "subscription": null } }

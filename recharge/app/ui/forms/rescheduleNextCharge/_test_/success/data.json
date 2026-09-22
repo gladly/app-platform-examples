@@ -1,0 +1,6 @@
+{
+  "subscriptions": [
+    { "id": "841337538", "status": "active", "product_title": "Test Product", "next_charge_scheduled_at": "2026-09-15", "order_interval_unit": "month", "charge_interval_frequency": 1, "is_prepaid": false, "has_queued_charges": true, "maxDelayCycles": 3 },
+    { "id": "111", "status": "cancelled", "product_title": "Old Product", "next_charge_scheduled_at": "2026-09-15", "order_interval_unit": "month", "charge_interval_frequency": 1, "is_prepaid": false, "has_queued_charges": true, "maxDelayCycles": 3 }
+  ]
+}

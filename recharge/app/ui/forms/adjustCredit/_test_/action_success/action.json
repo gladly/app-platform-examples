@@ -1,0 +1,18 @@
+{
+  "inputs": {
+    "creditAccountId": "25490038",
+    "amount": "5.00",
+    "type": "credit",
+    "confirmationCopy": "approve"
+  },
+  "result": {
+    "error": null,
+    "credit_adjustment": {
+      "id": "1",
+      "credit_account_id": "25490038",
+      "amount": "5.00",
+      "ending_balance": "25.00",
+      "type": "credit"
+    }
+  }
+}

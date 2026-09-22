@@ -1,0 +1,1 @@
+"No maximum refund amount is configured for this app. An admin must set Maximum refund amount in the app configuration before agents can refund a charge."

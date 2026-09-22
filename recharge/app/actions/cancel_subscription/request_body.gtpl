@@ -4,6 +4,6 @@
 {{- $sendEmail := ne .inputs.sendEmail nil -}}
 
 {
-    "cancellation_reason": "{{- $hasReason | ternary .inputs.reason $defaultReason -}}",
+    "cancellation_reason": {{ ($hasReason | ternary .inputs.reason $defaultReason) | toJson }},
     "send_email": {{- ($sendEmail | ternary .inputs.sendEmail true) | toJson -}}
 }

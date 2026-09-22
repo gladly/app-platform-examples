@@ -1,0 +1,6 @@
+{
+  "operation": "cancel",
+  "subscriptionId": "841337538",
+  "reason": "Customer requested cancellation",
+  "sendEmail": "true"
+}

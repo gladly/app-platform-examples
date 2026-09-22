@@ -1,0 +1,47 @@
+{
+  "title": "Skip or unskip next order",
+  "submitButton": "Submit",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Operation",
+      "attr": "operation",
+      "input": {
+        "type": "select",
+        "placeholder": "Select skip or unskip",
+        "optional": false,
+        "options": [
+          {
+            "text": "Skip next order",
+            "value": "skip"
+          },
+          {
+            "text": "Unskip next order",
+            "value": "unskip"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "Charge",
+      "attr": "chargeSelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Select the order",
+        "optional": false,
+        "options": [
+          {
+            "text": "Next order \u2014 ships 2026-10-27 (#1842591404) \u2014 Test Product",
+            "value": "{\"chargeId\":\"1842591404\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Skipped order \u2014 was 2026-11-27 (#1839251199) \u2014 Test Product",
+            "value": "{\"chargeId\":\"1839251199\",\"subscriptionId\":\"841337538\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "charges": [
+    {
+      "id": "1839251131",
+      "status": "success",
+      "total_price": "10.89",
+      "total_refunds": "0.00",
+      "processed_at": "2026-06-30T12:00:00+00:00",
+      "payment_processor": "shopify_payments"
+    }
+  ]
+}

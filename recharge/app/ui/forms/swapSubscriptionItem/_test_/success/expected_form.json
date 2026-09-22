@@ -1,0 +1,13 @@
+{
+  "title": "Swap subscription item",
+  "submitButton": "Swap item",
+  "closeButton": "Close",
+  "sections": [
+    { "type": "input", "label": "Subscription", "attr": "subscriptionId", "input": { "type": "select", "placeholder": "Select the subscription to change", "options": [
+      { "text": "Test Product — #841337538 — Default, qty 1, SKU TP-DEF", "value": "841337538" },
+      { "text": "Test Product — #841337600 — qty 2", "value": "841337600" }
+    ], "optional": false } },
+    { "type": "input", "label": "Shopify variant ID", "attr": "externalVariantId", "input": { "type": "text", "placeholder": "e.g. 51139736109343", "optional": false }, "hint": "Paste the destination Shopify VARIANT id (Shopify admin → Products → the variant → last number in the URL) — not the product id. Recharge fills in product, price, and SKU from it." },
+    { "type": "input", "label": "Quantity", "attr": "quantity", "input": { "type": "text", "placeholder": "Leave blank to keep current", "optional": true } }
+  ]
+}

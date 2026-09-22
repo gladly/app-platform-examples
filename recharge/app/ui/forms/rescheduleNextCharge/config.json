@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "rescheduleNextCharge"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "subscriptions"
+        }
+    ]
+}

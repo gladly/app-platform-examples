@@ -1,0 +1,1 @@
+https://api.rechargeapps.com/subscriptions?ids=584850012

@@ -1,5 +1,10 @@
 {{- $isSuccess := eq .response.statusCode 200 -}}
 
+{{- /* KTD1: the runtime handles auth errors (401/403); fail loudly on unexpected >=500. */ -}}
+{{- if and (not $isSuccess) (ge (int .response.statusCode) 500) -}}
+    {{- fail (printf "Recharge returned an unexpected status code: %d" (int .response.statusCode)) -}}
+{{- end -}}
+
 {{- $errorMessages := "" -}}
 
 {{- if not $isSuccess -}}

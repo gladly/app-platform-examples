@@ -1,0 +1,30 @@
+{
+  "charges": [
+    {
+      "id": "1842591404",
+      "status": "queued",
+      "scheduled_at": "2026-10-27",
+      "line_items": [
+        {
+          "purchase_item_id": "841337538",
+          "title": "Test Product"
+        },
+        {
+          "purchase_item_id": null,
+          "title": "Free Gift"
+        }
+      ]
+    },
+    {
+      "id": "1839251199",
+      "status": "skipped",
+      "scheduled_at": "2026-11-27",
+      "line_items": [
+        {
+          "purchase_item_id": "841337538",
+          "title": "Test Product"
+        }
+      ]
+    }
+  ]
+}

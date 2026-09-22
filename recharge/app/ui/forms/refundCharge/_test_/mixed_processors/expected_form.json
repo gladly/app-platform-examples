@@ -1,0 +1,52 @@
+{
+  "title": "Refund a charge",
+  "submitButton": "Refund",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "1 paid order(s) were processed by Shopify Payments and must be refunded in Shopify — they aren't listed here."
+    },
+    {
+      "type": "input",
+      "label": "Charge",
+      "attr": "chargeSelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Select the order to refund",
+        "options": [
+          { "text": "Paid order — 2026-06-30, 5.99 refundable (#1)", "value": "{\"chargeId\":\"1\",\"refundableAmount\":\"5.99\"}" }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Refund type",
+      "attr": "fullRefund",
+      "input": {
+        "type": "select",
+        "placeholder": "Full or partial",
+        "options": [
+          { "text": "Full refund (entire remaining balance)", "value": "true" },
+          { "text": "Partial refund (enter an amount)", "value": "false" }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Amount",
+      "attr": "amount",
+      "input": { "type": "text", "placeholder": "e.g. 10.00", "optional": true },
+      "hint": "Required for a partial refund; leave blank for a full refund. Larger than the order's refundable balance or the merchant's configured maximum is rejected."
+    },
+    {
+      "type": "input",
+      "label": "Confirmation",
+      "attr": "confirmationCopy",
+      "input": { "type": "text", "placeholder": "approve", "optional": false },
+      "hint": "Type approve to confirm. Refunds are irreversible. Only refund an amount the customer is actually owed, after verifying their identity."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "maxSubscriptionPrice": "200.00"
+  },
+  "secrets": {
+    "accessToken": "access_token"
+  }
+}

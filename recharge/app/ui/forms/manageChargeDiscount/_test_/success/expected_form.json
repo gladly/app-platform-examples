@@ -1,0 +1,42 @@
+{
+  "title": "Apply or remove discount",
+  "submitButton": "Submit",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Operation",
+      "attr": "operation",
+      "input": {
+        "type": "select",
+        "placeholder": "Select apply or remove",
+        "options": [
+          { "text": "Apply discount", "value": "apply" },
+          { "text": "Remove discount", "value": "remove" }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Charge",
+      "attr": "chargeId",
+      "input": {
+        "type": "select",
+        "placeholder": "Select the order",
+        "options": [
+          { "text": "Next order — ships 2026-08-20 (#1839251121)", "value": "1839251121" },
+          { "text": "Retrying order — was 2026-09-01 (#1839251199), has discount", "value": "1839251199" }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "input",
+      "label": "Discount code",
+      "attr": "discountCode",
+      "input": { "type": "text", "placeholder": "e.g. WELCOME10", "optional": true },
+      "hint": "Required to apply a discount (case-sensitive — paste exactly, no spaces). Ignored when removing."
+    }
+  ]
+}

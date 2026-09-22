@@ -1,0 +1,7 @@
+{
+  "title": "Refund a charge",
+  "closeButton": "Close",
+  "sections": [
+    { "type": "text", "text": "This customer has no paid charges with a remaining refundable balance. A charge processed through Shopify's checkout must be refunded in Shopify." }
+  ]
+}

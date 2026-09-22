@@ -1,0 +1,4 @@
+{
+  "message": "Subscription cancelled.",
+  "detail": "The subscription is now cancelled. Reason: Customer requested cancellation."
+}

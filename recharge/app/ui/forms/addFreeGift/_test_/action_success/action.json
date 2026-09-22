@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "chargeId": "1839251121",
+    "externalVariantId": "51139736109343",
+    "quantity": 1
+  },
+  "result": {
+    "error": null,
+    "charge": {
+      "id": "1839251121"
+    }
+  }
+}

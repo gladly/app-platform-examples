@@ -31,7 +31,21 @@
     "sku_override": false,
     "status": "active",
     "updated_at": "2025-01-26T15:20:33+00:00",
-    "variant_title": "8"
+    "variant_title": "8",
+    "productTitle": "Men's Wool Runner",
+    "nextChargeScheduledAt": "2025-02-25",
+    "chargeIntervalFrequency": 30,
+    "orderIntervalFrequency": 30,
+    "orderIntervalUnit": "day",
+    "presentmentCurrency": "USD",
+    "variantTitle": "8",
+    "hasQueuedCharges": true,
+    "maxRetriesReached": false,
+    "createdAt": "2025-01-26T15:20:33+00:00",
+    "updatedAt": "2025-01-26T15:20:33+00:00",
+    "cancelledAt": null,
+    "cancellationReason": null,
+    "maxDelayCycles": 3
   },
   {
     "address_id": "193759360",
@@ -65,7 +79,21 @@
     "sku_override": false,
     "status": "active",
     "updated_at": "2025-01-26T15:20:31+00:00",
-    "variant_title": "Small"
+    "variant_title": "Small",
+    "productTitle": "t-shirt (short):  dog lovers",
+    "nextChargeScheduledAt": "2025-02-25",
+    "chargeIntervalFrequency": 30,
+    "orderIntervalFrequency": 30,
+    "orderIntervalUnit": "day",
+    "presentmentCurrency": "USD",
+    "variantTitle": "Small",
+    "hasQueuedCharges": true,
+    "maxRetriesReached": false,
+    "createdAt": "2025-01-26T15:20:31+00:00",
+    "updatedAt": "2025-01-26T15:20:31+00:00",
+    "cancelledAt": null,
+    "cancellationReason": null,
+    "maxDelayCycles": 3
   },
   {
     "address_id": "193759360",
@@ -99,6 +127,20 @@
     "sku_override": false,
     "status": "active",
     "updated_at": "2025-01-26T15:20:28+00:00",
-    "variant_title": "Small"
+    "variant_title": "Small",
+    "productTitle": "Cat Pajamas",
+    "nextChargeScheduledAt": "2025-02-25",
+    "chargeIntervalFrequency": 30,
+    "orderIntervalFrequency": 30,
+    "orderIntervalUnit": "day",
+    "presentmentCurrency": "USD",
+    "variantTitle": "Small",
+    "hasQueuedCharges": true,
+    "maxRetriesReached": false,
+    "createdAt": "2025-01-26T15:20:28+00:00",
+    "updatedAt": "2025-01-26T15:20:28+00:00",
+    "cancelledAt": null,
+    "cancellationReason": null,
+    "maxDelayCycles": 3
   }
 ]

@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "swapSubscriptionItem"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "subscriptions"
+        }
+    ]
+}

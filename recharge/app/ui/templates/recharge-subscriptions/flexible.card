@@ -1,0 +1,54 @@
+<?Template languageVersion="1.2" ?>
+<Card title="Recharge — {{ subscriptions | length }} subscription{{- (subscriptions | length) == 1 ? '' : 's' }}" cardType="expandable">
+
+  <!-- Customer-level summary (mirrors the OOTB Subscription Transaction Card header).
+       NOTE: card dataSource refs must be camelCase (the card XSD forbids underscores); the
+       platform does NOT camelCase the recharge_* snake_case data-type fields at the card layer
+       (confirmed live; see data_schema.graphql), so each multi-word field has an explicit
+       camelCase twin populated by the pull transform, which is what these refs point at. -->
+  <NumericValue when="subscriptionsActiveCount is not null" dataSource="subscriptionsActiveCount" label="Active subs" decimalPlaces="0" valueFontWeight="semiBold" />
+  <NumericValue when="subscriptionsTotalCount is not null" dataSource="subscriptionsTotalCount" label="Total subs" decimalPlaces="0" />
+
+  <!-- Payment health (enhancement over the OOTB card; requested in support tickets). Placed above
+       the customer ID so triage-relevant signal isn't pushed below an internal id. -->
+  <Block when="hasPaymentMethodInDunning == true">
+    <Text fontWeight="semiBold">Recent charge failed — payment method needs updating.</Text>
+  </Block>
+  <Block when="hasValidPaymentMethod == false">
+    <Text>No valid payment method on file.</Text>
+  </Block>
+
+  <StringValue when="id is not null and id != ''" dataSource="id" label="Customer ID" maxLines="1" multilineStyle="expandable" />
+
+  <Block when="(subscriptions | length) == 0">
+    <Divider spacing="medium" />
+    <Text>No Recharge subscriptions found.</Text>
+  </Block>
+
+  <List dataSource="subscriptions" separateItems="true">
+    <Drawer initialState="collapsed">
+      <Fixed>
+        <Formula when="productTitle is not null and productTitle != ''" label="Product" valueFontWeight="semiBold">{{ productTitle }}</Formula>
+        <Formula label="Status" valueFontWeight="medium">{{ status | title }}</Formula>
+        <StringValue when="status == 'active' and nextChargeScheduledAt is not null and nextChargeScheduledAt != ''" dataSource="nextChargeScheduledAt" label="Next charge" valueFontWeight="medium" />
+        <Formula when="chargeIntervalFrequency is not null and orderIntervalUnit is not null" label="Billing frequency" valueFontWeight="medium">Every {{ chargeIntervalFrequency }} {{ orderIntervalUnit }}</Formula>
+        <CurrencyValue when="price is not null" dataSource="price" currencyCodeSource="presentmentCurrency" label="Price" valueFontWeight="medium" />
+        <!-- Terminal payment failure: distinct from the header's hasPaymentMethodInDunning (still
+             retrying); this subscription's retries are exhausted and it will not renew. -->
+        <Formula when="maxRetriesReached == true" label="Payment status" valueFontWeight="semiBold">Payment retries exhausted — won't renew until fixed</Formula>
+      </Fixed>
+      <Expandable>
+        <NumericValue when="quantity is not null" dataSource="quantity" label="Quantity" decimalPlaces="0" />
+        <StringValue when="sku is not null and sku != ''" dataSource="sku" label="SKU" />
+        <StringValue when="variantTitle is not null and variantTitle != ''" dataSource="variantTitle" label="Variant" />
+        <DateTimeValue when="createdAt is not null" dataSource="createdAt" label="Created" format="MM/DD/YYYY" />
+        <DateTimeValue when="updatedAt is not null" dataSource="updatedAt" label="Updated" format="MM/DD/YYYY" />
+        <Formula when="hasQueuedCharges == true" label="Discount eligible" valueFontWeight="medium">Yes</Formula>
+        <DateTimeValue when="status == 'cancelled' and cancelledAt is not null" dataSource="cancelledAt" label="Cancelled" format="MM/DD/YYYY" />
+        <StringValue when="status == 'cancelled' and cancellationReason is not null and cancellationReason != ''" dataSource="cancellationReason" label="Cancellation reason" maxLines="2" displayStyle="stacked" multilineStyle="expandable" />
+        <Divider spacing="medium" />
+        <StringValue dataSource="id" label="Subscription ID" valueFontWeight="medium" maxLines="1" multilineStyle="expandable" />
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

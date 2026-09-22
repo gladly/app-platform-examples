@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "removeDiscount"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "charges"
+        }
+    ]
+}

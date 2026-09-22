@@ -1,0 +1,10 @@
+{
+  "title": "Update shipping address",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no addresses on file."
+    }
+  ]
+}

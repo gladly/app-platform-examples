@@ -1,0 +1,98 @@
+{
+  "orders": [
+    {
+      "id": "order-001",
+      "orderNumber": "ORD-12345",
+      "status": "pending",
+      "orderDate": "2026-03-15T10:30:00Z",
+      "customerId": "customer1",
+      "shippingAddress": "123 Main Street, Springfield, IL 62701",
+      "billingAddress": "123 Main Street, Springfield, IL 62701",
+      "shippingSpeed": "standard",
+      "totalPrice": "149.99",
+      "shippingAndHandling": "9.99",
+      "lineItems": [
+        {
+          "id": "line-item-001",
+          "quantity": 2,
+          "price": "49.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-001",
+            "name": "Blue T-Shirt",
+            "sku": "TS-BLUE-M",
+            "productType": "Apparel",
+            "imageUrl": "https://example.com/blue-tshirt.jpg"
+          }
+        },
+        {
+          "id": "line-item-002",
+          "quantity": 1,
+          "price": "49.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-002",
+            "name": "Red Hat",
+            "sku": "HAT-RED-OS",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/red-hat.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-002",
+      "orderNumber": "ORD-12346",
+      "status": "pending",
+      "orderDate": "2026-03-16T14:20:00Z",
+      "customerId": "customer1",
+      "shippingAddress": "123 Main Street, Springfield, IL 62701",
+      "billingAddress": "123 Main Street, Springfield, IL 62701",
+      "shippingSpeed": "express",
+      "totalPrice": "299.99",
+      "shippingAndHandling": "19.99",
+      "lineItems": [
+        {
+          "id": "line-item-003",
+          "quantity": 1,
+          "price": "299.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-003",
+            "name": "Leather Jacket",
+            "sku": "JKT-LTHR-L",
+            "productType": "Apparel",
+            "imageUrl": "https://example.com/leather-jacket.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-003",
+      "orderNumber": "ORD-12340",
+      "status": "delivered",
+      "orderDate": "2026-03-10T09:00:00Z",
+      "customerId": "customer1",
+      "shippingAddress": "123 Main Street, Springfield, IL 62701",
+      "billingAddress": "123 Main Street, Springfield, IL 62701",
+      "shippingSpeed": "standard",
+      "totalPrice": "79.99",
+      "shippingAndHandling": "9.99",
+      "lineItems": [
+        {
+          "id": "line-item-004",
+          "quantity": 1,
+          "price": "79.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-004",
+            "name": "Running Shoes",
+            "sku": "SHOE-RUN-10",
+            "productType": "Footwear",
+            "imageUrl": "https://example.com/running-shoes.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

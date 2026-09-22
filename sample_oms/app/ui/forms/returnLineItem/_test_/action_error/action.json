@@ -1,0 +1,12 @@
+{
+  "inputs": {
+    "orderId": "order-1002",
+    "lineItemIds": [
+      "line-item-1002"
+    ]
+  },
+  "result": {
+    "status": "error",
+    "message": "Line item has already been returned and cannot be returned again"
+  }
+}

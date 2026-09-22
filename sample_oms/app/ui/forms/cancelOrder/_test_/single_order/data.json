@@ -1,0 +1,31 @@
+{
+  "orders": [
+    {
+      "id": "order-200",
+      "orderNumber": "ORD-55555",
+      "status": "pending",
+      "orderDate": "2026-03-17T16:45:00Z",
+      "customerId": "customer4",
+      "shippingAddress": "321 Maple Lane, Seattle, WA 98101",
+      "billingAddress": "321 Maple Lane, Seattle, WA 98101",
+      "shippingSpeed": "standard",
+      "totalPrice": "89.99",
+      "shippingAndHandling": "9.99",
+      "lineItems": [
+        {
+          "id": "line-item-200",
+          "quantity": 3,
+          "price": "29.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-200",
+            "name": "Coffee Mug Set",
+            "sku": "MUG-COFFEE-SET",
+            "productType": "Home & Kitchen",
+            "imageUrl": "https://example.com/coffee-mug.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

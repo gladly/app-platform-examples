@@ -1,0 +1,19 @@
+{
+  "id": "customer8",
+  "name": "Jennifer Lee",
+  "address": "753 Spruce St, Phoenix, AZ 85001",
+  "primaryEmailAddress": "jennifer.lee@example.com",
+  "emailAddresses": [
+    "jennifer.lee@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15559991122",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15559991122",
+      "type": "MOBILE"
+    }
+  ]
+}

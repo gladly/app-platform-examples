@@ -1,0 +1,19 @@
+{
+  "id": "customer3",
+  "name": "Bob Johnson",
+  "address": "789 Pine Road, Austin, TX 78701",
+  "primaryEmailAddress": "bob.johnson@example.com",
+  "emailAddresses": [
+    "bob.johnson@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15555551234",
+    "type": "HOME"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15555551234",
+      "type": "HOME"
+    }
+  ]
+}

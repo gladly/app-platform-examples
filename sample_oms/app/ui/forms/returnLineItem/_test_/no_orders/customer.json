@@ -1,0 +1,19 @@
+{
+  "id": "customer2",
+  "name": "Bob Williams",
+  "address": "456 Pine Ave, Seattle, WA 98101",
+  "primaryEmailAddress": "bob.w@example.com",
+  "emailAddresses": [
+    "bob.w@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15552223333",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15552223333",
+      "type": "MOBILE"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "orders": [
+    {
+      "id": "order-101",
+      "orderNumber": "ORD-10001",
+      "status": "delivered",
+      "orderDate": "2026-03-10T10:30:00Z",
+      "customerId": "customer1",
+      "shippingAddress": "123 Main St, San Francisco, CA 94102",
+      "billingAddress": "123 Main St, San Francisco, CA 94102",
+      "shippingSpeed": "express",
+      "totalPrice": "159.99",
+      "shippingAndHandling": "15.00",
+      "lineItems": [
+        {
+          "id": "line-item-101",
+          "quantity": 2,
+          "price": "79.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-101",
+            "name": "Wireless Headphones",
+            "sku": "WH-BT-2000",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/headphones.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-102",
+      "orderNumber": "ORD-10002",
+      "status": "shipping",
+      "orderDate": "2026-03-15T14:20:00Z",
+      "customerId": "customer1",
+      "shippingAddress": "123 Main St, San Francisco, CA 94102",
+      "billingAddress": "123 Main St, San Francisco, CA 94102",
+      "shippingSpeed": "standard",
+      "totalPrice": "49.99",
+      "shippingAndHandling": "5.99",
+      "lineItems": [
+        {
+          "id": "line-item-102",
+          "quantity": 1,
+          "price": "49.99",
+          "status": "shipping",
+          "product": {
+            "id": "prod-102",
+            "name": "Phone Case",
+            "sku": "PC-SILICONE-BLK",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/case.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-103",
+      "orderNumber": "ORD-10003",
+      "status": "delivered",
+      "orderDate": "2026-03-08T09:15:00Z",
+      "customerId": "customer1",
+      "shippingAddress": "123 Main St, San Francisco, CA 94102",
+      "billingAddress": "123 Main St, San Francisco, CA 94102",
+      "shippingSpeed": "express",
+      "totalPrice": "299.99",
+      "shippingAndHandling": "20.00",
+      "lineItems": [
+        {
+          "id": "line-item-103",
+          "quantity": 1,
+          "price": "299.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-103",
+            "name": "Smart Watch",
+            "sku": "SW-SPORT-001",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/watch.jpg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "order-104",
+      "orderNumber": "ORD-10004",
+      "status": "pending",
+      "orderDate": "2026-03-18T11:00:00Z",
+      "customerId": "customer1",
+      "shippingAddress": "123 Main St, San Francisco, CA 94102",
+      "billingAddress": "123 Main St, San Francisco, CA 94102",
+      "shippingSpeed": "standard",
+      "totalPrice": "89.99",
+      "shippingAndHandling": "7.99",
+      "lineItems": [
+        {
+          "id": "line-item-104",
+          "quantity": 3,
+          "price": "29.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-104",
+            "name": "USB Cable",
+            "sku": "USB-C-6FT",
+            "productType": "Accessories",
+            "imageUrl": "https://example.com/cable.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

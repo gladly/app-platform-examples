@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "orderId": "order-001",
+    "reason": "customer_request"
+  },
+  "result": {
+    "status": "success",
+    "message": "Order cancelled successfully"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "orders": [
+    {
+      "id": "order-300",
+      "orderNumber": "ORD-77777",
+      "status": "pending",
+      "orderDate": "2026-03-18T11:15:00Z",
+      "customerId": "customer5",
+      "shippingAddress": "555 Elm Street, Boston, MA 02101",
+      "billingAddress": "555 Elm Street, Boston, MA 02101",
+      "shippingSpeed": "express",
+      "totalPrice": "399.99",
+      "shippingAndHandling": "19.99",
+      "lineItems": [
+        {
+          "id": "line-item-300",
+          "quantity": 1,
+          "price": "399.99",
+          "status": "pending",
+          "product": {
+            "id": "prod-300",
+            "name": "Tablet Computer",
+            "sku": "TAB-COMP-01",
+            "productType": "Electronics",
+            "imageUrl": "https://example.com/tablet.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

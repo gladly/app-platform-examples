@@ -1,0 +1,20 @@
+{
+  "id": "customer4",
+  "name": "Alice Williams",
+  "address": "321 Maple Lane, Seattle, WA 98101",
+  "primaryEmailAddress": "alice.williams@example.com",
+  "emailAddresses": [
+    "alice.williams@example.com",
+    "awilliams@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15554445555",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15554445555",
+      "type": "MOBILE"
+    }
+  ]
+}

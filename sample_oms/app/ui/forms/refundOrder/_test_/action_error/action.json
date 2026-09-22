@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "orderId": "order-902",
+    "reason": "customer_request"
+  },
+  "result": {
+    "status": "error",
+    "message": "Order cannot be refunded because it has already been refunded"
+  }
+}

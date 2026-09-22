@@ -1,0 +1,24 @@
+{
+  "id": "customer1",
+  "name": "John Smith",
+  "address": "123 Main St, San Francisco, CA 94102",
+  "primaryEmailAddress": "john.smith@example.com",
+  "emailAddresses": [
+    "john.smith@example.com",
+    "jsmith@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15551234567",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15551234567",
+      "type": "MOBILE"
+    },
+    {
+      "number": "+15559876543",
+      "type": "HOME"
+    }
+  ]
+}

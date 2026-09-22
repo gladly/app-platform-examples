@@ -1,0 +1,20 @@
+{
+  "id": "customer7",
+  "name": "Robert Wilson",
+  "address": "159 Birch Ave, Miami, FL 33101",
+  "primaryEmailAddress": "r.wilson@example.com",
+  "emailAddresses": [
+    "r.wilson@example.com",
+    "robert.wilson@work.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15558889900",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15558889900",
+      "type": "MOBILE"
+    }
+  ]
+}

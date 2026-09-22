@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "orderId": "order-200",
+    "reason": "out_of_stock"
+  },
+  "result": {
+    "status": "success",
+    "message": "Order cancelled successfully"
+  }
+}

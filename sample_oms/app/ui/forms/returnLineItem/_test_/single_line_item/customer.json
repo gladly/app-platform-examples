@@ -1,0 +1,19 @@
+{
+  "id": "customer5",
+  "name": "Emma Garcia",
+  "address": "654 Cedar Ln, Phoenix, AZ 85001",
+  "primaryEmailAddress": "emma.garcia@example.com",
+  "emailAddresses": [
+    "emma.garcia@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15556667777",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15556667777",
+      "type": "MOBILE"
+    }
+  ]
+}

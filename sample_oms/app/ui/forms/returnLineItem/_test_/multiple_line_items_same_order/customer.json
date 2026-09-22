@@ -1,0 +1,20 @@
+{
+  "id": "customer6",
+  "name": "Frank Martinez",
+  "address": "987 Birch Dr, San Diego, CA 92101",
+  "primaryEmailAddress": "frank.m@example.com",
+  "emailAddresses": [
+    "frank.m@example.com",
+    "fmartinez@work.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15557778888",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15557778888",
+      "type": "MOBILE"
+    }
+  ]
+}

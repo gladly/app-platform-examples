@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "orderId": "order-901",
+    "reason": "broken"
+  },
+  "result": {
+    "status": "success",
+    "message": "Order refunded successfully"
+  }
+}

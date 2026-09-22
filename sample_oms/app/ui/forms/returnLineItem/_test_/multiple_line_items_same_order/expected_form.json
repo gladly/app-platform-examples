@@ -1,0 +1,35 @@
+{
+  "title": "Return line item",
+  "submitButton": "Return Line Item",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Line Item",
+      "attr": "lineItemSelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a line item to return",
+        "options": [
+          {
+            "text": "Order #ORD-40001 Bluetooth Speaker",
+            "value": "{\"lineItemIds\":[\"line-item-401\"],\"orderId\":\"order-401\",\"orderNumber\":\"ORD-40001\",\"productName\":\"Bluetooth Speaker\"}"
+          },
+          {
+            "text": "Order #ORD-40001 Phone Case",
+            "value": "{\"lineItemIds\":[\"line-item-402\"],\"orderId\":\"order-401\",\"orderNumber\":\"ORD-40001\",\"productName\":\"Phone Case\"}"
+          },
+          {
+            "text": "Order #ORD-40001 Screen Protector Kit",
+            "value": "{\"lineItemIds\":[\"line-item-403\"],\"orderId\":\"order-401\",\"orderNumber\":\"ORD-40001\",\"productName\":\"Screen Protector Kit\"}"
+          },
+          {
+            "text": "Order #ORD-40001 USB-C Cable",
+            "value": "{\"lineItemIds\":[\"line-item-404\"],\"orderId\":\"order-401\",\"orderNumber\":\"ORD-40001\",\"productName\":\"USB-C Cable\"}"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

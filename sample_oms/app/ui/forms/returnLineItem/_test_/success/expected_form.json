@@ -1,0 +1,31 @@
+{
+  "title": "Return line item",
+  "submitButton": "Return Line Item",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Line Item",
+      "attr": "lineItemSelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a line item to return",
+        "options": [
+          {
+            "text": "Order #ORD-10001 Wireless Mouse",
+            "value": "{\"lineItemIds\":[\"line-item-101\"],\"orderId\":\"order-101\",\"orderNumber\":\"ORD-10001\",\"productName\":\"Wireless Mouse\"}"
+          },
+          {
+            "text": "Order #ORD-10001 Laptop Stand",
+            "value": "{\"lineItemIds\":[\"line-item-102\"],\"orderId\":\"order-101\",\"orderNumber\":\"ORD-10001\",\"productName\":\"Laptop Stand\"}"
+          },
+          {
+            "text": "Order #ORD-10002 Mechanical Keyboard",
+            "value": "{\"lineItemIds\":[\"line-item-103\"],\"orderId\":\"order-102\",\"orderNumber\":\"ORD-10002\",\"productName\":\"Mechanical Keyboard\"}"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

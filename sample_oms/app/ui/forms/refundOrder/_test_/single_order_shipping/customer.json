@@ -1,0 +1,19 @@
+{
+  "id": "customer6",
+  "name": "Lisa Thompson",
+  "address": "987 Cedar Ln, Seattle, WA 98101",
+  "primaryEmailAddress": "lisa.t@example.com",
+  "emailAddresses": [
+    "lisa.t@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15557778899",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15557778899",
+      "type": "MOBILE"
+    }
+  ]
+}

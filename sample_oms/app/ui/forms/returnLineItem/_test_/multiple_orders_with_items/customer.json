@@ -1,0 +1,19 @@
+{
+  "id": "customer7",
+  "name": "Grace Chen",
+  "address": "246 Willow Way, Boston, MA 02101",
+  "primaryEmailAddress": "grace.chen@example.com",
+  "emailAddresses": [
+    "grace.chen@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15558889999",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15558889999",
+      "type": "MOBILE"
+    }
+  ]
+}

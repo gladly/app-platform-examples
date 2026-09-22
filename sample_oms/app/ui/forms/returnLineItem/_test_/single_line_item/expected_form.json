@@ -1,0 +1,23 @@
+{
+  "title": "Return line item",
+  "submitButton": "Return Line Item",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Line Item",
+      "attr": "lineItemSelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Please select a line item to return",
+        "options": [
+          {
+            "text": "Order #ORD-30001 Wireless Headphones",
+            "value": "{\"lineItemIds\":[\"line-item-301\"],\"orderId\":\"order-301\",\"orderNumber\":\"ORD-30001\",\"productName\":\"Wireless Headphones\"}"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

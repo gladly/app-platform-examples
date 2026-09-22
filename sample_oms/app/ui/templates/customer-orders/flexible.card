@@ -1,6 +1,7 @@
-<?Template languageVersion="1.1" ?>
+<?Template languageVersion="1.2" ?>
 <Card title="{{ orders | length }} Orders">
-  <List dataSource="orders" separateItems="true">
+  <!-- Sort orders from newest to oldest. The dataFilter is included just for demonstration purposes -->
+  <List dataSource="orders" separateItems="true" dataFilter="totalPrice > 0"  dataOrder="date(b.orderDate) <=> date(a.orderDate)">
     <Drawer initialState="expandFirst">
       <Fixed>
         <StringValue dataSource="orderNumber" label="Order Number" valueAlignment="right" valueFontWeight="medium" />
@@ -17,8 +18,8 @@
         </Formula>
         <StringValue dataSource="shippingAddress" maxLines="3" displayStyle="stacked" label="Shipping Address" />
         <Spacer size="large" />
-
-        <List dataSource="lineItems">
+        <!-- Sort lineItems by price from highest to lowest. Convert price from currency string to a number by adding 0. -->
+        <List dataSource="lineItems" dataOrder="(b.price + 0) <=> (a.price + 0)">
           <ColumnGroup columnSpacing="large">
             <Column width="25%" verticalAlignment="center">
               <Image dataSource="product.imageUrl" border="true" />

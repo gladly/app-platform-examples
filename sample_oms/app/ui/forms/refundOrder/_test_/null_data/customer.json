@@ -1,0 +1,19 @@
+{
+  "id": "customer4",
+  "name": "Emily Davis",
+  "address": "321 Elm St, Boston, MA 02101",
+  "primaryEmailAddress": "emily.davis@example.com",
+  "emailAddresses": [
+    "emily.davis@example.com"
+  ],
+  "primaryPhoneNumber": {
+    "number": "+15554445566",
+    "type": "MOBILE"
+  },
+  "phoneNumbers": [
+    {
+      "number": "+15554445566",
+      "type": "MOBILE"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "orderId": "order-300",
+    "reason": "customer_request"
+  },
+  "result": {
+    "status": "error",
+    "message": "Order cannot be cancelled because it has already been shipped"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "orders": [
+    {
+      "id": "order-301",
+      "orderNumber": "ORD-30001",
+      "status": "delivered",
+      "orderDate": "2026-03-12T13:45:00Z",
+      "customerId": "customer5",
+      "shippingAddress": "654 Maple Dr, Denver, CO 80201",
+      "billingAddress": "654 Maple Dr, Denver, CO 80201",
+      "shippingSpeed": "standard",
+      "totalPrice": "199.99",
+      "shippingAndHandling": "10.00",
+      "lineItems": [
+        {
+          "id": "line-item-301",
+          "quantity": 1,
+          "price": "199.99",
+          "status": "delivered",
+          "product": {
+            "id": "prod-301",
+            "name": "Running Shoes",
+            "sku": "SHOE-RUN-42",
+            "productType": "Footwear",
+            "imageUrl": "https://example.com/shoes.jpg"
+          }
+        }
+      ]
+    }
+  ]
+}

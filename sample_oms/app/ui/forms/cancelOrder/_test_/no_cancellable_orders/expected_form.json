@@ -1,0 +1,10 @@
+{
+  "title": "Cancel order",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "The customer does not have any orders that can be cancelled."
+    }
+  ]
+}

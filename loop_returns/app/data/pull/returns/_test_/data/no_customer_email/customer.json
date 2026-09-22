@@ -2,7 +2,7 @@
   "id": "customer1",
   "name": "First Last",
   "address": "123 Street, City, State 12345",
-  "primaryEmailAddress": "",
+  "primaryEmailAddress": "primary@email.com",
   "emailAddresses": [],
   "primaryPhoneNumber": {
     "number": "+15551234567",

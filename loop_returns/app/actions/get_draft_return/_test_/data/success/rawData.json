@@ -1,0 +1,11 @@
+{
+    "draft_return": {
+        "id": 900123456,
+        "state": "items_pending",
+        "returning_items": [ { "id": 12345678901, "order_line_item_id": 401103686, "return_type": "credit" } ]
+    },
+    "links": [
+        { "rel": "set-return-reason", "href": "/api/v1/draft-returns/900123456/returning-items/12345678901/return-reason", "method": "POST", "is_required": true },
+        { "rel": "totals", "href": "/api/v1/draft-returns/900123456/totals", "method": "GET" }
+    ]
+}

@@ -1,9 +1,42 @@
 type LoopReturnsError {
+    code: String
     message: String!
 }
 
 type LoopReturnsReturnLink {
     url: String
+    errors: [LoopReturnsError!]
+}
+
+type LoopReturnDetailLineItem {
+    id: ID
+    title: String
+    sku: String
+    quantity: Int
+    refundAmount: Int
+    condition: String
+    disposition: String
+}
+
+type LoopReturnDetails {
+    id: ID
+    state: String
+    orderName: String
+    orderNumber: String
+    customerEmail: String
+    currency: String
+    returnTotal: Int
+    refund: Int
+    exchange: Int
+    giftCard: Int
+    handlingFee: Int
+    carrier: String
+    labelStatus: String
+    labelUrl: String
+    trackingNumber: String
+    statusPageUrl: String
+    type: String
+    lineItems: [LoopReturnDetailLineItem!]
     errors: [LoopReturnsError!]
 }
 
@@ -14,10 +47,156 @@ enum AllowlistType {
     product_tag
 }
 
+enum LoopReturnType {
+    credit
+    exchange
+}
+
+enum LoopCreditType {
+    refund
+    gift
+}
+
 type LoopReturnsAllowlistEntry {
     id: ID
     type: String
     value: String
+    errors: [LoopReturnsError!]
+}
+
+type LoopReturnLineItem {
+    id: ID
+    title: String
+    variantTitle: String
+    price: Int
+    image: String
+    providerProductId: ID
+    providerVariantId: ID
+}
+
+type LoopEligibleItem {
+    orderLineItemId: ID
+}
+
+type LoopIneligibleItem {
+    orderLineItemId: ID
+    ineligibilityCode: String
+}
+
+type LoopReturnMethodOption {
+    id: ID
+    name: String
+    type: String
+}
+
+type LoopOptionValue {
+    name: String
+    value: String
+}
+
+type LoopProductOption {
+    name: String
+    values: [String!]
+}
+
+type LoopExchangeVariant {
+    productId: ID
+    variantId: ID
+    title: String
+    variantTitle: String
+    productType: String
+    options: [LoopOptionValue!]
+    image: String
+    price: Int
+    currency: String
+    isAvailable: Boolean
+}
+
+type LoopExchangeOption {
+    returningItemId: ID
+    productOptions: [LoopProductOption!]
+    variants: [LoopExchangeVariant!]
+}
+
+type LoopDraftReturn {
+    draftReturnId: ID
+    state: String
+    itemsEligible: [LoopEligibleItem!]
+    itemsNotEligible: [LoopIneligibleItem!]
+    lineItems: [LoopReturnLineItem!]
+    returnMethodOptions: [LoopReturnMethodOption!]
+    """
+    Deprecated and always empty. Loop does not return exchange options at draft
+    creation, so checkEligibility never populates this. Use getDraftReturn (after
+    setting a returning item to return type `exchange`) to get the exchange
+    variant catalog. Retained for backward compatibility.
+    """
+    exchangeOptions: [LoopExchangeOption!]
+    errors: [LoopReturnsError!]
+}
+
+type LoopDraftLink {
+    rel: String
+    href: String
+    method: String
+    isRequired: Boolean
+}
+
+type LoopReturningItem {
+    id: ID
+    orderLineItemId: ID
+    returnType: String
+}
+
+type LoopDraftReturnState {
+    draftReturnId: ID
+    state: String
+    returningItems: [LoopReturningItem!]
+    links: [LoopDraftLink!]
+    exchangeOptions: [LoopExchangeOption!]
+    errors: [LoopReturnsError!]
+}
+
+type LoopReturningItemResult {
+    returningItemId: ID
+    orderLineItemId: ID
+    errors: [LoopReturnsError!]
+}
+
+type LoopStepResult {
+    ok: Boolean
+    state: String
+    errors: [LoopReturnsError!]
+}
+
+type LoopExchangeItemResult {
+    ok: Boolean
+    state: String
+    exchangeVariantId: ID
+    errors: [LoopReturnsError!]
+}
+
+type LoopSubmitResult {
+    ok: Boolean
+    state: String
+    returnId: ID
+    errors: [LoopReturnsError!]
+}
+
+type LoopMoney {
+    "Value in the currency's minor units (e.g. cents)."
+    amount: Int
+    "ISO 4217 currency code, when provided by Loop."
+    currencyCode: String
+}
+
+type LoopDraftTotals {
+    "Balance the customer still owes to complete the return/exchange (e.g. an exchange handling fee or price difference). When greater than 0 and the difference is not covered, the draft cannot be submitted without collecting payment."
+    amountDue: LoopMoney
+    "The exchange handling fee applied to this draft, if any."
+    exchangeFee: LoopMoney
+    "Whether any price difference/fee is already covered. When false with a non-zero amountDue, submitReturn will fail with `draft-return-not-actionable`."
+    isDifferenceCovered: Boolean
     errors: [LoopReturnsError!]
 }
 
@@ -35,6 +214,92 @@ type Mutation {
         """
         value: String!
     ): LoopReturnsAllowlistEntry @action(name: "create_allowlist_item")
+
+    """
+    Check return eligibility for an order and create a draft return. Returns the
+    draft return id (needed for all later steps), the eligible/ineligible line
+    items, the order line items, and the available return methods.
+    """
+    checkEligibility(
+        "The Shopify order name, e.g. #1234."
+        orderName: String!,
+        "A secondary identifier Loop uses to verify the order — usually the shipping ZIP, or the customer's email/phone depending on shop settings."
+        secondaryInput: String!,
+        "Whether this is a gift return."
+        isGift: Boolean
+    ): LoopDraftReturn @action(name: "check_eligibility")
+
+    "Add an eligible order line item to a draft return."
+    addReturnItem(
+        "The draft return id."
+        draftReturnId: ID!,
+        "The eligible order line item id (from checkEligibility.itemsEligible)."
+        orderLineItemId: ID!
+    ): LoopReturningItemResult @action(name: "add_return_item")
+
+    "Set the return reason for a returning item."
+    setReturnReason(
+        "The draft return id."
+        draftReturnId: ID!,
+        "The returning item id from addReturnItem."
+        returningItemId: ID!,
+        "A valid return reason id for this item."
+        reasonId: ID!
+    ): LoopStepResult @action(name: "set_return_reason")
+
+    "Set whether a returning item resolves to store credit/refund or an exchange."
+    setReturnType(
+        "The draft return id."
+        draftReturnId: ID!,
+        "The returning item id from addReturnItem."
+        returningItemId: ID!,
+        "Whether the item resolves to store credit/refund or an exchange."
+        returnType: LoopReturnType!
+    ): LoopStepResult @action(name: "set_return_type")
+
+    "Set the credit type for a credit/refund return (refund to original payment, or store credit/gift)."
+    setCreditType(
+        "The draft return id."
+        draftReturnId: ID!,
+        "Whether the credit/refund return resolves to a refund or store credit/gift."
+        creditType: LoopCreditType!
+    ): LoopStepResult @action(name: "set_credit_type")
+
+    "Add an exchange item (a different variant of the same product) to a returning item set to return_type=exchange. The variant_id is resolved in Shopify (out of scope)."
+    addExchangeItem(
+        "The draft return id."
+        draftReturnId: ID!,
+        "The returning item id from addReturnItem."
+        returningItemId: ID!,
+        "The provider (Shopify) variant id of the replacement size/color."
+        variantId: ID!
+    ): LoopExchangeItemResult @action(name: "add_exchange_item")
+
+    "Finalize the returning items on a draft return. Call after all items, reasons, types, and exchange items are set."
+    finalizeItems(
+        "The draft return id."
+        draftReturnId: ID!
+    ): LoopStepResult @action(name: "finalize_items")
+
+    "Select the return method (e.g. mail-in label, drop-off) for the draft return."
+    selectReturnMethod(
+        "The draft return id."
+        draftReturnId: ID!,
+        "A return method id from checkEligibility.returnMethodOptions."
+        returnMethodId: ID!
+    ): LoopStepResult @action(name: "select_return_method")
+
+    "Submit the finalized draft return. Creates the return in Loop; the customer receives a notification email if the merchant has return notifications enabled."
+    submitReturn(
+        "The draft return id."
+        draftReturnId: ID!
+    ): LoopSubmitResult @action(name: "submit_return")
+
+    "Cancel/abandon an unsubmitted draft return."
+    cancelDraftReturn(
+        "The draft return id."
+        draftReturnId: ID!
+    ): LoopStepResult @action(name: "cancel_draft_return")
 }
 
 type Query {
@@ -51,4 +316,36 @@ type Query {
         """
         orderZIP: String!
     ): LoopReturnsReturnLink @action(name: "generate_return_link")
+
+    """
+    Get the current state and next legal steps (links) of a draft return.
+    """
+    getDraftReturn(
+        "The draft return id from checkEligibility."
+        draftReturnId: ID!
+    ): LoopDraftReturnState @action(name: "get_draft_return")
+
+    "Get full details of an existing return by return id, order id, or Shopify order name."
+    getReturnDetails(
+        "Loop return id."
+        returnId: ID,
+        "Loop order id."
+        orderId: ID,
+        "Shopify order name, e.g. #1234."
+        orderName: String,
+        "Currency view: shop or presentment."
+        currencyType: String
+    ): LoopReturnDetails @action(name: "get_return_details")
+
+    """
+    Read a draft return's totals — the amount still due (e.g. an exchange handling
+    fee or price difference), the exchange fee, and whether the difference is
+    covered. Call after finalizeItems and before submitReturn: if the difference is
+    not covered (or amountDue is greater than 0), submitReturn will fail with
+    `draft-return-not-actionable` until payment is collected.
+    """
+    getDraftTotals(
+        "The draft return id."
+        draftReturnId: ID!
+    ): LoopDraftTotals @action(name: "get_draft_totals")
 }

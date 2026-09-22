@@ -1,0 +1,1 @@
+https://api.loopreturns.com/api/v1/draft-returns/{{.inputs.draftReturnId}}/returning-items/{{.inputs.returningItemId}}/return-type

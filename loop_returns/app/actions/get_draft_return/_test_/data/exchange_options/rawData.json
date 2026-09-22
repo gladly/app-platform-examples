@@ -1,0 +1,24 @@
+{
+    "draft_return": {
+        "id": 900123456,
+        "state": "items_pending",
+        "returning_items": [ { "id": 827412, "order_line_item_id": 406251889, "return_type": "exchange" } ]
+    },
+    "links": [
+        { "rel": "add-exchange-item", "href": "/api/v1/draft-returns/900123456/returning-items/827412/exchange-item", "method": "POST", "is_required": false }
+    ],
+    "context": {
+        "exchange_options": {
+            "827412": {
+                "product_options": [
+                    { "name": "Size", "values": ["L", "M", "S"] },
+                    { "name": "Color", "values": ["Blue", "Green"] }
+                ],
+                "product_variants": [
+                    { "product_id": 8832390168727, "variant_id": 48087696801943, "title": "Ambush Cargo", "variant_title": "L / Blue", "product_type": null, "options": { "Size": "L", "Color": "Blue" }, "image": "https://cdn.shopify.com/l-blue.jpg", "price": 8500, "currency": "USD", "is_available": true },
+                    { "product_id": 8832390168727, "variant_id": 48087696867479, "title": "Ambush Cargo", "variant_title": "M / Blue", "product_type": null, "options": { "Size": "M", "Color": "Blue" }, "image": "https://cdn.shopify.com/m-blue.jpg", "currency": "USD", "is_available": false }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "id": 25044766000, "state": "open", "order_name": "#1234", "order_number": "1234",
+    "customer_email": "abc@xyz.com", "currency": "USD", "return_total": 9800,
+    "refund": 9800, "exchange": 0, "gift_card": 0, "handling_fee": 0,
+    "carrier": "USPS", "label_status": "created", "label_url": "https://loop/label.pdf",
+    "tracking_number": "9400111899", "status_page_url": "https://store.loopreturns.com/#/status/abc", "type": "standard",
+    "line_items": [ { "id": 45170705367191, "title": "Wool Runner", "sku": "WR-10", "quantity": 1, "refund": 9800, "condition": "new", "disposition": "restock" } ]
+}

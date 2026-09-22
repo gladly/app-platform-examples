@@ -1,12 +1,12 @@
 [
   {
-    "id": "25044777",
+    "id": "25044766",
     "state": "closed",
     "createdAt": "2022-11-02T00:13:08+00:00",
     "updatedAt": "2022-11-02T00:20:00+00:00",
     "editedAt": null,
     "currency": "USD",
-    "url": "https://admin.loopreturns.com/returns/25044777ß",
+    "url": "https://admin.loopreturns.com/returns/25044766",
     "outcome": "Credit",
     "customerEmail": "primary@email.com",
     "order": {
@@ -77,7 +77,7 @@
       "carrier": "N/A",
       "trackingNumber": "N/A",
       "labelStatus": "N/A",
-      "statusPageUrl": "https://company.loopreturns.com/#/return/3e9b7d03-53cd-43b0-aad9-73a1eff525ae",
+      "statusPageUrl": "https://gladly-development.loopreturns.com/#/return/3e9b7d03-53cd-43b0-aad9-73a1eff525ae",
       "labelUpdatedAt": null,
       "destinationId": "7295",
       "returnMethod": ""

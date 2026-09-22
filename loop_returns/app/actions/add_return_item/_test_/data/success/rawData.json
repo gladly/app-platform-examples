@@ -1,0 +1,10 @@
+{
+    "draft_return": {
+        "id": 575814,
+        "state": "items_pending",
+        "returning_items": [
+            { "id": 757100, "order_line_item_id": 401103999, "return_type": "credit" },
+            { "id": 757122, "order_line_item_id": 401103686, "return_type": "credit" }
+        ]
+    }
+}

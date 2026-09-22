@@ -1,0 +1,8 @@
+{
+    "draftReturnId": "900123456",
+    "state": "draft",
+    "itemsEligible": [ { "orderLineItemId": "401103686" } ],
+    "itemsNotEligible": [ { "orderLineItemId": "401103687", "ineligibilityCode": "final-sale" } ],
+    "lineItems": [ { "id": "123194218", "title": "Wool Runner", "variantTitle": "M 10", "price": 9800, "image": "https://cdn/img.jpg", "providerProductId": "8827720794263", "providerVariantId": "45170705367191" } ],
+    "returnMethodOptions": [ { "id": "3", "name": "Happy Returns", "type": "dropoff" } ]
+}

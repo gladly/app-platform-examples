@@ -1,0 +1,8 @@
+{
+    "configuration": {
+        "enableStoreCredit": true
+    },
+    "secrets": {
+        "accessToken": "access_token"
+    }
+}

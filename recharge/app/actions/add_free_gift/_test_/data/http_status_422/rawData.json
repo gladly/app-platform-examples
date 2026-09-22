@@ -1,0 +1,7 @@
+{
+  "errors": {
+    "charge_id": [
+      "Charge must be in a QUEUED or ERROR status."
+    ]
+  }
+}

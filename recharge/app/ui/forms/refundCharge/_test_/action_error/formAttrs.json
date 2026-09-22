@@ -1,0 +1,6 @@
+{
+  "chargeSelection": "{\"chargeId\":\"1\",\"refundableAmount\":\"5.99\"}",
+  "fullRefund": "false",
+  "amount": "3.00",
+  "confirmationCopy": "approve"
+}

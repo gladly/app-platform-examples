@@ -1,0 +1,7 @@
+{
+  "error": {
+    "error_message": "Charge cannot be refunded",
+    "http_status": 422
+  },
+  "charge": null
+}

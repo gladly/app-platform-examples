@@ -1,0 +1,1 @@
+"Amount \"  100000  \" must be a plain decimal with up to two places, e.g. 10.00 (no spaces, commas, sign, or exponent)."

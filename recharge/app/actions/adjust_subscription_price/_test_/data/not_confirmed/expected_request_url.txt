@@ -1,0 +1,1 @@
+"Type approve in the confirmation field to submit this price change."

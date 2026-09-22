@@ -1,0 +1,16 @@
+{
+  "inputs": {
+    "operation": "cancel",
+    "subscriptionId": "841337538",
+    "reason": "Customer requested cancellation",
+    "sendEmail": "true"
+  },
+  "result": {
+    "error": null,
+    "subscription": {
+      "id": "841337538",
+      "status": "cancelled",
+      "cancellation_reason": "Customer requested cancellation"
+    }
+  }
+}

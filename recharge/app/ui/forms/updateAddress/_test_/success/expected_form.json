@@ -1,0 +1,128 @@
+{
+  "title": "Update shipping address",
+  "submitButton": "Update address",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Address",
+      "attr": "addressId",
+      "input": {
+        "type": "select",
+        "placeholder": "Select the address to update",
+        "options": [
+          {
+            "text": "5616 N Shore Dr, Milwaukee Wisconsin 53217 US",
+            "value": "283415114"
+          }
+        ],
+        "optional": false
+      }
+    },
+    {
+      "type": "text",
+      "text": "Fill in only the fields you want to change. Leave the rest blank to keep their current values."
+    },
+    {
+      "type": "input",
+      "label": "Address line 1",
+      "attr": "address1",
+      "input": {
+        "type": "text",
+        "placeholder": "New address line 1",
+        "optional": true
+      }
+    },
+    {
+      "type": "input",
+      "label": "Address line 2",
+      "attr": "address2",
+      "input": {
+        "type": "text",
+        "placeholder": "New address line 2",
+        "optional": true
+      }
+    },
+    {
+      "type": "input",
+      "label": "City",
+      "attr": "city",
+      "input": {
+        "type": "text",
+        "placeholder": "New city",
+        "optional": true
+      }
+    },
+    {
+      "type": "input",
+      "label": "State / Province",
+      "attr": "province",
+      "input": {
+        "type": "text",
+        "placeholder": "New state/province",
+        "optional": true
+      }
+    },
+    {
+      "type": "input",
+      "label": "ZIP / Postal code",
+      "attr": "zip",
+      "input": {
+        "type": "text",
+        "placeholder": "New ZIP/postal code",
+        "optional": true
+      }
+    },
+    {
+      "type": "input",
+      "label": "Country code",
+      "attr": "countryCode",
+      "input": {
+        "type": "text",
+        "placeholder": "e.g. US, CA",
+        "optional": true
+      },
+      "hint": "If you change the country, you MUST also set a ZIP valid for the new country, or the update is rejected."
+    },
+    {
+      "type": "input",
+      "label": "First name",
+      "attr": "firstName",
+      "input": {
+        "type": "text",
+        "placeholder": "New first name",
+        "optional": true
+      }
+    },
+    {
+      "type": "input",
+      "label": "Last name",
+      "attr": "lastName",
+      "input": {
+        "type": "text",
+        "placeholder": "New last name",
+        "optional": true
+      }
+    },
+    {
+      "type": "input",
+      "label": "Phone",
+      "attr": "phone",
+      "input": {
+        "type": "text",
+        "placeholder": "New phone",
+        "optional": true
+      }
+    },
+    {
+      "type": "input",
+      "label": "Company",
+      "attr": "company",
+      "input": {
+        "type": "text",
+        "placeholder": "New company",
+        "optional": true
+      }
+    }
+  ]
+}

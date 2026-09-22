@@ -1,0 +1,9 @@
+{
+  "dataType": {
+    "name": "recharge_credit_account",
+    "version": "1.0"
+  },
+  "httpMethod": "GET",
+  "dependsOnDataTypes": ["recharge_customer"],
+  "rawResponse": false
+}

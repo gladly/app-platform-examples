@@ -1,0 +1,7 @@
+{
+  "subscriptions": [
+    { "id": "841337538", "status": "active", "product_title": "Test Product", "quantity": 1, "price": "5.99", "variant_title": "Default", "sku": "TP-DEF" },
+    { "id": "841337599", "status": "cancelled", "product_title": "Old Product", "quantity": 1, "price": "9.99" },
+    { "id": "841337600", "status": "active", "product_title": "Test Product", "quantity": 2, "price": "5.99" }
+  ]
+}

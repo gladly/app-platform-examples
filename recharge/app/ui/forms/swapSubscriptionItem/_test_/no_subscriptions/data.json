@@ -1,0 +1,5 @@
+{
+  "subscriptions": [
+    { "id": "1", "status": "cancelled", "product_title": "Old Product", "quantity": 1, "price": "9.99" }
+  ]
+}

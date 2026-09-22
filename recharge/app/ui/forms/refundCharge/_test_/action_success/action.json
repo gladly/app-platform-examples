@@ -1,0 +1,17 @@
+{
+  "inputs": {
+    "chargeId": "2",
+    "fullRefund": "true",
+    "refundableAmount": "6.00",
+    "confirmationCopy": "approve"
+  },
+  "result": {
+    "error": null,
+    "charge": {
+      "id": "2",
+      "status": "refunded",
+      "total_refunds": "10.00",
+      "scheduled_at": "2026-06-15"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "inputs": { "chargeId": "1839251121", "operation": "apply", "discountCode": "NOPE" },
+  "result": {
+    "error": { "http_status": 422, "error_message": "Discount not found" },
+    "charge": null
+  }
+}

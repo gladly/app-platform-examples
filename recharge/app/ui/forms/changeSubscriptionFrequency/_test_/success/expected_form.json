@@ -1,0 +1,35 @@
+{
+  "title": "Change subscription frequency",
+  "submitButton": "Change frequency",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Frequency",
+      "attr": "frequencySelection",
+      "input": {
+        "type": "select",
+        "placeholder": "Select a subscription and new frequency",
+        "options": [
+          {
+            "text": "Test Product: Weekly",
+            "value": "{\"chargeIntervalFrequency\":1,\"label\":\"Weekly\",\"orderIntervalFrequency\":1,\"orderIntervalUnit\":\"week\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: Every 2 weeks",
+            "value": "{\"chargeIntervalFrequency\":2,\"label\":\"Every 2 weeks\",\"orderIntervalFrequency\":2,\"orderIntervalUnit\":\"week\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: Every 4 weeks",
+            "value": "{\"chargeIntervalFrequency\":4,\"label\":\"Every 4 weeks\",\"orderIntervalFrequency\":4,\"orderIntervalUnit\":\"week\",\"subscriptionId\":\"841337538\"}"
+          },
+          {
+            "text": "Test Product: Monthly",
+            "value": "{\"chargeIntervalFrequency\":1,\"label\":\"Monthly\",\"orderIntervalFrequency\":1,\"orderIntervalUnit\":\"month\",\"subscriptionId\":\"841337538\"}"
+          }
+        ],
+        "optional": false
+      }
+    }
+  ]
+}

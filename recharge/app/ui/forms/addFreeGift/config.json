@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "addFreeGift"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "charges"
+        }
+    ]
+}

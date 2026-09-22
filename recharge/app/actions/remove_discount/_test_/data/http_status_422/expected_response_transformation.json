@@ -1,0 +1,7 @@
+{
+  "error": {
+    "error_message": "Discount not found",
+    "http_status": 422
+  },
+  "charge": null
+}

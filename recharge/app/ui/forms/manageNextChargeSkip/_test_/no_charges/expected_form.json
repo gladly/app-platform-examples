@@ -1,0 +1,10 @@
+{
+  "title": "Skip or unskip next order",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "text",
+      "text": "This customer has no queued, retrying, or skipped orders to skip or unskip."
+    }
+  ]
+}

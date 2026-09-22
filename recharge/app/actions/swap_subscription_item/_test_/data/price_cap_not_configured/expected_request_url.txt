@@ -1,0 +1,1 @@
+"No maximum subscription price is configured for this app. An admin must set Maximum subscription price in the app configuration before a price can be set here."

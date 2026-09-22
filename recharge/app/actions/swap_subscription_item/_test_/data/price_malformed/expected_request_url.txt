@@ -1,0 +1,1 @@
+"Price \"  100,000  \" must be a plain decimal with up to two places, e.g. 12.00 (no spaces, commas, sign, or exponent)."

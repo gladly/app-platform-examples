@@ -1,0 +1,7 @@
+{
+  "error": {
+    "error_message": "cannot change a regular subscription to prepaid",
+    "http_status": 422
+  },
+  "subscription": null
+}

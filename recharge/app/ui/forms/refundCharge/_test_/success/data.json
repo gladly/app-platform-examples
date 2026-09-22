@@ -1,0 +1,36 @@
+{
+  "charges": [
+    {
+      "id": "1",
+      "status": "success",
+      "total_price": "5.99",
+      "total_refunds": "0.00",
+      "processed_at": "2026-06-30T12:00:00+00:00",
+      "payment_processor": "stripe"
+    },
+    {
+      "id": "2",
+      "status": "partially_refunded",
+      "total_price": "10.00",
+      "total_refunds": "4.00",
+      "processed_at": "2026-06-15T09:30:00+00:00",
+      "payment_processor": "stripe"
+    },
+    {
+      "id": "3",
+      "status": "queued",
+      "total_price": "7.00",
+      "total_refunds": "0.00",
+      "scheduled_at": "2026-08-20",
+      "payment_processor": "shopify_payments"
+    },
+    {
+      "id": "4",
+      "status": "refunded",
+      "total_price": "8.00",
+      "total_refunds": "8.00",
+      "processed_at": "2026-05-01T00:00:00+00:00",
+      "payment_processor": "shopify_payments"
+    }
+  ]
+}

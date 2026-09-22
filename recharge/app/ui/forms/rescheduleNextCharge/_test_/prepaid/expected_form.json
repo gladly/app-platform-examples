@@ -1,0 +1,7 @@
+{
+  "title": "Delay next order",
+  "closeButton": "Close",
+  "sections": [
+    { "type": "text", "text": "Prepaid subscriptions can't be delayed here." }
+  ]
+}

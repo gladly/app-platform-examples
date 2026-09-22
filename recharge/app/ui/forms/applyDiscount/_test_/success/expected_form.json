@@ -1,0 +1,12 @@
+{
+  "title": "Apply discount",
+  "submitButton": "Apply discount",
+  "closeButton": "Close",
+  "sections": [
+    { "type": "input", "label": "Charge", "attr": "chargeId", "input": { "type": "select", "placeholder": "Select the order to discount.", "options": [
+      { "text": "Next order — ships 2026-08-20 (#1839251121)", "value": "1839251121" },
+      { "text": "Retrying order — was 2026-09-01 (#1839251199), has discount", "value": "1839251199" }
+    ], "optional": false } },
+    { "type": "input", "label": "Discount code", "attr": "discountCode", "input": { "type": "text", "placeholder": "e.g. WELCOME10", "optional": false }, "hint": "The discount/coupon code to apply to the selected charge. Codes are case-sensitive — paste exactly, no spaces." }
+  ]
+}

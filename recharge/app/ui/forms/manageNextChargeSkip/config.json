@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "manageNextChargeSkip"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "charges"
+        }
+    ]
+}

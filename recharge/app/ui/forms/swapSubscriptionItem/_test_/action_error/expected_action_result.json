@@ -1,0 +1,1 @@
+{ "errors": [ { "attr": "subscriptionId", "detail": "This subscription may not be swappable (one-time or prepaid items are restricted). Confirm the variant, or have a manager change it in Recharge. Details: Recharge returned an error (HTTP 422)." } ] }

@@ -1,0 +1,15 @@
+{
+  "inputs": {
+    "subscriptionId": "841337538",
+    "orderIntervalFrequency": 2,
+    "orderIntervalUnit": "week",
+    "chargeIntervalFrequency": 3
+  },
+  "result": {
+    "error": {
+      "http_status": 422,
+      "error_message": "cannot change a regular subscription to prepaid"
+    },
+    "subscription": null
+  }
+}

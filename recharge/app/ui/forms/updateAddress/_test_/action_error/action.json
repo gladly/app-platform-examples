@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "addressId": "283415114",
+    "countryCode": "CA"
+  },
+  "result": {
+    "error": {
+      "http_status": 422,
+      "error_message": "Invalid data: CA postal code format not matched."
+    },
+    "address": null
+  }
+}

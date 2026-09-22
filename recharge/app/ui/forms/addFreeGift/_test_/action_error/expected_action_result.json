@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "externalVariantId",
+      "detail": "Charge must be in a QUEUED or ERROR status."
+    }
+  ]
+}

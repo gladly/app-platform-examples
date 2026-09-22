@@ -1,0 +1,13 @@
+{
+  "inputs": {
+    "subscriptionId": "841337538",
+    "resumeDate": "2026-09-22"
+  },
+  "result": {
+    "error": {
+      "http_status": 422,
+      "error_message": "Invalid date"
+    },
+    "subscription": null
+  }
+}

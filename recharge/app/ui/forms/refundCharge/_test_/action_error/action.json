@@ -1,0 +1,16 @@
+{
+  "inputs": {
+    "chargeId": "1",
+    "fullRefund": "false",
+    "amount": "3.00",
+    "refundableAmount": "5.99",
+    "confirmationCopy": "approve"
+  },
+  "result": {
+    "error": {
+      "http_status": 422,
+      "error_message": "Charge cannot be refunded"
+    },
+    "charge": null
+  }
+}

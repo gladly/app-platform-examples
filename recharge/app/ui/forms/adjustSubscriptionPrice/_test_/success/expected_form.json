@@ -1,0 +1,13 @@
+{
+  "title": "Adjust subscription price",
+  "submitButton": "Update price",
+  "closeButton": "Close",
+  "sections": [
+    { "type": "input", "label": "Subscription", "attr": "subscriptionId", "input": { "type": "select", "placeholder": "Select the subscription", "options": [
+      { "text": "Test Product — #841337538 — current price 5.99 USD", "value": "841337538" },
+      { "text": "Test Product — #841337600 — current price 7.99 USD", "value": "841337600" }
+    ], "optional": false } },
+    { "type": "input", "label": "New price", "attr": "price", "input": { "type": "text", "placeholder": "e.g. 12.00", "optional": false }, "hint": "Enter the exact price the customer requested. Amounts above the store's limit are rejected — the ceiling appears in the error if you exceed it." },
+    { "type": "input", "label": "Confirmation", "attr": "confirmationCopy", "input": { "type": "text", "placeholder": "approve", "optional": false }, "hint": "Re-read the subscription and new price above. Type approve only if they match what the customer requested." }
+  ]
+}

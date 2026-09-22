@@ -1,0 +1,47 @@
+{
+  "id": "255770437",
+  "email": "nlarkin1986@gmail.com",
+  "firstName": "Nate",
+  "lastName": "Larkin",
+  "subscriptionsActiveCount": 1,
+  "subscriptionsTotalCount": 2,
+  "hasPaymentMethodInDunning": false,
+  "hasValidPaymentMethod": true,
+  "subscriptions": [
+    {
+      "id": "841337538",
+      "status": "active",
+      "productTitle": "Test Product",
+      "nextChargeScheduledAt": "2026-09-15",
+      "price": "5.99",
+      "presentmentCurrency": "USD",
+      "chargeIntervalFrequency": 1,
+      "orderIntervalFrequency": 1,
+      "orderIntervalUnit": "month",
+      "quantity": 1,
+      "sku": "TEST-1",
+      "variantTitle": "Default",
+      "hasQueuedCharges": true,
+      "maxRetriesReached": false,
+      "createdAt": "2026-06-30T21:28:57+00:00",
+      "updatedAt": "2026-06-30T22:46:11+00:00"
+    },
+    {
+      "id": "999000111",
+      "status": "cancelled",
+      "productTitle": "Old Product",
+      "price": "9.99",
+      "presentmentCurrency": "USD",
+      "chargeIntervalFrequency": 2,
+      "orderIntervalFrequency": 2,
+      "orderIntervalUnit": "week",
+      "quantity": 1,
+      "sku": "OLD-9",
+      "cancelledAt": "2026-05-01T00:00:00+00:00",
+      "cancellationReason": "Too expensive",
+      "maxRetriesReached": true,
+      "createdAt": "2026-01-01T00:00:00+00:00",
+      "updatedAt": "2026-05-01T00:00:00+00:00"
+    }
+  ]
+}

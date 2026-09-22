@@ -1,0 +1,79 @@
+{
+  "title": "Cancel or reactivate subscription",
+  "submitButton": "Submit",
+  "closeButton": "Close",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Operation",
+      "attr": "operation",
+      "input": {
+        "type": "select",
+        "placeholder": "Select cancel or reactivate",
+        "optional": false,
+        "options": [
+          {
+            "text": "Cancel subscription",
+            "value": "cancel"
+          },
+          {
+            "text": "Reactivate subscription",
+            "value": "reactivate"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Select the subscription",
+        "optional": false,
+        "options": [
+          {
+            "text": "Test Product \u2014 #841337538 \u2014 Active",
+            "value": "841337538"
+          },
+          {
+            "text": "Old Product \u2014 #111 \u2014 Cancelled",
+            "value": "111"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "Reason",
+      "attr": "reason",
+      "input": {
+        "type": "text",
+        "placeholder": "Customer requested cancellation",
+        "optional": true
+      },
+      "hint": "Used only when cancelling. Ignored when reactivating."
+    },
+    {
+      "type": "input",
+      "label": "Send email",
+      "attr": "sendEmail",
+      "input": {
+        "type": "select",
+        "placeholder": "Notify the customer by email",
+        "optional": false,
+        "options": [
+          {
+            "text": "Yes",
+            "value": "true"
+          },
+          {
+            "text": "No",
+            "value": "false"
+          }
+        ]
+      },
+      "hint": "Used only when cancelling. Ignored when reactivating."
+    }
+  ]
+}

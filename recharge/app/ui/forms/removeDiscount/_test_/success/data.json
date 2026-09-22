@@ -1,0 +1,21 @@
+{
+  "charges": [
+    {
+      "id": "1839251121",
+      "status": "queued",
+      "scheduled_at": "2026-08-20",
+      "total_discounts": "0.00"
+    },
+    {
+      "id": "1839251131",
+      "status": "success",
+      "scheduled_at": "2026-06-30"
+    },
+    {
+      "id": "1839251199",
+      "status": "error",
+      "scheduled_at": "2026-09-01",
+      "total_discounts": "10.00"
+    }
+  ]
+}

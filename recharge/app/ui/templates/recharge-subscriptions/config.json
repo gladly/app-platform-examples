@@ -1,0 +1,5 @@
+{
+  "description": "Display Recharge subscriptions and payment status on the customer profile",
+  "graphqlSchema": "data",
+  "graphqlType": "Customer"
+}

@@ -1,0 +1,7 @@
+{
+  "errors": {
+    "charge": [
+      "Only charges with status queued and error can be skipped"
+    ]
+  }
+}

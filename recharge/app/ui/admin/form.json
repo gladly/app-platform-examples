@@ -1,0 +1,70 @@
+{
+	"title": "Configure Recharge",
+	"sections": [
+		{
+			"type": "text",
+			"text": "Configure the Recharge integration below."
+		},
+		{
+			"type": "input",
+			"label": "Store credit",
+			"attr": "configuration.enableStoreCredit",
+			"defaultValue": false,
+			"input": {
+				"type": "checkbox",
+				"text": "My Recharge plan includes store credit"
+			},
+			"hint": "Leave this unchecked unless your Recharge plan includes store credit (it is a Plus/Custom feature, not on Starter). Check it only when your plan includes store credit AND the API token has been granted the credit scopes; Gladly then shows the store-credit balance and enables the Adjust store credit action. If checked without the credit scopes, the store-credit calls return a permissions error that prevents the whole Recharge card from loading — so leave it off if in doubt."
+		},
+		{
+			"type": "input",
+			"label": "Maximum credit adjustment",
+			"attr": "configuration.maxCreditAdjustment",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 100.00"
+			},
+			"hint": "Required only if agents will use the Adjust Credit action, which needs a Recharge plan that includes store credit (the Plus and Custom tiers, not Starter). The largest single store-credit adjustment an agent may make; larger amounts are rejected and must be done by a manager in Recharge. Enter a decimal amount such as 100.00."
+		},
+		{
+			"type": "input",
+			"label": "Maximum delay (billing cycles)",
+			"attr": "configuration.maxDelayCycles",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 3"
+			},
+			"hint": "The most billing cycles an agent may delay a subscription's next charge from the Delay next order form. Defaults to 3 if left blank. Enter a whole number such as 3."
+		},
+		{
+			"type": "input",
+			"label": "Maximum subscription price",
+			"attr": "configuration.maxSubscriptionPrice",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 200.00"
+			},
+			"hint": "Required only if agents will use the Adjust subscription price action. The highest line-item price an agent may set from the Adjust subscription price form; larger amounts are rejected and must be done by a manager in Recharge. Enter a decimal amount such as 200.00."
+		},
+		{
+			"type": "input",
+			"label": "Maximum refund amount",
+			"attr": "configuration.maxRefundAmount",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 100.00"
+			},
+			"hint": "Required only if agents will use the Refund charge action. The largest single refund an agent may issue -- the partial amount, or a full charge's remaining balance; larger refunds are rejected and must be done by a manager in Recharge. Enter a decimal amount such as 100.00."
+		},
+		{
+			"type": "input",
+			"label": "API Access Token",
+			"attr": "secrets.accessToken",
+			"input": {
+				"type": "text",
+				"placeholder": "Paste your Recharge API token"
+			},
+			"hint": "Found in the Recharge admin under Tools & Apps > API tokens (API Key)"
+		}
+	]
+}

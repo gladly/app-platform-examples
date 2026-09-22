@@ -1,0 +1,11 @@
+{
+    "action": {
+        "graphqlField": "updateAddress"
+    },
+    "formData": [
+        {
+            "graphqlSchema": "data",
+            "graphqlField": "addresses"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "recharge_customer": [
+    {
+      "id": "255770437",
+      "email": "nlarkin1986@gmail.com",
+      "first_name": "Nate",
+      "last_name": "Larkin",
+      "updated_at": "2026-06-30T21:31:56+00:00"
+    }
+  ],
+  "recharge_credit_account": [
+    {
+      "id": "25490038",
+      "customer_id": "255770437",
+      "available_balance": "10.00",
+      "created_at": "2026-06-30T21:31:56+00:00",
+      "currency_code": "USD",
+      "expires_at": null,
+      "initial_value": "0.00",
+      "name": "Manual Credit",
+      "type": "manual",
+      "updated_at": "2026-06-30T21:31:56+00:00"
+    }
+  ]
+}

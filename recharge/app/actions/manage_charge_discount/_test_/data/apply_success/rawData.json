@@ -1,0 +1,22 @@
+{
+  "charge": {
+    "id": 1839251121,
+    "address_id": 283415114,
+    "customer": {
+      "id": 255770437,
+      "email": "nlarkin1986@gmail.com"
+    },
+    "line_items": [
+      {
+        "purchase_item_id": 841337538,
+        "title": "Test Product",
+        "total_price": "5.39"
+      }
+    ],
+    "scheduled_at": "2026-09-15",
+    "status": "queued",
+    "total_discounts": "0.60",
+    "total_price": "5.39",
+    "type": "recurring"
+  }
+}

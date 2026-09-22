@@ -1,0 +1,14 @@
+{
+  "inputs": {
+    "operation": "reactivate",
+    "subscriptionId": "841337538"
+  },
+  "result": {
+    "error": null,
+    "subscription": {
+      "id": "841337538",
+      "status": "active",
+      "next_charge_scheduled_at": "2026-10-27"
+    }
+  }
+}

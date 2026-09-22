@@ -1,0 +1,10 @@
+{
+  "subscriptions": [
+    {
+      "id": "111",
+      "status": "cancelled",
+      "product_title": "Old Product",
+      "next_charge_scheduled_at": "2026-09-15"
+    }
+  ]
+}

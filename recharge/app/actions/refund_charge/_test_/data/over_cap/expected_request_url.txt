@@ -1,0 +1,1 @@
+"Refund amount 500.00 exceeds the configured maximum of 100.00. A manager must make a larger refund directly in Recharge."

@@ -4,7 +4,7 @@ The BigCommerce App integrates with the BigCommerce system via [REST API](https:
 
 ## Benefits
 
-Used with Gladly Sidekick, the BigCommerce app empowers your customers to resolve issues related to their orders, e.g. find their most recent order, check their shipping address or status of their shipments, etc
+Used with Gladly AI, the BigCommerce app empowers your customers to resolve issues related to their orders, e.g. find their most recent order, check their shipping address or status of their shipments, etc
 
 ## Features
 

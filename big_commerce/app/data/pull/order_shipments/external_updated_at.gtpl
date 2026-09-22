@@ -1,1 +1,1 @@
-{{.date_created -}}
+{{- .date_created -}}

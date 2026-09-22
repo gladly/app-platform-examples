@@ -1,1 +1,1 @@
-{{int .order_id -}}
+{{- .order_id -}}

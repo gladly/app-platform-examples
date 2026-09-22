@@ -1,0 +1,43 @@
+{
+  "data": {
+    "total_refund_amount": 679.89,
+    "total_refund_tax_amount": 0,
+    "rounding": 0,
+    "adjustment": 0,
+    "is_tax_included": false,
+    "order_level_refund_amount": 679.89,
+    "refund_methods": [
+      [
+        {
+          "provider_id": "bigpaypay",
+          "provider_description": "Test Payment Provider",
+          "amount": 679.89,
+          "offline": true,
+          "offline_provider": false,
+          "offline_reason": "This provider does not support refund."
+        }
+      ],
+      [
+        {
+          "provider_id": "storecredit",
+          "provider_description": "Store Credit",
+          "amount": 679.89,
+          "offline": false,
+          "offline_provider": false,
+          "offline_reason": ""
+        }
+      ],
+      [
+        {
+          "provider_id": "custom",
+          "provider_description": "Custom",
+          "amount": 679.89,
+          "offline": true,
+          "offline_provider": true,
+          "offline_reason": "This is an offline payment provider."
+        }
+      ]
+    ]
+  },
+  "meta": {}
+}

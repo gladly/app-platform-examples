@@ -11,55 +11,13 @@
         - This loop processes each order product record individually.
     */}}
     {{- range .rawData -}}
-        {{/*
-            Remove key value pairs from the data because they are not needed.
-            - This step cleans up unnecessary data before further processing.
-        */}}
-        {{- $_ := unset . "configurable_fields" }}
-        {{- $_ := unset . "refund_amount" }}
-        {{- $_ := unset . "order_pickup_method_id"}}
-        {{- $_ := unset . "total_ex_tax"}}
-        {{- $_ := unset . "cost_price_inc_tax"}}
-        {{- $_ := unset . "cost_price_ex_tax"}}
-        {{- $_ := unset . "base_price"}}
-        {{- $_ := unset . "price_ex_tax"}}
-        {{- $_ := unset . "price_tax"}}
-        {{- $_ := unset . "cost_price_ex_tax"}}
-        {{- $_ := unset . "wrapping_id"}}
-        {{- $_ := unset . "weight"}}
-        {{- $_ := unset . "width"}}
-        {{- $_ := unset . "height"}}
-        {{- $_ := unset . "depth"}}
-        {{- $_ := unset . "fulfillment_source"}}
-        {{- $_ := unset . "cost_price_tax"}}
-        {{- $_ := unset . "base_wrapping_cost"}}
-        {{- $_ := unset . "wrapping_cost_ex_tax"}}
-        {{- $_ := unset . "wrapping_cost_tax"}}
-        {{- $_ := unset . "wrapping_name"}}
-        {{- $_ := unset . "wrapping_message"}}
-        {{- $_ := unset . "fixed_shipping_cost"}}
-        {{- $_ := unset . "ebay_item_id"}}
-        {{- $_ := unset . "ebay_transaction_id"}}
-        {{- $_ := unset . "option_set_id"}}
-        {{- $_ := unset . "parent_order_product_id"}}
-        {{- $_ := unset . "bin_picking_number"}}
-        {{- $_ := unset . "product_options"}}
-        {{- $_ := unset . "upc"}}
-        {{- $_ := unset . "variant_id"}}
-        {{- $_ := unset . "base_cost_price"}}
-        {{- $_ := unset . "base_total"}}
-        {{- $_ := unset . "discounted_total_inc_tax"}}
-        {{- $_ := unset . "total_tax"}}
-        {{- $_ := unset . "applied_discounts"}}
-        {{- $_ := unset . "return_id"}}
-        {{- $_ := unset . "event_name"}}
-        {{- $_ := unset . "event_date"}}
-        {{- $_ := unset . "is_bundled_product"}}
-        {{- $_ := unset . "external_id"}}
-        {{- $_ := unset . "name_customer"}}
-        {{- $_ := unset . "name_merchant"}}
-        {{- $_ := unset . "gift_certificate_id"}}
-        {{- $_ := unset . "brand"}}
+
+        {{/* Handle conversion of ids to string correctly */}}
+        {{- $_ := set . "id" (.id | int64 | toString) -}}
+        {{- $_ := set . "order_id" (.order_id | int64 | toString) -}}
+        {{- $_ := set . "order_address_id" (.order_address_id | int64 | toString) -}}
+        {{- $_ := set . "product_id" (.product_id | int64 | toString) -}}
+        
     {{- end}}
     {{- toJson .rawData -}}
 {{- end}}

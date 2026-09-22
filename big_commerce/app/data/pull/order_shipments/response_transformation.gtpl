@@ -20,14 +20,16 @@
         {{- else }}
             {{- $_ := set . "date_created" nil }}
         {{- end}}
-        {{/*
-            Remove key value pairs from the data because they are not needed.
-            - This step cleans up unnecessary data before further processing.
-        */}}
-        {{- $_ := unset . "merchant_shipping_cost"}}
-        {{- $_ := unset . "comments"}}
-        {{- $_ := unset . "shipping_provider_display_name"}}
-        {{- $_ := unset . "order_address_id"}}
+
+        {{/* Handle conversion of ids to string correctly */}}
+        {{- $_ := set . "id" (.id | int64 | toString) -}}
+        {{- $_ := set . "order_id" (.order_id | int64 | toString) -}}
+        {{- $_ := set . "customer_id" (.customer_id | int64 | toString) -}}
+        {{- range .items -}}
+        {{- $_ := set . "order_product_id" (.order_product_id | int64 | toString) -}}
+        {{- $_ := set . "product_id" (.product_id | int64 | toString) -}}
+        {{end}}
+
     {{- end -}}
     {{- toJson .rawData -}}
 {{- end }}

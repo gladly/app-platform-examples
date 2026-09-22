@@ -1,14 +1,18 @@
-[
-    {
-        "company": "Gladly",
-        "customer_group_id": 1,
-        "date_created": "2024-03-29T18:42:56Z",
-        "date_modified": "2024-04-11T15:24:55Z",
-        "email": "primary@email.com",
-        "first_name": "Bob",
-        "id": 3,
-        "last_name": "Norman",
-        "notes": "",
-        "phone": ""
-    }
-]
+{
+  "accepts_product_review_abandoned_cart_emails": true,
+  "authentication": { "force_password_reset": false },
+  "channel_ids": null,
+  "company": "Gladly",
+  "customer_group_id": "1",
+  "date_created": "2024-03-29T18:42:56Z",
+  "date_modified": "2024-04-11T15:24:55Z",
+  "email": "primary@email.com",
+  "first_name": "Bob",
+  "id": "3",
+  "last_name": "Norman",
+  "notes": "",
+  "origin_channel_id": 1,
+  "phone": "",
+  "registration_ip_address": "172.59.112.32",
+  "tax_exempt_category": ""
+}

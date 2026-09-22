@@ -1,12 +1,27 @@
 [
-    {
-        "amount": 273.9,
-        "currency": "USD",
-        "date_created": "2024-03-29T18:42:57Z",
-        "event": "purchase",
-        "gateway": "custom",
-        "id": 805352674,
-        "order_id": "106",
-        "status": "ok"
-    }
+  {
+    "amount": 47.5,
+    "avs_result": null,
+    "credit_card": null,
+    "currency": "USD",
+    "custom": { "payment_method": "Paid for in cash" },
+    "custom_provider_field_result": null,
+    "cvv_result": null,
+    "date_created": "2024-03-29T18:42:57Z",
+    "event": "purchase",
+    "fraud_review": false,
+    "gateway": "bigpaypay",
+    "gateway_transaction_id": null,
+    "gift_certificate": null,
+    "id": "805352674",
+    "method": "custom",
+    "offline": null,
+    "order_id": "1061066",
+    "payment_instrument_token": null,
+    "payment_method_id": "custom.card",
+    "reference_transaction_id": null,
+    "status": "ok",
+    "store_credit": null,
+    "test": false
+  }
 ]

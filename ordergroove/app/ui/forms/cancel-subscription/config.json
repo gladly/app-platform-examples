@@ -1,0 +1,12 @@
+{
+  "action": {
+    "graphqlField": "cancelSubscription",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "subscriptions",
+      "graphqlSchema": "data"
+    }
+  ]
+}

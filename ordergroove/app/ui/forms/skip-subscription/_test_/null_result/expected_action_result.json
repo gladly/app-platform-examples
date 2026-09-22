@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "orderRef",
+      "detail": "Ordergroove did not skip the order. The reason is shown in the conversation timeline."
+    }
+  ]
+}

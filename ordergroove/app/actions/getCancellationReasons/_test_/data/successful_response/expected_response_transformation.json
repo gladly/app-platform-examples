@@ -1,46 +1,4 @@
 {
-  "standard_cancellation_reasons": [
-    {
-      "code": "1",
-      "description": "Customer Request"
-    },
-    {
-      "code": "2",
-      "description": "Fraud"
-    },
-    {
-      "code": "3",
-      "description": "Payment Issues"
-    },
-    {
-      "code": "4",
-      "description": "Overstocked"
-    },
-    {
-      "code": "5",
-      "description": "Out of Stock"
-    },
-    {
-      "code": "6",
-      "description": "Quality Issues"
-    },
-    {
-      "code": "7",
-      "description": "Shipping Issues"
-    },
-    {
-      "code": "8",
-      "description": "Duplicate Order"
-    },
-    {
-      "code": "9",
-      "description": "Wrong Product"
-    },
-    {
-      "code": "10",
-      "description": "Other"
-    }
-  ],
   "all_cancellation_reasons": [
     {
       "code": "1",
@@ -285,8 +243,52 @@
   ],
   "merchant_cancellation_reasons": [
     {
-      "cancel_reason": 12,
-      "application": "msi"
+      "application": "msi",
+      "cancelReason": "12",
+      "code": 12,
+      "reasonCode": 12
+    }
+  ],
+  "standard_cancellation_reasons": [
+    {
+      "code": "1",
+      "description": "Customer Request"
+    },
+    {
+      "code": "2",
+      "description": "Fraud"
+    },
+    {
+      "code": "3",
+      "description": "Payment Issues"
+    },
+    {
+      "code": "4",
+      "description": "Overstocked"
+    },
+    {
+      "code": "5",
+      "description": "Out of Stock"
+    },
+    {
+      "code": "6",
+      "description": "Quality Issues"
+    },
+    {
+      "code": "7",
+      "description": "Shipping Issues"
+    },
+    {
+      "code": "8",
+      "description": "Duplicate Order"
+    },
+    {
+      "code": "9",
+      "description": "Wrong Product"
+    },
+    {
+      "code": "10",
+      "description": "Other"
     }
   ]
 }

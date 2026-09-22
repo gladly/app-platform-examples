@@ -20,7 +20,7 @@
 {{- $uniqueProductIds := $productIds | uniq -}}
 {{- /* Build URL with product IDs as filter or fetch all if none */ -}}
 {{- if $uniqueProductIds -}}
-https://restapi.ordergroove.com/products/?external_product_ids[]={{- join "&external_product_ids[]=" $uniqueProductIds -}}
+https://restapi.ordergroove.com/products/?external_product_ids[]={{- join "&external_product_ids[]=" $uniqueProductIds -}}&page_size=100
 {{- else -}}
-https://restapi.ordergroove.com/products/
+https://restapi.ordergroove.com/products/?page_size=100
 {{- end -}}

@@ -1,0 +1,20 @@
+{
+  "extra_cost": "",
+  "first_placed": null,
+  "frozen": false,
+  "offer": "offer_def456",
+  "one_time": false,
+  "order": "ord_wave4_test",
+  "order_updated": "2024-06-15T14:22:30Z",
+  "price": "29.99",
+  "product": "prod_abc123",
+  "product_attribute": "",
+  "publicId": "item_wave4_test",
+  "public_id": "item_wave4_test",
+  "quantity": 3,
+  "quantityLabel": "3",
+  "subscription": "sub_wave2_test",
+  "subscription_component": "",
+  "totalPrice": "89.97",
+  "total_price": "89.97"
+}

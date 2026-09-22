@@ -1,0 +1,59 @@
+{
+  "ordergroove_subscription": [
+    {
+      "cancel_reason": null,
+      "cancel_reason_code": null,
+      "cancelled": null,
+      "club": null,
+      "components": null,
+      "created": "2022-10-13T10:27:20Z",
+      "currency_code": "USD",
+      "customer": "6113212727447",
+      "customer_rep": "22723",
+      "every": 4,
+      "every_period": 2,
+      "extra_data": {},
+      "free_trial_subscription_context": null,
+      "frequency_days": 28,
+      "iteration": null,
+      "live": true,
+      "merchant": "bcb18c40b0fd11eca458ea5f9076edce",
+      "merchant_order_id": "716664",
+      "offer": "d0ca6b48b0fd11eca278260385653b3b",
+      "payment": "7cf37eb24b0b11edad760a9e0687e59c",
+      "prepaid_subscription_context": null,
+      "price": null,
+      "product": "41799856619671",
+      "product_attribute": null,
+      "public_id": "874602544b0b11ed9404dad12a24024b",
+      "quantity": 2,
+      "reminder_days": 10,
+      "sequence": null,
+      "session_id": "bcb18c40b0fd11eca458ea5f9076edce.837790.681614",
+      "shipping_address": "7636642c4b0b11ed9edea273eaef99c4",
+      "start_date": "2022-10-13T00:00:00Z",
+      "subscription_type": "replenishment",
+      "updated": "2022-10-13T10:27:20Z"
+    }
+  ],
+  "ordergroove_customer": [
+    {
+      "merchant_user_id": "cust_12345",
+      "customer": "cust_12345",
+      "session_id": null,
+      "user_token_id": null,
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "phone_number": null,
+      "phone_type": null,
+      "live": null,
+      "created": null,
+      "last_updated": "0001-01-01T02:02:04Z",
+      "last_login": null,
+      "extra_data": null,
+      "locale": null,
+      "price_code": null
+    }
+  ]
+}

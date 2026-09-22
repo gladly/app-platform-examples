@@ -1,0 +1,12 @@
+{
+  "action": {
+    "graphqlField": "changePrepaidRenewalBehavior",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "subscriptions",
+      "graphqlSchema": "data"
+    }
+  ]
+}

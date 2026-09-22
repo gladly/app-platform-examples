@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "subscriptionId",
+      "detail": "Ordergroove did not complete the change. The reason is shown in the conversation timeline."
+    }
+  ]
+}

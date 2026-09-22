@@ -1,0 +1,5 @@
+{
+  "description": "Ordergroove subscriptions, orders and line items for the customer, matched on email",
+  "graphqlSchema": "data",
+  "graphqlType": "[Customer]"
+}

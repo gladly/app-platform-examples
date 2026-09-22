@@ -1,1 +1,1 @@
-https://restapi.ordergroove.com/items/?order=order_abc123def456
+https://restapi.ordergroove.com/items/?order=order_abc123def456&page_size=100

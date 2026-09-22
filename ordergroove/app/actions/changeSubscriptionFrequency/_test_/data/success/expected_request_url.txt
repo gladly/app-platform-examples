@@ -1,0 +1,1 @@
+https://restapi.ordergroove.com/subscriptions/sub_wave2_test/change_frequency/

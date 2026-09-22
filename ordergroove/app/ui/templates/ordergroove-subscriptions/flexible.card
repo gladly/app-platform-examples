@@ -1,0 +1,132 @@
+<?Template languageVersion="1.2" ?>
+<!--
+  The `customers` data pull returns a LIST, so this card is list-rooted: graphqlType is
+  "[Customer]" and the root binds __data, not a field name. Binding the field name
+  silently renders an empty card and nothing offline catches it. In practice __data
+  iterates once, because Ordergroove matches one customer per email.
+
+  Every dataSource below is camelCase. The flexible.card XSD forbids underscores in
+  dataSource refs and the platform does NOT camelCase data-type fields at the card
+  layer, so the pull transforms emit an explicit twin for every field rendered here.
+
+  Nothing binds into prepaid_subscription_context or any other nested object: a null
+  nested value blanks the ENTIRE card. The pull flattens what this card needs into
+  isPrepaid / prepaidOrdersRemaining / renewalBehaviorLabel.
+
+  NEVER use `+` on strings here. The card expression language's `+` is NUMERIC, so
+  'Subscription ' + publicId renders NaN - the same defect skio shipped live ("CancelledNaN",
+  2026-09-08). appcfg never renders cards, so a green suite cannot catch it. Compose every
+  finished display string in the pull's response_transformation.gtpl instead and bind it
+  whole: fallbackTitleLabel, prepaidLabel, cadenceLabel, quantityLabel, statusLabel,
+  summaryLabel.
+
+  DENSITY (2.3.5). Agent pane width and height are the scarcest resource on this card -
+  the previous version opened with the first subscription expanded and every order rendered
+  inline at six lines each, so a weekly subscription with a year of history filled the
+  pane and buried the fields an agent actually opens the card for. Three rules now:
+    1. Everything is collapsed at rest. A subscription is ONE summary row until clicked.
+    2. An order is ONE row until clicked - `summaryLabel` (date + status) plus the total.
+    3. Only the newest few orders render; `isRecent` is set in the pull. The full list
+       stays in the payload so actions and order pickers still see everything.
+  Keep new fields inside an <Expandable>. The default view is a scanning surface, not a
+  data dump.
+-->
+<Card title="Ordergroove subscriptions" cardType="expandable">
+
+<Block when="(__data | length) == 0">
+<Text>No Ordergroove record found for this customer.</Text>
+</Block>
+
+<List dataSource="__data">
+
+<Block when="(subscriptions | length) == 0">
+<Text>This customer has no Ordergroove subscriptions.</Text>
+</Block>
+
+<List dataSource="subscriptions" separateItems="true">
+<Drawer initialState="collapsed">
+
+<!-- At rest an agent sees only these three rows per subscription: what it is, whether
+     it is live, and how often it ships. Everything else is one click away. -->
+<Fixed>
+<Text fontWeight="semiBold" maxLines="2">{{ productDetail != null and productDetail.name != null ? productDetail.name : fallbackTitleLabel }}</Text>
+<Formula label="Status" valueAlignment="right" valueFontWeight="semiBold">{{ statusLabel }}</Formula>
+<StringValue when="cadenceLabel is not null" dataSource="cadenceLabel" label="Delivery" valueAlignment="right" />
+</Fixed>
+
+<Expandable>
+
+<StringValue when="quantityLabel is not null" dataSource="quantityLabel" label="Quantity" />
+<Formula when="isPrepaid == true" label="Prepaid">{{ prepaidLabel != null ? prepaidLabel : 'Prepaid' }}</Formula>
+<CurrencyValue when="price is not null" dataSource="price" currencyCodeSource="currencyCode" label="Price" />
+<StringValue when="subscriptionType is not null" dataSource="subscriptionType" label="Type" />
+<DateTimeValue when="startDate is not null" dataSource="startDate" label="Started" format="MM/DD/YYYY" />
+
+<!-- Prepaid detail. Flat scalars only - see the header note. -->
+<Block when="isPrepaid == true">
+<StringValue when="renewalBehaviorLabel is not null" dataSource="renewalBehaviorLabel" label="At end of term" />
+</Block>
+
+<!-- Cancellation context, only once the subscription is actually cancelled. -->
+<Block when="statusLabel == 'Cancelled'">
+<DateTimeValue when="cancelled is not null" dataSource="cancelled" label="Cancelled" format="MM/DD/YYYY" />
+<StringValue when="cancelReason is not null and cancelReason != ''" dataSource="cancelReason" label="Reason" maxLines="2" displayStyle="stacked" />
+</Block>
+
+<Block when="productDetail != null and productDetail.sku is not null">
+<StringValue dataSource="productDetail.sku" label="SKU" />
+<StringValue when="productDetail.discontinued == true" dataSource="productDetail.discontinued" label="Discontinued" />
+</Block>
+
+<!-- Orders. One collapsed row each, newest first, capped to `isRecent` in the pull.
+     The items pull deliberately fetches lines only for actionable orders plus a bounded
+     slice of history, so an order here may legitimately carry no items. -->
+<Block when="(orders | length) > 0">
+<Divider spacing="medium" />
+<Formula label="Orders" valueAlignment="right" valueFontWeight="semiBold">{{ orders | length }}</Formula>
+<List dataSource="orders" separateItems="true">
+<Block when="isRecent == true">
+<Drawer initialState="collapsed">
+
+<Fixed>
+<Text maxLines="1">{{ summaryLabel }}</Text>
+<CurrencyValue when="total is not null" dataSource="total" currencyCodeSource="currencyCode" valueAlignment="right" />
+</Fixed>
+
+<Expandable>
+<CurrencyValue when="subTotal is not null" dataSource="subTotal" currencyCodeSource="currencyCode" label="Subtotal" />
+
+<!-- Failure context. rejectedMessage and triesLabel are why an agent opens this card
+     during a billing-failure contact; before 2.3.5 the status itself rendered blank. -->
+<Block when="rejectedMessage is not null and rejectedMessage != ''">
+<StringValue dataSource="rejectedMessage" label="Problem" maxLines="3" displayStyle="stacked" />
+</Block>
+<StringValue when="triesLabel is not null and triesLabel != '0'" dataSource="triesLabel" label="Attempts" />
+
+<Block when="(items | length) > 0">
+<List dataSource="items">
+<ColumnGroup columnSpacing="large">
+<Column width="stretch">
+<Text maxLines="2">{{ productDetail != null and productDetail.name != null ? productDetail.name : product }}</Text>
+<StringValue when="quantityLabel is not null" dataSource="quantityLabel" label="Qty" />
+<CurrencyValue when="totalPrice is not null" dataSource="totalPrice" label="Line total" />
+</Column>
+</ColumnGroup>
+</List>
+</Block>
+
+<StringValue dataSource="publicId" label="Order ID" />
+</Expandable>
+</Drawer>
+</Block>
+</List>
+</Block>
+
+<Divider spacing="medium" />
+<StringValue dataSource="publicId" label="Subscription ID" />
+
+</Expandable>
+</Drawer>
+</List>
+</List>
+</Card>

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "graphqlField": "cancelOrder",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "orders",
+      "graphqlSchema": "data"
+    }
+  ]
+}

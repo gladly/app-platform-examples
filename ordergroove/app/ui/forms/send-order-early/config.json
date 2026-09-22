@@ -1,0 +1,12 @@
+{
+  "action": {
+    "graphqlField": "sendOrderNow",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "orders",
+      "graphqlSchema": "data"
+    }
+  ]
+}

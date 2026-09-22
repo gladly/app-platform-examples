@@ -1,0 +1,38 @@
+[
+  {
+    "autoshipEnabled": true,
+    "autoship_by_default": null,
+    "autoship_enabled": true,
+    "detailUrl": null,
+    "detail_url": null,
+    "discontinued": null,
+    "externalProductId": "PROD-PRESENT-001",
+    "external_product_id": "PROD-PRESENT-001",
+    "id": "PROD-PRESENT-001",
+    "imageUrl": null,
+    "image_url": null,
+    "incentiveGroup": null,
+    "incentive_group": null,
+    "live": true,
+    "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+    "name": "Present Product",
+    "prepaidEligible": null,
+    "prepaid_eligible": null,
+    "price": "10.00",
+    "productType": null,
+    "product_type": null,
+    "sku": "PRESENT-SKU"
+  },
+  {
+    "discontinued": true,
+    "externalProductId": "PROD-ORPHAN-ITEM-001",
+    "external_product_id": "PROD-ORPHAN-ITEM-001",
+    "id": "PROD-ORPHAN-ITEM-001"
+  },
+  {
+    "discontinued": true,
+    "externalProductId": "PROD-ORPHAN-SUB-001",
+    "external_product_id": "PROD-ORPHAN-SUB-001",
+    "id": "PROD-ORPHAN-SUB-001"
+  }
+]

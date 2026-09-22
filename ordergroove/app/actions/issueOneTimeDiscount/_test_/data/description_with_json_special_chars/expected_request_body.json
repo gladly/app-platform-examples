@@ -1,0 +1,14 @@
+{
+  "merchant": "merch_1",
+  "customer": "cust_12345",
+  "item": "item_wave4_test",
+  "description": "Agent note: customer said \"the box arrived crushed\".\nPath on file share: C:\\claims\\2026\\crushed-box",
+  "incentive": {
+    "name": "Late \"holiday\" delivery",
+    "discount_type": "Discount Amount",
+    "value": "5",
+    "field": "total_price",
+    "type": "Discount",
+    "target": "item"
+  }
+}

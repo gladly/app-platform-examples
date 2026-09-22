@@ -1,0 +1,4 @@
+{
+  "message": "Subscription cancelled",
+  "detail": "Subscription sub_active_1 is cancelled. No further orders will be created."
+}

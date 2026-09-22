@@ -1,0 +1,16 @@
+{
+  "action": {
+    "graphqlField": "deleteOrderItem",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "items",
+      "graphqlSchema": "data"
+    },
+    {
+      "graphqlField": "orders",
+      "graphqlSchema": "data"
+    }
+  ]
+}

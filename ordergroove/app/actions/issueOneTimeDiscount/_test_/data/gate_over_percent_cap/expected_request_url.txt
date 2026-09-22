@@ -1,0 +1,1 @@
+"That discount is 21%, above this store's maximum of 20%. Ask an admin to raise the limit or issue a smaller discount."

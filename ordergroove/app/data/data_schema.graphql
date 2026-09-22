@@ -59,6 +59,16 @@ enum OrderStatus {
   The order failed with a 140 error code and is going through the credit card retry process
   """
   CREDIT_CARD_RETRY
+  """
+  Order is waiting for the merchant to indicate how the failed placement should be retried.
+  Added 2.3.5 - code 19 was previously unmapped and rendered blank on the card.
+  """
+  AWAITING_RETRY_INSTRUCTIONS
+  """
+  Order placement response is waiting to be classified by Ordergroove.
+  Added 2.3.5 - code 20 was previously unmapped and rendered blank on the card.
+  """
+  AWAITING_RESPONSE_CLASSIFICATION
 }
 
 type Product @dataType(name: "ordergroove_product", version: "2.0") {
@@ -138,6 +148,39 @@ type Product @dataType(name: "ordergroove_product", version: "2.0") {
   Incentive group identifier for grouping products with similar offer structures
   """
   incentive_group: String
+  """
+  Card-safe camelCase twin of `external_product_id`.
+  """
+  externalProductId: String
+  """
+  Card-safe camelCase twin of `image_url`.
+  """
+  imageUrl: String
+  """
+  Card-safe camelCase twin of `detail_url`.
+  """
+  detailUrl: String
+  """
+  Card-safe camelCase twin of `product_type`.
+  """
+  productType: String
+  """
+  Card-safe camelCase twin of `prepaid_eligible`.
+  """
+  prepaidEligible: Boolean
+  """
+  Card-safe camelCase twin of `autoship_enabled`.
+  """
+  autoshipEnabled: Boolean
+  """
+  Card-safe camelCase twin of `incentive_group`.
+  """
+  incentiveGroup: String
+  """
+  Card-safe camelCase twin of `last_update`.
+  """
+  lastUpdate: DateTime
+
 }
 
 type SubscriptionComponent {
@@ -220,6 +263,49 @@ type Item @dataType(name: "ordergroove_item", version: "1.0") {
   Detailed product information
   """
   product_detail: Product @childIds(template: "{{.product}}")
+  """
+  Card-safe camelCase twin of `product_detail`. The flexible.card XSD forbids
+  underscores in dataSource refs, so the card binds this one. Same resolver,
+  same data.
+  """
+  productDetail: Product @childIds(template: "{{.product}}")
+  """
+  Card-safe camelCase twin of `public_id`.
+  """
+  publicId: ID
+  """
+  Quantity as a String. A NumericValue binding forces two decimal places.
+  """
+  quantityLabel: String
+  """
+  Card-safe camelCase twin of `total_price`.
+  """
+  totalPrice: String
+  """
+  Card-safe camelCase twin of `extra_cost`.
+  """
+  extraCost: String
+  """
+  Card-safe camelCase twin of `product_attribute`.
+  """
+  productAttribute: String
+  """
+  Card-safe camelCase twin of `one_time`.
+  """
+  oneTime: Boolean
+  """
+  Card-safe camelCase twin of `order_updated`.
+  """
+  orderUpdated: DateTime
+  """
+  Card-safe camelCase twin of `first_placed`.
+  """
+  firstPlaced: DateTime
+  """
+  Card-safe camelCase twin of `subscription_component`.
+  """
+  subscriptionComponent: String
+
 }
 
 type Order @dataType(name: "ordergroove_order", version: "2.0") {
@@ -324,6 +410,88 @@ type Order @dataType(name: "ordergroove_order", version: "2.0") {
   Items included in this order
   """
   items: [Item] @parentId(template: "{{.public_id}}")
+  """
+  Order subtotal before tax, shipping and discounts. Ordergroove returns this on
+  the order object; it was never mapped before 2.3.5, so the card could not show a
+  pre-tax line.
+  """
+  sub_total: Currency
+  """
+  Card-safe camelCase twin of `public_id`. The flexible.card XSD forbids underscores in
+  dataSource refs and the platform does NOT camelCase data-type fields at the card
+  layer, so every field the card renders needs a twin emitted by the pull transform.
+  """
+  publicId: ID
+  """
+  Human-readable form of `status` - "Pending placement" rather than
+  PENDING_PLACEMENT. The card expression language has `title` but no `replace`, so
+  the readable twin is built in the pull.
+  """
+  statusLabel: String
+  """
+  Card-safe camelCase twin of `sub_total`.
+  """
+  subTotal: Currency
+  """
+  Card-safe camelCase twin of `tax_total`.
+  """
+  taxTotal: Currency
+  """
+  Card-safe camelCase twin of `shipping_total`.
+  """
+  shippingTotal: Currency
+  """
+  Card-safe camelCase twin of `discount_total`.
+  """
+  discountTotal: Currency
+  """
+  Card-safe camelCase twin of `currency_code`.
+  """
+  currencyCode: String
+  """
+  Card-safe camelCase twin of `order_merchant_id`.
+  """
+  orderMerchantId: String
+  """
+  Card-safe camelCase twin of `rejected_message`.
+  """
+  rejectedMessage: String
+  """
+  Card-safe camelCase twin of `shipping_address`.
+  """
+  shippingAddress: String
+  """
+  Placement attempt count as a String. A NumericValue binding forces two decimal
+  places, so an Int renders as "2.00" on the card.
+  """
+  triesLabel: String
+  """
+  True when this order can still be acted on - not cancelled, not already placed.
+  Drives which order-level actions the card offers.
+  """
+  isActionable: Boolean
+  """
+  Placement date formatted for display ("Sep 2, 2026"). The card expression language
+  has no date formatting, so the readable form is built in the pull.
+  """
+  placeLabel: String
+  """
+  One-line order summary for the card's collapsed row - "Sep 2, 2026 - Success".
+  Added in 2.3.5 so a year of weekly history reads as one line per order instead of six.
+  """
+  summaryLabel: String
+  """
+  Zero-based position of this order within its subscription, newest first. Ordergroove
+  returns orders newest-first and supports no ordering param (verified live).
+  """
+  displayRank: Int
+  """
+  True for the newest few orders. The card renders only these by default; the rest stay
+  in the payload for actions and order pickers. A DISPLAY cap - unrelated to the items
+  fan-out cap, which bounds requests.
+  """
+  isRecent: Boolean
+
 }
 
 type Subscription @dataType(name: "ordergroove_subscription", version: "1.0") {
@@ -463,6 +631,105 @@ type Subscription @dataType(name: "ordergroove_subscription", version: "1.0") {
   Detailed product information
   """
   product_detail: Product @childIds(template: "{{.product}}")
+  """
+  Card-safe camelCase twin of `product_detail`. The flexible.card XSD forbids
+  underscores in dataSource refs, so the card binds this one. Same resolver,
+  same data.
+  """
+  productDetail: Product @childIds(template: "{{.product}}")
+  """
+  Card-safe camelCase twin of `public_id`. See Order.publicId for why twins exist.
+  """
+  publicId: ID
+  """
+  Finished title fallback - "Subscription <publicId>" - used when the product is missing
+  from the products pull. Built in the pull because the card expression language's `+` is
+  NUMERIC: concatenating there renders NaN. Only the fallback is built here, not the
+  product name: the products pull depends on `ordergroove_subscription`, so it runs after
+  this one and the name is not reachable.
+  """
+  fallbackTitleLabel: String
+  """
+  Human-readable subscription state - "Active" or "Cancelled" - derived from
+  `live` and `cancelled` in the pull.
+  """
+  statusLabel: String
+  """
+  Human-readable cadence, e.g. "Every 2 months", derived from `every` +
+  `every_period` in the pull. every_period mapping: 1=days, 2=weeks, 3=months,
+  4=years.
+  """
+  cadenceLabel: String
+  """
+  Quantity as a String. A NumericValue binding forces two decimal places.
+  """
+  quantityLabel: String
+  """
+  True when this subscription is prepaid. Flattened out of
+  `prepaid_subscription_context` in the pull because that field is declared String
+  on this type and a structured object on the actions type - binding into it risks a
+  null nested value, which blanks the ENTIRE card. Also gates
+  changeSubscriptionQuantity and changeItemQuantity, both of which 400 on a prepaid
+  subscription.
+  """
+  isPrepaid: Boolean
+  """
+  Prepaid shipments still owed, flattened out of `prepaid_subscription_context`.
+  String, not Int, so the card does not render "2.00".
+  """
+  prepaidOrdersRemaining: String
+  """
+  Finished prepaid display string - "4 shipment(s) left". Built in the pull because the
+  card expression language's `+` is NUMERIC: concatenating there renders NaN. Null when
+  the prepaid context carries no remaining count; the card falls back to "Prepaid".
+  """
+  prepaidLabel: String
+  """
+  Human-readable prepaid renewal behaviour, flattened out of
+  `prepaid_subscription_context`.
+  """
+  renewalBehaviorLabel: String
+  """
+  Card-safe camelCase twin of `subscription_type`.
+  """
+  subscriptionType: String
+  """
+  Card-safe camelCase twin of `frequency_days`.
+  """
+  frequencyDays: Int
+  """
+  Card-safe camelCase twin of `every_period`.
+  """
+  everyPeriod: Int
+  """
+  Card-safe camelCase twin of `start_date`.
+  """
+  startDate: DateTime
+  """
+  Card-safe camelCase twin of `cancel_reason`.
+  """
+  cancelReason: String
+  """
+  Card-safe camelCase twin of `cancel_reason_code`.
+  """
+  cancelReasonCode: String
+  """
+  Card-safe camelCase twin of `currency_code`.
+  """
+  currencyCode: String
+  """
+  Card-safe camelCase twin of `merchant_order_id`.
+  """
+  merchantOrderId: String
+  """
+  Card-safe camelCase twin of `shipping_address`.
+  """
+  shippingAddress: String
+  """
+  Card-safe camelCase twin of `product_attribute`.
+  """
+  productAttribute: String
+
 }
 
 type Customer @dataType(name: "ordergroove_customer", version: "1.0") {
@@ -534,6 +801,35 @@ type Customer @dataType(name: "ordergroove_customer", version: "1.0") {
   Customer's subscriptions
   """
   subscriptions: [Subscription] @parentId(template: "{{.id}}")
+  """
+  Card-safe camelCase twin of `first_name`.
+  """
+  firstName: String
+  """
+  Card-safe camelCase twin of `last_name`.
+  """
+  lastName: String
+  """
+  Card-safe camelCase twin of `phone_number`.
+  """
+  phoneNumber: String
+  """
+  Card-safe camelCase twin of `user_token_id`.
+  """
+  userTokenId: String
+  """
+  Card-safe camelCase twin of `price_code`.
+  """
+  priceCode: String
+  """
+  Card-safe camelCase twin of `last_updated`.
+  """
+  lastUpdated: DateTime
+  """
+  Card-safe camelCase twin of `last_login`.
+  """
+  lastLogin: DateTime
+
 }
 
 type Query {
@@ -541,4 +837,12 @@ type Query {
   subscriptions: [Subscription]
   items: [Item]
   products: [Product]
+  """
+  Top-level list of orders backed by the customer-scoped `orders` pull, so agent UI
+  forms can bind formData to it. A form's formData.graphqlField must name a field on
+  `type Query`; without this no form can offer an order picker, and every order-keyed
+  action (cancelOrder, sendOrderNow, and the already-shipped skipSubscription) is
+  reachable only via Team Assist or the API. Added 2.3.5.
+  """
+  orders: [Order]
 }

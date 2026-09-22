@@ -29,6 +29,20 @@
 {{- if eq $item.extra_cost "" -}}
     {{- $_ := set $item "extra_cost" nil -}}
 {{- end -}}
+{{- /* Card-safe camelCase twins. The flexible.card XSD forbids underscores in
+       dataSource refs and the platform does not camelCase these at the card layer. */ -}}
+{{- $_ := set $item "publicId" $item.public_id -}}
+{{- $_ := set $item "totalPrice" $item.total_price -}}
+{{- $_ := set $item "extraCost" $item.extra_cost -}}
+{{- $_ := set $item "productAttribute" $item.product_attribute -}}
+{{- $_ := set $item "oneTime" $item.one_time -}}
+{{- $_ := set $item "orderUpdated" $item.order_updated -}}
+{{- $_ := set $item "firstPlaced" $item.first_placed -}}
+{{- $_ := set $item "subscriptionComponent" $item.subscription_component -}}
+{{- /* Int renders as "2.00" through a NumericValue binding, so give the card a String. */ -}}
+{{- if ne $item.quantity nil -}}
+  {{- $_ := set $item "quantityLabel" (printf "%d" (int $item.quantity)) -}}
+{{- end -}}
 {{toJson $item}}
 {{- end -}}
 ]

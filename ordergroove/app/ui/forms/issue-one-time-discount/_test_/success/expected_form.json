@@ -1,0 +1,84 @@
+{
+  "title": "Issue a one-time discount",
+  "submitButton": "Issue discount",
+  "sections": [
+    {
+      "type": "text",
+      "text": "Discounts apply when the order places. Ordergroove has no idempotency key, so submitting twice issues TWO discounts."
+    },
+    {
+      "type": "input",
+      "label": "Apply to",
+      "attr": "target",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose an item or a whole order",
+        "optional": false,
+        "options": [
+          {
+            "text": "Item: Premium Headphones - 59.98",
+            "value": "item|item_1|cust_12345|merch_1"
+          },
+          {
+            "text": "Item: Cotton T-Shirt - 59.98",
+            "value": "item|item_2|cust_12345|merch_1"
+          },
+          {
+            "text": "Whole order ord_1 - 104.98",
+            "value": "order|ord_1|cust_12345|merch_1"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "Discount type",
+      "attr": "discountType",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a type",
+        "optional": false,
+        "options": [
+          {
+            "text": "Fixed amount off",
+            "value": "amount"
+          },
+          {
+            "text": "Percentage off",
+            "value": "percent"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "Value",
+      "attr": "value",
+      "input": {
+        "type": "text",
+        "placeholder": "e.g. 5"
+      },
+      "hint": "5 with Fixed amount is 5 off. 10 with Percentage is 10% off. Your store's configured maximum still applies."
+    },
+    {
+      "type": "input",
+      "label": "Reason",
+      "attr": "reason",
+      "input": {
+        "type": "text",
+        "placeholder": "e.g. Late delivery goodwill"
+      },
+      "hint": "Recorded on the incentive in Ordergroove for later reporting."
+    },
+    {
+      "type": "input",
+      "label": "Confirmation",
+      "attr": "confirmed",
+      "input": {
+        "type": "checkbox",
+        "text": "I confirm this one-time discount"
+      },
+      "hint": "This issues money against the customer's order. The store's configured maximum still applies."
+    }
+  ]
+}

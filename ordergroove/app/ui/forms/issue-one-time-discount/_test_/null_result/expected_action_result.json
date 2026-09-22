@@ -1,0 +1,8 @@
+{
+  "errors": [
+    {
+      "attr": "confirmed",
+      "detail": "The discount was not issued. The reason is shown in the conversation timeline - most often the store's discount limit, or discounts being turned off for this store."
+    }
+  ]
+}

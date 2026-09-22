@@ -1,0 +1,1 @@
+"A discount applies to either one item or one order, not both. Clear one of them."

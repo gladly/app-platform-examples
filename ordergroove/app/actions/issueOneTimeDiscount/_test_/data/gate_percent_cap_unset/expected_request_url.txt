@@ -1,0 +1,1 @@
+"No maximum discount percentage is configured for this store, so percentage discounts cannot be issued. This is a Gladly setting, not an Ordergroove one: a Gladly admin sets \"Maximum discount percentage\" under Settings, App Platform, Ordergroove."

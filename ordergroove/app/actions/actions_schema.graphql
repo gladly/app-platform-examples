@@ -59,6 +59,14 @@ enum OrderStatus {
   The order failed with a 140 error code and is going through the credit card retry process
   """
   CREDIT_CARD_RETRY
+  """
+  Order is waiting for the merchant to indicate how the failed placement should be retried.
+  """
+  AWAITING_RETRY_INSTRUCTIONS
+  """
+  Order placement response is waiting to be classified by Ordergroove.
+  """
+  AWAITING_RESPONSE_CLASSIFICATION
 }
 
 type SubscriptionComponent {
@@ -105,7 +113,30 @@ type CancellationReason {
 }
 
 type MerchantCancellationReason {
+  """
+  DEPRECATED - select `reasonCode` or `cancelReason` instead.
+
+  This field is non-null but Ordergroove does not guarantee the underlying
+  `cancel_reason` is numeric, so it cannot be populated for every row. It is
+  populated when the vendor value is a plain integer and left unset otherwise;
+  selecting it on a non-numeric row is a hard failure rather than a blank.
+
+  It stays declared as `Int!` only because narrowing a shipped non-null field is a
+  breaking schema change that the platform rejects on upgrade. Remove it in the next
+  major.
+  """
   code: Int!
+  """
+  Numeric cancellation reason code, or null when Ordergroove's value is not a plain
+  integer. This is the nullable replacement for `code` and is safe to select on every
+  row.
+  """
+  reasonCode: Int
+  """
+  The raw `cancel_reason` value exactly as Ordergroove returned it, for the cases where
+  it is not a plain integer.
+  """
+  cancelReason: String
   application: String
 }
 
@@ -191,6 +222,103 @@ type OrderItem {
   Date and time when this item was first placed
   """
   first_placed: DateTime
+  """
+  Card-safe camelCase twin of `public_id`.
+  """
+  publicId: String
+  """
+  Quantity as a String, so a NumericValue binding does not render "2.00".
+  """
+  quantityLabel: String
+  """
+  Card-safe camelCase twin of `total_price`.
+  """
+  totalPrice: String
+
+}
+
+"""
+Result of removing an item from an order. Ordergroove's DELETE endpoint defines no 200
+response body at all, so this object is synthesised from the HTTP status - there is
+nothing in the payload to echo back.
+"""
+type ItemDeletionResult {
+  """
+  True when Ordergroove accepted the deletion.
+  """
+  deleted: Boolean!
+  """
+  The item ID that was removed.
+  """
+  itemId: String!
+  """
+  Agent-facing summary of what happened.
+  """
+  message: String!
+}
+
+"""
+A one-time incentive (discount) created for a single customer against one item or one
+order. Ordergroove returns 201 Created with the incentive nested inside; the nested
+object is flattened onto this type so nothing binds into a nullable nested value.
+"""
+type OneTimeDiscount {
+  """
+  Ordergroove's public ID for the incentive.
+  """
+  public_id: String
+  """
+  Card-safe camelCase twin of `public_id`.
+  """
+  publicId: String
+  """
+  The customer the discount belongs to.
+  """
+  customer: String
+  """
+  The item the discount applies to, if it was item-scoped.
+  """
+  item: String
+  """
+  The order the discount applies to, if it was order-scoped.
+  """
+  order: String
+  """
+  Merchant-supplied external code, if any.
+  """
+  externalCode: String
+  """
+  Free-text description recorded against the incentive.
+  """
+  description: String
+  """
+  Name recorded on the incentive - defaults to a customer-service goodwill label.
+  """
+  incentiveName: String
+  """
+  Either "Discount Percent" or "Discount Amount", as Ordergroove records it.
+  """
+  discountType: String
+  """
+  The discount value as a string, e.g. "5" for $5 off or "10" for 10% off.
+  """
+  discountValue: String
+  """
+  Either "item" or "order".
+  """
+  discountTarget: String
+  """
+  When the incentive was created.
+  """
+  created: DateTime
+  """
+  Card-safe camelCase twin of `last_updated`.
+  """
+  lastUpdated: DateTime
+  """
+  Agent-facing summary of what happened and what to tell the customer.
+  """
+  message: String
 }
 
 type ShippingAddress {
@@ -362,6 +490,27 @@ type Order {
   Indicates if out-of-stock items qualify for free shipping
   """
   oos_free_shipping: Boolean
+  """
+  Human-readable form of `status` - "Pending placement" rather than PENDING_PLACEMENT.
+  """
+  statusLabel: String
+  """
+  Card-safe camelCase twin of `public_id`.
+  """
+  publicId: String
+  """
+  Card-safe camelCase twin of `sub_total`.
+  """
+  subTotal: String
+  """
+  Card-safe camelCase twin of `total`. Present for symmetry with the data type.
+  """
+  currencyCode: String
+  """
+  Placement attempt count as a String, so a NumericValue binding does not render "2.00".
+  """
+  triesLabel: String
+
 }
 
 type Subscription {
@@ -588,4 +737,244 @@ type Mutation {
     """
     subscriptionId: String!
   ): Order @action(name: "skipSubscription")
+  """
+  Changes how often a subscription is delivered. Affects EVERY future order on this
+  subscription, not just the next one. Does not move the next order date - use
+  changeNextOrderDate for that.
+
+  Use cases:
+  - "I'm getting it too often" / "I want it more often"
+  - Customer wants to stretch the cadence instead of cancelling (save lever)
+
+  API Reference: https://developer.ordergroove.com/reference/subscriptions-change-frequency
+  """
+  changeSubscriptionFrequency(
+    """
+    The unique subscription ID (public_id) to change
+    """
+    subscriptionId: String!
+    """
+    Number of periods between orders, e.g. 2 with everyPeriod 3 is "every 2 months"
+    """
+    every: Int!
+    """
+    Frequency period code. Mapping: 1=days, 2=weeks, 3=months, 4=years
+    """
+    everyPeriod: Int!
+  ): Subscription @action(name: "changeSubscriptionFrequency")
+  """
+  Changes how many units ship on a subscription. Affects EVERY future order on this
+  subscription. To change just one upcoming order, use changeItemQuantity instead.
+
+  Returns 400 on a prepaid subscription - check isPrepaid before offering this.
+
+  Use cases:
+  - "Send me two instead of one"
+  - Customer wants to reduce quantity rather than cancel (save lever)
+
+  API Reference: https://developer.ordergroove.com/reference/subscriptions-change-quantity
+  """
+  changeSubscriptionQuantity(
+    """
+    The unique subscription ID (public_id) to change
+    """
+    subscriptionId: String!
+    """
+    New number of units per order. Must be greater than zero.
+    """
+    quantity: Int!
+  ): Subscription @action(name: "changeSubscriptionQuantity")
+  """
+  Moves the date of the next upcoming order on a subscription. Changes WHEN the next
+  order is placed; it does not skip it, cancel it, or change the cadence.
+
+  Note: the Subscription object carries no next-order-date field, so the response
+  cannot echo the new date back. Confirm the requested date to the customer and tell
+  them the card will show it once refreshed.
+
+  Use cases:
+  - "I'm away that week, can you push it back"
+  - "I've run out early, can you bring it forward"
+
+  API Reference: https://developer.ordergroove.com/reference/change-next-order-date
+  """
+  changeNextOrderDate(
+    """
+    The unique subscription ID (public_id) whose next order should move
+    """
+    subscriptionId: String!
+    """
+    New date for the next order, YYYY-MM-DD. Ordergroove expects a future date.
+    """
+    orderDate: String!
+  ): Subscription @action(name: "changeNextOrderDate")
+  """
+  Changes what happens when a PREPAID subscription reaches the end of its prepaid
+  term: autorenew, cancel, or downgrade to a standard subscription. Does not change
+  the current term, refund anything, or affect orders already paid for.
+
+  Returns 400 with "This subscription is not prepaid" on a standard subscription -
+  check isPrepaid before offering this.
+
+  Use cases:
+  - "Don't auto-renew my prepaid plan when it ends"
+  - "Switch me to regular billing after this term"
+
+  API Reference: https://developer.ordergroove.com/reference/change-prepaid-subscription-renewal-behavior
+  """
+  changePrepaidRenewalBehavior(
+    """
+    The unique subscription ID (public_id) of the prepaid subscription
+    """
+    subscriptionId: String!
+    """
+    What to do at the end of the prepaid term. Exactly one of: autorenew, cancel,
+    downgrade (case-sensitive).
+    """
+    renewalBehavior: String!
+  ): Subscription @action(name: "changePrepaidRenewalBehavior")
+  """
+  Cancels ONE upcoming order. Does NOT cancel the subscription and does NOT stop
+  billing - Ordergroove documents that "the subsequent order will be created based on
+  its set frequency", so the next order still arrives on schedule. To stop a
+  subscription entirely, use cancelSubscription. To move one delivery, use
+  changeNextOrderDate; to skip one cycle, use skipSubscription.
+
+  Use cases:
+  - "I don't need this month's delivery" (subscription continues)
+  - Duplicate or erroneous order needs removing
+
+  API Reference: https://developer.ordergroove.com/reference/orders-cancel
+  """
+  cancelOrder(
+    """
+    The unique order ID (public_id) to cancel
+    """
+    orderId: String!
+  ): Order @action(name: "cancelOrder")
+  """
+  Brings an upcoming order forward. This is NOT immediate dispatch: Ordergroove
+  "sends an order to the merchant, setting order placement within a 24-hour window",
+  so tell the customer it will be placed within 24 hours, never that it has shipped.
+  The response confirms the request was accepted, not that the order was placed.
+
+  Use cases:
+  - "I've run out early, can you send the next one now"
+
+  API Reference: https://developer.ordergroove.com/reference/orders-send-now
+  """
+  sendOrderNow(
+    """
+    The unique order ID (public_id) to place early
+    """
+    orderId: String!
+  ): Order @action(name: "sendOrderNow")
+  """
+  Changes the quantity of ONE item on ONE upcoming order. Does NOT change the
+  subscription - every future order keeps its existing quantity. To change the
+  recurring quantity, use changeSubscriptionQuantity instead.
+
+  Returns 400 on an item belonging to a prepaid subscription.
+
+  Use cases:
+  - "Just for this delivery, send me two"
+
+  API Reference: https://developer.ordergroove.com/reference/items-change-quantity
+  """
+  changeItemQuantity(
+    """
+    The unique item ID (public_id) whose quantity should change
+    """
+    itemId: String!
+    """
+    New number of units for this one item. Must be greater than zero - to remove the
+    item entirely use deleteOrderItem.
+    """
+    quantity: Int!
+  ): OrderItem @action(name: "changeItemQuantity")
+  """
+  Removes ONE item from ONE upcoming order. Does NOT cancel the subscription that
+  generated it - the item returns on the next order. This is irreversible for the
+  current order: there is no undo.
+
+  Ordergroove defines no response body for this endpoint, so the result is synthesised
+  from the HTTP status and the card must be refreshed to confirm.
+
+  Returns 400 on an item belonging to a prepaid subscription.
+
+  Use cases:
+  - "Take the conditioner off this order, I still have plenty"
+
+  API Reference: https://developer.ordergroove.com/reference/items-delete
+  """
+  deleteOrderItem(
+    """
+    The unique item ID (public_id) to remove from the order
+    """
+    itemId: String!
+  ): ItemDeletionResult @action(name: "deleteOrderItem")
+  """
+  Issues a one-time goodwill discount against ONE item or ONE order for this customer.
+  This is the one thing in Ordergroove an agent can do that a customer cannot do for
+  themselves, so it is the save lever to offer before cancelling.
+
+  MONEY-MOVING AND GUARDED. All of the following are enforced in the action itself,
+  not in the form, because Team Assist can call this action without rendering a form:
+  - the merchant must have switched on "Enable one-time discounts" (off by default);
+  - a maximum amount and/or percentage must be configured. An unset limit REFUSES that
+    kind of discount - it never means unlimited;
+  - the agent must tick the confirmation checkbox (`confirmed`), which defaults to off.
+
+  Ordergroove provides NO idempotency key, so calling this twice issues two discounts.
+  Confirm before retrying.
+
+  The discount applies when the order places; the response confirms the incentive was
+  created, not the final price the customer pays.
+
+  API Reference: https://developer.ordergroove.com/reference/otd-create
+  """
+  issueOneTimeDiscount(
+    """
+    Ordergroove merchant ID. Read it from the subscription or order the agent is
+    working on (both carry `merchant`).
+    """
+    merchantId: String!
+    """
+    Ordergroove customer ID - the `id` field on the customer record.
+    """
+    customerId: String!
+    """
+    Apply the discount to a single item. Mutually exclusive with orderId; supply
+    exactly one.
+    """
+    itemId: String
+    """
+    Apply the discount to a whole order's subtotal. Mutually exclusive with itemId;
+    supply exactly one.
+    """
+    orderId: String
+    """
+    Either "percent" or "amount".
+    """
+    discountType: String!
+    """
+    The value: 10 with type percent is 10% off; 5 with type amount is 5 off. Must be
+    within the store's configured maximum or the action refuses.
+    """
+    value: String!
+    """
+    Why the discount was issued. Recorded on the incentive for later reporting.
+    """
+    reason: String
+    """
+    Optional longer description recorded against the incentive.
+    """
+    description: String
+    """
+    Must be true to issue the discount. Defaults to off in the form, so an omitted or
+    false value refuses. Matches the confirmation idiom used by other money actions in
+    this repo (see rise `issueStoreCredit`).
+    """
+    confirmed: Boolean
+  ): OneTimeDiscount @action(name: "issueOneTimeDiscount")
 }

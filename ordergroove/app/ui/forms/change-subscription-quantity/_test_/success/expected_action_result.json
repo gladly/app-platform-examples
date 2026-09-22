@@ -1,0 +1,4 @@
+{
+  "message": "Subscription quantity changed",
+  "detail": "Subscription sub_active_1 now ships 4 unit(s) on every future order."
+}

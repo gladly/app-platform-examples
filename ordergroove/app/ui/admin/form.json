@@ -14,6 +14,52 @@
 				"placeholder": "Enter your Ordergroove API key"
 			},
 			"hint": "You can find your API key by going to Developers > API Keys."
+		},
+		{
+			"type": "text",
+			"text": "One-time discounts (optional). Leave disabled unless you want agents to be able to issue goodwill discounts from Gladly. Ordergroove applies no ceiling of its own and provides no idempotency key, so the limits below are the only cap - if a limit is blank, discounts of that kind are refused."
+		},
+		{
+			"type": "input",
+			"label": "Enable one-time discounts",
+			"attr": "configuration.enableIssueDiscount",
+			"defaultValue": "false",
+			"input": {
+				"type": "select",
+				"options": [
+					{
+						"text": "Disabled",
+						"value": "false"
+					},
+					{
+						"text": "Enabled",
+						"value": "true"
+					}
+				]
+			},
+			"hint": "Off by default. When disabled, the Issue one-time discount action refuses before any request is made."
+		},
+		{
+			"type": "input",
+			"label": "Maximum discount amount",
+			"attr": "configuration.maxDiscountAmount",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 25",
+				"optional": true
+			},
+			"hint": "Largest flat amount a single agent-issued discount may be, in the store's currency. Leave blank to refuse all fixed-amount discounts."
+		},
+		{
+			"type": "input",
+			"label": "Maximum discount percentage",
+			"attr": "configuration.maxDiscountPercent",
+			"input": {
+				"type": "text",
+				"placeholder": "e.g. 20",
+				"optional": true
+			},
+			"hint": "Largest percentage a single agent-issued discount may be. Leave blank to refuse all percentage discounts."
 		}
 	]
 }

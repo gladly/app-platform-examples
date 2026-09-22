@@ -1,0 +1,1 @@
+"To issue a discount you must tick the confirmation checkbox."

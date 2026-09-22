@@ -1,0 +1,36 @@
+{
+  "title": "Change quantity of one item",
+  "submitButton": "Change item quantity",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Item",
+      "attr": "itemId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose the item",
+        "optional": false,
+        "options": [
+          {
+            "text": "Premium Headphones - qty 2 - 59.98 [order ord_1]",
+            "value": "item_1"
+          },
+          {
+            "text": "Cotton T-Shirt - qty 2 - 59.98 [order ord_1]",
+            "value": "item_2"
+          }
+        ]
+      }
+    },
+    {
+      "type": "input",
+      "label": "New quantity",
+      "attr": "quantity",
+      "input": {
+        "type": "text",
+        "placeholder": "e.g. 2"
+      },
+      "hint": "Applies to this one order only. To change every future order, use Change subscription quantity."
+    }
+  ]
+}

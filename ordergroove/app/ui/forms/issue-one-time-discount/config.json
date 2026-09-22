@@ -1,0 +1,11 @@
+{
+  "action": {
+    "graphqlField": "issueOneTimeDiscount",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    { "graphqlField": "customers", "graphqlSchema": "data" },
+    { "graphqlField": "items", "graphqlSchema": "data" },
+    { "graphqlField": "orders", "graphqlSchema": "data" }
+  ]
+}

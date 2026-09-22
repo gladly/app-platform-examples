@@ -29,6 +29,14 @@
 {{- if eq $customer.user_token_id "" -}}
     {{- $_ := set $customer "user_token_id" nil -}}
 {{- end -}}
+{{- /* Card-safe camelCase twins. See Order.publicId in data_schema.graphql. */ -}}
+{{- $_ := set $customer "firstName" $customer.first_name -}}
+{{- $_ := set $customer "lastName" $customer.last_name -}}
+{{- $_ := set $customer "phoneNumber" $customer.phone_number -}}
+{{- $_ := set $customer "userTokenId" $customer.user_token_id -}}
+{{- $_ := set $customer "priceCode" $customer.price_code -}}
+{{- $_ := set $customer "lastUpdated" $customer.last_updated -}}
+{{- $_ := set $customer "lastLogin" $customer.last_login -}}
 {{toJson $customer}}
 {{- end }}
 ]

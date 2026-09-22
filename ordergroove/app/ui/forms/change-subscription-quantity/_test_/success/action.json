@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "subscriptionId": "sub_active_1",
+    "quantity": "4"
+  },
+  "result": {
+    "publicId": "sub_active_1",
+    "quantityLabel": "4"
+  }
+}

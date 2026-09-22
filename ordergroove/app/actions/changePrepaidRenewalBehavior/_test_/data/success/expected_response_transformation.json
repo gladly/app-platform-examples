@@ -1,0 +1,42 @@
+{
+  "cancel_reason": null,
+  "cancel_reason_code": null,
+  "cancelled": null,
+  "club": null,
+  "components": null,
+  "created": "2024-01-15T10:30:00Z",
+  "currency_code": "USD",
+  "customer": "cust_12345",
+  "customer_rep": null,
+  "every": 2,
+  "every_period": 3,
+  "extra_data": {
+    "custom_field": "custom_value"
+  },
+  "frequency_days": 60,
+  "iteration": null,
+  "live": true,
+  "merchant": "ac4f7938383a11e89ecbbc764e1107f2",
+  "merchant_order_id": "ORD-2024-001",
+  "offer": "offer_def456",
+  "payment": "pay_123456",
+  "prepaid_subscription_context": {
+    "last_renewal_revenue": 179.94,
+    "prepaid_orders_per_billing": 6,
+    "prepaid_orders_remaining": 3,
+    "prepaid_origin_merchant_order_id": "ORD-PP-1",
+    "renewal_behavior": "autorenew"
+  },
+  "price": "29.99",
+  "product": "prod_abc123",
+  "product_attribute": null,
+  "public_id": "sub_wave2_prepaid",
+  "quantity": 2,
+  "reminder_days": 5,
+  "sequence": null,
+  "session_id": "session_abc123",
+  "shipping_address": "addr_789123",
+  "start_date": "2024-01-15T00:00:00Z",
+  "subscription_type": "Replenish",
+  "updated": "2024-06-15T14:22:30Z"
+}

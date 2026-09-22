@@ -1,0 +1,7 @@
+{
+  "inputs": {
+    "subscriptionId": "sub_prepaid_1",
+    "renewalBehavior": "cancel"
+  },
+  "result": null
+}

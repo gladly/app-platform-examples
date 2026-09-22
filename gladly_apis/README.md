@@ -1,12 +1,12 @@
 # Gladly APIs for App Platform
 
-The Gladly APIs App for App Platform app provides access to a variety of actions in Gladly via its REST API. This app allows you to automate and manage customer Conversations, Conversation Items, Tasks, SMS, and more, directly from Gladly Sidekick.
+The Gladly APIs App for App Platform app provides access to a variety of actions in Gladly via its REST API. This app allows you to automate and manage customer Conversations, Conversation Items, Tasks, SMS, and more, directly from Gladly AI.
 
 Gladly's API documentation: [https://developer.gladly.com/rest/](https://developer.gladly.com/rest/)
 
 ## Benefits
 
-- Automate customer support workflows with Gladly Sidekick
+- Automate customer support workflows with Gladly AI
 - Create Conversation Items (customer activity) for Customers
 - Manage Tasks and Assignees for Conversations
 - Send SMS messages to customers

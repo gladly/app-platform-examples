@@ -1,107 +1,88 @@
-# Recurly App for Gladly Sidekick
+# Recurly App Overview
+The platform for managing subscriptions, automating billing, and optimizing recurring revenue.
+[Recurly V3 API (v2021-02-25)](https://recurly.com/developers/api/v2021-02-25/)
 
-The Recurly app for Gladly Sidekick empowers your team and your customers with seamless subscription management—right inside Gladly. With Recurly, agents can quickly look up customer accounts and subscriptions, while customers can self-serve common requests (e.g. pause a subscription), reducing agent workload and improving satisfaction.
 
 ## Benefits
 
-**Streamlined Subscription Management**  
-Enable agents to view customer subscriptions, billing details, and account information directly from Gladly.
+Used with Gladly Sidekick, the Recurly app enables your customers to manage their subscription-related queries, such as viewing their latest billing details, checking payment status, updating account information, or managing their subscription plans and renewals.
 
-**Faster Issue Resolution**  
-Give your agents a real-time, single view of each customer's subscription journey, so they can answer questions, resolve issues, and spot upsell opportunities quickly.
+## Features
 
-**Reduce Agent Workload**  
-Let customers self-serve common subscription management tasks, reducing repetitive inquiries and freeing up agent time for more complex needs.
+- View a customer's Recurly subscriptions directly in Sidekick — plan, status, renewal and lifecycle dates, and a charge breakdown (add-ons, discounts, pending changes).
+- Manage subscriptions from Sidekick: cancel, pause, resume, reactivate, and terminate.
+- Look up a subscription's details by ID.
 
-**Drive Retention and Revenue**  
-Empower your agents to proactively engage subscribers with personalized offers and timely interventions, reducing churn and increasing customer lifetime value.
+# Recurly App Toolkit
 
-## Example Use Cases
+## Who maintains the integration
 
-- A customer wants to pause their subscription for a period. Sidekick processes the pause and confirms the new status.
-- A customer requests to cancel their subscription. Sidekick processes the cancellation and provides confirmation.
-- An agent needs to quickly look up a customer's subscription status and billing history to resolve a payment question.
-- A customer wishes to reactivate a previously cancelled subscription. Sidekick guides them through the process and confirms the reactivation.
+The Recurly integration is built and maintained by Gladly.
 
-## Available Actions
+## Basic scope
 
-The Recurly app supports the following subscription management actions:
+This app provides methods of reading Account and Subscription data from Recurly, actions to manage a customer's subscriptions, and an agent-facing card that displays a customer's subscriptions in Sidekick. These can be used in Sidekick to directly answer and act on customer questions.
 
-- **Lookup Subscription by ID**  
-  Retrieve detailed information about a specific subscription, including status, plan, billing, and key dates.
 
-- **Cancel Subscription**  
-  Cancel a customer's subscription. The subscription will continue through its current billing cycle and then expire.
+## Configuration
 
-- **Pause Subscription**  
-  Temporarily pause a customer's subscription for a specified number of billing cycles.
+no specific configuration yet
 
-- **Resume Subscription**  
-  Resume a paused subscription, moving it back to the active state.
+# Implementation Details
 
-- **Reactivate Subscription**  
-  Bring a cancelled subscription back to an active, renewing state (if still eligible).
+## Data pull: Account and Subscriptions retrieval
 
-## Data Pulls
+**Data**
 
-### What Data Is Available?
+Customer matching:
+Search for customers matching any of Gladly's customer's emails, for the email we are using exact match
 
-With Recurly, you get a complete picture of each customer, including:
+Recurly `Account` (Customer) documentation and all available fields (of which some will not be available in Gladly by default), can be found [here](https://recurly.com/developers/api/v2021-02-25/#tag/account). Ensure you are viewing the documentation for correct API version.
 
-- Customer account details (name, email, company, address)
-- All active and past subscriptions
-- Subscription status (active, paused, cancelled, expired, etc.)
-- Plan details for each subscription
-- Billing and shipping information
-- Add-ons, coupons, and discounts applied
-- Key dates (start, end, trial, pause, renewal, etc.)
-- Payment and invoice status
+Subscription mapping:
+Account subscriptions are sorted by the most recently updated. Only subscriptions belonging to a customer matched in account data pull are currently retrieved, i.e.
 
-This gives your agents a real-time, single view of every customer's subscription journey—so you can answer questions, resolve issues, and spot upsell opportunities quickly.
+Recurly `Subscription` documentation and all available fields (of which some will not be available in Gladly by default), can be found [here](https://recurly.com/developers/api/v2021-02-25/#tag/subscription)
 
-Note: Only subscriptions belonging to a customer matched by email are retrieved. Data is sorted by the most recently updated subscriptions.
+**Data available by default in Gladly**
 
-### How Does Customer Matching Work?
+https://github.com/sagansystems/ps-app-platform/blob/68ab6ef3a528cd41a276e2ae9736d427c94a7be6/recurly/data/data_schema.graphql#L1-L365
 
-Recurly finds the right customer by matching data from their customer profile:
 
-- Primary email address (exact match)
-- If no primary email, the first email in the list of email addresses
 
-If exactly one match is found, you'll see their account and subscriptions. If no match or more than one match is found, no customer's data will be returned by Data Pull.
+**Errors**
 
-## Recurly App Toolkit
+Since this is Data Pull it's assumed there is no error client and if any Recurly errors are encountered they will not be returned to the client. Hence all errors should be ignored.
 
-### Who maintains the integration
 
-This version of Recurly integration is available to all Gladly customers and is maintained by Gladly. However, if you choose to install this app from source code you take responsibility for its maintenance.
+## Actions
 
-### How the integration works
+All actions operate on a subscription and return the updated `Subscription` (or a structured error).
 
-The Recurly App integrates with the Recurly platform via its [REST API (v2021-02-25)](https://recurly.com/developers/api/v2021-02-25/). This allows Gladly to perform queries (like retrieving account and subscription details) and mutations (like pausing or cancelling a subscription). You can find out more about Recurly's APIs at [Recurly API documentation](https://recurly.com/developers/api/v2021-02-25/).
+- **`lookup_subscription_by_id`** — Retrieve a subscription by its ID.
+- **`cancel_subscription`** — Cancel a subscription. It continues through the current billing cycle and then expires; it can be reactivated until the cycle ends.
+- **`reactivate_subscription`** — Reactivate a canceled subscription, returning it to an active, renewing state. Expired or failed subscriptions cannot be reactivated.
+- **`pause_subscription`** — Pause a subscription for a given number of billing cycles. Set the cycle count to `0` to cancel a pending pause.
+- **`resume_subscription`** — Immediately resume a paused subscription.
+- **`terminate_subscription`** — Immediately expire a subscription, with an optional refund of `full` (default), `partial`, or `none`. Unlike cancellation, a terminated subscription cannot be reactivated.
 
-Authentication is handled via private API keys included in the request headers.
+## Agent UI
 
-## Setup & Installation
+**Display card**
 
-### Before You Start
+- **`recurly-subscriptions`** — A card shown in Sidekick that lists a customer's subscriptions, each with plan, status, renewal/lifecycle dates, and a charge breakdown (add-ons, discounts, pending changes).
 
-- A Recurly account with a Role that includes the Integration permission (typically Admin)
-- A private API key from your Recurly account
+**Forms** (available to agents via the Sidekick "+" menu)
 
-### Installation
+Each form presents a dropdown filtered to only the subscriptions eligible for that operation, so an agent can't apply an action to an ineligible subscription.
 
-To obtain your Recurly API key:
+- **`cancel-subscription`** — Cancel an active or paused subscription (`cancelSubscription`).
+- **`resume-subscription`** — Resume a paused subscription (`resumeSubscription`).
+- **`reactivate-subscription`** — Reactivate a canceled subscription (`reactivateSubscription`).
 
-1. Log in to your Recurly account as a user with the Integration permission.
-2. Navigate to **Integrations > API Credentials**.
-3. Click **Add Private API Key**.
-4. Assign a name and purpose for the key, and specify the third-party application (Gladly).
-5. Click **Save Changes** and copy the API key.  
-   _Note: API keys grant full access to your Recurly account. Store them securely and never expose them publicly._
 
-For more details, see the [official Recurly API key documentation](https://docs.recurly.com/docs/api-keys).
+## Authentication
 
-## Recurly Custom App
+[Recurly doc](https://recurly.com/developers/api/v2021-02-25/#section/Authentication)
 
-If you want to dive deeper into the technical details of the app you can find it in our [app-platform-examples repo](https://github.com/gladly/app-platform-examples). You can always clone it and adapt it to your needs.
+- get or create private token -> https://gladly.recurly.com/integrations/api_keys

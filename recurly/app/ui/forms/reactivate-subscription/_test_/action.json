@@ -1,0 +1,4 @@
+{
+  "inputs": { "subscriptionId": "sub_canceled_002" },
+  "result": { "error": null, "subscription": { "id": "sub_canceled_002", "state": "active" } }
+}

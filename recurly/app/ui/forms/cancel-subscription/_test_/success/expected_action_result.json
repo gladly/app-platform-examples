@@ -1,0 +1,4 @@
+{
+  "message": "Subscription canceled",
+  "detail": "Subscription sub_active_001 was canceled and will expire at the end of the current billing cycle. It can be reactivated until then."
+}

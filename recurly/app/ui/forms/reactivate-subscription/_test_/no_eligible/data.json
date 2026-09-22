@@ -1,0 +1,8 @@
+{
+  "account": {
+    "id": "acct_1",
+    "subscriptions": [
+      { "id": "sub_expired_009", "state": "expired", "plan": { "name": "Old Plan" } }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Reactivate Subscription",
+  "submitButton": "Reactivate Subscription",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a subscription to reactivate",
+        "optional": false,
+        "options": [
+          { "text": "Basic (Annual) — sub_canceled_002", "value": "sub_canceled_002" }
+        ]
+      },
+      "hint": "Reactivation returns the subscription to an active, renewing state on its original billing cycle."
+    }
+  ]
+}

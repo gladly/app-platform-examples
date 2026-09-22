@@ -1,6 +1,6 @@
 # Ordergroove App Overview
 
-Used with Gladly Sidekick, the Ordergroove app empowers customers to manage subscriptions and related data. It allows customers to perform actions like retrieving subscription details, cancelling subscriptions, reactivating subscriptions, and skipping orders, reducing resolution time for subscription-related inquiries.
+Used with Gladly AI, the Ordergroove app empowers customers to manage subscriptions and related data. It allows customers to perform actions like retrieving subscription details, cancelling subscriptions, reactivating subscriptions, and skipping orders, reducing resolution time for subscription-related inquiries.
 
 As of 2.3.5 the app also serves the **agent**. The goal is narrow and worth stating plainly: an agent handling a subscription contact should not have to open the Ordergroove portal in a second tab. That is the test every addition in this release was scoped against - not feature parity with Ordergroove's own tooling. The app now renders a customer profile card and exposes the subscription and order mutations an agent actually needs mid-conversation.
 
@@ -52,7 +52,7 @@ The Ordergroove integration is built and maintained by Gladly.
 ## How the integration works
 
 The Ordergroove App integrates with the Ordergroove platform via its REST API ([Ordergroove API Documentation](https://developer.ordergroove.com/)). This allows Gladly to:
-- Sync customer, subscription, order, and product data when customers interact with Sidekick
+- Sync customer, subscription, order, and product data when customers interact with Gladly AI
 - Execute GET requests to retrieve subscription, address, and order item data
 - Execute POST/PATCH requests to manage subscriptions (cancel, reactivate, skip)
 

@@ -1,0 +1,12 @@
+{
+  "action": {
+    "graphqlField": "reactivateSubscription",
+    "graphqlOperation": "mutation"
+  },
+  "formData": [
+    {
+      "graphqlField": "account",
+      "graphqlSchema": "data"
+    }
+  ]
+}

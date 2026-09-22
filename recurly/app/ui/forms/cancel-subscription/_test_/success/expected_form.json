@@ -1,0 +1,21 @@
+{
+  "title": "Cancel Subscription",
+  "submitButton": "Cancel Subscription",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a subscription to cancel",
+        "optional": false,
+        "options": [
+          { "text": "Pro (Monthly) (Active) — sub_active_001", "value": "sub_active_001" },
+          { "text": "Subscription Box (Monthly) (Paused) — sub_paused_003", "value": "sub_paused_003" }
+        ]
+      },
+      "hint": "The subscription stays active until the end of the current billing cycle, then expires. It can be reactivated until then."
+    }
+  ]
+}

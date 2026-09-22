@@ -1,0 +1,10 @@
+{
+  "account": {
+    "id": "acct_1",
+    "subscriptions": [
+      { "id": "sub_active_001", "state": "active", "plan": { "name": "Pro (Monthly)" } },
+      { "id": "sub_paused_003", "state": "paused", "plan": { "name": "Subscription Box (Monthly)" } },
+      { "id": "sub_canceled_002", "state": "canceled", "plan": { "name": "Basic (Annual)" } }
+    ]
+  }
+}

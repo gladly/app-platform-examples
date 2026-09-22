@@ -1,0 +1,20 @@
+{
+  "title": "Resume Subscription",
+  "submitButton": "Resume Subscription",
+  "sections": [
+    {
+      "type": "input",
+      "label": "Subscription",
+      "attr": "subscriptionId",
+      "input": {
+        "type": "select",
+        "placeholder": "Choose a subscription to resume",
+        "optional": false,
+        "options": [
+          { "text": "Subscription Box (Monthly) — sub_paused_003", "value": "sub_paused_003" }
+        ]
+      },
+      "hint": "Resuming immediately returns the subscription to an active, renewing state."
+    }
+  ]
+}

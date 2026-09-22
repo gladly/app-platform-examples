@@ -1,0 +1,5 @@
+{
+  "description": "Displays a customer's Recurly subscriptions",
+  "graphqlSchema": "data",
+  "graphqlType": "Account"
+}

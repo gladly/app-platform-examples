@@ -1,0 +1,8 @@
+{
+  "title": "Reactivate Subscription",
+  "closeButton": "Close",
+  "submitButton": "Unavailable",
+  "sections": [
+    { "type": "text", "text": "This customer has no canceled subscriptions to reactivate. Expired or failed subscriptions cannot be reactivated." }
+  ]
+}

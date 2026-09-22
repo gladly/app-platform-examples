@@ -274,10 +274,22 @@ type Subscription {
     canceled_at: DateTime
     """ The date and time when the subscription expires. """
     expires_at: DateTime
+    """ The reason the subscription expired, e.g. "terminated". """
+    expiration_reason: String
     """ The total amount for the subscription. """
     total: Currency
     """ The date and time when the subscription was reactivated. """
     activated_at: DateTime
+}
+
+""" Enum representing how to handle refunds when terminating a subscription. """
+enum RefundType {
+    """ No refund is issued. """
+    none
+    """ A prorated amount is refunded based on the unused portion of the term. """
+    partial
+    """ The full amount of the last invoice is refunded. """
+    full
 }
 
 """ Error type for Recurly actions. """
@@ -333,5 +345,16 @@ type Mutation {
     resumeSubscription(
          "Subscription ID"
         subscriptionId: ID!
-    ): OperationResult @action(name: "resume_subscription")  
+    ): OperationResult @action(name: "resume_subscription")
+
+    """ Terminating a subscription will immediately expire it and move it into the expired state.
+    Optionally issue a refund for the last invoice: full (default), partial, or none.
+    Unlike cancellation, a terminated subscription does not continue through its billing cycle and cannot be reactivated.
+    [Terminate Subscription](https://recurly.com/developers/api/v2021-02-25/#operation/terminate_subscription) """
+    terminateSubscription(
+        "Subscription ID"
+        subscriptionId: ID!,
+        "How to handle the refund on termination. Defaults to full if omitted."
+        refund: RefundType
+    ): OperationResult @action(name: "terminate_subscription")
 }

@@ -1,0 +1,67 @@
+<?Template languageVersion="1.2" ?>
+<Card title="{{ subscriptions | length }} Recurly Subscriptions">
+  <Block when="(subscriptions | length) == 0">
+    <Text>No subscriptions found.</Text>
+  </Block>
+  <List dataSource="subscriptions" separateItems="true">
+    <Drawer initialState="collapsed">
+      <Fixed>
+        <StringValue dataSource="plan.name" label="Plan" valueFontWeight="semiBold" />
+        <Formula label="Status" valueFontWeight="medium">{{ state | title }}</Formula>
+      </Fixed>
+      <Expandable>
+        <!-- Renewal & lifecycle: the "when will I be charged / what's happening to this sub" questions -->
+        <Formula label="Auto-renew" valueAlignment="right" valueFontWeight="medium">{{ auto_renew ? 'Yes' : 'No' }}</Formula>
+        <DateTimeValue when="state == 'active' and current_period_ends_at is not null" dataSource="current_period_ends_at" label="Next bill" format="MM/DD/YYYY" valueAlignment="right" />
+        <DateTimeValue when="(state == 'active' or state == 'future') and trial_ends_at is not null" dataSource="trial_ends_at" label="Trial ends" format="MM/DD/YYYY" valueAlignment="right" />
+        <DateTimeValue when="state == 'paused' and paused_at is not null" dataSource="paused_at" label="Paused on" format="MM/DD/YYYY" valueAlignment="right" />
+        <NumericValue when="state == 'paused' and remaining_pause_cycles is not null" dataSource="remaining_pause_cycles" label="Pause cycles remaining" decimalPlaces="0" valueAlignment="right" />
+        <DateTimeValue when="canceled_at is not null" dataSource="canceled_at" label="Cancelled" format="MM/DD/YYYY" valueAlignment="right" />
+        <DateTimeValue when="state == 'canceled' and expires_at is not null" dataSource="expires_at" label="Access until" format="MM/DD/YYYY" valueAlignment="right" />
+        <StringValue dataSource="id" label="Subscription ID" valueAlignment="right" />
+        <DateTimeValue dataSource="created_at" label="Created" format="MM/DD/YYYY" valueAlignment="right" />
+        <DateTimeValue dataSource="updated_at" label="Last updated" format="MM/DD/YYYY" valueAlignment="right" />
+        
+        <Divider spacing="medium" />
+
+        <!-- Charges breakdown: reconciles to Total so the agent can explain the bill -->
+        <Section title="Charges" padding="none" titleFontSize="medium">
+          <CurrencyValue dataSource="unit_amount" currencyCodeSource="currency" label="Unit price" valueAlignment="right" />
+          <NumericValue dataSource="quantity" label="Quantity" decimalPlaces="0" valueAlignment="right" />
+          <CurrencyValue when="add_ons_total is not null and add_ons_total > 0" dataSource="add_ons_total" currencyCodeSource="currency" label="Add-ons" valueAlignment="right" />
+          <CurrencyValue when="shipping is not null and shipping.amount is not null and shipping.amount > 0" dataSource="shipping.amount" currencyCodeSource="currency" label="Shipping" valueAlignment="right" />
+          <CurrencyValue dataSource="total" currencyCodeSource="currency" label="Total" valueAlignment="right" valueFontWeight="semiBold" />
+        </Section>
+
+        <!-- Add-ons detail: explains what the add-on charge is for -->
+        <Section when="(add_ons | length) > 0" title="Add-ons" padding="none" titleFontSize="medium">
+          <List dataSource="add_ons">
+            <ColumnGroup columnSpacing="large">
+              <Column width="stretch">
+                <Text fontWeight="medium" maxLines="2">{{ add_on.name }}</Text>
+              </Column>
+              <Column width="25%" verticalAlignment="center">
+                <NumericValue dataSource="quantity" label="Qty" decimalPlaces="0" valueAlignment="right" />
+              </Column>
+            </ColumnGroup>
+          </List>
+        </Section>
+
+        <!-- Discounts: the other reason a total can look "wrong" to a customer -->
+        <Section when="(coupon_redemptions | length) > 0" title="Discounts" padding="none" titleFontSize="medium">
+          <List dataSource="coupon_redemptions">
+            <StringValue dataSource="coupon.name" label="Coupon" valueAlignment="right" />
+            <StringValue when="coupon.code is not null and coupon.code != ''" dataSource="coupon.code" label="Code" valueAlignment="right" />
+          </List>
+        </Section>
+
+        <!-- Pending change: an upcoming plan/price change the agent should see coming -->
+        <Section when="pending_change is not null" title="Pending change" padding="none" titleFontSize="medium">
+          <StringValue when="pending_change.plan is not null" dataSource="pending_change.plan.name" label="New plan" valueAlignment="right" />
+          <CurrencyValue when="pending_change.unit_amount is not null" dataSource="pending_change.unit_amount" currencyCodeSource="currency" label="New unit price" valueAlignment="right" />
+          <NumericValue when="pending_change.quantity is not null" dataSource="pending_change.quantity" label="New quantity" decimalPlaces="0" valueAlignment="right" />
+        </Section>
+      </Expandable>
+    </Drawer>
+  </List>
+</Card>

@@ -1,0 +1,8 @@
+{
+  "title": "Cancel Subscription",
+  "closeButton": "Close",
+  "submitButton": "Unavailable",
+  "sections": [
+    { "type": "text", "text": "This customer has no active or paused subscriptions to cancel." }
+  ]
+}

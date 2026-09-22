@@ -1,6 +1,6 @@
-# Recharge App for Gladly Sidekick
+# Recharge App for Gladly AI
 
-The Recharge app for Gladly Sidekick surfaces each customer's Recharge
+The Recharge app for Gladly AI surfaces each customer's Recharge
 subscriptions and payment status on the Gladly customer profile, and lets agents
 manage those subscriptions — reschedule the next charge, change billing
 frequency, update the shipping address, add a free gift, apply a discount, swap
